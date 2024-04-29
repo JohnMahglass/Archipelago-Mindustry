@@ -5,19 +5,15 @@ from enum import Enum
 from worlds.mindustry.Shared import mindustry_base_id
 
 
+"""This class (ItemType) might need to be renamed and have its content changed for something more useful?"""
 class ItemType(Enum):
     """
     Indicate to the multi-world the item usefulness
     """
     TRAP = 0
     USEFUL = 1
-    """
-    The 'Progression' type are temporary until better type names are found
-    """
-    EARLYPROGRESSION = 2
-    MIDPROGRESSION = 3
-    ENDPROGRESSION = 4
-    NECESSARY = 5
+    NECESSARY = 2
+
 
 class ItemGroup(Enum):
     """
@@ -29,6 +25,16 @@ class ItemGroup(Enum):
     POWER = 3
     MILITARY = 4
     UNIT = 5
+    WALL = 6
+
+
+class ItemPlanet(Enum):
+    """
+    Used to group items by planet
+    """
+    EREKIR = 0
+    SERPULO = 1
+
 
 class MindustryItem(Item):
     """
@@ -48,8 +54,25 @@ class MindustryItem(Item):
         """
         super().__init__(name, classification, code, player)
 
-    item_table = {
-        "Exemple Core Item", mindustry_base_id + 0, ItemType.USEFUL, ItemGroup.CORE
-    }
+
+class ItemData:
+    """
+    Data of an item
+    """
+    id: int
+    type: ItemType
+    group: ItemGroup
+
+    def __init__(self, id: int, planet: ItemPlanet, type: ItemType, group: ItemGroup):
+        """
+        Initialisation of the item data
+        @param id: The ID of the item
+        @param planet: The planet of the item
+        @param type: The type of item
+        @param group: The type of item
+        """
 
 
+item_table = {
+    "Exemple Core Item": ItemData(mindustry_base_id + 0, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.CORE)
+}
