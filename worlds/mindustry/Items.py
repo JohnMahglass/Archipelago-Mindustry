@@ -13,7 +13,7 @@ class ItemType(Enum):
     TRAP = 0
     USEFUL = 1
     NECESSARY = 2
-
+    TUTORIAL = 3
 
 class ItemGroup(Enum):
     """
