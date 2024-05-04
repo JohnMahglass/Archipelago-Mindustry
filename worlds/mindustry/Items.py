@@ -14,19 +14,23 @@ class ItemType(Enum):
     USEFUL = 1
     NECESSARY = 2
     TUTORIAL = 3
+    DEFAULT = 4
 
 class ItemGroup(Enum):
     """
     Used to group items
     """
-    CORE = 0
+    TURRET = 0
     EXTRACTION = 1
-    PRODUCTION = 2
-    POWER = 3
-    MILITARY = 4
-    UNIT = 5
-    WALL = 6
-
+    BELT = 2
+    CONDUIT = 3
+    ENERGY = 4
+    WALL = 5
+    INDUSTRY = 6
+    FACTORY = 7
+    LOGIC = 8
+    MISC = 9
+    UNIT = 10
 
 class ItemPlanet(Enum):
     """
@@ -34,6 +38,7 @@ class ItemPlanet(Enum):
     """
     EREKIR = 0
     SERPULO = 1
+    ALL = 2
 
 
 class MindustryItem(Item):
@@ -60,6 +65,7 @@ class ItemData:
     Data of an item
     """
     id: int
+    item_planet: ItemPlanet
     type: ItemType
     group: ItemGroup
 
@@ -72,7 +78,7 @@ class ItemData:
         @param group: The type of item
         """
 
-
+"""Information table for every item that is not an event."""
 item_table = {
-    "Exemple Core Item": ItemData(mindustry_base_id + 0, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.CORE)
+    "Core: Shard": ItemData(mindustry_base_id + 0, ItemPlanet.SERPULO, ItemType.DEFAULT, ItemGroup.MISC),
 }

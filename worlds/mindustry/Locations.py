@@ -18,15 +18,11 @@ class MindustryLocation(Location):
         super(MindustryLocation, self).__init__(player, name, code, parent)
         self.event = code is None
 
-
-"""It might be a good idea to inc the ID at each assignment on initialisation so that adding more locations is easy"""
-
-
 class MindustryLocation:
     exemple_location = {
         "research_name", mindustry_base_id + 1
     }
-    """Not sure about this one below"""
-    location_table = {
-        exemple_location,
-    }
+
+location_table = {
+    **MindustryLocation.exemple_location,
+}

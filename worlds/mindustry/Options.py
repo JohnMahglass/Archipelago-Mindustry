@@ -1,4 +1,5 @@
-from Options import DefaultOnToggle, Choice, Toggle
+from dataclasses import dataclass
+from Options import DefaultOnToggle, Choice, Toggle, PerGameCommonOptions
 
 
 class TutorialSkip(DefaultOnToggle):
@@ -15,3 +16,12 @@ class CampaignChoice(Choice):
 class NumberedSectorAreLocation(Toggle):
     """Add numbered sector to Mindustry locations"""
     display_name = "Numbered sector location"
+
+@dataclass
+class MindustryOptions(PerGameCommonOptions):
+    """
+    Options for Mindustry randomizer.
+    """
+    tutorial_skip: TutorialSkip
+    campaign_choice: CampaignChoice
+    numbered_sector: NumberedSectorAreLocation

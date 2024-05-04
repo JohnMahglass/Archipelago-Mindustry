@@ -4,12 +4,13 @@ from worlds.AutoWorld import World, WebWorld
 
 class MindustryWeb(WebWorld):
     """Mindustry web page for Archipelago"""
+    theme = "stone"
 
     def __init__(self):
         """Initialise the Mindustry web page"""
 
 
-class Mindustry(World):
+class MindustryWorld(World):
     """
     In Mindustry, you control a small ship that defends a structure called the Core,
     your job is to build production lines and defenses to survive, maintain and conquer.
@@ -29,4 +30,4 @@ class Mindustry(World):
 
     def __init__(self, multiworld: MultiWorld, player: int):
         """Initialise the Mindustry World"""
-        super(Mindustry, self).__init__(multiworld, player)
+        super(MindustryWorld, self).__init__(multiworld, player)
