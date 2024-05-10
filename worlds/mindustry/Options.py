@@ -7,7 +7,7 @@ class TutorialSkip(DefaultOnToggle):
     display_name = "Tutorial Skip"
 
 class CampaignChoice(Choice):
-    """Select Serpulo, Erekir or both for the Randomized campaign."""
+    """Select Serpulo, Erekir or both for the randomized campaign."""
     display_name = "Campaign choice"
     serpulo_only = 0
     erekir_only = 1

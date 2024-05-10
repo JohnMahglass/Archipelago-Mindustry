@@ -11,14 +11,21 @@ class ItemType(Enum):
     Indicate to the multi-world the item usefulness
     """
     TRAP = 0
-    USEFUL = 1
-    NECESSARY = 2
-    TUTORIAL = 3
-    DEFAULT = 4
+    """Non-item event with negative effect"""
+    EVENT = 1
+    """Non-item event"""
+    USEFUL = 2
+    """Item that are useful for progression"""
+    NECESSARY = 3
+    """Item that are necessary for progression"""
+    TUTORIAL = 4
+    """Item that are acquired in the tutorial"""
+    EXTRA = 5
+    """Item that are extra and not necessary to complete the game"""
 
 class ItemGroup(Enum):
     """
-    Used to group items
+    Used to group items, Item are grouped by their location in the building UI
     """
     TURRET = 0
     EXTRACTION = 1
@@ -80,5 +87,44 @@ class ItemData:
 
 """Information table for every item that is not an event."""
 item_table = {
-    "Core: Shard": ItemData(mindustry_base_id + 0, ItemPlanet.SERPULO, ItemType.DEFAULT, ItemGroup.MISC),
+    "Core: Shard": ItemData(mindustry_base_id + 0, ItemPlanet.SERPULO, ItemType.TUTORIAL, ItemGroup.MISC),
+    "Core: Foundation": ItemData(mindustry_base_id + 1, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.MISC),
+    "Core: Nucleus": ItemData(mindustry_base_id + 2, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.MISC),
+    "Conveyor": ItemData(mindustry_base_id + 3, ItemPlanet.SERPULO, ItemType.TUTORIAL, ItemGroup.BELT),
+    "Junction": ItemData(mindustry_base_id + 4, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Router": ItemData(mindustry_base_id + 5, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Launch Pad": ItemData(mindustry_base_id + 6, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.MISC),
+    "Distributor": ItemData(mindustry_base_id + 7, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Sorter": ItemData(mindustry_base_id + 8, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Inverted Sorter": ItemData(mindustry_base_id + 9, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Overflow Gate": ItemData(mindustry_base_id + 10, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Underflow Gate": ItemData(mindustry_base_id + 11, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Container": ItemData(mindustry_base_id + 12, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.MISC),
+    "Unloader": ItemData(mindustry_base_id + 13, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.MISC),
+    "Vault": ItemData(mindustry_base_id + 14, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.MISC),
+    "Bridge Conveyor": ItemData(mindustry_base_id + 15, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Titanium Conveyor": ItemData(mindustry_base_id + 16, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.BELT),
+    "Phase Conveyor": ItemData(mindustry_base_id + 17, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.BELT),
+    "Mass Driver": ItemData(mindustry_base_id + 18, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.BELT),
+    "Payload Conveyor": ItemData(mindustry_base_id + 19, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Payload Router": ItemData(mindustry_base_id + 20, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT),
+    "Armored Conveyor": ItemData(mindustry_base_id + 21, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.BELT),
+    "Plastanium Conveyor": ItemData(mindustry_base_id + 22, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.BELT),
+    "Mechanical Drill": ItemData(mindustry_base_id + 23, ItemPlanet.SERPULO, ItemType.TUTORIAL, ItemGroup.EXTRACTION),
+    "Mechanical Pump": ItemData(mindustry_base_id + 24, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.CONDUIT),
+    "Conduit": ItemData(mindustry_base_id + 25, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.CONDUIT),
+    "Liquid Junction": ItemData(mindustry_base_id + 26, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.CONDUIT),
+    "Liquid Router": ItemData(mindustry_base_id + 27, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.CONDUIT),
+    "Liquid Container": ItemData(mindustry_base_id + 28, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.CONDUIT),
+    "Liquid Tank": ItemData(mindustry_base_id + 29, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.CONDUIT),
+    "Bridge Conduit": ItemData(mindustry_base_id + 30, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.CONDUIT),
+    "Pulse Conduit": ItemData(mindustry_base_id + 31, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.CONDUIT),
+    "Phase Conduit": ItemData(mindustry_base_id + 32, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.CONDUIT),
+    "Plated Conduit": ItemData(mindustry_base_id + 33, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.CONDUIT),
+    "Rotary Pump": ItemData(mindustry_base_id + 34, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.CONDUIT),
+    "Impulse Pump": ItemData(mindustry_base_id + 35, ItemPlanet.SERPULO, ItemType.EXTRA, ItemGroup.CONDUIT),
+    "Graphite Press": ItemData(mindustry_base_id + 36, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.FACTORY),
+    "Pneumatic Drill": ItemData(mindustry_base_id + 37, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.EXTRACTION),
+    "Cultivator": ItemData(mindustry_base_id + 38, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.EXTRACTION),
+
 }
