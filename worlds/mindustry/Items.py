@@ -258,6 +258,7 @@ item_table = {
 }
 """
 Notes:
+- "Filler items" should be created to balance the number of item/location when submiting them to the generation process.
 - Spore press might be NECESSARY
 - Coal Centrifuge might be NECESSARY
 - Air Factory might be NECESSARY
