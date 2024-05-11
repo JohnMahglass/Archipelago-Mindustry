@@ -17,6 +17,10 @@ class NumberedSectorAreLocation(Toggle):
     """Add numbered sector to Mindustry locations"""
     display_name = "Numbered sector location"
 
+class AllowPause(DefaultOnToggle):
+    """Allow pause (space bar not ESC pause)."""
+    display_name = "Allow Pause"
+
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
     """
