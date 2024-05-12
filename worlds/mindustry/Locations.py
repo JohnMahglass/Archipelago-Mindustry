@@ -218,25 +218,6 @@ class MindustryLocation:
         "AP-31-2": mindustry_base_id + 161,
         "AP-31-3": mindustry_base_id + 162,
         "AP-31-4": mindustry_base_id + 163,
-
-        "AP-32-1":mindustry_base_id + 164,
-        "AP-32-2": mindustry_base_id + 165,
-        "AP-32-3": mindustry_base_id + 166,
-        "AP-32-4": mindustry_base_id + 167,
-        "AP-32-5": mindustry_base_id + 168,
-        "AP-32-6": mindustry_base_id + 169,
-        "AP-32-7": mindustry_base_id + 170,
-        "AP-32-8": mindustry_base_id + 171,
-        "AP-32-9": mindustry_base_id + 172,
-        "AP-32-10": mindustry_base_id + 173,
-        "AP-32-11": mindustry_base_id + 174,
-        "AP-32-12": mindustry_base_id + 175,
-        "AP-32-13": mindustry_base_id + 176,
-        "AP-32-14": mindustry_base_id + 177,
-        "AP-32-15": mindustry_base_id + 178,
-        "AP-32-16": mindustry_base_id + 179,
-        "AP-32-17": mindustry_base_id + 180,
-        "AP-32-18": mindustry_base_id + 181,
     }
 
 location_table = {
