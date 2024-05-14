@@ -1,5 +1,10 @@
 from BaseClasses import MultiWorld
 from worlds.AutoWorld import World, WebWorld
+from worlds.mindustry.Shared import MINDUSTRY_BASE_ID
+from worlds.mindustry.Items import item_table
+from worlds.mindustry.Locations import location_table
+from worlds.mindustry.Options import MindustryOptions
+from worlds.mindustry.Regions import MindustryRegions
 
 
 class MindustryWeb(WebWorld):
@@ -25,9 +30,31 @@ class MindustryWorld(World):
     game: str = "Mindustry"
     """Name of the game"""
 
+    options_dataclass = MindustryOptions
+
+    options: MindustryOptions
+
+    topology_present = True
+
+    base_id: int = MINDUSTRY_BASE_ID
+
     web = MindustryWeb()
     """Web world instance"""
+
+    item_name_to_id = {name: id for
+                       id, name in enumerate(item_table, base_id)}
+
+    location_name_to_id = {name: id for
+                           id, name in enumerate(location_table, base_id)}
+
+    regions: MindustryRegions
+    """Used to manage regions"""
+
+    item_name_groups = {
+        """NOT IMPLEMENTED"""
+    }
 
     def __init__(self, multiworld: MultiWorld, player: int):
         """Initialise the Mindustry World"""
         super(MindustryWorld, self).__init__(multiworld, player)
+        self.regions = MindustryRegions(multiworld, player)

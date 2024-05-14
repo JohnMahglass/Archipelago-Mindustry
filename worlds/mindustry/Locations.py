@@ -20,6 +20,16 @@ class MindustryLocation(Location):
 
 class MindustryLocation:
 
+    locations_copper = {
+
+    }
+
+    locations_ground_zero = {
+
+    }
+
+
+
     tech_tree_serpulo = {
         "AP-S-0-1": mindustry_base_id + 0,
 
