@@ -146,6 +146,10 @@ class MindustryRegions:
         Method not implemented
         """
 
+    def __connect_erekir_campaign(self):
+        """
+        Connect region related to Erekir's campaign
+        """
 
     def __create_all_campaign(self):
         """
@@ -153,7 +157,10 @@ class MindustryRegions:
         Method not implemented
         """
 
-
+    def __connect_all_campaign(self):
+        """
+        Connect region related to all campaigns
+        """
 
     def __create_campaign(self, campaign: int):
         """
