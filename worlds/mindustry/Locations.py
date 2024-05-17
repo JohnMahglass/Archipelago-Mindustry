@@ -77,7 +77,7 @@ class MindustryLocation:
         "Node Pneumatic Drill": MINDUSTRY_BASE_ID + 37,
         "Node Cultivator": MINDUSTRY_BASE_ID + 38,
         "Node Laser Drill": MINDUSTRY_BASE_ID + 39,
-        "Node Airblast": MINDUSTRY_BASE_ID + 40,
+        "Node Airblast Drill": MINDUSTRY_BASE_ID + 40,
         "Node Water Extractor": MINDUSTRY_BASE_ID + 41,
         "Node Oil Extractor": MINDUSTRY_BASE_ID + 42,
 
