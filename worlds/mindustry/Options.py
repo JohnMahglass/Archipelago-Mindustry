@@ -32,16 +32,3 @@ class MindustryOptions(PerGameCommonOptions):
     campaign_choice: CampaignChoice
     numbered_sector: NumberedSectorAreLocation
     allow_pause: AllowPause
-
-    def __load_options_JSON(self):
-        file = open("DefaultSettings.json", "r")
-        data = json.load(file)
-        self.tutorial_skip: bool = data["tutorialSkip"]
-        self.campaign_choice: int = data["campainChoice"]
-        self.numbered_sector: bool = data["numberedSectorAreLocation"]
-        self.allow_pause: bool = data["allowPause"]
-        file.close()
-
-    def __init__(self):
-        self.__load_options_JSON()
-

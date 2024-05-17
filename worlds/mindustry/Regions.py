@@ -1,22 +1,154 @@
 import json
 
-from BaseClasses import Region, MultiWorld, Entrance
+from BaseClasses import Region, MultiWorld, Entrance, CollectionState, ItemClassification
+from .Items import MindustryItem
 from .Options import MindustryOptions
 from .Locations import MindustryLocation
 from typing import Optional
+from worlds.generic.Rules import set_rule
 
+def _has_frozen_forest(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Frozen Forest", player)
 
-class RegionData:
-    """
-    Data of a region
-    """
-    hint: str
+def _has_the_craters(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("The Craters", player)
+
+def _has_ruinous_shores(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Ruinous Shores", player)
+
+def _has_windswept_islands(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Windswept Islands", player)
+
+def _has_tar_field(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Tar Field", player)
+
+def _has_impact_0078(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Impact 0078", player)
+
+def _has_desolate_rift(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Desolate Rift", player)
+
+def _has_planetary_launch_terminal(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Planetary Launch Terminal", player)
+
+def _has_extraction_outpost(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Extraction Outpost", player)
+
+def _has_salt_flats(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Salt Flats", player)
+
+def _has_coastline(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Coastline", player)
+
+def _has_naval_fortress(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Naval Fortress", player)
+
+def _has_overgrowth(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Overgrowth", player)
+
+def _has_biomass_synthesis_facility(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Biomass Synthesis Facility", player)
+
+def _has_stained_mountains(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Stained Mountains", player)
+
+def _has_fungal_pass(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Fungal Pass", player)
+
+def _has_nuclear_production_complex(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Nuclear Production Complex", player)
+
+def _has_lead(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Lead", player)
+
+def _has_titanium(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Titanium", player)
+
+def _has_cryofluid(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Cryofluid", player)
+
+def _has_thorium(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Thorium", player)
+
+def _has_surge_alloy(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Surge Alloy", player)
+
+def _has_phase_fabric(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Phase Fabric", player)
+
+def _has_metaglass(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Metaglass", player)
+
+def _has_scrap(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Scrap", player)
+
+def _has_slag(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Slag", player)
+
+def _has_coal(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Coal", player)
+
+def _has_graphite(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Graphite", player)
+
+def _has_silicon(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Silicon", player)
+
+def _has_pyratite(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Pyratite", player)
+
+def _has_blast_compound(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Blast Compound", player)
+
+def _has_spore_pod(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Spore Pod", player)
+
+def _has_oil(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Oil", player)
+
+def _has_plastanium(state:CollectionState, player: int) -> bool:
+    """If the player has target in state"""
+    return state.has("Plastanium", player)
 
 class MindustryRegions:
     """
     Class used to create region for Mindustry
     """
     menu: Region
+    victory: Region
     serpulo: Region
     erekir: Region
     node_core_shard: Region
@@ -186,8 +318,40 @@ class MindustryRegions:
     node_multiplicative_reconstructor: Region
     node_exponential_reconstructor: Region
     node_tetrative_reconstructor: Region
-
-
+    node_frozen_forest: Region
+    node_the_craters: Region
+    node_ruinous_shores: Region
+    node_windswept_islands: Region
+    node_tar_fields: Region
+    node_impact_0078: Region
+    node_desolate_rift: Region
+    node_planetary_launch_terminal: Region
+    node_extraction_outpost: Region
+    node_salt_flats: Region
+    node_coastline: Region
+    node_naval_fortress: Region
+    node_overgrowth: Region
+    node_biomass_synthesis_facility: Region
+    node_stained_mountains: Region
+    node_fungal_pass: Region
+    node_nuclear_production_complex: Region
+    node_lead: Region
+    node_titanium: Region
+    node_cryofluid: Region
+    node_thorium: Region
+    node_surge_alloy: Region
+    node_phase_fabric: Region
+    node_metaglass: Region
+    node_scrap: Region
+    node_slag: Region
+    node_coal: Region
+    node_graphite: Region
+    node_silicon: Region
+    node_pyratite: Region
+    node_blast_compound: Region
+    node_spore_pod: Region
+    node_oil: Region
+    node_plastanium: Region
 
 
     multiworld: MultiWorld
@@ -200,30 +364,299 @@ class MindustryRegions:
     Player Id
     """
 
-    options: MindustryOptions
-    """
-    Options for the Mindustry World
-    """
 
     def connect_regions(self) -> None:
-        if self.options.campaign_choice == 0:
-            self.__connect_serpulo_campaign()
-        elif self.options.campaign_choice == 1:
-            self.__connect_erekir_campaign()
-        elif self.options.campaign_choice == 2:
-            self.__connect_all_campaign()
-        else:
-            raise ValueError("Invalid campaign choice")
+        #if self.options.campaign_choice == 0:
+            #self.__connect_serpulo_campaign()
+        #elif self.options.campaign_choice == 1:
+            #self.__connect_erekir_campaign()
+        #elif self.options.campaign_choice == 2:
+            #self.__connect_all_campaign()
+        #else:
+            #raise ValueError("Invalid campaign choice")
+        self.__connect_serpulo_campaign()
 
+    def add_regions_to_world(self) -> None:
+        """
+        Add every region to the `world`
+        """
+        self.__add_serpulo_regions_to_world()
+
+    def add_event_locations(self) -> None:
+        """
+        Add every event (locations and items) to the `world`
+        """
+        self.__add_event_location(self.final_room_end, "Objective complete",
+                                  "Victory")
+
+
+    def initialise_rules(self, options: MindustryOptions) -> None:
+        """Initialise rules"""
+        pass
+
+
+    def __init__(self, multiworld: MultiWorld, player: int):
+        """
+        Initialisation of the regions
+        """
+        self.multiworld = multiworld
+        self.player = player
+        self.__create_campaign(0)
+
+
+    def __add_event_location(self, region: Region, name: str, event_name: str) -> None:
+        """
+        Add an event to the `region` with the name `name` and the item
+        `event_name`
+        """
+        location: MindustryLocation = MindustryLocation(
+            self.player, name, None, region
+        )
+        region.locations.append(location)
+        location.place_locked_item(MindustryItem(event_name,
+                                               ItemClassification.progression,
+                                               None,
+                                               self.player))
+
+
+    def __add_serpulo_regions_to_world(self):
+        pass
+
+
+    def __create_campaign(self, campaign: int):
+        """
+        Create region for selected campaign
+        NOTE: campaign set as int is temporary
+        """
+        self.menu = self.__add_region("Menu", None)
+        self.victory = self.__add_region("Victory", None)
+        match campaign:
+            case 0:
+                self.__create_serpulo_campaign()
+                self.__connect_serpulo_campaign()
+            case 1:
+                self.__create_erekir_campaign()
+            case 2:
+                self.__create_all_campaign()
+            case _:
+                raise ValueError("Invalid campaign choice")
+
+
+    def __connect_serpulo_campaign(self):
+        """
+        Connect region related to Serpulo's campaign
+        """
+        self.__connect_regions(self.menu, self.serpulo)
+        self.__connect_regions(self.serpulo, self.node_core_shard)
+
+        self.__connect_region(self.node_core_shard, self.node_conveyor)
+        self.__connect_regions(self.node_conveyor, self.node_junction)
+        self.__connect_regions(self.node_junction, self.node_router)
+        self.__connect_regions(self.node_router, self.node_launch_pad)
+        self.__connect_regions(self.node_router, self.node_distributor, lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_router, self.node_sorter)
+        self.__connect_regions(self.node_sorter, self.node_inverted_sorter)
+        self.__connect_regions(self.node_sorter, self.node_overflow_gate)
+        self.__connect_regions(self.node_overflow_gate, self.node_underflow_gate)
+        self.__connect_regions(self.node_router, self.node_container)
+        self.__connect_regions(self.node_container, self.node_unloader)
+        self.__connect_regions(self.node_container, self.node_vault)
+        self.__connect_regions(self.node_router, self.node_bridge_conveyor)
+        self.__connect_regions(self.node_bridge_conveyor, self.node_titanium_conveyor)
+        self.__connect_regions(self.node_titanium_conveyor, self.node_phase_conveyor)
+        self.__connect_regions(self.node_phase_conveyor, self.node_mass_driver)
+        self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor)
+        self.__connect_regions(self.node_payload_conveyor, self.node_payload_router)
+        self.__connect_regions(self.node_titanium_conveyor, self.node_armored_conveyor)
+        self.__connect_regions(self.node_armored_conveyor, self.node_plastanium_conveyor)
+
+        self.__connect_regions(self.node_core_shard, self.node_core_foundation)
+        self.__connect_regions(self.node_core_foundation, self.node_core_nucleus)
+
+        self.__connect_regions(self.node_core_shard, self.node_mechanical_drill)
+        self.__connect_regions(self.node_mechanical_drill, self.node_mechanical_pump)
+
+        self.__connect_regions(self.node_mechanical_pump, self.node_conduit)
+        self.__connect_regions(self.node_conduit, self.node_liquid_junction)
+        self.__connect_regions(self.node_liquid_junction, self.node_liquid_router)
+        self.__connect_regions(self.node_liquid_router, self.node_liquid_container)
+        self.__connect_regions(self.node_liquid_container, self.node_liquid_tank)
+        self.__connect_regions(self.node_liquid_router, self.node_bridge_conduit)
+        self.__connect_regions(self.node_liquid_router, self.node_pulse_conduit)
+        self.__connect_regions(self.node_pulse_conduit, self.node_phase_conduit)
+        self.__connect_regions(self.node_pulse_conduit, self.node_plated_conduit)
+        self.__connect_regions(self.node_pulse_conduit, self.node_rotary_pump)
+        self.__connect_regions(self.node_rotary_pump, self.node_impulse_pump)
+
+        self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press)
+        self.__connect_regions(self.node_graphite_press, self.node_pneumatic_drill)
+        self.__connect_regions(self.node_pneumatic_drill, self.node_cultivator)
+        self.__connect_regions(self.node_pneumatic_drill, self.node_laser_drill)
+        self.__connect_regions(self.node_laser_drill, self.node_airblast_drill)
+        self.__connect_regions(self.node_laser_drill, self.node_water_extractor)
+        self.__connect_regions(self.node_water_extractor, self.node_oil_extractor)
+        self.__connect_regions(self.node_graphite_press, self.node_pyratite_mixer)
+        self.__connect_regions(self.node_pyratite_mixer, self.node_blast_mixer)
+        self.__connect_regions(self.node_graphite_press, self.node_silicon_smelter)
+        self.__connect_regions(self.node_silicon_smelter, self.node_spore_press)
+        self.__connect_regions(self.node_spore_press, self.node_coal_centrifuge)
+        self.__connect_regions(self.node_coal_centrifuge, self.node_multi_press)
+        self.__connect_regions(self.node_multi_press, self.node_silicon_crucible)
+        self.__connect_regions(self.node_silicon_smelter, self.node_kiln)
+        self.__connect_regions(self.node_kiln, self.node_pulveriser)
+        self.__connect_regions(self.node_pulveriser, self.node_incinerator)
+        self.__connect_regions(self.node_incinerator, self.node_melter)
+        self.__connect_regions(self.node_melter, self.node_surge_smelter)
+        self.__connect_regions(self.node_melter, self.node_separator)
+        self.__connect_regions(self.node_separator, self.node_disassembler)
+        self.__connect_regions(self.node_melter, self.node_cryofluid_mixer)
+        self.__connect_regions(self.node_silicon_smelter, self.node_micro_processor)
+        self.__connect_regions(self.node_micro_processor, self.node_switch)
+        self.__connect_regions(self.node_switch, self.node_message)
+        self.__connect_regions(self.node_message, self.node_logic_display)
+        self.__connect_regions(self.node_logic_display, self.node_large_logic_display)
+        self.__connect_regions(self.node_message, self.node_memory_cell)
+        self.__connect_regions(self.node_memory_cell, self.node_memory_bank)
+        self.__connect_regions(self.node_switch, self.node_logic_processor)
+        self.__connect_regions(self.node_logic_processor, self.node_hyper_processor)
+        self.__connect_regions(self.node_silicon_smelter, self.node_illuminator)
+
+        self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator)
+        self.__connect_regions(self.node_combustion_generator, self.node_power_node)
+        self.__connect_regions(self.node_power_node, self.node_large_power_node)
+        self.__connect_regions(self.node_large_power_node, self.node_battery_diode)
+        self.__connect_regions(self.node_battery_diode, self.node_surge_tower)
+        self.__connect_regions(self.node_power_node, self.node_battery)
+        self.__connect_regions(self.node_battery, self.node_large_battery)
+        self.__connect_regions(self.node_power_node, self.node_mender)
+        self.__connect_regions(self.node_mender, self.node_mend_projector)
+        self.__connect_regions(self.node_mend_projector, self.node_force_projector)
+        self.__connect_regions(self.node_force_projector, self.node_overdrive_projector)
+        self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome)
+        self.__connect_regions(self.node_mend_projector, self.node_repair_point)
+        self.__connect_regions(self.node_repair_point, self.node_repair_turret)
+        self.__connect_regions(self.node_power_node, self.node_steam_generator)
+        self.__connect_regions(self.node_steam_generator, self.node_thermal_generator)
+        self.__connect_regions(self.node_thermal_generator, self.node_differential_generator)
+        self.__connect_regions(self.node_differential_generator, self.node_thorium_reactor)
+        self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor)
+        self.__connect_regions(self.node_differential_generator, self.node_rtg_generator)
+        self.__connect_regions(self.node_power_node, self.node_solar_panel)
+        self.__connect_regions(self.node_solar_panel, self.node_large_solar_panel)
+
+        self.__connect_regions(self.node_core_shard, self.node_duo)
+        self.__connect_regions(self.node_duo, self.node_copper_wall)
+        self.__connect_regions(self.node_copper_wall, self.node_large_copper_wall)
+        self.__connect_regions(self.node_large_copper_wall, self.node_titanium_wall)
+        self.__connect_regions(self.node_titanium_wall, self.node_large_titanium_wall)
+        self.__connect_regions(self.node_titanium_wall, self.node_door)
+        self.__connect_regions(self.node_door, self.node_large_door)
+        self.__connect_regions(self.node_titanium_wall, self.node_plastanium_wall)
+        self.__connect_regions(self.node_plastanium_wall, self.node_large_plastanium_wall)
+        self.__connect_regions(self.node_titanium_wall, self.node_thorium_wall)
+        self.__connect_regions(self.node_thorium_wall, self.node_large_thorium_wall)
+        self.__connect_regions(self.node_titanium_wall, self.node_surge_wall)
+        self.__connect_regions(self.node_surge_wall, self.node_large_surge_wall)
+        self.__connect_regions(self.node_surge_wall, self.node_phase_wall)
+        self.__connect_regions(self.node_phase_wall, self.node_large_phase_wall)
+        self.__connect_regions(self.node_duo, self.node_scatter)
+        self.__connect_regions(self.node_scatter, self.node_hail)
+        self.__connect_regions(self.node_hail, self.node_salvo)
+        self.__connect_regions(self.node_salvo, self.node_swarmer)
+        self.__connect_regions(self.node_swarmer, self.node_cyclone)
+        self.__connect_regions(self.node_cyclone, self.node_spectre)
+        self.__connect_regions(self.node_salvo, self.node_ripple)
+        self.__connect_regions(self.node_ripple, self.node_fuse)
+        self.__connect_regions(self.node_duo, self.node_scorch)
+        self.__connect_regions(self.node_scorch, self.node_arc)
+        self.__connect_regions(self.node_arc, self.node_wave)
+        self.__connect_regions(self.node_wave, self.node_parallax)
+        self.__connect_regions(self.node_parallax, self.node_segment)
+        self.__connect_regions(self.node_wave, self.node_tsunami)
+        self.__connect_regions(self.node_arc, self.node_lancer)
+        self.__connect_regions(self.node_lancer, self.node_meltdown)
+        self.__connect_regions(self.node_meltdown, self.node_foreshadow)
+        self.__connect_regions(self.node_lancer, self.node_shock_mine)
+
+        self.__connect_regions(self.node_core_shard, self.node_ground_factory)
+        self.__connect_regions(self.node_ground_factory, self.node_dagger)
+        self.__connect_regions(self.node_dagger, self.node_mace)
+        self.__connect_regions(self.node_mace, self.node_fortress)
+        self.__connect_regions(self.node_fortress, self.node_scepter)
+        self.__connect_regions(self.node_scepter, self.node_reign)
+        self.__connect_regions(self.node_dagger, self.node_nova)
+        self.__connect_regions(self.node_nova, self.node_pulsar)
+        self.__connect_regions(self.node_pulsar, self.node_quasar)
+        self.__connect_regions(self.node_quasar, self.node_vela)
+        self.__connect_regions(self.node_vela, self.node_corvus)
+        self.__connect_regions(self.node_dagger, self.node_crawler)
+        self.__connect_regions(self.node_crawler, self.node_atrax)
+        self.__connect_regions(self.node_atrax, self.node_spiroct)
+        self.__connect_regions(self.node_spiroct, self.node_arkyid)
+        self.__connect_regions(self.node_arkyid, self.node_toxopid)
+        self.__connect_regions(self.node_ground_factory, self.node_air_factory)
+        self.__connect_regions(self.node_air_factory, self.node_flare)
+        self.__connect_regions(self.node_flare, self.node_horizon)
+        self.__connect_regions(self.node_horizon, self.node_zenith)
+        self.__connect_regions(self.node_zenith, self.node_antumbra)
+        self.__connect_regions(self.node_antumbra, self.node_eclipse)
+        self.__connect_regions(self.node_flare, self.node_mono)
+        self.__connect_regions(self.node_mono, self.node_poly)
+        self.__connect_regions(self.node_poly, self.node_mega)
+        self.__connect_regions(self.node_mega, self.node_quad)
+        self.__connect_regions(self.node_quad, self.node_oct)
+        self.__connect_regions(self.node_air_factory, self.node_naval_factory)
+        self.__connect_regions(self.node_naval_factory, self.node_risso)
+        self.__connect_regions(self.node_risso, self.node_minke)
+        self.__connect_regions(self.node_minke, self.node_bryde)
+        self.__connect_regions(self.node_bryde, self.node_sei)
+        self.__connect_regions(self.node_sei, self.node_omura)
+        self.__connect_regions(self.node_risso, self.node_retusa)
+        self.__connect_regions(self.node_retusa, self.node_oxynoe)
+        self.__connect_regions(self.node_oxynoe, self.node_cyerce)
+        self.__connect_regions(self.node_cyerce, self.node_aegires)
+        self.__connect_regions(self.node_aegires, self.node_narvanax)
+
+        self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor)
+        self.__connect_regions(self.node_additive_reconstructor, self.node_multiplicative_reconstructor)
+        self.__connect_regions(self.node_multiplicative_reconstructor, self.node_exponential_reconstructor)
+        self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor)
+
+
+    def __create_erekir_campaign(self):
+        """
+        Create region related to the erekir campaign.
+        Method not implemented
+        """
+
+
+    def __connect_erekir_campaign(self):
+        """
+        Connect region related to Erekir's campaign
+        """
+
+    def __create_all_campaign(self):
+        """
+        Create region related to the all campaigns.
+        Method not implemented
+        """
+
+
+    def __connect_all_campaign(self):
+        """
+        Connect region related to all campaigns
+        """
 
 
     def __add_region(self, hint: str, locations: Optional):
         """Create a new region."""
         region: Region = Region(hint, self.player, self.multiworld, hint)
-        region.locations = locations.copy
+        if locations is not None:
+            region.add_locations(locations, MindustryLocation)
         return region
 
-    def __connect_regions(self, source_region: Region, target_region: Region):
+
+    def __connect_regions(self, source_region: Region, target_region: Region, rule = None) -> None:
         """
         Connect regions between themselves
         """
@@ -234,6 +667,10 @@ class MindustryRegions:
         entrance_reverse = Entrance(target_region.player, target_region.name + " -> " + source_region.name, target_region)
         target_region.exits.append(entrance_reverse)
         entrance_reverse.connect(source_region)
+
+        if rule is not None:
+            set_rule(entrance, rule)
+
 
     def __create_serpulo_campaign(self):
         """
@@ -405,244 +842,3 @@ class MindustryRegions:
         self.node_multiplicative_reconstructor = self.__add_region("Multiplicative Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Multiplicative Reconstructor"))
         self.node_exponential_reconstructor = self.__add_region("Exponential Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Exponential Reconstructor"))
         self.node_tetrative_reconstructor = self.__add_region("Tetrative Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Tetrative Reconstructor"))
-
-
-    def __connect_serpulo_campaign(self):
-        """
-        Connect region related to Serpulo's campaign
-        """
-        self.__connect_regions(self.menu, self.serpulo)
-        self.__connect_regions(self.serpulo, self.node_core_shard)
-
-        self.__connect_region(self.node_core_shard, self.node_conveyor)
-        self.__connect_regions(self.node_conveyor, self.node_junction)
-        self.__connect_regions(self.node_junction, self.node_router)
-        self.__connect_regions(self.node_router, self.node_launch_pad)
-        self.__connect_regions(self.node_router, self.node_distributor)
-        self.__connect_regions(self.node_router, self.node_sorter)
-        self.__connect_regions(self.node_sorter, self.node_inverted_sorter)
-        self.__connect_regions(self.node_sorter, self.node_overflow_gate)
-        self.__connect_regions(self.node_overflow_gate, self.node_underflow_gate)
-        self.__connect_regions(self.node_router, self.node_container)
-        self.__connect_regions(self.node_container, self.node_unloader)
-        self.__connect_regions(self.node_container, self.node_vault)
-        self.__connect_regions(self.node_router, self.node_bridge_conveyor)
-        self.__connect_regions(self.node_bridge_conveyor, self.node_titanium_conveyor)
-        self.__connect_regions(self.node_titanium_conveyor, self.node_phase_conveyor)
-        self.__connect_regions(self.node_phase_conveyor, self.node_mass_driver)
-        self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor)
-        self.__connect_regions(self.node_payload_conveyor, self.node_payload_router)
-        self.__connect_regions(self.node_titanium_conveyor, self.node_armored_conveyor)
-        self.__connect_regions(self.node_armored_conveyor, self.node_plastanium_conveyor)
-
-        self.__connect_regions(self.node_core_shard, self.node_core_foundation)
-        self.__connect_regions(self.node_core_foundation, self.node_core_nucleus)
-
-        self.__connect_regions(self.node_core_shard, self.node_mechanical_drill)
-        self.__connect_regions(self.node_mechanical_drill, self.node_mechanical_pump)
-
-        self.__connect_regions(self.node_mechanical_pump, self.node_conduit)
-        self.__connect_regions(self.node_conduit, self.node_liquid_junction)
-        self.__connect_regions(self.node_liquid_junction, self.node_liquid_router)
-        self.__connect_regions(self.node_liquid_router, self.node_liquid_container)
-        self.__connect_regions(self.node_liquid_container, self.node_liquid_tank)
-        self.__connect_regions(self.node_liquid_router, self.node_bridge_conduit)
-        self.__connect_regions(self.node_liquid_router, self.node_pulse_conduit)
-        self.__connect_regions(self.node_pulse_conduit, self.node_phase_conduit)
-        self.__connect_regions(self.node_pulse_conduit, self.node_plated_conduit)
-        self.__connect_regions(self.node_pulse_conduit, self.node_rotary_pump)
-        self.__connect_regions(self.node_rotary_pump, self.node_impulse_pump)
-
-        self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press)
-        self.__connect_regions(self.node_graphite_press, self.node_pneumatic_drill)
-        self.__connect_regions(self.node_pneumatic_drill, self.node_cultivator)
-        self.__connect_regions(self.node_pneumatic_drill, self.node_laser_drill)
-        self.__connect_regions(self.node_laser_drill, self.node_airblast_drill)
-        self.__connect_regions(self.node_laser_drill, self.node_water_extractor)
-        self.__connect_regions(self.node_water_extractor, self.node_oil_extractor)
-        self.__connect_regions(self.node_graphite_press, self.node_pyratite_mixer)
-        self.__connect_regions(self.node_pyratite_mixer, self.node_blast_mixer)
-        self.__connect_regions(self.node_graphite_press, self.node_silicon_smelter)
-        self.__connect_regions(self.node_silicon_smelter, self.node_spore_press)
-        self.__connect_regions(self.node_spore_press, self.node_coal_centrifuge)
-        self.__connect_regions(self.node_coal_centrifuge, self.node_multi_press)
-        self.__connect_regions(self.node_multi_press, self.node_silicon_crucible)
-        self.__connect_regions(self.node_silicon_smelter, self.node_kiln)
-        self.__connect_regions(self.node_kiln, self.node_pulveriser)
-        self.__connect_regions(self.node_pulveriser, self.node_incinerator)
-        self.__connect_regions(self.node_incinerator, self.node_melter)
-        self.__connect_regions(self.node_melter, self.node_surge_smelter)
-        self.__connect_regions(self.node_melter, self.node_separator)
-        self.__connect_regions(self.node_separator, self.node_disassembler)
-        self.__connect_regions(self.node_melter, self.node_cryofluid_mixer)
-        self.__connect_regions(self.node_silicon_smelter, self.node_micro_processor)
-        self.__connect_regions(self.node_micro_processor, self.node_switch)
-        self.__connect_regions(self.node_switch, self.node_message)
-        self.__connect_regions(self.node_message, self.node_logic_display)
-        self.__connect_regions(self.node_logic_display, self.node_large_logic_display)
-        self.__connect_regions(self.node_message, self.node_memory_cell)
-        self.__connect_regions(self.node_memory_cell, self.node_memory_bank)
-        self.__connect_regions(self.node_switch, self.node_logic_processor)
-        self.__connect_regions(self.node_logic_processor, self.node_hyper_processor)
-        self.__connect_regions(self.node_silicon_smelter, self.node_illuminator)
-
-        self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator)
-        self.__connect_regions(self.node_combustion_generator, self.node_power_node)
-        self.__connect_regions(self.node_power_node, self.node_large_power_node)
-        self.__connect_regions(self.node_large_power_node, self.node_battery_diode)
-        self.__connect_regions(self.node_battery_diode, self.node_surge_tower)
-        self.__connect_regions(self.node_power_node, self.node_battery)
-        self.__connect_regions(self.node_battery, self.node_large_battery)
-        self.__connect_regions(self.node_power_node, self.node_mender)
-        self.__connect_regions(self.node_mender, self.node_mend_projector)
-        self.__connect_regions(self.node_mend_projector, self.node_force_projector)
-        self.__connect_regions(self.node_force_projector, self.node_overdrive_projector)
-        self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome)
-        self.__connect_regions(self.node_mend_projector, self.node_repair_point)
-        self.__connect_regions(self.node_repair_point, self.node_repair_turret)
-        self.__connect_regions(self.node_power_node, self.node_steam_generator)
-        self.__connect_regions(self.node_steam_generator, self.node_thermal_generator)
-        self.__connect_regions(self.node_thermal_generator, self.node_differential_generator)
-        self.__connect_regions(self.node_differential_generator, self.node_thorium_reactor)
-        self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor)
-        self.__connect_regions(self.node_differential_generator, self.node_rtg_generator)
-        self.__connect_regions(self.node_power_node, self.node_solar_panel)
-        self.__connect_regions(self.node_solar_panel, self.node_large_solar_panel)
-
-        self.__connect_regions(self.node_core_shard, self.node_duo)
-        self.__connect_regions(self.node_duo, self.node_copper_wall)
-        self.__connect_regions(self.node_copper_wall, self.node_large_copper_wall)
-        self.__connect_regions(self.node_large_copper_wall, self.node_titanium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_large_titanium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_door)
-        self.__connect_regions(self.node_door, self.node_large_door)
-        self.__connect_regions(self.node_titanium_wall, self.node_plastanium_wall)
-        self.__connect_regions(self.node_plastanium_wall, self.node_large_plastanium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_thorium_wall)
-        self.__connect_regions(self.node_thorium_wall, self.node_large_thorium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_surge_wall)
-        self.__connect_regions(self.node_surge_wall, self.node_large_surge_wall)
-        self.__connect_regions(self.node_surge_wall, self.node_phase_wall)
-        self.__connect_regions(self.node_phase_wall, self.node_large_phase_wall)
-        self.__connect_regions(self.node_duo, self.node_scatter)
-        self.__connect_regions(self.node_scatter, self.node_hail)
-        self.__connect_regions(self.node_hail, self.node_salvo)
-        self.__connect_regions(self.node_salvo, self.node_swarmer)
-        self.__connect_regions(self.node_swarmer, self.node_cyclone)
-        self.__connect_regions(self.node_cyclone, self.node_spectre)
-        self.__connect_regions(self.node_salvo, self.node_ripple)
-        self.__connect_regions(self.node_ripple, self.node_fuse)
-        self.__connect_regions(self.node_duo, self.node_scorch)
-        self.__connect_regions(self.node_scorch, self.node_arc)
-        self.__connect_regions(self.node_arc, self.node_wave)
-        self.__connect_regions(self.node_wave, self.node_parallax)
-        self.__connect_regions(self.node_parallax, self.node_segment)
-        self.__connect_regions(self.node_wave, self.node_tsunami)
-        self.__connect_regions(self.node_arc, self.node_lancer)
-        self.__connect_regions(self.node_lancer, self.node_meltdown)
-        self.__connect_regions(self.node_meltdown, self.node_foreshadow)
-        self.__connect_regions(self.node_lancer, self.node_shock_mine)
-
-        self.__connect_regions(self.node_core_shard, self.node_ground_factory)
-        self.__connect_regions(self.node_ground_factory, self.node_dagger)
-        self.__connect_regions(self.node_dagger, self.node_mace)
-        self.__connect_regions(self.node_mace, self.node_fortress)
-        self.__connect_regions(self.node_fortress, self.node_scepter)
-        self.__connect_regions(self.node_scepter, self.node_reign)
-        self.__connect_regions(self.node_dagger, self.node_nova)
-        self.__connect_regions(self.node_nova, self.node_pulsar)
-        self.__connect_regions(self.node_pulsar, self.node_quasar)
-        self.__connect_regions(self.node_quasar, self.node_vela)
-        self.__connect_regions(self.node_vela, self.node_corvus)
-        self.__connect_regions(self.node_dagger, self.node_crawler)
-        self.__connect_regions(self.node_crawler, self.node_atrax)
-        self.__connect_regions(self.node_atrax, self.node_spiroct)
-        self.__connect_regions(self.node_spiroct, self.node_arkyid)
-        self.__connect_regions(self.node_arkyid, self.node_toxopid)
-        self.__connect_regions(self.node_ground_factory, self.node_air_factory)
-        self.__connect_regions(self.node_air_factory, self.node_flare)
-        self.__connect_regions(self.node_flare, self.node_horizon)
-        self.__connect_regions(self.node_horizon, self.node_zenith)
-        self.__connect_regions(self.node_zenith, self.node_antumbra)
-        self.__connect_regions(self.node_antumbra, self.node_eclipse)
-        self.__connect_regions(self.node_flare, self.node_mono)
-        self.__connect_regions(self.node_mono, self.node_poly)
-        self.__connect_regions(self.node_poly, self.node_mega)
-        self.__connect_regions(self.node_mega, self.node_quad)
-        self.__connect_regions(self.node_quad, self.node_oct)
-        self.__connect_regions(self.node_air_factory, self.node_naval_factory)
-        self.__connect_regions(self.node_naval_factory, self.node_risso)
-        self.__connect_regions(self.node_risso, self.node_minke)
-        self.__connect_regions(self.node_minke, self.node_bryde)
-        self.__connect_regions(self.node_bryde, self.node_sei)
-        self.__connect_regions(self.node_sei, self.node_omura)
-        self.__connect_regions(self.node_risso, self.node_retusa)
-        self.__connect_regions(self.node_retusa, self.node_oxynoe)
-        self.__connect_regions(self.node_oxynoe, self.node_cyerce)
-        self.__connect_regions(self.node_cyerce, self.node_aegires)
-        self.__connect_regions(self.node_aegires, self.node_narvanax)
-
-        self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor)
-        self.__connect_regions(self.node_additive_reconstructor, self.node_multiplicative_reconstructor)
-        self.__connect_regions(self.node_multiplicative_reconstructor, self.node_exponential_reconstructor)
-        self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor)
-
-
-
-
-    def __create_erekir_campaign(self):
-        """
-        Create region related to the erekir campaign.
-        Method not implemented
-        """
-
-    def __connect_erekir_campaign(self):
-        """
-        Connect region related to Erekir's campaign
-        """
-
-    def __create_all_campaign(self):
-        """
-        Create region related to the all campaigns.
-        Method not implemented
-        """
-
-    def __connect_all_campaign(self):
-        """
-        Connect region related to all campaigns
-        """
-
-    def __create_campaign(self, campaign: int):
-        """
-        Create region for selected campaign
-        NOTE: campaign set as int is temporary
-        """
-        self.menu = self.__add_region("Menu", None)
-        match campaign:
-            case 0:
-                self.__create_serpulo_campaign()
-                self.__connect_serpulo_campaign()
-            case 1:
-                self.__create_erekir_campaign()
-            case 2:
-                self.__create_all_campaign()
-            case _:
-                raise ValueError("Invalid campaign choice")
-
-
-
-    def __initialize_rules(self, options: MindustryOptions):
-        """
-        Apply options for region creation
-        Method not implemented
-        """
-
-    def __init__(self, multiworld: MultiWorld, player: int):
-        """
-        Initialisation of the regions
-        """
-        self.multiworld = multiworld
-        self.player = player
-        self.options = MindustryOptions()
-        self.__create_campaign(self.options.campaign_choice)
-
