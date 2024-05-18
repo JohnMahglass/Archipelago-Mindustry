@@ -3,9 +3,9 @@ from dataclasses import dataclass
 from Options import DefaultOnToggle, Choice, Toggle, PerGameCommonOptions
 
 
-class TutorialSkip(DefaultOnToggle):
+class TutorialSkip(Toggle):
     """Remove the need to complete the tutorial and unlock tutorial related tech."""
-    display_name = "Tutorial Skip"
+    display_name = "Tutorial skip"
 
 class CampaignChoice(Choice):
     """Select Serpulo, Erekir or both for the randomized campaign."""
@@ -20,8 +20,15 @@ class NumberedSectorAreLocation(Toggle):
 
 class AllowPause(DefaultOnToggle):
     """Allow pause (space bar not ESC pause)."""
-    display_name = "Allow Pause"
+    display_name = "Allow pause"
 
+class DisableInvasions(Toggle):
+    """Disable invasions and prevent losing progress."""
+    display_name = "Disable invasions"
+
+class EarlyRessources(Toggle):
+    """Place Lead and coal earlier in the generation to prevent being stuck too early"""
+    display_name = "Early ressources"
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -30,5 +37,7 @@ class MindustryOptions(PerGameCommonOptions):
     """
     tutorial_skip: TutorialSkip
     campaign_choice: CampaignChoice
-    numbered_sector: NumberedSectorAreLocation
+    numbered_sector_are_location: NumberedSectorAreLocation
     allow_pause: AllowPause
+    disable_invasions: DisableInvasions
+    early_ressources: EarlyRessources

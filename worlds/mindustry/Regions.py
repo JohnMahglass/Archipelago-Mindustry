@@ -426,7 +426,6 @@ class MindustryRegions:
     def __create_campaign(self, campaign: int):
         """
         Create region for selected campaign
-        NOTE: campaign set as int is temporary
         """
         self.menu = self.__add_region("Menu", None)
         self.victory = self.__add_region("Victory", None)
@@ -447,62 +446,186 @@ class MindustryRegions:
         Connect region related to Serpulo's campaign
         """
         self.__connect_regions(self.menu, self.serpulo)
+        self.__connect_regions(self.menu, self.victory)
         self.__connect_regions(self.serpulo, self.node_core_shard)
 
-        self.__connect_region(self.node_core_shard, self.node_conveyor)
+        self.__connect_regions(self.node_core_shard, self.node_conveyor)
         self.__connect_regions(self.node_conveyor, self.node_junction)
         self.__connect_regions(self.node_junction, self.node_router)
-        self.__connect_regions(self.node_router, self.node_launch_pad)
-        self.__connect_regions(self.node_router, self.node_distributor, lambda state: _has_lead(state, self.player))
-        self.__connect_regions(self.node_router, self.node_sorter)
-        self.__connect_regions(self.node_sorter, self.node_inverted_sorter)
-        self.__connect_regions(self.node_sorter, self.node_overflow_gate)
-        self.__connect_regions(self.node_overflow_gate, self.node_underflow_gate)
-        self.__connect_regions(self.node_router, self.node_container)
-        self.__connect_regions(self.node_container, self.node_unloader)
-        self.__connect_regions(self.node_container, self.node_vault)
-        self.__connect_regions(self.node_router, self.node_bridge_conveyor)
-        self.__connect_regions(self.node_bridge_conveyor, self.node_titanium_conveyor)
-        self.__connect_regions(self.node_titanium_conveyor, self.node_phase_conveyor)
-        self.__connect_regions(self.node_phase_conveyor, self.node_mass_driver)
-        self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor)
-        self.__connect_regions(self.node_payload_conveyor, self.node_payload_router)
-        self.__connect_regions(self.node_titanium_conveyor, self.node_armored_conveyor)
-        self.__connect_regions(self.node_armored_conveyor, self.node_plastanium_conveyor)
+        self.__connect_regions(self.node_router, self.node_launch_pad,
+                               lambda state: _has_extraction_outpost(state, self.player) and
+                                                _has_silicon(state, self.player) and
+                                                _has_lead(state, self.player) and
+                                                _has_titanium(state, self.player))
+        self.__connect_regions(self.node_router, self.node_distributor,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_router, self.node_sorter,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_sorter, self.node_inverted_sorter,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_sorter, self.node_overflow_gate,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_overflow_gate, self.node_underflow_gate,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_router, self.node_container,
+                               lambda state: _has_biomass_synthesis_facility(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_container, self.node_unloader,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_container, self.node_vault,
+                               lambda state: _has_stained_mountains(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_router, self.node_bridge_conveyor,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_bridge_conveyor, self.node_titanium_conveyor,
+                               lambda state: _has_the_craters(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_titanium_conveyor, self.node_phase_conveyor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_phase_conveyor, self.node_mass_driver,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor,
+                               lambda state: _has_graphite(state, self.player))
+        self.__connect_regions(self.node_payload_conveyor, self.node_payload_router,
+                               lambda state: _has_graphite(state, self.player))
+        self.__connect_regions(self.node_titanium_conveyor, self.node_armored_conveyor,
+                               lambda state: _has_plastanium(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_armored_conveyor, self.node_plastanium_conveyor,
+                               lambda state: _has_plastanium(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
 
-        self.__connect_regions(self.node_core_shard, self.node_core_foundation)
-        self.__connect_regions(self.node_core_foundation, self.node_core_nucleus)
+        self.__connect_regions(self.node_core_shard, self.node_core_foundation,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_core_foundation, self.node_core_nucleus,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_thorium(state, self.player))
 
         self.__connect_regions(self.node_core_shard, self.node_mechanical_drill)
-        self.__connect_regions(self.node_mechanical_drill, self.node_mechanical_pump)
+        self.__connect_regions(self.node_mechanical_drill, self.node_mechanical_pump,
+                               lambda state: _has_metaglass(state, self.player))
 
-        self.__connect_regions(self.node_mechanical_pump, self.node_conduit)
-        self.__connect_regions(self.node_conduit, self.node_liquid_junction)
-        self.__connect_regions(self.node_liquid_junction, self.node_liquid_router)
-        self.__connect_regions(self.node_liquid_router, self.node_liquid_container)
-        self.__connect_regions(self.node_liquid_container, self.node_liquid_tank)
-        self.__connect_regions(self.node_liquid_router, self.node_bridge_conduit)
-        self.__connect_regions(self.node_liquid_router, self.node_pulse_conduit)
-        self.__connect_regions(self.node_pulse_conduit, self.node_phase_conduit)
-        self.__connect_regions(self.node_pulse_conduit, self.node_plated_conduit)
-        self.__connect_regions(self.node_pulse_conduit, self.node_rotary_pump)
-        self.__connect_regions(self.node_rotary_pump, self.node_impulse_pump)
+        self.__connect_regions(self.node_mechanical_pump, self.node_conduit,
+                               lambda state: _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_conduit, self.node_liquid_junction,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_liquid_junction, self.node_liquid_router,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_liquid_router, self.node_liquid_container,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_liquid_container, self.node_liquid_tank,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_liquid_router, self.node_bridge_conduit,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_liquid_router, self.node_pulse_conduit,
+                               lambda state: _has_windswept_islands(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_pulse_conduit, self.node_phase_conduit,
+                               lambda state: _has_phase_fabric(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_pulse_conduit, self.node_plated_conduit,
+                               lambda state: _has_thorium(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_pulse_conduit, self.node_rotary_pump,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_rotary_pump, self.node_impulse_pump,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_thorium(state, self.player))
 
-        self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press)
-        self.__connect_regions(self.node_graphite_press, self.node_pneumatic_drill)
-        self.__connect_regions(self.node_pneumatic_drill, self.node_cultivator)
-        self.__connect_regions(self.node_pneumatic_drill, self.node_laser_drill)
-        self.__connect_regions(self.node_laser_drill, self.node_airblast_drill)
-        self.__connect_regions(self.node_laser_drill, self.node_water_extractor)
-        self.__connect_regions(self.node_water_extractor, self.node_oil_extractor)
-        self.__connect_regions(self.node_graphite_press, self.node_pyratite_mixer)
-        self.__connect_regions(self.node_pyratite_mixer, self.node_blast_mixer)
-        self.__connect_regions(self.node_graphite_press, self.node_silicon_smelter)
-        self.__connect_regions(self.node_silicon_smelter, self.node_spore_press)
-        self.__connect_regions(self.node_spore_press, self.node_coal_centrifuge)
-        self.__connect_regions(self.node_coal_centrifuge, self.node_multi_press)
-        self.__connect_regions(self.node_multi_press, self.node_silicon_crucible)
-        self.__connect_regions(self.node_silicon_smelter, self.node_kiln)
+        self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_graphite_press, self.node_pneumatic_drill,
+                               lambda state: _has_frozen_forest(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_pneumatic_drill, self.node_cultivator,
+                               lambda state: _has_biomass_synthesis_facility(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_pneumatic_drill, self.node_laser_drill,
+                               lambda state: _has_nuclear_production_complex(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_laser_drill, self.node_airblast_drill,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_laser_drill, self.node_water_extractor,
+                               lambda state: _has_salt_flats(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_water_extractor, self.node_oil_extractor,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_graphite_press, self.node_pyratite_mixer,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_pyratite_mixer, self.node_blast_mixer,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_graphite_press, self.node_silicon_smelter,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_silicon_smelter, self.node_spore_press,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_spore_press, self.node_coal_centrifuge,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_coal_centrifuge, self.node_multi_press,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_multi_press, self.node_silicon_crucible,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_spore_press, self.node_plastanium_compressor,
+                               lambda state: _has_windswept_islands(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_plastanium_compressor, self.node_phase_weaver,
+                               lambda state: _has_tar_field(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_silicon_smelter, self.node_kiln,
+                               lambda state: _has_the_craters(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player))
         self.__connect_regions(self.node_kiln, self.node_pulveriser)
         self.__connect_regions(self.node_pulveriser, self.node_incinerator)
         self.__connect_regions(self.node_incinerator, self.node_melter)
@@ -521,7 +644,8 @@ class MindustryRegions:
         self.__connect_regions(self.node_logic_processor, self.node_hyper_processor)
         self.__connect_regions(self.node_silicon_smelter, self.node_illuminator)
 
-        self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator)
+        self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator,
+                               lambda state: _has_coal(state, self.player))
         self.__connect_regions(self.node_combustion_generator, self.node_power_node)
         self.__connect_regions(self.node_power_node, self.node_large_power_node)
         self.__connect_regions(self.node_large_power_node, self.node_battery_diode)
@@ -530,15 +654,20 @@ class MindustryRegions:
         self.__connect_regions(self.node_battery, self.node_large_battery)
         self.__connect_regions(self.node_power_node, self.node_mender)
         self.__connect_regions(self.node_mender, self.node_mend_projector)
-        self.__connect_regions(self.node_mend_projector, self.node_force_projector)
-        self.__connect_regions(self.node_force_projector, self.node_overdrive_projector)
-        self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome)
+        self.__connect_regions(self.node_mend_projector, self.node_force_projector,
+                               lambda state: _has_impact_0078(state, self.player))
+        self.__connect_regions(self.node_force_projector, self.node_overdrive_projector,
+                               lambda state: _has_impact_0078(state, self.player))
+        self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome,
+                               lambda state: _has_impact_0078(state, self.player))
         self.__connect_regions(self.node_mend_projector, self.node_repair_point)
         self.__connect_regions(self.node_repair_point, self.node_repair_turret)
-        self.__connect_regions(self.node_power_node, self.node_steam_generator)
+        self.__connect_regions(self.node_power_node, self.node_steam_generator,
+                               lambda state: _has_the_craters(state, self.player))
         self.__connect_regions(self.node_steam_generator, self.node_thermal_generator)
         self.__connect_regions(self.node_thermal_generator, self.node_differential_generator)
-        self.__connect_regions(self.node_differential_generator, self.node_thorium_reactor)
+        self.__connect_regions(self.node_differential_generator, self.node_thorium_reactor,
+                               lambda state: _has_cryofluid(state, self.player))
         self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor)
         self.__connect_regions(self.node_differential_generator, self.node_rtg_generator)
         self.__connect_regions(self.node_power_node, self.node_solar_panel)
@@ -564,7 +693,8 @@ class MindustryRegions:
         self.__connect_regions(self.node_hail, self.node_salvo)
         self.__connect_regions(self.node_salvo, self.node_swarmer)
         self.__connect_regions(self.node_swarmer, self.node_cyclone)
-        self.__connect_regions(self.node_cyclone, self.node_spectre)
+        self.__connect_regions(self.node_cyclone, self.node_spectre,
+                               lambda state: _has_nuclear_production_complex(state, self.player))
         self.__connect_regions(self.node_salvo, self.node_ripple)
         self.__connect_regions(self.node_ripple, self.node_fuse)
         self.__connect_regions(self.node_duo, self.node_scorch)
@@ -605,21 +735,27 @@ class MindustryRegions:
         self.__connect_regions(self.node_poly, self.node_mega)
         self.__connect_regions(self.node_mega, self.node_quad)
         self.__connect_regions(self.node_quad, self.node_oct)
-        self.__connect_regions(self.node_air_factory, self.node_naval_factory)
+        self.__connect_regions(self.node_air_factory, self.node_naval_factory,
+                               lambda state: _has_ruinous_shores(state, self.player))
         self.__connect_regions(self.node_naval_factory, self.node_risso)
         self.__connect_regions(self.node_risso, self.node_minke)
         self.__connect_regions(self.node_minke, self.node_bryde)
         self.__connect_regions(self.node_bryde, self.node_sei)
         self.__connect_regions(self.node_sei, self.node_omura)
-        self.__connect_regions(self.node_risso, self.node_retusa)
-        self.__connect_regions(self.node_retusa, self.node_oxynoe)
+        self.__connect_regions(self.node_risso, self.node_retusa,
+                               lambda state: _has_windswept_islands(state, self.player))
+        self.__connect_regions(self.node_retusa, self.node_oxynoe,
+                               lambda state: _has_coastline(state, self.player))
         self.__connect_regions(self.node_oxynoe, self.node_cyerce)
         self.__connect_regions(self.node_cyerce, self.node_aegires)
-        self.__connect_regions(self.node_aegires, self.node_narvanax)
+        self.__connect_regions(self.node_aegires, self.node_narvanax,
+                               lambda state: _has_naval_fortress(state, self.player))
 
-        self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor)
+        self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor,
+                               lambda state: _has_biomass_synthesis_facility(state, self.player))
         self.__connect_regions(self.node_additive_reconstructor, self.node_multiplicative_reconstructor)
-        self.__connect_regions(self.node_multiplicative_reconstructor, self.node_exponential_reconstructor)
+        self.__connect_regions(self.node_multiplicative_reconstructor, self.node_exponential_reconstructor,
+                               lambda state: _has_overgrowth(state, self.player))
         self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor)
 
 
