@@ -32,7 +32,7 @@ class MindustryWorld(World):
     topology_present = True
     "show path to required location checks in spoiler"
 
-    item_name_to_id: ClassVar[Dict[str, int]] = \
+    item_name_to_id: ClassVar[Dict[str, int]] =\
         {name: data.id for name, data in item_table.items()}
     "The name and associated ID of each item of the world"
 

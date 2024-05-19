@@ -1,4 +1,3 @@
-import json
 from dataclasses import dataclass
 from Options import DefaultOnToggle, Choice, Toggle, PerGameCommonOptions
 
@@ -10,9 +9,10 @@ class TutorialSkip(Toggle):
 class CampaignChoice(Choice):
     """Select Serpulo, Erekir or both for the randomized campaign."""
     display_name = "Campaign choice"
-    serpulo_only = 0
-    erekir_only = 1
-    all_planets = 2
+    option_serpulo_only = 0
+    option_erekir_only = 1
+    option_all_planets = 2
+    default = 0
 
 class NumberedSectorAreLocation(Toggle):
     """Add numbered sector to Mindustry locations"""

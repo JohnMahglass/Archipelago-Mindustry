@@ -84,6 +84,10 @@ class ItemData:
         @param type: The type of item
         @param group: The type of item
         """
+        self.id = id
+        self.item_planet = planet
+        self.type = type
+        self.group = group
 
 """Information table for every item that is not an event."""
 item_table = {
