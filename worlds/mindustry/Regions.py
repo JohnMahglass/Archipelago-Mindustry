@@ -446,7 +446,24 @@ class MindustryRegions:
         Connect region related to Serpulo's campaign
         """
         self.__connect_regions(self.menu, self.serpulo)
-        self.__connect_regions(self.menu, self.victory)
+        self.__connect_regions(self.menu, self.victory,
+                               lambda state: _has_frozen_forest(state, self.player) and
+                                            _has_the_craters(state, self.player) and
+                                            _has_ruinous_shores(state, self.player) and
+                                            _has_windswept_islands(state, self.player) and
+                                            _has_tar_field(state, self.player) and
+                                            _has_impact_0078(state, self.player) and
+                                            _has_desolate_rift(state, self.player) and
+                                            _has_planetary_launch_terminal(state, self.player) and
+                                            _has_extraction_outpost(state, self.player) and
+                                            _has_salt_flats(state, self.player) and
+                                            _has_coastline(state, self.player) and
+                                            _has_naval_fortress(state, self.player) and
+                                            _has_overgrowth(state, self.player) and
+                                            _has_biomass_synthesis_facility(state, self.player) and
+                                            _has_stained_mountains(state, self.player) and
+                                            _has_fungal_pass(state, self.player) and
+                                            _has_nuclear_production_complex(state, self.player))
         self.__connect_regions(self.serpulo, self.node_core_shard)
 
         self.__connect_regions(self.node_core_shard, self.node_conveyor)
