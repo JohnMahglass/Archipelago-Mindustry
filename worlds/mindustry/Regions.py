@@ -1264,7 +1264,7 @@ class MindustryRegions:
         self.node_oxynoe = self.__add_region("Oxynoe", MindustryLocation.tech_tree_serpulo.get("Node Oxynoe"))
         self.node_cyerce = self.__add_region("Cyerce", MindustryLocation.tech_tree_serpulo.get("Node Cyerce"))
         self.node_aegires = self.__add_region("Aegires", MindustryLocation.tech_tree_serpulo.get("Node Aegires"))
-        self.node_navanax = self.__add_region("Narvanax", MindustryLocation.tech_tree_serpulo.get("Node Narvanax"))
+        self.node_navanax = self.__add_region("Navanax", MindustryLocation.tech_tree_serpulo.get("Node Navanax"))
         self.node_additive_reconstructor = self.__add_region("Additive Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Additive Reconstructor"))
         self.node_multiplicative_reconstructor = self.__add_region("Multiplicative Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Multiplicative Reconstructor"))
         self.node_exponential_reconstructor = self.__add_region("Exponential Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Exponential Reconstructor"))
