@@ -210,7 +210,7 @@ class MindustryLocation:
         "Node Oxynoe": MINDUSTRY_BASE_ID + 158,
         "Node Cyerce": MINDUSTRY_BASE_ID + 159,
         "Node Aegires": MINDUSTRY_BASE_ID + 160,
-        "Node Narvanax": MINDUSTRY_BASE_ID + 161,
+        "Node Navanax": MINDUSTRY_BASE_ID + 161,
 
         "Node Additive Reconstructor": MINDUSTRY_BASE_ID + 162,
         "Node Multiplicative Reconstructor": MINDUSTRY_BASE_ID + 163,

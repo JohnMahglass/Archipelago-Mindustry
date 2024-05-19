@@ -313,7 +313,7 @@ class MindustryRegions:
     node_oxynoe: Region
     node_cyerce: Region
     node_aegires: Region
-    node_narvanax: Region
+    node_navanax: Region
     node_additive_reconstructor: Region
     node_multiplicative_reconstructor: Region
     node_exponential_reconstructor: Region
@@ -626,137 +626,428 @@ class MindustryRegions:
                                lambda state: _has_the_craters(state, self.player) and
                                             _has_graphite(state, self.player) and
                                             _has_lead(state, self.player))
-        self.__connect_regions(self.node_kiln, self.node_pulveriser)
-        self.__connect_regions(self.node_pulveriser, self.node_incinerator)
-        self.__connect_regions(self.node_incinerator, self.node_melter)
-        self.__connect_regions(self.node_melter, self.node_surge_smelter)
-        self.__connect_regions(self.node_melter, self.node_separator)
-        self.__connect_regions(self.node_separator, self.node_disassembler)
-        self.__connect_regions(self.node_melter, self.node_cryofluid_mixer)
-        self.__connect_regions(self.node_silicon_smelter, self.node_micro_processor)
-        self.__connect_regions(self.node_micro_processor, self.node_switch)
-        self.__connect_regions(self.node_switch, self.node_message)
-        self.__connect_regions(self.node_message, self.node_logic_display)
-        self.__connect_regions(self.node_logic_display, self.node_large_logic_display)
-        self.__connect_regions(self.node_message, self.node_memory_cell)
-        self.__connect_regions(self.node_memory_cell, self.node_memory_bank)
-        self.__connect_regions(self.node_switch, self.node_logic_processor)
-        self.__connect_regions(self.node_logic_processor, self.node_hyper_processor)
-        self.__connect_regions(self.node_silicon_smelter, self.node_illuminator)
+        self.__connect_regions(self.node_kiln, self.node_pulveriser,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_pulveriser, self.node_incinerator,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_incinerator, self.node_melter,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_melter, self.node_surge_smelter,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_melter, self.node_separator,
+                               lambda state: _has_titanium(state, self.player))
+        self.__connect_regions(self.node_separator, self.node_disassembler,
+                               lambda state: _has_plastanium(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_melter, self.node_cryofluid_mixer,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_silicon_smelter, self.node_micro_processor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_micro_processor, self.node_switch,
+                               lambda state: _has_graphite(state, self.player))
+        self.__connect_regions(self.node_switch, self.node_message,
+                               lambda state: _has_graphite(state, self.player))
+        self.__connect_regions(self.node_message, self.node_logic_display,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_logic_display, self.node_large_logic_display,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_message, self.node_memory_cell,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_memory_cell, self.node_memory_bank,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_switch, self.node_logic_processor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_logic_processor, self.node_hyper_processor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_surge_alloy(state, self.player))
+        self.__connect_regions(self.node_silicon_smelter, self.node_illuminator,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player))
 
         self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator,
-                               lambda state: _has_coal(state, self.player))
-        self.__connect_regions(self.node_combustion_generator, self.node_power_node)
-        self.__connect_regions(self.node_power_node, self.node_large_power_node)
-        self.__connect_regions(self.node_large_power_node, self.node_battery_diode)
-        self.__connect_regions(self.node_battery_diode, self.node_surge_tower)
-        self.__connect_regions(self.node_power_node, self.node_battery)
-        self.__connect_regions(self.node_battery, self.node_large_battery)
-        self.__connect_regions(self.node_power_node, self.node_mender)
-        self.__connect_regions(self.node_mender, self.node_mend_projector)
+                               lambda state: _has_coal(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_combustion_generator, self.node_power_node,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_power_node, self.node_large_power_node,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_large_power_node, self.node_battery_diode,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_battery_diode, self.node_surge_tower,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_surge_alloy(state, self.player))
+        self.__connect_regions(self.node_power_node, self.node_battery,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_battery, self.node_large_battery,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_power_node, self.node_mender,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_mender, self.node_mend_projector,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player))
         self.__connect_regions(self.node_mend_projector, self.node_force_projector,
-                               lambda state: _has_impact_0078(state, self.player))
+                               lambda state: _has_impact_0078(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player))
         self.__connect_regions(self.node_force_projector, self.node_overdrive_projector,
-                               lambda state: _has_impact_0078(state, self.player))
+                               lambda state: _has_impact_0078(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player))
         self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome,
-                               lambda state: _has_impact_0078(state, self.player))
-        self.__connect_regions(self.node_mend_projector, self.node_repair_point)
-        self.__connect_regions(self.node_repair_point, self.node_repair_turret)
+                               lambda state: _has_impact_0078(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player))
+        self.__connect_regions(self.node_mend_projector, self.node_repair_point,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_repair_point, self.node_repair_turret,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_plastanium(state, self.player))
         self.__connect_regions(self.node_power_node, self.node_steam_generator,
-                               lambda state: _has_the_craters(state, self.player))
-        self.__connect_regions(self.node_steam_generator, self.node_thermal_generator)
-        self.__connect_regions(self.node_thermal_generator, self.node_differential_generator)
+                               lambda state: _has_the_craters(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_steam_generator, self.node_thermal_generator,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_thermal_generator, self.node_differential_generator,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player))
         self.__connect_regions(self.node_differential_generator, self.node_thorium_reactor,
                                lambda state: _has_cryofluid(state, self.player))
-        self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor)
-        self.__connect_regions(self.node_differential_generator, self.node_rtg_generator)
-        self.__connect_regions(self.node_power_node, self.node_solar_panel)
-        self.__connect_regions(self.node_solar_panel, self.node_large_solar_panel)
+        self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_differential_generator, self.node_rtg_generator,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_phase_fabric(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_power_node, self.node_solar_panel,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_solar_panel, self.node_large_solar_panel,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
 
         self.__connect_regions(self.node_core_shard, self.node_duo)
         self.__connect_regions(self.node_duo, self.node_copper_wall)
         self.__connect_regions(self.node_copper_wall, self.node_large_copper_wall)
-        self.__connect_regions(self.node_large_copper_wall, self.node_titanium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_large_titanium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_door)
-        self.__connect_regions(self.node_door, self.node_large_door)
-        self.__connect_regions(self.node_titanium_wall, self.node_plastanium_wall)
-        self.__connect_regions(self.node_plastanium_wall, self.node_large_plastanium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_thorium_wall)
-        self.__connect_regions(self.node_thorium_wall, self.node_large_thorium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_surge_wall)
-        self.__connect_regions(self.node_surge_wall, self.node_large_surge_wall)
-        self.__connect_regions(self.node_surge_wall, self.node_phase_wall)
-        self.__connect_regions(self.node_phase_wall, self.node_large_phase_wall)
-        self.__connect_regions(self.node_duo, self.node_scatter)
-        self.__connect_regions(self.node_scatter, self.node_hail)
-        self.__connect_regions(self.node_hail, self.node_salvo)
-        self.__connect_regions(self.node_salvo, self.node_swarmer)
-        self.__connect_regions(self.node_swarmer, self.node_cyclone)
+        self.__connect_regions(self.node_large_copper_wall, self.node_titanium_wall,
+                               lambda state: _has_titanium(state, self.player))
+        self.__connect_regions(self.node_titanium_wall, self.node_large_titanium_wall,
+                               lambda state: _has_titanium(state, self.player))
+        self.__connect_regions(self.node_titanium_wall, self.node_door,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_door, self.node_large_door,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_titanium_wall, self.node_plastanium_wall,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_plastanium_wall, self.node_large_plastanium_wall,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_titanium_wall, self.node_thorium_wall,
+                               lambda state: _has_thorium(state, self.player))
+        self.__connect_regions(self.node_thorium_wall, self.node_large_thorium_wall,
+                               lambda state: _has_thorium(state, self.player))
+        self.__connect_regions(self.node_titanium_wall, self.node_surge_wall,
+                               lambda state: _has_surge_alloy(state, self.player))
+        self.__connect_regions(self.node_surge_wall, self.node_large_surge_wall,
+                               lambda state: _has_surge_alloy(state, self.player))
+        self.__connect_regions(self.node_surge_wall, self.node_phase_wall,
+                               lambda state: _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_phase_wall, self.node_large_phase_wall,
+                               lambda state: _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_duo, self.node_scatter,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_scatter, self.node_hail,
+                               lambda state: _has_graphite(state, self.player))
+        self.__connect_regions(self.node_hail, self.node_salvo,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_salvo, self.node_swarmer,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_swarmer, self.node_cyclone,
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
         self.__connect_regions(self.node_cyclone, self.node_spectre,
-                               lambda state: _has_nuclear_production_complex(state, self.player))
-        self.__connect_regions(self.node_salvo, self.node_ripple)
-        self.__connect_regions(self.node_ripple, self.node_fuse)
-        self.__connect_regions(self.node_duo, self.node_scorch)
-        self.__connect_regions(self.node_scorch, self.node_arc)
-        self.__connect_regions(self.node_arc, self.node_wave)
-        self.__connect_regions(self.node_wave, self.node_parallax)
-        self.__connect_regions(self.node_parallax, self.node_segment)
-        self.__connect_regions(self.node_wave, self.node_tsunami)
-        self.__connect_regions(self.node_arc, self.node_lancer)
-        self.__connect_regions(self.node_lancer, self.node_meltdown)
-        self.__connect_regions(self.node_meltdown, self.node_foreshadow)
-        self.__connect_regions(self.node_lancer, self.node_shock_mine)
+                               lambda state: _has_nuclear_production_complex(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_salvo, self.node_ripple,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_ripple, self.node_fuse,
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_duo, self.node_scorch,
+                               lambda state: _has_graphite(state, self.player))
+        self.__connect_regions(self.node_scorch, self.node_arc,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_arc, self.node_wave,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_wave, self.node_parallax,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_parallax, self.node_segment,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_phase_fabric(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_wave, self.node_tsunami,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_thorium(state, self.player))
+        self.__connect_regions(self.node_arc, self.node_lancer,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_lancer, self.node_meltdown,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_graphite(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_meltdown, self.node_foreshadow,
+                               lambda state: _has_metaglass(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_lancer, self.node_shock_mine,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
 
-        self.__connect_regions(self.node_core_shard, self.node_ground_factory)
-        self.__connect_regions(self.node_ground_factory, self.node_dagger)
-        self.__connect_regions(self.node_dagger, self.node_mace)
-        self.__connect_regions(self.node_mace, self.node_fortress)
-        self.__connect_regions(self.node_fortress, self.node_scepter)
-        self.__connect_regions(self.node_scepter, self.node_reign)
-        self.__connect_regions(self.node_dagger, self.node_nova)
-        self.__connect_regions(self.node_nova, self.node_pulsar)
-        self.__connect_regions(self.node_pulsar, self.node_quasar)
-        self.__connect_regions(self.node_quasar, self.node_vela)
-        self.__connect_regions(self.node_vela, self.node_corvus)
-        self.__connect_regions(self.node_dagger, self.node_crawler)
-        self.__connect_regions(self.node_crawler, self.node_atrax)
-        self.__connect_regions(self.node_atrax, self.node_spiroct)
-        self.__connect_regions(self.node_spiroct, self.node_arkyid)
-        self.__connect_regions(self.node_arkyid, self.node_toxopid)
-        self.__connect_regions(self.node_ground_factory, self.node_air_factory)
-        self.__connect_regions(self.node_air_factory, self.node_flare)
-        self.__connect_regions(self.node_flare, self.node_horizon)
-        self.__connect_regions(self.node_horizon, self.node_zenith)
-        self.__connect_regions(self.node_zenith, self.node_antumbra)
-        self.__connect_regions(self.node_antumbra, self.node_eclipse)
-        self.__connect_regions(self.node_flare, self.node_mono)
-        self.__connect_regions(self.node_mono, self.node_poly)
-        self.__connect_regions(self.node_poly, self.node_mega)
-        self.__connect_regions(self.node_mega, self.node_quad)
-        self.__connect_regions(self.node_quad, self.node_oct)
+        self.__connect_regions(self.node_core_shard, self.node_ground_factory,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_ground_factory, self.node_dagger,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_dagger, self.node_mace,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_mace, self.node_fortress,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_fortress, self.node_scepter,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_scepter, self.node_reign,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_dagger, self.node_nova,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_titanium(state, self.player))
+        self.__connect_regions(self.node_nova, self.node_pulsar,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_pulsar, self.node_quasar,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_quasar, self.node_vela,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_vela, self.node_corvus,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_dagger, self.node_crawler,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_coal(state, self.player))
+        self.__connect_regions(self.node_crawler, self.node_atrax,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_atrax, self.node_spiroct,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_spiroct, self.node_arkyid,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_arkyid, self.node_toxopid,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_ground_factory, self.node_air_factory,
+                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_air_factory, self.node_flare,
+                               lambda state: _has_silicon(state, self.player))
+        self.__connect_regions(self.node_flare, self.node_horizon,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_horizon, self.node_zenith,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_zenith, self.node_antumbra,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_antumbra, self.node_eclipse,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_flare, self.node_mono,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_lead(state, self.player))
+        self.__connect_regions(self.node_mono, self.node_poly,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_poly, self.node_mega,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_mega, self.node_quad,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_quad, self.node_oct,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_air_factory, self.node_naval_factory,
-                               lambda state: _has_ruinous_shores(state, self.player))
-        self.__connect_regions(self.node_naval_factory, self.node_risso)
-        self.__connect_regions(self.node_risso, self.node_minke)
-        self.__connect_regions(self.node_minke, self.node_bryde)
-        self.__connect_regions(self.node_bryde, self.node_sei)
-        self.__connect_regions(self.node_sei, self.node_omura)
+                               lambda state: _has_ruinous_shores(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_naval_factory, self.node_risso,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_risso, self.node_minke,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_minke, self.node_bryde,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_bryde, self.node_sei,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_sei, self.node_omura,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_risso, self.node_retusa,
-                               lambda state: _has_windswept_islands(state, self.player))
+                               lambda state: _has_windswept_islands(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_metaglass(state, self.player) and
+                                            _has_titanium(state, self.player))
         self.__connect_regions(self.node_retusa, self.node_oxynoe,
-                               lambda state: _has_coastline(state, self.player))
-        self.__connect_regions(self.node_oxynoe, self.node_cyerce)
-        self.__connect_regions(self.node_cyerce, self.node_aegires)
-        self.__connect_regions(self.node_aegires, self.node_narvanax,
-                               lambda state: _has_naval_fortress(state, self.player))
+                               lambda state: _has_coastline(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_graphite(state, self.player))
+        self.__connect_regions(self.node_oxynoe, self.node_cyerce,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_metaglass(state, self.player))
+        self.__connect_regions(self.node_cyerce, self.node_aegires,
+                               lambda state: _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_plastanium(state, self.player))
+        self.__connect_regions(self.node_aegires, self.node_navanax,
+                               lambda state: _has_naval_fortress(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_phase_fabric(state, self.player) and
+                                            _has_surge_alloy(state, self.player))
 
         self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor,
-                               lambda state: _has_biomass_synthesis_facility(state, self.player))
-        self.__connect_regions(self.node_additive_reconstructor, self.node_multiplicative_reconstructor)
+                               lambda state: _has_biomass_synthesis_facility(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player))
+        self.__connect_regions(self.node_additive_reconstructor, self.node_multiplicative_reconstructor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_thorium(state, self.player))
         self.__connect_regions(self.node_multiplicative_reconstructor, self.node_exponential_reconstructor,
-                               lambda state: _has_overgrowth(state, self.player))
-        self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor)
+                               lambda state: _has_overgrowth(state, self.player) and
+                                            _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_titanium(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
+        self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor,
+                               lambda state: _has_lead(state, self.player) and
+                                            _has_silicon(state, self.player) and
+                                            _has_thorium(state, self.player) and
+                                            _has_plastanium(state, self.player) and
+                                            _has_phase_fabric(state, self.player) and
+                                            _has_surge_alloy(state, self.player))
 
 
     def __create_erekir_campaign(self):
@@ -973,7 +1264,7 @@ class MindustryRegions:
         self.node_oxynoe = self.__add_region("Oxynoe", MindustryLocation.tech_tree_serpulo.get("Node Oxynoe"))
         self.node_cyerce = self.__add_region("Cyerce", MindustryLocation.tech_tree_serpulo.get("Node Cyerce"))
         self.node_aegires = self.__add_region("Aegires", MindustryLocation.tech_tree_serpulo.get("Node Aegires"))
-        self.node_narvanax = self.__add_region("Narvanax", MindustryLocation.tech_tree_serpulo.get("Node Narvanax"))
+        self.node_navanax = self.__add_region("Narvanax", MindustryLocation.tech_tree_serpulo.get("Node Narvanax"))
         self.node_additive_reconstructor = self.__add_region("Additive Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Additive Reconstructor"))
         self.node_multiplicative_reconstructor = self.__add_region("Multiplicative Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Multiplicative Reconstructor"))
         self.node_exponential_reconstructor = self.__add_region("Exponential Reconstructor", MindustryLocation.tech_tree_serpulo.get("Node Exponential Reconstructor"))

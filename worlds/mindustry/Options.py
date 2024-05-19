@@ -27,7 +27,7 @@ class DisableInvasions(Toggle):
     display_name = "Disable invasions"
 
 class EarlyRessources(Toggle):
-    """Place Lead and coal earlier in the generation to prevent being stuck too early"""
+    """Place Lead and Coal earlier in the generation to prevent being stuck too early"""
     display_name = "Early ressources"
 
 @dataclass
