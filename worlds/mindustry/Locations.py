@@ -533,7 +533,7 @@ class MindustryLocations:
     serpulo_tar_fields = {
         "Node Tar Fields": MINDUSTRY_BASE_ID + 170,
     }
-    serpulo_impact_0078= {
+    serpulo_impact_0078 = {
         "Node Impact 0078": MINDUSTRY_BASE_ID + 171,
     }
     serpulo_desolate_rift = {
