@@ -76,10 +76,6 @@ def _has_nuclear_production_complex(state:CollectionState, player: int) -> bool:
     """If the player has target in state"""
     return state.has("Nuclear Production Complex", player)
 
-def _has_lead(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Lead", player)
-
 def _has_titanium(state:CollectionState, player: int) -> bool:
     """If the player has target in state"""
     return state.has("Titanium", player)
@@ -103,14 +99,6 @@ def _has_phase_fabric(state:CollectionState, player: int) -> bool:
 def _has_metaglass(state:CollectionState, player: int) -> bool:
     """If the player has target in state"""
     return state.has("Metaglass", player)
-
-def _has_scrap(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Scrap", player)
-
-def _has_slag(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Slag", player)
 
 def _has_coal(state:CollectionState, player: int) -> bool:
     """If the player has target in state"""
@@ -144,7 +132,9 @@ def _has_plastanium(state:CollectionState, player: int) -> bool:
     """If the player has target in state"""
     return state.has("Plastanium", player)
 
-
+def _has_electricity(state:CollectionState, player: int) -> bool:
+    """If the player has acces to electricity"""
+    return state.has("Electricity", player)
 
 
 
@@ -424,10 +414,7 @@ class MindustryRegions:
             self.player, name, None, region
         )
         region.locations.append(location)
-        location.place_locked_item(MindustryItem(event_name,
-                                               ItemClassification.progression,
-                                               None,
-                                               self.player))
+        location.place_locked_item(MindustryItem(event_name,ItemClassification.progression,None, self.player))
 
 
     def __add_serpulo_regions_to_world(self):
@@ -600,6 +587,7 @@ class MindustryRegions:
         self.multiworld.regions.append(self.node_multiplicative_reconstructor)
         self.multiworld.regions.append(self.node_exponential_reconstructor)
         self.multiworld.regions.append(self.node_tetrative_reconstructor)
+        self.multiworld.regions.append(self.node_ground_zero)
         self.multiworld.regions.append(self.node_frozen_forest)
         self.multiworld.regions.append(self.node_the_craters)
         self.multiworld.regions.append(self.node_ruinous_shores)
@@ -617,6 +605,9 @@ class MindustryRegions:
         self.multiworld.regions.append(self.node_stained_mountains)
         self.multiworld.regions.append(self.node_fungal_pass)
         self.multiworld.regions.append(self.node_nuclear_production_complex)
+        self.multiworld.regions.append(self.node_water)
+        self.multiworld.regions.append(self.node_copper)
+        self.multiworld.regions.append(self.node_sand)
         self.multiworld.regions.append(self.node_lead)
         self.multiworld.regions.append(self.node_titanium)
         self.multiworld.regions.append(self.node_cryofluid)
@@ -684,26 +675,22 @@ class MindustryRegions:
         self.__connect_regions(self.node_router, self.node_launch_pad,
                                lambda state: _has_extraction_outpost(state, self.player) and
                                                 _has_silicon(state, self.player) and
-                                                _has_lead(state, self.player) and
-                                                _has_titanium(state, self.player))
-        self.__connect_regions(self.node_router, self.node_distributor,
-                               lambda state: _has_lead(state, self.player))
-        self.__connect_regions(self.node_router, self.node_sorter,
-                               lambda state: _has_lead(state, self.player))
+                                                _has_titanium(state, self.player) and
+                                                _has_electricity(state, self.player))
+        self.__connect_regions(self.node_router, self.node_distributor)
+        self.__connect_regions(self.node_router, self.node_sorter)
         self.__connect_regions(self.node_sorter, self.node_inverted_sorter)
         self.__connect_regions(self.node_sorter, self.node_overflow_gate)
         self.__connect_regions(self.node_overflow_gate, self.node_underflow_gate)
         self.__connect_regions(self.node_router, self.node_container,
                                lambda state: _has_biomass_synthesis_facility(state, self.player) and
-                                            _has_titanium(state, self.player) and
-                                            _has_metaglass(state, self.player))
+                                            _has_titanium(state, self.player))
         self.__connect_regions(self.node_container, self.node_unloader,
                                lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_container, self.node_vault,
                                lambda state: _has_stained_mountains(state, self.player) and
                                             _has_thorium(state, self.player))
-        self.__connect_regions(self.node_router, self.node_bridge_conveyor,
-                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_router, self.node_bridge_conveyor)
         self.__connect_regions(self.node_bridge_conveyor, self.node_titanium_conveyor,
                                lambda state: _has_the_craters(state, self.player) and
                                             _has_titanium(state, self.player))
@@ -713,19 +700,19 @@ class MindustryRegions:
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_phase_conveyor, self.node_mass_driver,
                                lambda state: _has_thorium(state, self.player))
-        self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor)
+        self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor,
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_payload_conveyor, self.node_payload_router)
         self.__connect_regions(self.node_titanium_conveyor, self.node_armored_conveyor,
                                lambda state: _has_plastanium(state, self.player) and
                                             _has_thorium(state, self.player) and
                                             _has_metaglass(state, self.player))
         self.__connect_regions(self.node_armored_conveyor, self.node_plastanium_conveyor,
-                               lambda state: _has_plastanium(state, self.player) and
+                               lambda state: _has_graphite(state, self.player) and
                                             _has_silicon(state, self.player))
 
         self.__connect_regions(self.node_core_shard, self.node_core_foundation,
-                               lambda state: _has_lead(state, self.player) and
-                                            _has_silicon(state, self.player))
+                               lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_core_foundation, self.node_core_nucleus,
                                lambda state: _has_thorium(state, self.player))
 
@@ -756,7 +743,7 @@ class MindustryRegions:
                                lambda state: _has_thorium(state, self.player))
 
         self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press,
-                               lambda state: _has_lead(state, self.player))
+                               lambda state: _has_coal(state, self.player))
         self.__connect_regions(self.node_graphite_press, self.node_pneumatic_drill,
                                lambda state: _has_frozen_forest(state, self.player) and
                                             _has_graphite(state, self.player))
@@ -764,11 +751,11 @@ class MindustryRegions:
                                lambda state: _has_biomass_synthesis_facility(state, self.player) and
                                             _has_silicon(state, self.player))
         self.__connect_regions(self.node_pneumatic_drill, self.node_laser_drill,
-                               lambda state: _has_nuclear_production_complex(state, self.player) and
-                                            _has_silicon(state, self.player) and
+                               lambda state: _has_silicon(state, self.player) and
                                             _has_titanium(state, self.player))
         self.__connect_regions(self.node_laser_drill, self.node_airblast_drill,
-                               lambda state: _has_thorium(state, self.player))
+                               lambda state: _has_thorium(state, self.player) and
+                                            _has_nuclear_production_complex(state, self.player))
         self.__connect_regions(self.node_laser_drill, self.node_water_extractor,
                                lambda state: _has_salt_flats(state, self.player) and
                                             _has_metaglass(state, self.player))
@@ -776,25 +763,26 @@ class MindustryRegions:
                                lambda state: _has_thorium(state, self.player))
         self.__connect_regions(self.node_graphite_press, self.node_pyratite_mixer)
         self.__connect_regions(self.node_pyratite_mixer, self.node_blast_mixer,
-                               lambda state: _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_pyratite(state, self.player) and
+                                            _has_spore_pod(state, self.player))
         self.__connect_regions(self.node_graphite_press, self.node_silicon_smelter)
         self.__connect_regions(self.node_silicon_smelter, self.node_spore_press,
                                lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_spore_press, self.node_coal_centrifuge,
                                lambda state: _has_titanium(state, self.player) and
-                                            _has_graphite(state, self.player))
-        self.__connect_regions(self.node_coal_centrifuge, self.node_multi_press,
-                               lambda state: _has_titanium(state, self.player))
+                                            _has_graphite(state, self.player) and
+                                            _has_oil(state, self.player))
+        self.__connect_regions(self.node_coal_centrifuge, self.node_multi_press)
         self.__connect_regions(self.node_multi_press, self.node_silicon_crucible,
                                lambda state: _has_metaglass(state, self.player) and
-                                            _has_plastanium(state, self.player))
+                                            _has_plastanium(state, self.player) and
+                                            _has_pyratite(state, self.player))
         self.__connect_regions(self.node_spore_press, self.node_plastanium_compressor,
                                lambda state: _has_windswept_islands(state, self.player) and
-                                            _has_graphite(state, self.player) and
                                             _has_titanium(state, self.player))
         self.__connect_regions(self.node_plastanium_compressor, self.node_phase_weaver,
                                lambda state: _has_tar_field(state, self.player) and
-                                            _has_silicon(state, self.player) and
                                             _has_thorium(state, self.player))
         self.__connect_regions(self.node_silicon_smelter, self.node_kiln,
                                lambda state: _has_the_craters(state, self.player) and
@@ -804,7 +792,8 @@ class MindustryRegions:
         self.__connect_regions(self.node_incinerator, self.node_melter)
         self.__connect_regions(self.node_melter, self.node_surge_smelter,
                                lambda state: _has_silicon(state, self.player) and
-                                            _has_thorium(state, self.player))
+                                            _has_thorium(state, self.player) and
+                                            _has_titanium(state, self.player))
         self.__connect_regions(self.node_melter, self.node_separator,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_separator, self.node_disassembler,
@@ -835,7 +824,7 @@ class MindustryRegions:
                                             _has_silicon(state, self.player))
 
         self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator,
-                               lambda state: _has_lead(state, self.player))
+                               lambda state: _has_coal(state, self.player))
         self.__connect_regions(self.node_combustion_generator, self.node_power_node)
         self.__connect_regions(self.node_power_node, self.node_large_power_node,
                                lambda state: _has_silicon(state, self.player) and
@@ -844,7 +833,8 @@ class MindustryRegions:
                                lambda state: _has_plastanium(state, self.player) and
                                             _has_metaglass(state, self.player))
         self.__connect_regions(self.node_battery_diode, self.node_surge_tower,
-                               lambda state: _has_surge_alloy(state, self.player))
+                               lambda state: _has_surge_alloy(state, self.player) and
+                                            _has_titanium(state, self.player))
         self.__connect_regions(self.node_power_node, self.node_battery)
         self.__connect_regions(self.node_battery, self.node_large_battery,
                                lambda state: _has_titanium(state, self.player) and
@@ -856,11 +846,10 @@ class MindustryRegions:
         self.__connect_regions(self.node_mend_projector, self.node_force_projector,
                                lambda state: _has_impact_0078(state, self.player))
         self.__connect_regions(self.node_force_projector, self.node_overdrive_projector,
-                               lambda state: _has_impact_0078(state, self.player) and
-                                             _has_plastanium(state, self.player))
+                               lambda state: _has_plastanium(state, self.player))
         self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome,
-                               lambda state: _has_impact_0078(state, self.player) and
-                                            _has_surge_alloy(state, self.player))
+                               lambda state: _has_surge_alloy(state, self.player) and
+                                            _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_mend_projector, self.node_repair_point)
         self.__connect_regions(self.node_repair_point, self.node_repair_turret,
                                lambda state: _has_thorium(state, self.player) and
@@ -868,25 +857,26 @@ class MindustryRegions:
         self.__connect_regions(self.node_power_node, self.node_steam_generator,
                                lambda state: _has_the_craters(state, self.player) and
                                             _has_graphite(state, self.player) and
-                                            _has_silicon(state, self.player))
+                                            _has_silicon(state, self.player) and
+                                            _has_coal(state, self.player))
         self.__connect_regions(self.node_steam_generator, self.node_thermal_generator,
                                lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_thermal_generator, self.node_differential_generator,
-                               lambda state: _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player) and
+                                            _has_pyratite(state, self.player) and
+                                            _has_cryofluid(state, self.player))
         self.__connect_regions(self.node_differential_generator, self.node_thorium_reactor,
-                               lambda state: _has_cryofluid(state, self.player))
+                               lambda state: _has_thorium(state, self.player))
         self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor,
-                               lambda state: _has_thorium(state, self.player) and
+                               lambda state: _has_blast_compound(state, self.player) and
                                             _has_surge_alloy(state, self.player))
         self.__connect_regions(self.node_differential_generator, self.node_rtg_generator,
                                lambda state: _has_phase_fabric(state, self.player) and
                                             _has_plastanium(state, self.player))
         self.__connect_regions(self.node_power_node, self.node_solar_panel,
-                               lambda state: _has_lead(state, self.player) and
-                                            _has_silicon(state, self.player))
+                               lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_solar_panel, self.node_large_solar_panel,
-                               lambda state: _has_silicon(state, self.player) and
-                                            _has_phase_fabric(state, self.player))
+                               lambda state: _has_phase_fabric(state, self.player))
 
         self.__connect_regions(self.node_core_shard, self.node_duo)
         self.__connect_regions(self.node_duo, self.node_copper_wall)
@@ -910,15 +900,16 @@ class MindustryRegions:
         self.__connect_regions(self.node_surge_wall, self.node_phase_wall,
                                lambda state: _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_phase_wall, self.node_large_phase_wall)
-        self.__connect_regions(self.node_duo, self.node_scatter,
-                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_duo, self.node_scatter)
         self.__connect_regions(self.node_scatter, self.node_hail,
-                               lambda state: _has_graphite(state, self.player))
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_the_craters(state, self.player))
         self.__connect_regions(self.node_hail, self.node_salvo,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_salvo, self.node_swarmer,
                                lambda state: _has_plastanium(state, self.player) and
-                                            _has_silicon(state, self.player))
+                                            _has_silicon(state, self.player) and
+                                            _has_pyratite(state, self.player))
         self.__connect_regions(self.node_swarmer, self.node_cyclone)
         self.__connect_regions(self.node_cyclone, self.node_spectre,
                                lambda state: _has_nuclear_production_complex(state, self.player) and
@@ -928,9 +919,9 @@ class MindustryRegions:
         self.__connect_regions(self.node_ripple, self.node_fuse,
                                lambda state: _has_thorium(state, self.player))
         self.__connect_regions(self.node_duo, self.node_scorch,
-                               lambda state: _has_graphite(state, self.player))
-        self.__connect_regions(self.node_scorch, self.node_arc,
-                               lambda state: _has_lead(state, self.player))
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_coal(state, self.player))
+        self.__connect_regions(self.node_scorch, self.node_arc)
         self.__connect_regions(self.node_arc, self.node_wave,
                                lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_wave, self.node_parallax,
@@ -940,8 +931,7 @@ class MindustryRegions:
                                lambda state: _has_thorium(state, self.player) and
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_wave, self.node_tsunami,
-                               lambda state: _has_metaglass(state, self.player) and
-                                            _has_titanium(state, self.player) and
+                               lambda state: _has_titanium(state, self.player) and
                                             _has_thorium(state, self.player))
         self.__connect_regions(self.node_arc, self.node_lancer,
                                lambda state: _has_silicon(state, self.player) and
@@ -954,8 +944,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_lancer, self.node_shock_mine)
 
         self.__connect_regions(self.node_core_shard, self.node_ground_factory,
-                               lambda state: _has_lead(state, self.player) and
-                                            _has_silicon(state, self.player))
+                               lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_ground_factory, self.node_dagger)
         self.__connect_regions(self.node_dagger, self.node_mace,
                                lambda state: _has_graphite(state, self.player))
@@ -969,10 +958,10 @@ class MindustryRegions:
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_dagger, self.node_nova,
                                lambda state: _has_titanium(state, self.player))
-        self.__connect_regions(self.node_nova, self.node_pulsar)
+        self.__connect_regions(self.node_nova, self.node_pulsar,
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_pulsar, self.node_quasar,
-                               lambda state: _has_titanium(state, self.player) and
-                                            _has_metaglass(state, self.player))
+                               lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_quasar, self.node_vela,
                                lambda state: _has_plastanium(state, self.player))
         self.__connect_regions(self.node_vela, self.node_corvus,
@@ -980,7 +969,8 @@ class MindustryRegions:
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_dagger, self.node_crawler,
                                lambda state: _has_coal(state, self.player))
-        self.__connect_regions(self.node_crawler, self.node_atrax)
+        self.__connect_regions(self.node_crawler, self.node_atrax,
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_atrax, self.node_spiroct,
                                lambda state: _has_titanium(state, self.player) and
                                             _has_metaglass(state, self.player))
@@ -1019,8 +1009,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_risso, self.node_minke,
                                lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_minke, self.node_bryde,
-                               lambda state: _has_titanium(state, self.player) and
-                                            _has_metaglass(state, self.player))
+                               lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_bryde, self.node_sei,
                                lambda state: _has_plastanium(state, self.player))
         self.__connect_regions(self.node_sei, self.node_omura,
@@ -1028,7 +1017,6 @@ class MindustryRegions:
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_risso, self.node_retusa,
                                lambda state: _has_windswept_islands(state, self.player) and
-                                            _has_metaglass(state, self.player) and
                                             _has_titanium(state, self.player))
         self.__connect_regions(self.node_retusa, self.node_oxynoe,
                                lambda state: _has_coastline(state, self.player) and
@@ -1038,7 +1026,8 @@ class MindustryRegions:
                                lambda state: _has_plastanium(state, self.player))
         self.__connect_regions(self.node_aegires, self.node_navanax,
                                lambda state: _has_phase_fabric(state, self.player) and
-                                            _has_surge_alloy(state, self.player))
+                                            _has_surge_alloy(state, self.player) and
+                                            _has_naval_fortress(state, self.player))
 
         self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor,
                                lambda state: _has_biomass_synthesis_facility(state, self.player))
@@ -1050,8 +1039,8 @@ class MindustryRegions:
                                             _has_plastanium(state, self.player) and
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor,
-                               lambda state: _has_lead(state, self.player) and
-                                            _has_surge_alloy(state, self.player))
+                               lambda state: _has_surge_alloy(state, self.player))
+
         self.__connect_regions(self.node_core_shard, self.node_ground_zero)
         self.__connect_regions(self.node_ground_zero, self.node_frozen_forest)
         self.__connect_regions(self.node_frozen_forest, self.node_the_craters,
@@ -1063,7 +1052,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_windswept_islands, self.node_tar_fields,
                                lambda state: _has_windswept_islands(state, self.player))
         self.__connect_regions(self.node_tar_fields, self.node_impact_0078,
-                               lambda state: _has_impact_0078(state, self.player))
+                               lambda state: _has_tar_field(state, self.player))
         self.__connect_regions(self.node_impact_0078, self.node_desolate_rift,
                                lambda state: _has_impact_0078(state, self.player))
         self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal,
@@ -1089,8 +1078,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_core_shard, self.node_copper)
         self.__connect_regions(self.node_copper, self.node_water)
         self.__connect_regions(self.node_copper, self.node_lead)
-        self.__connect_regions(self.node_lead, self.node_titanium,
-                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_lead, self.node_titanium)
         self.__connect_regions(self.node_titanium, self.node_cryofluid,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_titanium, self.node_thorium,
@@ -1099,12 +1087,10 @@ class MindustryRegions:
                                lambda state: _has_thorium(state, self.player))
         self.__connect_regions(self.node_thorium, self.node_phase_fabric,
                                lambda state: _has_thorium(state, self.player))
-        self.__connect_regions(self.node_lead, self.node_metaglass,
-                               lambda state: _has_lead(state, self.player))
+        self.__connect_regions(self.node_lead, self.node_metaglass)
         self.__connect_regions(self.node_copper, self.node_sand)
         self.__connect_regions(self.node_sand, self.node_scrap)
-        self.__connect_regions(self.node_scrap, self.node_slag,
-                               lambda state: _has_scrap(state, self.player))
+        self.__connect_regions(self.node_scrap, self.node_slag)
         self.__connect_regions(self.node_sand, self.node_coal)
         self.__connect_regions(self.node_coal, self.node_graphite,
                                lambda state: _has_coal(state, self.player))
@@ -1350,40 +1336,40 @@ class MindustryRegions:
         self.node_exponential_reconstructor = self.__add_region("Exponential Reconstructor", MindustryLocations.serpulo_exponential_reconstructor)
         self.node_tetrative_reconstructor = self.__add_region("Tetrative Reconstructor", MindustryLocations.serpulo_tetrative_reconstructor)
         self.node_ground_zero = self.__add_region("Ground Zero", None)
-        self.node_frozen_forest = self.__add_region("Frozen Forest", MindustryLocations.serpulo_frozen_forest)
-        self.node_the_craters = self.__add_region("The Craters", MindustryLocations.serpulo_the_craters)
-        self.node_ruinous_shores = self.__add_region("Ruinous Shores", MindustryLocations.serpulo_ruinous_shores)
-        self.node_windswept_islands = self.__add_region("Windswept Islands", MindustryLocations.serpulo_windswept_islands)
-        self.node_tar_fields = self.__add_region("Tar Fields", MindustryLocations.serpulo_tar_fields)
-        self.node_impact_0078 = self.__add_region("Impact 0078", MindustryLocations.serpulo_impact_0078)
-        self.node_desolate_rift = self.__add_region("Desolate Rift", MindustryLocations.serpulo_desolate_rift)
-        self.node_planetary_launch_terminal = self.__add_region("Planetary Launch Terminal", MindustryLocations.serpulo_planetary_launch_terminal)
-        self.node_extraction_outpost = self.__add_region("Extraction Outpost", MindustryLocations.serpulo_extraction_outpost)
-        self.node_salt_flats = self.__add_region("Salt Flats", MindustryLocations.serpulo_salt_flats)
-        self.node_coastline = self.__add_region("Coastline", MindustryLocations.serpulo_coastline)
-        self.node_naval_fortress = self.__add_region("Naval Fortress", MindustryLocations.serpulo_naval_fortress)
-        self.node_overgrowth = self.__add_region("Overgrowth", MindustryLocations.serpulo_overgrowth)
-        self.node_biomass_synthesis_facility = self.__add_region("Biomass Synthesis Facility", MindustryLocations.serpulo_biomass_synthesis_facility)
-        self.node_stained_mountains = self.__add_region("Stained Mountains", MindustryLocations.serpulo_stained_mountains)
-        self.node_fungal_pass = self.__add_region("Fungal Pass", MindustryLocations.serpulo_fungal_pass)
-        self.node_nuclear_production_complex = self.__add_region("Nuclear Production Complex", MindustryLocations.serpulo_nuclear_production_complex)
+        self.node_frozen_forest = self.__add_region("Frozen Forest", None)
+        self.node_the_craters = self.__add_region("The Craters", None)
+        self.node_ruinous_shores = self.__add_region("Ruinous Shores", None)
+        self.node_windswept_islands = self.__add_region("Windswept Islands", None)
+        self.node_tar_fields = self.__add_region("Tar Fields", None)
+        self.node_impact_0078 = self.__add_region("Impact 0078", None)
+        self.node_desolate_rift = self.__add_region("Desolate Rift", None)
+        self.node_planetary_launch_terminal = self.__add_region("Planetary Launch Terminal", None)
+        self.node_extraction_outpost = self.__add_region("Extraction Outpost", None)
+        self.node_salt_flats = self.__add_region("Salt Flats", None)
+        self.node_coastline = self.__add_region("Coastline", None)
+        self.node_naval_fortress = self.__add_region("Naval Fortress", None)
+        self.node_overgrowth = self.__add_region("Overgrowth", None)
+        self.node_biomass_synthesis_facility = self.__add_region("Biomass Synthesis Facility", None)
+        self.node_stained_mountains = self.__add_region("Stained Mountains", None)
+        self.node_fungal_pass = self.__add_region("Fungal Pass", None)
+        self.node_nuclear_production_complex = self.__add_region("Nuclear Production Complex", None)
         self.node_copper = self.__add_region("Copper", None)
         self.node_water = self.__add_region("Water", None)
         self.node_sand = self.__add_region("Sand", None)
-        self.node_lead = self.__add_region("Lead", MindustryLocations.serpulo_lead)
-        self.node_titanium = self.__add_region("Titanium", MindustryLocations.serpulo_titanium)
-        self.node_cryofluid = self.__add_region("Cryofluid", MindustryLocations.serpulo_cryofluid)
-        self.node_thorium = self.__add_region("Thorium", MindustryLocations.serpulo_thorium)
-        self.node_surge_alloy = self.__add_region("Surge Alloy", MindustryLocations.serpulo_surge_alloy)
-        self.node_phase_fabric = self.__add_region("Phase Fabric", MindustryLocations.serpulo_phase_fabric)
-        self.node_metaglass = self.__add_region("Metaglass", MindustryLocations.serpulo_metaglass)
-        self.node_scrap = self.__add_region("Scrap", MindustryLocations.serpulo_scrap)
-        self.node_slag = self.__add_region("Slag", MindustryLocations.serpulo_slag)
-        self.node_coal = self.__add_region("Coal", MindustryLocations.serpulo_coal)
-        self.node_graphite = self.__add_region("Graphite", MindustryLocations.serpulo_graphite)
-        self.node_silicon = self.__add_region("Silicon", MindustryLocations.serpulo_silicon)
-        self.node_pyratite = self.__add_region("Pyratite", MindustryLocations.serpulo_pyratite)
-        self.node_blast_compound = self.__add_region("Blast Compound", MindustryLocations.serpulo_blast_compound)
-        self.node_spore_pod = self.__add_region("Spore Pod", MindustryLocations.serpulo_spore_pod)
-        self.node_oil = self.__add_region("Oil", MindustryLocations.serpulo_oil)
-        self.node_plastanium = self.__add_region("Plastanium", MindustryLocations.serpulo_plastanium)
+        self.node_lead = self.__add_region("Lead", None)
+        self.node_titanium = self.__add_region("Titanium", None)
+        self.node_cryofluid = self.__add_region("Cryofluid", None)
+        self.node_thorium = self.__add_region("Thorium", None)
+        self.node_surge_alloy = self.__add_region("Surge Alloy", None)
+        self.node_phase_fabric = self.__add_region("Phase Fabric", None)
+        self.node_metaglass = self.__add_region("Metaglass", None)
+        self.node_scrap = self.__add_region("Scrap", None)
+        self.node_slag = self.__add_region("Slag", None)
+        self.node_coal = self.__add_region("Coal", None)
+        self.node_graphite = self.__add_region("Graphite", None)
+        self.node_silicon = self.__add_region("Silicon", None)
+        self.node_pyratite = self.__add_region("Pyratite", None)
+        self.node_blast_compound = self.__add_region("Blast Compound", None)
+        self.node_spore_pod = self.__add_region("Spore Pod", None)
+        self.node_oil = self.__add_region("Oil", None)
+        self.node_plastanium = self.__add_region("Plastanium", None)

@@ -113,5 +113,3 @@ class MindustryWorld(World):
         super(MindustryWorld, self).__init__(multiworld, player)
         self.regions = MindustryRegions(multiworld, player)
         self.exclude = []
-
-
