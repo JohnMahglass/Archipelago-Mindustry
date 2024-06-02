@@ -7,7 +7,7 @@ from worlds.mindustry.Items import item_table, MindustryItem, ItemType
 from worlds.mindustry.Locations import location_table
 from worlds.mindustry.Options import MindustryOptions
 from worlds.mindustry.Regions import MindustryRegions
-
+from Utils import visualize_regions
 
 class MindustryWeb(WebWorld):
     """Mindustry web page for Archipelago"""
@@ -57,13 +57,12 @@ class MindustryWorld(World):
         """
         Create every Region in `regions`
         """
-        self.regions.add_regions_to_world()
         self.regions.connect_regions()
         self.regions.add_event_locations()
 
     def create_item(self, name: str) -> MindustryItem:
         """
-        Create an MindustryItem using `name' as item name.
+        Create an MindustryItem using `name` as item name.
         """
         result: MindustryItem
         try:
