@@ -20,9 +20,9 @@ class MindustryLocation(Location):
 
 class MindustryLocations:
 
-    serpulo_conveyor = {
-        "Node Conveyor": MINDUSTRY_BASE_ID + 0,
-    }
+    #serpulo_conveyor = {
+    #    "Node Conveyor": MINDUSTRY_BASE_ID + 0,
+    #}
     serpulo_junction = {
         "Node Junction": MINDUSTRY_BASE_ID + 1,
     }
@@ -86,9 +86,9 @@ class MindustryLocations:
     serpulo_core_nucleus = {
         "Node Core: Nucleus": MINDUSTRY_BASE_ID + 21,
     }
-    serpulo_mechanical_drill = {
-        "Node Mechanical Drill": MINDUSTRY_BASE_ID + 22,
-    }
+    #serpulo_mechanical_drill = {
+    #    "Node Mechanical Drill": MINDUSTRY_BASE_ID + 22,
+    #}
     serpulo_mechanical_pump = {
         "Node Mechanical Pump": MINDUSTRY_BASE_ID + 23,
     }
@@ -293,12 +293,12 @@ class MindustryLocations:
     serpulo_large_solar_panel = {
         "Node Large Solar Panel": MINDUSTRY_BASE_ID + 90,
     }
-    serpulo_duo = {
-        "Node Duo": MINDUSTRY_BASE_ID + 91,
-    }
-    serpulo_copper_wall = {
-        "Node Copper Wall": MINDUSTRY_BASE_ID + 92,
-    }
+    #serpulo_duo = {
+    #    "Node Duo": MINDUSTRY_BASE_ID + 91,
+    #}
+    #serpulo_copper_wall = {
+    #    "Node Copper Wall": MINDUSTRY_BASE_ID + 92,
+    #}
     serpulo_large_copper_wall = {
         "Node Large Copper Wall": MINDUSTRY_BASE_ID + 93,
     }
@@ -338,9 +338,9 @@ class MindustryLocations:
     serpulo_large_phase_wall = {
         "Node Large Phase Wall": MINDUSTRY_BASE_ID + 105,
     }
-    serpulo_scatter = {
-        "Node Scatter": MINDUSTRY_BASE_ID + 106,
-    }
+    #serpulo_scatter = {
+    #    "Node Scatter": MINDUSTRY_BASE_ID + 106,
+    #}
     serpulo_hail = {
         "Node Hail": MINDUSTRY_BASE_ID + 107,
     }
@@ -622,7 +622,7 @@ class MindustryLocations:
     #}
 
 location_table = {
-    **MindustryLocations.serpulo_conveyor,
+    #**MindustryLocations.serpulo_conveyor,
     **MindustryLocations.serpulo_junction,
     **MindustryLocations.serpulo_router,
     **MindustryLocations.serpulo_launch_pad,
@@ -644,7 +644,7 @@ location_table = {
     **MindustryLocations.serpulo_plastanium_conveyor,
     **MindustryLocations.serpulo_core_foundation,
     **MindustryLocations.serpulo_core_nucleus,
-    **MindustryLocations.serpulo_mechanical_drill,
+    #**MindustryLocations.serpulo_mechanical_drill,
     **MindustryLocations.serpulo_mechanical_pump,
     **MindustryLocations.serpulo_conduit,
     **MindustryLocations.serpulo_liquid_junction,
@@ -713,8 +713,8 @@ location_table = {
     **MindustryLocations.serpulo_rtg_generator,
     **MindustryLocations.serpulo_solar_panel,
     **MindustryLocations.serpulo_large_solar_panel,
-    **MindustryLocations.serpulo_duo,
-    **MindustryLocations.serpulo_copper_wall,
+    #**MindustryLocations.serpulo_duo,
+    #**MindustryLocations.serpulo_copper_wall,
     **MindustryLocations.serpulo_large_copper_wall,
     **MindustryLocations.serpulo_titanium_wall,
     **MindustryLocations.serpulo_large_titanium_wall,
@@ -728,7 +728,7 @@ location_table = {
     **MindustryLocations.serpulo_large_surge_wall,
     **MindustryLocations.serpulo_phase_wall,
     **MindustryLocations.serpulo_large_phase_wall,
-    **MindustryLocations.serpulo_scatter,
+    #**MindustryLocations.serpulo_scatter,
     **MindustryLocations.serpulo_hail,
     **MindustryLocations.serpulo_salvo,
     **MindustryLocations.serpulo_swarmer,
