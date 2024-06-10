@@ -115,10 +115,10 @@ class MindustryWorld(World):
 
     def fill_slot_data(self) -> Dict[str, Any]:
         return {
-            "tutorial_skip": bool (self.options.tutorial_skip),
-            "campaign_choice": self.options.campaign_choice,
-            "sector_behavior": self.options.sector_behavior,
-            "ressource_behavior": self.options.ressource_behavior,
+            "tutorial_skip": bool (self.options.tutorial_skip.value),
+            "campaign_choice": self.options.campaign_choice.value,
+            "sector_behavior": self.options.sector_behavior.value,
+            "ressource_behavior": self.options.ressource_behavior.value,
             "disable_invasion": bool (self.options.disable_invasions.value),
             "early_ressources": bool (self.options.early_ressources.value)
         }
