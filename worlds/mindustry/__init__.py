@@ -1,4 +1,4 @@
-from typing import ClassVar, Dict, List
+from typing import ClassVar, Dict, List, Mapping, Any
 
 from BaseClasses import MultiWorld, ItemClassification
 from worlds.AutoWorld import World, WebWorld
@@ -112,3 +112,13 @@ class MindustryWorld(World):
         super(MindustryWorld, self).__init__(multiworld, player)
         self.regions = MindustryRegions(multiworld, player)
         self.exclude = []
+
+    def fill_slot_data(self) -> Dict[str, Any]:
+        return {
+            "tutorial_skip": bool (self.options.tutorial_skip),
+            "campaign_choice": self.options.campaign_choice,
+            "sector_behavior": self.options.sector_behavior,
+            "ressource_behavior": self.options.ressource_behavior,
+            "disable_invasion": bool (self.options.disable_invasions.value),
+            "early_ressources": bool (self.options.early_ressources.value)
+        }
