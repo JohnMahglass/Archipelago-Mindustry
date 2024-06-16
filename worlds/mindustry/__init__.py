@@ -95,8 +95,10 @@ class MindustryWorld(World):
                 self.multiworld.itempool.append(self.create_item(self.get_filler_item_name()))
             else:
                 if name not in self.exclude:
-                    item = self.create_item(name)
-                    self.multiworld.itempool.append(item)
+                    item_count = item_table.get(name).count
+                    for i in range(item_count):
+                        item = self.create_item(name)
+                        self.multiworld.itempool.append(item)
 
 
     def set_rules(self) -> None:
