@@ -363,23 +363,12 @@ class MindustryRegions:
 
 
     def connect_regions(self) -> None:
-        #if self.options.campaign_choice == 0:
-            #self.__connect_serpulo_campaign()
-        #elif self.options.campaign_choice == 1:
-            #self.__connect_erekir_campaign()
-        #elif self.options.campaign_choice == 2:
-            #self.__connect_all_campaign()
-        #else:
-            #raise ValueError("Invalid campaign choice")
         self.__connect_serpulo_campaign()
 
     def add_regions_to_world(self) -> None:
         """
         Add every region to the `world`
         """
-        #self.multiworld.regions.append(self.menu) REGIONS ADDED ON CREATION
-        #self.multiworld.regions.append(self.victory)
-        #self.__add_serpulo_regions_to_world()
         pass
 
     def add_event_locations(self) -> None:
@@ -415,217 +404,6 @@ class MindustryRegions:
         )
         region.locations.append(location)
         location.place_locked_item(MindustryItem(event_name, ItemClassification.progression, None, self.player))
-
-
-    #This method is not used anymore
-    #__add_serpulo_regions_to_world(self):
-    #"""Add every region to the `world`"""
-    #self.multiworld.regions.append(self.serpulo)
-    #self.multiworld.regions.append(self.node_core_shard)
-    #self.multiworld.regions.append(self.node_conveyor)
-    #self.multiworld.regions.append(self.node_junction)
-    #self.multiworld.regions.append(self.node_router)
-    #self.multiworld.regions.append(self.node_launch_pad)
-    #self.multiworld.regions.append(self.node_distributor)
-    #self.multiworld.regions.append(self.node_sorter)
-    #self.multiworld.regions.append(self.node_inverted_sorter)
-    #self.multiworld.regions.append(self.node_overflow_gate)
-    #self.multiworld.regions.append(self.node_underflow_gate)
-    #self.multiworld.regions.append(self.node_container)
-    #self.multiworld.regions.append(self.node_unloader)
-    #self.multiworld.regions.append(self.node_vault)
-    #self.multiworld.regions.append(self.node_bridge_conveyor)
-    #self.multiworld.regions.append(self.node_titanium_conveyor)
-    #self.multiworld.regions.append(self.node_phase_conveyor)
-    #self.multiworld.regions.append(self.node_mass_driver)
-    #self.multiworld.regions.append(self.node_payload_conveyor)
-    #self.multiworld.regions.append(self.node_payload_router)
-    #self.multiworld.regions.append(self.node_armored_conveyor)
-    #self.multiworld.regions.append(self.node_plastanium_conveyor)
-    #self.multiworld.regions.append(self.node_core_foundation)
-    #self.multiworld.regions.append(self.node_core_nucleus)
-    #self.multiworld.regions.append(self.node_mechanical_drill)
-    #self.multiworld.regions.append(self.node_mechanical_pump)
-    #self.multiworld.regions.append(self.node_conduit)
-    #self.multiworld.regions.append(self.node_liquid_junction)
-    #self.multiworld.regions.append(self.node_liquid_router)
-    #self.multiworld.regions.append(self.node_liquid_container)
-    #self.multiworld.regions.append(self.node_liquid_tank)
-    #self.multiworld.regions.append(self.node_bridge_conduit)
-    #self.multiworld.regions.append(self.node_pulse_conduit)
-    #self.multiworld.regions.append(self.node_phase_conduit)
-    #self.multiworld.regions.append(self.node_plated_conduit)
-    #self.multiworld.regions.append(self.node_rotary_pump)
-    #self.multiworld.regions.append(self.node_impulse_pump)
-    #self.multiworld.regions.append(self.node_graphite_press)
-    #self.multiworld.regions.append(self.node_pneumatic_drill)
-    #self.multiworld.regions.append(self.node_cultivator)
-    #self.multiworld.regions.append(self.node_laser_drill)
-    #self.multiworld.regions.append(self.node_airblast_drill)
-    #self.multiworld.regions.append(self.node_water_extractor)
-    #self.multiworld.regions.append(self.node_oil_extractor)
-    #self.multiworld.regions.append(self.node_pyratite_mixer)
-    #self.multiworld.regions.append(self.node_blast_mixer)
-    #self.multiworld.regions.append(self.node_silicon_smelter)
-    #self.multiworld.regions.append(self.node_spore_press)
-    #self.multiworld.regions.append(self.node_coal_centrifuge)
-    #self.multiworld.regions.append(self.node_multi_press)
-    #self.multiworld.regions.append(self.node_silicon_crucible)
-    #self.multiworld.regions.append(self.node_plastanium_compressor)
-    #self.multiworld.regions.append(self.node_phase_weaver)
-    #self.multiworld.regions.append(self.node_kiln)
-    #self.multiworld.regions.append(self.node_pulveriser)
-    #self.multiworld.regions.append(self.node_incinerator)
-    #self.multiworld.regions.append(self.node_melter)
-    #self.multiworld.regions.append(self.node_surge_smelter)
-    #self.multiworld.regions.append(self.node_separator)
-    #self.multiworld.regions.append(self.node_disassembler)
-    #self.multiworld.regions.append(self.node_cryofluid_mixer)
-    #self.multiworld.regions.append(self.node_micro_processor)
-    #self.multiworld.regions.append(self.node_switch)
-    #self.multiworld.regions.append(self.node_message)
-    #self.multiworld.regions.append(self.node_logic_display)
-    #self.multiworld.regions.append(self.node_large_logic_display)
-    #self.multiworld.regions.append(self.node_memory_cell)
-    #self.multiworld.regions.append(self.node_memory_bank)
-    #self.multiworld.regions.append(self.node_logic_processor)
-    #self.multiworld.regions.append(self.node_hyper_processor)
-    #self.multiworld.regions.append(self.node_illuminator)
-    #self.multiworld.regions.append(self.node_combustion_generator)
-    #self.multiworld.regions.append(self.node_power_node)
-    #self.multiworld.regions.append(self.node_large_power_node)
-    #self.multiworld.regions.append(self.node_battery_diode)
-    #self.multiworld.regions.append(self.node_surge_tower)
-    #self.multiworld.regions.append(self.node_battery)
-    #self.multiworld.regions.append(self.node_large_battery)
-    #self.multiworld.regions.append(self.node_mender)
-    #self.multiworld.regions.append(self.node_mend_projector)
-    #self.multiworld.regions.append(self.node_force_projector)
-    #self.multiworld.regions.append(self.node_overdrive_projector)
-    #self.multiworld.regions.append(self.node_overdrive_dome)
-    #self.multiworld.regions.append(self.node_repair_point)
-    #self.multiworld.regions.append(self.node_repair_turret)
-    #self.multiworld.regions.append(self.node_steam_generator)
-    #self.multiworld.regions.append(self.node_thermal_generator)
-    #self.multiworld.regions.append(self.node_differential_generator)
-    #self.multiworld.regions.append(self.node_thorium_reactor)
-    #self.multiworld.regions.append(self.node_impact_reactor)
-    #self.multiworld.regions.append(self.node_rtg_generator)
-    #self.multiworld.regions.append(self.node_solar_panel)
-    #self.multiworld.regions.append(self.node_large_solar_panel)
-    #self.multiworld.regions.append(self.node_duo)
-    #self.multiworld.regions.append(self.node_copper_wall)
-    #self.multiworld.regions.append(self.node_large_copper_wall)
-    #self.multiworld.regions.append(self.node_titanium_wall)
-    #self.multiworld.regions.append(self.node_large_titanium_wall)
-    #self.multiworld.regions.append(self.node_door)
-    #self.multiworld.regions.append(self.node_large_door)
-    #self.multiworld.regions.append(self.node_plastanium_wall)
-    #self.multiworld.regions.append(self.node_large_plastanium_wall)
-    #self.multiworld.regions.append(self.node_thorium_wall)
-    #self.multiworld.regions.append(self.node_large_thorium_wall)
-    #self.multiworld.regions.append(self.node_surge_wall)
-    #self.multiworld.regions.append(self.node_large_surge_wall)
-    #self.multiworld.regions.append(self.node_phase_wall)
-    #self.multiworld.regions.append(self.node_large_phase_wall)
-    #self.multiworld.regions.append(self.node_scatter)
-    #self.multiworld.regions.append(self.node_hail)
-    #self.multiworld.regions.append(self.node_salvo)
-    #self.multiworld.regions.append(self.node_swarmer)
-    #self.multiworld.regions.append(self.node_cyclone)
-    #self.multiworld.regions.append(self.node_spectre)
-    #self.multiworld.regions.append(self.node_ripple)
-    #self.multiworld.regions.append(self.node_fuse)
-    #self.multiworld.regions.append(self.node_scorch)
-    #self.multiworld.regions.append(self.node_arc)
-    #self.multiworld.regions.append(self.node_wave)
-    #self.multiworld.regions.append(self.node_parallax)
-    #self.multiworld.regions.append(self.node_segment)
-    #self.multiworld.regions.append(self.node_tsunami)
-    #self.multiworld.regions.append(self.node_lancer)
-    #self.multiworld.regions.append(self.node_meltdown)
-    #self.multiworld.regions.append(self.node_foreshadow)
-    #self.multiworld.regions.append(self.node_shock_mine)
-    #self.multiworld.regions.append(self.node_ground_factory)
-    #self.multiworld.regions.append(self.node_dagger)
-    #self.multiworld.regions.append(self.node_mace)
-    #self.multiworld.regions.append(self.node_fortress)
-    #self.multiworld.regions.append(self.node_scepter)
-    #self.multiworld.regions.append(self.node_reign)
-    #self.multiworld.regions.append(self.node_nova)
-    #self.multiworld.regions.append(self.node_pulsar)
-    #self.multiworld.regions.append(self.node_quasar)
-    #self.multiworld.regions.append(self.node_vela)
-    #self.multiworld.regions.append(self.node_corvus)
-    #self.multiworld.regions.append(self.node_crawler)
-    #self.multiworld.regions.append(self.node_atrax)
-    #self.multiworld.regions.append(self.node_spiroct)
-    #self.multiworld.regions.append(self.node_arkyid)
-    #self.multiworld.regions.append(self.node_toxopid)
-    #self.multiworld.regions.append(self.node_air_factory)
-    #self.multiworld.regions.append(self.node_flare)
-    #self.multiworld.regions.append(self.node_horizon)
-    #self.multiworld.regions.append(self.node_zenith)
-    #self.multiworld.regions.append(self.node_antumbra)
-    #self.multiworld.regions.append(self.node_eclipse)
-    #self.multiworld.regions.append(self.node_mono)
-    #self.multiworld.regions.append(self.node_poly)
-    #self.multiworld.regions.append(self.node_mega)
-    #self.multiworld.regions.append(self.node_quad)
-    #self.multiworld.regions.append(self.node_oct)
-    #self.multiworld.regions.append(self.node_naval_factory)
-    #self.multiworld.regions.append(self.node_risso)
-    #self.multiworld.regions.append(self.node_minke)
-    #self.multiworld.regions.append(self.node_bryde)
-    #self.multiworld.regions.append(self.node_sei)
-    #self.multiworld.regions.append(self.node_omura)
-    #self.multiworld.regions.append(self.node_retusa)
-    #self.multiworld.regions.append(self.node_oxynoe)
-    #self.multiworld.regions.append(self.node_cyerce)
-    #self.multiworld.regions.append(self.node_aegires)
-    #self.multiworld.regions.append(self.node_navanax)
-    #self.multiworld.regions.append(self.node_additive_reconstructor)
-    #self.multiworld.regions.append(self.node_multiplicative_reconstructor)
-    #self.multiworld.regions.append(self.node_exponential_reconstructor)
-    #self.multiworld.regions.append(self.node_tetrative_reconstructor)
-    #self.multiworld.regions.append(self.node_ground_zero)
-    #self.multiworld.regions.append(self.node_frozen_forest)
-    #self.multiworld.regions.append(self.node_the_craters)
-    #self.multiworld.regions.append(self.node_ruinous_shores)
-    #self.multiworld.regions.append(self.node_windswept_islands)
-    #self.multiworld.regions.append(self.node_tar_fields)
-    #self.multiworld.regions.append(self.node_impact_0078)
-    #self.multiworld.regions.append(self.node_desolate_rift)
-    #self.multiworld.regions.append(self.node_planetary_launch_terminal)
-    #self.multiworld.regions.append(self.node_extraction_outpost)
-    #self.multiworld.regions.append(self.node_salt_flats)
-    #self.multiworld.regions.append(self.node_coastline)
-    #self.multiworld.regions.append(self.node_naval_fortress)
-    #self.multiworld.regions.append(self.node_overgrowth)
-    #self.multiworld.regions.append(self.node_biomass_synthesis_facility)
-    #self.multiworld.regions.append(self.node_stained_mountains)
-    #self.multiworld.regions.append(self.node_fungal_pass)
-    #self.multiworld.regions.append(self.node_nuclear_production_complex)
-    #self.multiworld.regions.append(self.node_water)
-    #self.multiworld.regions.append(self.node_copper)
-    #self.multiworld.regions.append(self.node_sand)
-    #self.multiworld.regions.append(self.node_lead)
-    #self.multiworld.regions.append(self.node_titanium)
-    #self.multiworld.regions.append(self.node_cryofluid)
-    #self.multiworld.regions.append(self.node_thorium)
-    #self.multiworld.regions.append(self.node_surge_alloy)
-    #self.multiworld.regions.append(self.node_phase_fabric)
-    #self.multiworld.regions.append(self.node_metaglass)
-    #self.multiworld.regions.append(self.node_scrap)
-    #self.multiworld.regions.append(self.node_slag)
-    #self.multiworld.regions.append(self.node_coal)
-    #self.multiworld.regions.append(self.node_graphite)
-    #self.multiworld.regions.append(self.node_silicon)
-    #self.multiworld.regions.append(self.node_pyratite)
-    #self.multiworld.regions.append(self.node_blast_compound)
-    #self.multiworld.regions.append(self.node_spore_pod)
-    #self.multiworld.regions.append(self.node_oil)
-    #self.multiworld.regions.append(self.node_plastanium)
 
 
     def __create_campaign(self, campaign: int):
@@ -1149,142 +927,142 @@ class MindustryRegions:
 
     def __initialise_serpulo_rules(self):
         """Initialise rules for Serpulo location"""
-        #add_rule(self.multiworld.get_location("Node Launch Pad", self.player),
-        #         lambda state: _has_extraction_outpost(state, self.player))
+        add_rule(self.multiworld.get_location("Node Launch Pad", self.player),
+                 lambda state: _has_extraction_outpost(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Container", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Unloader", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Vault", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player))
+        add_rule(self.multiworld.get_location("Node Container", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player))
+        add_rule(self.multiworld.get_location("Node Unloader", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player))
+        add_rule(self.multiworld.get_location("Node Vault", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Titanium Conveyor", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Phase Conveyor", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Mass Driver", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Payload Conveyor", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Payload Router", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Armored Conveyor", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Plastanium Conveyor", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Titanium Conveyor", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Phase Conveyor", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Mass Driver", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Payload Conveyor", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Payload Router", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Armored Conveyor", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Plastanium Conveyor", self.player),
+                 lambda state: _has_the_craters(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Pulse Conduit", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Phase Conduit", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Plated Conduit", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Rotary Pump", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Impulse Pump", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Pulse Conduit", self.player),
+                 lambda state: _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Phase Conduit", self.player),
+                 lambda state: _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Plated Conduit", self.player),
+                 lambda state: _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Rotary Pump", self.player),
+                 lambda state: _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Impulse Pump", self.player),
+                 lambda state: _has_windswept_islands(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Pneumatic Drill", self.player),
-        #         lambda state: _has_frozen_forest(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Cultivator", self.player),
-        #         lambda state: _has_frozen_forest(state, self.player) and
-        #                        _has_biomass_synthesis_facility(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Laser Drill", self.player),
-        #         lambda state: _has_frozen_forest(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Airblast Drill", self.player),
-        #         lambda state: _has_frozen_forest(state, self.player) and
-        #                        _has_nuclear_production_complex(state, self.player))
+        add_rule(self.multiworld.get_location("Node Pneumatic Drill", self.player),
+                 lambda state: _has_frozen_forest(state, self.player))
+        add_rule(self.multiworld.get_location("Node Cultivator", self.player),
+                 lambda state: _has_frozen_forest(state, self.player) and
+                                _has_biomass_synthesis_facility(state, self.player))
+        add_rule(self.multiworld.get_location("Node Laser Drill", self.player),
+                 lambda state: _has_frozen_forest(state, self.player))
+        add_rule(self.multiworld.get_location("Node Airblast Drill", self.player),
+                 lambda state: _has_frozen_forest(state, self.player) and
+                                _has_nuclear_production_complex(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Water Extractor", self.player),
-        #         lambda state: _has_frozen_forest(state, self.player) and
-        #                        _has_salt_flats(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Oil Extractor", self.player),
-        #         lambda state: _has_frozen_forest(state, self.player) and
-        #                       _has_salt_flats(state, self.player))
+        add_rule(self.multiworld.get_location("Node Water Extractor", self.player),
+                 lambda state: _has_frozen_forest(state, self.player) and
+                                _has_salt_flats(state, self.player))
+        add_rule(self.multiworld.get_location("Node Oil Extractor", self.player),
+                 lambda state: _has_frozen_forest(state, self.player) and
+                               _has_salt_flats(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Plastanium Compressor", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Phase Weaver", self.player),
-        #         lambda state: _has_windswept_islands(state, self.player) and
-        #                       _has_tar_field(state, self.player))
+        add_rule(self.multiworld.get_location("Node Plastanium Compressor", self.player),
+                 lambda state: _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Phase Weaver", self.player),
+                 lambda state: _has_windswept_islands(state, self.player) and
+                               _has_tar_field(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Kiln", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Pulveriser", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Incinerator", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Melter", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Surge Smelter", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Separator", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Disassembler", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Cryofluid Mixer", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Kiln", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Pulveriser", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Incinerator", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Melter", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Surge Smelter", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Separator", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Disassembler", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Cryofluid Mixer", self.player),
+                 lambda state: _has_the_craters(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Hail", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Salvo", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Swarmer", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Cyclone", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Spectre", self.player),
-        #         lambda state: _has_the_craters(state, self.player) and
-        #                        _has_nuclear_production_complex(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Ripple", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Fuse", self.player),
-        #         lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Hail", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Salvo", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Swarmer", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Cyclone", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Spectre", self.player),
+                 lambda state: _has_the_craters(state, self.player) and
+                                _has_nuclear_production_complex(state, self.player))
+        add_rule(self.multiworld.get_location("Node Ripple", self.player),
+                 lambda state: _has_the_craters(state, self.player))
+        add_rule(self.multiworld.get_location("Node Fuse", self.player),
+                 lambda state: _has_the_craters(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Naval Factory", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Risso", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Minke", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Bryde", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Sei", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Omura", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Retusa", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player) and
-        #                        _has_windswept_islands(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Oxynoe", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player) and
-        #                       _has_windswept_islands(state, self.player) and
-        #                        _has_coastline(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Cyerce", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player) and
-        #                       _has_windswept_islands(state, self.player) and
-        #                       _has_coastline(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Aegires", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player) and
-        #                       _has_windswept_islands(state, self.player) and
-        #                       _has_coastline(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Navanax", self.player),
-        #         lambda state: _has_ruinous_shores(state, self.player) and
-        #                       _has_windswept_islands(state, self.player) and
-        #                       _has_coastline(state, self.player) and
-        #                        _has_naval_fortress(state, self.player))
+        add_rule(self.multiworld.get_location("Node Naval Factory", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player))
+        add_rule(self.multiworld.get_location("Node Risso", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player))
+        add_rule(self.multiworld.get_location("Node Minke", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player))
+        add_rule(self.multiworld.get_location("Node Bryde", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player))
+        add_rule(self.multiworld.get_location("Node Sei", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player))
+        add_rule(self.multiworld.get_location("Node Omura", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player))
+        add_rule(self.multiworld.get_location("Node Retusa", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player) and
+                                _has_windswept_islands(state, self.player))
+        add_rule(self.multiworld.get_location("Node Oxynoe", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player) and
+                               _has_windswept_islands(state, self.player) and
+                                _has_coastline(state, self.player))
+        add_rule(self.multiworld.get_location("Node Cyerce", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player) and
+                               _has_windswept_islands(state, self.player) and
+                               _has_coastline(state, self.player))
+        add_rule(self.multiworld.get_location("Node Aegires", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player) and
+                               _has_windswept_islands(state, self.player) and
+                               _has_coastline(state, self.player))
+        add_rule(self.multiworld.get_location("Node Navanax", self.player),
+                 lambda state: _has_ruinous_shores(state, self.player) and
+                               _has_windswept_islands(state, self.player) and
+                               _has_coastline(state, self.player) and
+                                _has_naval_fortress(state, self.player))
 #
-        #add_rule(self.multiworld.get_location("Node Additive Reconstructor", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Multiplicative Reconstructor", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Exponential Reconstructor", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player) and
-        #                        _has_overgrowth(state, self.player))
-        #add_rule(self.multiworld.get_location("Node Tetrative Reconstructor", self.player),
-        #         lambda state: _has_biomass_synthesis_facility(state, self.player) and
-        #                        _has_overgrowth(state, self.player))
+        add_rule(self.multiworld.get_location("Node Additive Reconstructor", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player))
+        add_rule(self.multiworld.get_location("Node Multiplicative Reconstructor", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player))
+        add_rule(self.multiworld.get_location("Node Exponential Reconstructor", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player) and
+                                _has_overgrowth(state, self.player))
+        add_rule(self.multiworld.get_location("Node Tetrative Reconstructor", self.player),
+                 lambda state: _has_biomass_synthesis_facility(state, self.player) and
+                                _has_overgrowth(state, self.player))
 
 
     def __connect_regions(self, source_region: Region, target_region: Region, rule = None) -> None:
@@ -1294,10 +1072,6 @@ class MindustryRegions:
         entrance = Entrance(source_region.player, source_region.name + " -> " + target_region.name, source_region)
         source_region.exits.append(entrance)
         entrance.connect(target_region)
-
-        #entrance_reverse = Entrance(target_region.player, target_region.name + " -> " + source_region.name, target_region)
-        #target_region.exits.append(entrance_reverse)
-        #entrance_reverse.connect(source_region)
 
         if rule is not None:
             set_rule(entrance, rule)
