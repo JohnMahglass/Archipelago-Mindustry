@@ -9,132 +9,197 @@ from worlds.generic.Rules import set_rule, add_rule
 
 
 def _has_frozen_forest(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Frozen Forest Captured", player)
+    """If the player has unlocked Frozen Forest"""
+    return state.has("Frozen Forest captured", player)
 
 def _has_the_craters(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("The Craters Captured", player)
+    """If the player has unlocked The Craters"""
+    return state.has("The Craters captured", player)
 
 def _has_ruinous_shores(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Ruinous Shores Captured", player)
+    """If the player has unlocked Ruinous Shores"""
+    return state.has("Ruinous Shores captured", player)
 
 def _has_windswept_islands(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Windswept Islands Captured", player)
+    """If the player has unlocked Windswept Islands"""
+    return state.has("Windswept Islands captured", player)
 
-def _has_tar_field(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Tar Fields Captured", player)
+def _has_tar_fields(state:CollectionState, player: int) -> bool:
+    """If the player has unlocked Tar Fields"""
+    return state.has("Tar Fields captured", player)
 
 def _has_impact_0078(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Impact 0078 Captured", player)
+    """If the player has unlocked Impact 0078"""
+    return state.has("Impact 0078 captured", player)
 
 def _has_desolate_rift(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Desolate Rift Captured", player)
+    """If the player has unlocked Desolate Rift"""
+    return state.has("Desolate Rift captured", player)
 
 def _has_planetary_launch_terminal(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Planetary Launch Terminal Captured", player)
+    """If the player has unlocked Planetary Launch Terminal"""
+    return state.has("Planetary Launch Terminal captured", player)
 
 def _has_extraction_outpost(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Extraction Outpost Captured", player)
+    """If the player has unlocked Extraction Outpost"""
+    return state.has("Extraction Outpost captured", player)
 
 def _has_salt_flats(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Salt Flats Captured", player)
+    """If the player has unlocked Salt Flats"""
+    return state.has("Salt Flats captured", player)
 
 def _has_coastline(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Coastline Captured", player)
+    """If the player has unlocked Coastline"""
+    return state.has("Coastline captured", player)
 
 def _has_naval_fortress(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Naval Fortress Captured", player)
+    """If the player has unlocked Naval Fortress"""
+    return state.has("Naval Fortress captured", player)
 
 def _has_overgrowth(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Overgrowth Captured", player)
+    """If the player has unlocked Overgrowth"""
+    return state.has("Overgrowth captured", player)
 
 def _has_biomass_synthesis_facility(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Biomass Synthesis Facility Captured", player)
+    """If the player has unlocked Biomass Synthesis Facility"""
+    return state.has("Biomass Synthesis Facility captured", player)
 
 def _has_stained_mountains(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Stained Mountains Captured", player)
+    """If the player has unlocked Stained Mountains"""
+    return state.has("Stained Mountains captured", player)
 
 def _has_fungal_pass(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Fungal Pass Captured", player)
+    """If the player has unlocked Fungal Pass"""
+    return state.has("Fungal Pass captured", player)
 
 def _has_nuclear_production_complex(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Nuclear Production Complex Captured", player)
+    """If the player has unlocked Nuclear Production Complex"""
+    return state.has("Nuclear Production Complex captured", player)
 
 def _has_titanium(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Titanium Produced", player)
+    """If the player has produced Titanium"""
+    return state.has("Titanium produced", player)
 
 def _has_cryofluid(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Cryofluid Produced", player)
+    """If the player has produced Cryofluid"""
+    return state.has("Cryofluid produced", player)
 
 def _has_thorium(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Thorium Produced", player)
+    """If the player has produced Thorium"""
+    return state.has("Thorium produced", player)
 
 def _has_surge_alloy(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Surge Alloy Produced", player)
+    """If the player has produced Surge Alloy"""
+    return state.has("Surge Alloy produced", player)
 
 def _has_phase_fabric(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Phase Fabric Produced", player)
+    """If the player has produced Phase Fabric"""
+    return state.has("Phase Fabric produced", player)
 
 def _has_metaglass(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Metaglass Produced", player)
+    """If the player has produced Metaglass"""
+    return state.has("Metaglass produced", player)
 
 def _has_coal(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Coal Produced", player)
+    """If the player has produced Coal"""
+    return state.has("Coal produced", player)
 
 def _has_graphite(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Graphite Produced", player)
+    """If the player has produced Graphite"""
+    return state.has("Graphite produced", player)
 
 def _has_silicon(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Silicon Produced", player)
+    """If the player has produced Silicon"""
+    return state.has("Silicon produced", player)
 
 def _has_pyratite(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Pyratite Produced", player)
+    """If the player has produced Pyratite"""
+    return state.has("Pyratite produced", player)
 
 def _has_blast_compound(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Blast Compound Produced", player)
+    """If the player has produced Blast Compound"""
+    return state.has("Blast Compound produced", player)
 
 def _has_spore_pod(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Spore Pod Produced", player)
+    """If the player has produced Spore Pod"""
+    return state.has("Spore Pod produced", player)
 
 def _has_oil(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Oil Produced", player)
+    """If the player has produced Oil"""
+    return state.has("Oil produced", player)
 
 def _has_plastanium(state:CollectionState, player: int) -> bool:
-    """If the player has target in state"""
-    return state.has("Plastanium Produced", player)
+    """If the player has produced Plastanium"""
+    return state.has("Plastanium produced", player)
 
 def _has_electricity(state:CollectionState, player: int) -> bool:
     """If the player has acces to electricity"""
     return state.has("Electricity", player)
+
+def has_mechanical_pump(state:CollectionState, player: int) -> bool:
+    """If the player has received Mechanical Pump"""
+    return state.has("Mechanical Pump received", player)
+
+def _has_graphite_press(state:CollectionState, player: int) -> bool:
+    """If the player has received Graphite Press"""
+    return state.has("Graphite Press received", player)
+
+def _has_pneumatic_drill(state:CollectionState, player: int) -> bool:
+    """If the player has received Pneumatic Drill"""
+    return state.has("Pneumatic Drill received", player)
+
+def _has_cultivator(state:CollectionState, player: int) -> bool:
+    """If the player has received Cultivator"""
+    return state.has("Cultivator received", player)
+
+def _has_laser_drill(state:CollectionState, player: int) -> bool:
+    """If the player received Laser Drill"""
+    return state.has("Laser Drill received", player)
+
+def _has_pyratite_mixer(state:CollectionState, player: int) -> bool:
+    """If the player received Pyratite Mixer"""
+    return state.has("Pyratite Mixer received", player)
+
+def _has_blast_mixer(state:CollectionState, player: int) -> bool:
+    """If the player received Blast Mixer"""
+    return state.has("Blast Mixer received", player)
+
+def _has_silicon_smelter(state:CollectionState, player: int) -> bool:
+    """If the player received Silicon Smelter"""
+    return state.has("Silicon Smelter received", player)
+
+def _has_plastanium_compressor(state:CollectionState, player: int) -> bool:
+    """If the player received Plastanium Compressor"""
+    return state.has("Plastanium Compressor received", player)
+
+def _has_phase_weaver(state:CollectionState, player: int) -> bool:
+    """If the player received Phase Weaver"""
+    return state.has("Phase Weaver received", player)
+
+def _has_kiln(state:CollectionState, player: int) -> bool:
+    """If the player received Kiln"""
+    return state.has("Kiln received", player)
+
+def _has_surge_smelter(state:CollectionState, player: int) -> bool:
+    """If the player received Surge Smelter"""
+    return state.has("Surge Smelter received", player)
+
+def _has_cryofluid_mixer(state:CollectionState, player: int) -> bool:
+    """If the player received Cryofluid Mixer"""
+    return state.has("Cryofluid Mixer received", player)
+
+def _has_ground_factory(state:CollectionState, player:int) -> bool:
+    """If the player received Ground Factory"""
+    return state.has("Ground Factory received", player)
+
+def _has_air_factory(state:CollectionState, player:int) -> bool:
+    """If the player received Air Factory"""
+    return state.has("Air Factory received", player)
+
+def _has_naval_factory(state:CollectionState, player:int) -> bool:
+    """If the player received Naval Factory"""
+    return state.has("Naval Factory", player)
+
 
 class MindustryRegions:
     """
@@ -430,22 +495,22 @@ class MindustryRegions:
         self.__connect_regions(self.menu, self.serpulo)
         self.__connect_regions(self.menu, self.victory,
                                lambda state: _has_frozen_forest(state, self.player) and
-                                            _has_the_craters(state, self.player) and
-                                            _has_ruinous_shores(state, self.player) and
-                                            _has_windswept_islands(state, self.player) and
-                                            _has_tar_field(state, self.player) and
-                                            _has_impact_0078(state, self.player) and
-                                            _has_desolate_rift(state, self.player) and
-                                            _has_planetary_launch_terminal(state, self.player) and
-                                            _has_extraction_outpost(state, self.player) and
-                                            _has_salt_flats(state, self.player) and
-                                            _has_coastline(state, self.player) and
-                                            _has_naval_fortress(state, self.player) and
-                                            _has_overgrowth(state, self.player) and
-                                            _has_biomass_synthesis_facility(state, self.player) and
-                                            _has_stained_mountains(state, self.player) and
-                                            _has_fungal_pass(state, self.player) and
-                                            _has_nuclear_production_complex(state, self.player))
+                                             _has_the_craters(state, self.player) and
+                                             _has_ruinous_shores(state, self.player) and
+                                             _has_windswept_islands(state, self.player) and
+                                             _has_tar_fields(state, self.player) and
+                                             _has_impact_0078(state, self.player) and
+                                             _has_desolate_rift(state, self.player) and
+                                             _has_planetary_launch_terminal(state, self.player) and
+                                             _has_extraction_outpost(state, self.player) and
+                                             _has_salt_flats(state, self.player) and
+                                             _has_coastline(state, self.player) and
+                                             _has_naval_fortress(state, self.player) and
+                                             _has_overgrowth(state, self.player) and
+                                             _has_biomass_synthesis_facility(state, self.player) and
+                                             _has_stained_mountains(state, self.player) and
+                                             _has_fungal_pass(state, self.player) and
+                                             _has_nuclear_production_complex(state, self.player))
         self.__connect_regions(self.serpulo, self.node_core_shard)
 
         self.__connect_regions(self.node_core_shard, self.node_conveyor)
@@ -560,8 +625,8 @@ class MindustryRegions:
                                lambda state: _has_windswept_islands(state, self.player) and
                                             _has_titanium(state, self.player))
         self.__connect_regions(self.node_plastanium_compressor, self.node_phase_weaver,
-                               lambda state: _has_tar_field(state, self.player) and
-                                            _has_thorium(state, self.player))
+                               lambda state: _has_tar_fields(state, self.player) and
+                                             _has_thorium(state, self.player))
         self.__connect_regions(self.node_silicon_smelter, self.node_kiln,
                                lambda state: _has_the_craters(state, self.player) and
                                             _has_graphite(state, self.player))
@@ -830,7 +895,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_windswept_islands, self.node_tar_fields,
                               lambda state: _has_windswept_islands(state, self.player))
         self.__connect_regions(self.node_tar_fields, self.node_impact_0078,
-                              lambda state: _has_tar_field(state, self.player))
+                               lambda state: _has_tar_fields(state, self.player))
         self.__connect_regions(self.node_impact_0078, self.node_desolate_rift,
                               lambda state: _has_impact_0078(state, self.player))
         self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal,
@@ -985,7 +1050,7 @@ class MindustryRegions:
                  lambda state: _has_windswept_islands(state, self.player))
         add_rule(self.multiworld.get_location("Node Phase Weaver", self.player),
                  lambda state: _has_windswept_islands(state, self.player) and
-                               _has_tar_field(state, self.player))
+                               _has_tar_fields(state, self.player))
 #
         add_rule(self.multiworld.get_location("Node Kiln", self.player),
                  lambda state: _has_the_craters(state, self.player))
