@@ -86,7 +86,7 @@ def _has_titanium(state:CollectionState, player: int) -> bool:
 def _has_cryofluid(state:CollectionState, player: int) -> bool:
     """If the player has produced Cryofluid"""
     available: bool = False
-    if state.has("Cryofluid produced", player) and _has_electricity(state, player) and _has_cryofluid_mixer((state, player):
+    if state.has("Cryofluid produced", player) and _has_electricity(state, player) and _has_cryofluid_mixer(state, player):
         available = True
     return available
 
