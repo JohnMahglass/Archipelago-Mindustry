@@ -8,273 +8,273 @@ from typing import Optional, Dict
 from worlds.generic.Rules import set_rule, add_rule
 
 
-def _has_frozen_forest(state:CollectionState, player: int) -> bool:
+def _has_frozen_forest(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Frozen Forest"""
     return state.has("Frozen Forest captured", player)
 
-def _has_the_craters(state:CollectionState, player: int) -> bool:
+def _has_the_craters(state: CollectionState, player: int) -> bool:
     """If the player has unlocked The Craters"""
     return state.has("The Craters captured", player)
 
-def _has_ruinous_shores(state:CollectionState, player: int) -> bool:
+def _has_ruinous_shores(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Ruinous Shores"""
     return state.has("Ruinous Shores captured", player)
 
-def _has_windswept_islands(state:CollectionState, player: int) -> bool:
+def _has_windswept_islands(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Windswept Islands"""
     return state.has("Windswept Islands captured", player)
 
-def _has_tar_fields(state:CollectionState, player: int) -> bool:
+def _has_tar_fields(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Tar Fields"""
     return state.has("Tar Fields captured", player)
 
-def _has_impact_0078(state:CollectionState, player: int) -> bool:
+def _has_impact_0078(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Impact 0078"""
     return state.has("Impact 0078 captured", player)
 
-def _has_desolate_rift(state:CollectionState, player: int) -> bool:
+def _has_desolate_rift(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Desolate Rift"""
     return state.has("Desolate Rift captured", player)
 
-def _has_planetary_launch_terminal(state:CollectionState, player: int) -> bool:
+def _has_planetary_launch_terminal(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Planetary Launch Terminal"""
     return state.has("Planetary Launch Terminal captured", player)
 
-def _has_extraction_outpost(state:CollectionState, player: int) -> bool:
+def _has_extraction_outpost(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Extraction Outpost"""
     return state.has("Extraction Outpost captured", player)
 
-def _has_salt_flats(state:CollectionState, player: int) -> bool:
+def _has_salt_flats(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Salt Flats"""
     return state.has("Salt Flats captured", player)
 
-def _has_coastline(state:CollectionState, player: int) -> bool:
+def _has_coastline(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Coastline"""
     return state.has("Coastline captured", player)
 
-def _has_naval_fortress(state:CollectionState, player: int) -> bool:
+def _has_naval_fortress(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Naval Fortress"""
     return state.has("Naval Fortress captured", player)
 
-def _has_overgrowth(state:CollectionState, player: int) -> bool:
+def _has_overgrowth(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Overgrowth"""
     return state.has("Overgrowth captured", player)
 
-def _has_biomass_synthesis_facility(state:CollectionState, player: int) -> bool:
+def _has_biomass_synthesis_facility(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Biomass Synthesis Facility"""
     return state.has("Biomass Synthesis Facility captured", player)
 
-def _has_stained_mountains(state:CollectionState, player: int) -> bool:
+def _has_stained_mountains(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Stained Mountains"""
     return state.has("Stained Mountains captured", player)
 
-def _has_fungal_pass(state:CollectionState, player: int) -> bool:
+def _has_fungal_pass(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Fungal Pass"""
     return state.has("Fungal Pass captured", player)
 
-def _has_nuclear_production_complex(state:CollectionState, player: int) -> bool:
+def _has_nuclear_production_complex(state: CollectionState, player: int) -> bool:
     """If the player has unlocked Nuclear Production Complex"""
     return state.has("Nuclear Production Complex captured", player)
 
-def _has_titanium(state:CollectionState, player: int) -> bool:
+def _has_titanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Titanium"""
     available: bool = False
     if (state.has("Titanium produced", player)) and (_has_pneumatic_drill(state, player)):
         available = True
     return available
 
-def _has_cryofluid(state:CollectionState, player: int) -> bool:
+def _has_cryofluid(state: CollectionState, player: int) -> bool:
     """If the player has produced Cryofluid"""
     available: bool = False
     if state.has("Cryofluid produced", player) and _has_electricity(state, player) and _has_cryofluid_mixer(state, player):
         available = True
     return available
 
-def _has_thorium(state:CollectionState, player: int) -> bool:
+def _has_thorium(state: CollectionState, player: int) -> bool:
     """If the player has produced Thorium"""
     available: bool = False
     if state.has("Thorium produced", player) and _has_electricity(state, player) and _has_laser_drill(state, player):
         available = True
     return available
 
-def _has_surge_alloy(state:CollectionState, player: int) -> bool:
+def _has_surge_alloy(state: CollectionState, player: int) -> bool:
     """If the player has produced Surge Alloy"""
     available: bool = False
     if state.has("Surge Alloy produced", player) and _has_electricity(state, player) and _has_surge_smelter(state, player):
         available = True
     return available
 
-def _has_phase_fabric(state:CollectionState, player: int) -> bool:
+def _has_phase_fabric(state: CollectionState, player: int) -> bool:
     """If the player has produced Phase Fabric"""
     available: bool = False
     if state.has("Phase Fabric produced", player) and _has_electricity(state, player) and _has_phase_weaver(state, player):
         available = True
     return available
 
-def _has_metaglass(state:CollectionState, player: int) -> bool:
+def _has_metaglass(state: CollectionState, player: int) -> bool:
     """If the player has produced Metaglass"""
     available: bool = False
     if state.has("Metaglass produced", player) and _has_electricity(state, player) and _has_kiln(state, player):
         available = True
     return available
 
-def _has_coal(state:CollectionState, player: int) -> bool:
+def _has_coal(state: CollectionState, player: int) -> bool:
     """If the player has produced Coal"""
     return state.has("Coal produced", player)
 
-def _has_graphite(state:CollectionState, player: int) -> bool:
+def _has_graphite(state: CollectionState, player: int) -> bool:
     """If the player has produced Graphite"""
     available: bool = False
     if state.has("Graphite produced", player) and _has_graphite_press(state, player):
         available = True
     return available
 
-def _has_silicon(state:CollectionState, player: int) -> bool:
+def _has_silicon(state: CollectionState, player: int) -> bool:
     """If the player has produced Silicon"""
     available: bool = False
     if state.has("Silicon produced", player) and _has_electricity(state, player) and _has_silicon_smelter(state, player):
         available = True
     return available
 
-def _has_pyratite(state:CollectionState, player: int) -> bool:
+def _has_pyratite(state: CollectionState, player: int) -> bool:
     """If the player has produced Pyratite"""
     available: bool = False
     if state.has("Pyratite produced", player) and _has_electricity(state, player) and _has_pyratite_mixer(state, player):
         available = True
     return available
 
-def _has_blast_compound(state:CollectionState, player: int) -> bool:
+def _has_blast_compound(state: CollectionState, player: int) -> bool:
     """If the player has produced Blast Compound"""
     available: bool = False
     if state.has("Blast Compound produced", player) and _has_electricity(state, player)and _has_blast_mixer(state, player):
         available = True
     return available
 
-def _has_spore_pod(state:CollectionState, player: int) -> bool:
+def _has_spore_pod(state: CollectionState, player: int) -> bool:
     """If the player has produced Spore Pod"""
     available: bool = False
     if state.has("Spore Pod produced", player) and _has_electricity(state, player) and _has_cultivator(state, player):
         available = True
     return available
 
-def _has_oil(state:CollectionState, player: int) -> bool:
+def _has_oil(state: CollectionState, player: int) -> bool:
     """If the player has produced Oil"""
     available: bool = False
     if state.has("Oil produced", player) and _has_mechanical_pump(state, player):
         available = True
     return available
 
-def _has_plastanium(state:CollectionState, player: int) -> bool:
+def _has_plastanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Plastanium"""
     available: bool = False
     if state.has("Plastanium produced", player) and _has_electricity(state, player) and _has_plastanium_compressor(state, player):
         available = True
     return available
 
-def _has_electricity(state:CollectionState, player: int) -> bool:
+def _has_electricity(state: CollectionState, player: int) -> bool:
     """If the player has acces to electricity"""
     return state.has("Electricity available", player)
 
-def _has_mechanical_pump(state:CollectionState, player: int) -> bool:
+def _has_mechanical_pump(state: CollectionState, player: int) -> bool:
     """If the player has received Mechanical Pump"""
     available: bool = False
-    if state.has("Mechanical Pump received", player) and _has_metaglass(state, player):
+    if state.has("Mechanical Pump", player) and _has_metaglass(state, player):
         available = True
     return available
 
-def _has_graphite_press(state:CollectionState, player: int) -> bool:
+def _has_graphite_press(state: CollectionState, player: int) -> bool:
     """If the player has received Graphite Press"""
     available: bool = False
-    if state.has("Graphite Press received", player):
+    if state.has("Graphite Press", player):
         available = True
     return available
 
-def _has_pneumatic_drill(state:CollectionState, player: int) -> bool:
+def _has_pneumatic_drill(state: CollectionState, player: int) -> bool:
     """If the player has received Pneumatic Drill"""
     available: bool = False
-    if state.has("Pneumatic Drill received", player) and _has_graphite(state, player):
+    if state.has("Pneumatic Drill", player) and _has_graphite(state, player):
         available = True
     return available
 
-def _has_cultivator(state:CollectionState, player: int) -> bool:
+def _has_cultivator(state: CollectionState, player: int) -> bool:
     """If the player has received Cultivator"""
     available: bool = False
-    if state.has("Cultivator received", player) and _has_silicon(state, player):
+    if state.has("Cultivator", player) and _has_silicon(state, player):
         available = True
     return available
 
-def _has_laser_drill(state:CollectionState, player: int) -> bool:
+def _has_laser_drill(state: CollectionState, player: int) -> bool:
     """If the player received Laser Drill"""
     available: bool = False
-    if state.has("Laser Drill received", player) and _has_graphite(state, player) and _has_silicon(state, player) and _has_titanium(state, player):
+    if state.has("Laser Drill", player) and _has_graphite(state, player) and _has_silicon(state, player) and _has_titanium(state, player):
         available = True
     return available
 
-def _has_pyratite_mixer(state:CollectionState, player: int) -> bool:
+def _has_pyratite_mixer(state: CollectionState, player: int) -> bool:
     """If the player received Pyratite Mixer"""
-    return state.has("Pyratite Mixer received", player)
+    return state.has("Pyratite Mixer", player)
 
-def _has_blast_mixer(state:CollectionState, player: int) -> bool:
+def _has_blast_mixer(state: CollectionState, player: int) -> bool:
     """If the player received Blast Mixer"""
     available: bool = False
-    if state.has("Blast Mixer received", player) and _has_titanium(state, player):
+    if state.has("Blast Mixer", player) and _has_titanium(state, player):
         available = True
     return available
 
-def _has_silicon_smelter(state:CollectionState, player: int) -> bool:
+def _has_silicon_smelter(state: CollectionState, player: int) -> bool:
     """If the player received Silicon Smelter"""
-    return state.has("Silicon Smelter received", player)
+    return state.has("Silicon Smelter", player)
 
-def _has_plastanium_compressor(state:CollectionState, player: int) -> bool:
+def _has_plastanium_compressor(state: CollectionState, player: int) -> bool:
     """If the player received Plastanium Compressor"""
     available: bool = False
-    if state.has("Plastanium Compressor received", player) and _has_silicon(state, player) and _has_graphite(state, player) and _has_titanium(state, player):
+    if state.has("Plastanium Compressor", player) and _has_silicon(state, player) and _has_graphite(state, player) and _has_titanium(state, player):
         available = True
     return available
 
-def _has_phase_weaver(state:CollectionState, player: int) -> bool:
+def _has_phase_weaver(state: CollectionState, player: int) -> bool:
     """If the player received Phase Weaver"""
     available: bool = False
-    if state.has("Phase Weaver received", player) and _has_silicon(state, player) and _has_thorium(state, player):
+    if state.has("Phase Weaver", player) and _has_silicon(state, player) and _has_thorium(state, player):
         available = True
     return available
 
-def _has_kiln(state:CollectionState, player: int) -> bool:
+def _has_kiln(state: CollectionState, player: int) -> bool:
     """If the player received Kiln"""
     available: bool = False
-    if state.has("Kiln received", player) and _has_graphite(state, player):
+    if state.has("Kiln", player) and _has_graphite(state, player):
         available = True
     return available
 
-def _has_surge_smelter(state:CollectionState, player: int) -> bool:
+def _has_surge_smelter(state: CollectionState, player: int) -> bool:
     """If the player received Surge Smelter"""
     available: bool = False
-    if state.has("Surge Smelter received", player) and _has_silicon(state, player) and _has_thorium(state, player):
+    if state.has("Surge Smelter", player) and _has_silicon(state, player) and _has_thorium(state, player):
         available = True
     return available
 
-def _has_cryofluid_mixer(state:CollectionState, player: int) -> bool:
+def _has_cryofluid_mixer(state: CollectionState, player: int) -> bool:
     """If the player received Cryofluid Mixer"""
     available: bool = False
-    if state.has("Cryofluid Mixer received", player) and _has_titanium(state, player) and _has_silicon(state, player):
+    if state.has("Cryofluid Mixer", player) and _has_titanium(state, player) and _has_silicon(state, player):
         available = True
     return available
 
-def _has_ground_factory(state:CollectionState, player:int) -> bool:
+def _has_ground_factory(state: CollectionState, player:int) -> bool:
     """If the player received Ground Factory"""
     available: bool = False
-    if state.has("Ground Factory received", player) and _has_silicon(state, player):
+    if state.has("Ground Factory", player) and _has_silicon(state, player):
         available = True
     return available
 
-def _has_air_factory(state:CollectionState, player:int) -> bool:
+def _has_air_factory(state: CollectionState, player:int) -> bool:
     """If the player received Air Factory"""
-    return state.has("Air Factory received", player)
+    return state.has("Air Factory", player)
 
-def _has_naval_factory(state:CollectionState, player:int) -> bool:
+def _has_naval_factory(state: CollectionState, player:int) -> bool:
     """If the player received Naval Factory"""
     available: bool = False
-    if state.has("Naval Factory received", player) and _has_metaglass(state, player):
+    if state.has("Naval Factory", player) and _has_metaglass(state, player):
         available = True
     return available
 
@@ -594,36 +594,40 @@ class MindustryRegions:
         self.__connect_regions(self.node_core_shard, self.node_conveyor)
         self.__connect_regions(self.node_conveyor, self.node_junction)
         self.__connect_regions(self.node_junction, self.node_router)
+
         self.__connect_regions(self.node_router, self.node_launch_pad,
-                               lambda state: _has_extraction_outpost(state, self.player) and
-                                                _has_silicon(state, self.player) and
+                               lambda state: _has_silicon(state, self.player) and
                                                 _has_titanium(state, self.player))
+
         self.__connect_regions(self.node_router, self.node_distributor)
+
         self.__connect_regions(self.node_router, self.node_sorter)
         self.__connect_regions(self.node_sorter, self.node_inverted_sorter)
         self.__connect_regions(self.node_sorter, self.node_overflow_gate)
         self.__connect_regions(self.node_overflow_gate, self.node_underflow_gate)
+
         self.__connect_regions(self.node_router, self.node_container,
-                               lambda state: _has_biomass_synthesis_facility(state, self.player) and
-                                            _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_container, self.node_unloader,
                                lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_container, self.node_vault,
-                               lambda state: _has_stained_mountains(state, self.player) and
-                                            _has_thorium(state, self.player))
+                               lambda state: _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_router, self.node_bridge_conveyor)
         self.__connect_regions(self.node_bridge_conveyor, self.node_titanium_conveyor,
-                               lambda state: _has_the_craters(state, self.player) and
-                                            _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player))
+
         self.__connect_regions(self.node_titanium_conveyor, self.node_phase_conveyor,
                                lambda state: _has_graphite(state, self.player) and
                                             _has_silicon(state, self.player) and
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_phase_conveyor, self.node_mass_driver,
                                lambda state: _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_titanium_conveyor, self.node_payload_conveyor,
                                lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_payload_conveyor, self.node_payload_router)
+
         self.__connect_regions(self.node_titanium_conveyor, self.node_armored_conveyor,
                                lambda state: _has_plastanium(state, self.player) and
                                             _has_thorium(state, self.player) and
@@ -645,49 +649,54 @@ class MindustryRegions:
         self.__connect_regions(self.node_conduit, self.node_liquid_junction,
                                lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_liquid_junction, self.node_liquid_router)
+
         self.__connect_regions(self.node_liquid_router, self.node_liquid_container,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_liquid_container, self.node_liquid_tank)
+
         self.__connect_regions(self.node_liquid_router, self.node_bridge_conduit)
+
         self.__connect_regions(self.node_liquid_router, self.node_pulse_conduit,
-                               lambda state: _has_windswept_islands(state, self.player) and
-                                            _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_pulse_conduit, self.node_phase_conduit,
                                lambda state: _has_phase_fabric(state, self.player) and
                                             _has_silicon(state, self.player))
+
         self.__connect_regions(self.node_pulse_conduit, self.node_plated_conduit,
                                lambda state: _has_thorium(state, self.player) and
                                             _has_plastanium(state, self.player))
+
         self.__connect_regions(self.node_pulse_conduit, self.node_rotary_pump,
                                lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_rotary_pump, self.node_impulse_pump,
                                lambda state: _has_thorium(state, self.player))
 
-        self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press,
-                               lambda state: _has_coal(state, self.player))
+        self.__connect_regions(self.node_mechanical_drill, self.node_graphite_press)
+
         self.__connect_regions(self.node_graphite_press, self.node_pneumatic_drill,
-                               lambda state: _has_frozen_forest(state, self.player) and
-                                            _has_graphite(state, self.player))
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_pneumatic_drill, self.node_cultivator,
-                               lambda state: _has_biomass_synthesis_facility(state, self.player) and
-                                            _has_silicon(state, self.player))
+                               lambda state: _has_silicon(state, self.player))
+
         self.__connect_regions(self.node_pneumatic_drill, self.node_laser_drill,
                                lambda state: _has_silicon(state, self.player) and
                                             _has_titanium(state, self.player))
         self.__connect_regions(self.node_laser_drill, self.node_airblast_drill,
-                               lambda state: _has_thorium(state, self.player) and
-                                            _has_nuclear_production_complex(state, self.player))
+                               lambda state: _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_laser_drill, self.node_water_extractor,
-                               lambda state: _has_salt_flats(state, self.player) and
-                                            _has_metaglass(state, self.player))
+                               lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_water_extractor, self.node_oil_extractor,
                                lambda state: _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_graphite_press, self.node_pyratite_mixer)
         self.__connect_regions(self.node_pyratite_mixer, self.node_blast_mixer,
                                lambda state: _has_titanium(state, self.player) and
                                             _has_pyratite(state, self.player) and
                                             _has_spore_pod(state, self.player))
+
         self.__connect_regions(self.node_graphite_press, self.node_silicon_smelter)
+
         self.__connect_regions(self.node_silicon_smelter, self.node_spore_press,
                                lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_spore_press, self.node_coal_centrifuge,
@@ -699,15 +708,14 @@ class MindustryRegions:
                                lambda state: _has_metaglass(state, self.player) and
                                             _has_plastanium(state, self.player) and
                                             _has_pyratite(state, self.player))
+
         self.__connect_regions(self.node_spore_press, self.node_plastanium_compressor,
-                               lambda state: _has_windswept_islands(state, self.player) and
-                                            _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_plastanium_compressor, self.node_phase_weaver,
-                               lambda state: _has_tar_fields(state, self.player) and
-                                             _has_thorium(state, self.player))
+                               lambda state: _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_silicon_smelter, self.node_kiln,
-                               lambda state: _has_the_craters(state, self.player) and
-                                            _has_graphite(state, self.player))
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_kiln, self.node_pulveriser)
         self.__connect_regions(self.node_pulveriser, self.node_incinerator)
         self.__connect_regions(self.node_incinerator, self.node_melter)
@@ -715,17 +723,21 @@ class MindustryRegions:
                                lambda state: _has_silicon(state, self.player) and
                                             _has_thorium(state, self.player) and
                                             _has_titanium(state, self.player))
+
         self.__connect_regions(self.node_melter, self.node_separator,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_separator, self.node_disassembler,
                                lambda state: _has_plastanium(state, self.player) and
                                             _has_silicon(state, self.player) and
                                             _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_melter, self.node_cryofluid_mixer,
                                lambda state: _has_silicon(state, self.player) and
                                             _has_titanium(state, self.player))
+
         self.__connect_regions(self.node_silicon_smelter, self.node_micro_processor,
                                lambda state: _has_silicon(state, self.player))
+
         self.__connect_regions(self.node_micro_processor, self.node_switch,
                                lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_switch, self.node_message)
@@ -733,19 +745,21 @@ class MindustryRegions:
                                lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_logic_display, self.node_large_logic_display,
                                lambda state: _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_message, self.node_memory_cell)
         self.__connect_regions(self.node_memory_cell, self.node_memory_bank,
                                lambda state: _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_switch, self.node_logic_processor,
                                lambda state: _has_thorium(state, self.player))
         self.__connect_regions(self.node_logic_processor, self.node_hyper_processor,
                                lambda state: _has_surge_alloy(state, self.player))
+
         self.__connect_regions(self.node_silicon_smelter, self.node_illuminator,
                                lambda state: _has_graphite(state, self.player) and
                                             _has_silicon(state, self.player))
 
-        self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator,
-                               lambda state: _has_coal(state, self.player))
+        self.__connect_regions(self.node_mechanical_drill, self.node_combustion_generator)
         self.__connect_regions(self.node_combustion_generator, self.node_power_node)
         self.__connect_regions(self.node_power_node, self.node_large_power_node,
                                lambda state: _has_silicon(state, self.player) and
@@ -756,30 +770,31 @@ class MindustryRegions:
         self.__connect_regions(self.node_battery_diode, self.node_surge_tower,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_titanium(state, self.player))
+
         self.__connect_regions(self.node_power_node, self.node_battery)
         self.__connect_regions(self.node_battery, self.node_large_battery,
                                lambda state: _has_titanium(state, self.player) and
                                             _has_silicon(state, self.player))
+
         self.__connect_regions(self.node_power_node, self.node_mender)
         self.__connect_regions(self.node_mender, self.node_mend_projector,
                                lambda state: _has_titanium(state, self.player) and
                                             _has_silicon(state, self.player))
-        self.__connect_regions(self.node_mend_projector, self.node_force_projector,
-                               lambda state: _has_impact_0078(state, self.player))
+        self.__connect_regions(self.node_mend_projector, self.node_force_projector)
         self.__connect_regions(self.node_force_projector, self.node_overdrive_projector,
                                lambda state: _has_plastanium(state, self.player))
         self.__connect_regions(self.node_overdrive_projector, self.node_overdrive_dome,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_mend_projector, self.node_repair_point)
         self.__connect_regions(self.node_repair_point, self.node_repair_turret,
                                lambda state: _has_thorium(state, self.player) and
                                             _has_plastanium(state, self.player))
+
         self.__connect_regions(self.node_power_node, self.node_steam_generator,
-                               lambda state: _has_the_craters(state, self.player) and
-                                            _has_graphite(state, self.player) and
-                                            _has_silicon(state, self.player) and
-                                            _has_coal(state, self.player))
+                               lambda state: _has_graphite(state, self.player) and
+                                            _has_silicon(state, self.player))
         self.__connect_regions(self.node_steam_generator, self.node_thermal_generator,
                                lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_thermal_generator, self.node_differential_generator,
@@ -791,9 +806,11 @@ class MindustryRegions:
         self.__connect_regions(self.node_thorium_reactor, self.node_impact_reactor,
                                lambda state: _has_blast_compound(state, self.player) and
                                             _has_surge_alloy(state, self.player))
+
         self.__connect_regions(self.node_thorium_reactor, self.node_rtg_generator,
                                lambda state: _has_phase_fabric(state, self.player) and
                                             _has_plastanium(state, self.player))
+
         self.__connect_regions(self.node_power_node, self.node_solar_panel,
                                lambda state: _has_silicon(state, self.player))
         self.__connect_regions(self.node_solar_panel, self.node_large_solar_panel,
@@ -815,16 +832,17 @@ class MindustryRegions:
         self.__connect_regions(self.node_titanium_wall, self.node_thorium_wall,
                                lambda state: _has_thorium(state, self.player))
         self.__connect_regions(self.node_thorium_wall, self.node_large_thorium_wall)
-        self.__connect_regions(self.node_titanium_wall, self.node_surge_wall,
+
+        self.__connect_regions(self.node_thorium_wall, self.node_surge_wall,
                                lambda state: _has_surge_alloy(state, self.player))
         self.__connect_regions(self.node_surge_wall, self.node_large_surge_wall)
         self.__connect_regions(self.node_surge_wall, self.node_phase_wall,
                                lambda state: _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_phase_wall, self.node_large_phase_wall)
+
         self.__connect_regions(self.node_duo, self.node_scatter)
         self.__connect_regions(self.node_scatter, self.node_hail,
-                               lambda state: _has_graphite(state, self.player) and
-                                            _has_the_craters(state, self.player))
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_hail, self.node_salvo,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_salvo, self.node_swarmer,
@@ -833,15 +851,15 @@ class MindustryRegions:
                                             _has_pyratite(state, self.player))
         self.__connect_regions(self.node_swarmer, self.node_cyclone)
         self.__connect_regions(self.node_cyclone, self.node_spectre,
-                               lambda state: _has_nuclear_production_complex(state, self.player) and
-                                            _has_surge_alloy(state, self.player) and
+                               lambda state: _has_surge_alloy(state, self.player) and
                                             _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_salvo, self.node_ripple)
         self.__connect_regions(self.node_ripple, self.node_fuse,
                                lambda state: _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_duo, self.node_scorch,
-                               lambda state: _has_graphite(state, self.player) and
-                                            _has_coal(state, self.player))
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_scorch, self.node_arc)
         self.__connect_regions(self.node_arc, self.node_wave,
                                lambda state: _has_metaglass(state, self.player))
@@ -851,9 +869,11 @@ class MindustryRegions:
         self.__connect_regions(self.node_parallax, self.node_segment,
                                lambda state: _has_thorium(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_wave, self.node_tsunami,
                                lambda state: _has_titanium(state, self.player) and
                                             _has_thorium(state, self.player))
+
         self.__connect_regions(self.node_arc, self.node_lancer,
                                lambda state: _has_silicon(state, self.player) and
                                             _has_titanium(state, self.player))
@@ -862,6 +882,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_meltdown, self.node_foreshadow,
                                lambda state: _has_metaglass(state, self.player) and
                                             _has_plastanium(state, self.player))
+
         self.__connect_regions(self.node_lancer, self.node_shock_mine)
 
         self.__connect_regions(self.node_core_shard, self.node_ground_factory,
@@ -877,6 +898,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_scepter, self.node_reign,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_dagger, self.node_nova,
                                lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_nova, self.node_pulsar,
@@ -888,8 +910,8 @@ class MindustryRegions:
         self.__connect_regions(self.node_vela, self.node_corvus,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
-        self.__connect_regions(self.node_dagger, self.node_crawler,
-                               lambda state: _has_coal(state, self.player))
+
+        self.__connect_regions(self.node_dagger, self.node_crawler)
         self.__connect_regions(self.node_crawler, self.node_atrax,
                                lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_atrax, self.node_spiroct,
@@ -900,6 +922,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_arkyid, self.node_toxopid,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_ground_factory, self.node_air_factory)
         self.__connect_regions(self.node_air_factory, self.node_flare)
         self.__connect_regions(self.node_flare, self.node_horizon,
@@ -912,6 +935,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_antumbra, self.node_eclipse,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_flare, self.node_mono)
         self.__connect_regions(self.node_mono, self.node_poly,
                                lambda state: _has_graphite(state, self.player))
@@ -923,9 +947,9 @@ class MindustryRegions:
         self.__connect_regions(self.node_quad, self.node_oct,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_air_factory, self.node_naval_factory,
-                               lambda state: _has_ruinous_shores(state, self.player) and
-                                            _has_metaglass(state, self.player))
+                               lambda state: _has_metaglass(state, self.player))
         self.__connect_regions(self.node_naval_factory, self.node_risso)
         self.__connect_regions(self.node_risso, self.node_minke,
                                lambda state: _has_graphite(state, self.player))
@@ -936,97 +960,66 @@ class MindustryRegions:
         self.__connect_regions(self.node_sei, self.node_omura,
                                lambda state: _has_surge_alloy(state, self.player) and
                                             _has_phase_fabric(state, self.player))
+
         self.__connect_regions(self.node_risso, self.node_retusa,
-                               lambda state: _has_windswept_islands(state, self.player) and
-                                            _has_titanium(state, self.player))
+                               lambda state: _has_titanium(state, self.player))
         self.__connect_regions(self.node_retusa, self.node_oxynoe,
-                               lambda state: _has_coastline(state, self.player) and
-                                            _has_graphite(state, self.player))
+                               lambda state: _has_graphite(state, self.player))
         self.__connect_regions(self.node_oxynoe, self.node_cyerce)
         self.__connect_regions(self.node_cyerce, self.node_aegires,
                                lambda state: _has_plastanium(state, self.player))
         self.__connect_regions(self.node_aegires, self.node_navanax,
                                lambda state: _has_phase_fabric(state, self.player) and
-                                            _has_surge_alloy(state, self.player) and
-                                            _has_naval_fortress(state, self.player))
+                                            _has_surge_alloy(state, self.player))
 
-        self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor,
-                               lambda state: _has_biomass_synthesis_facility(state, self.player))
+        self.__connect_regions(self.node_ground_factory, self.node_additive_reconstructor)
         self.__connect_regions(self.node_additive_reconstructor, self.node_multiplicative_reconstructor,
                                lambda state: _has_titanium(state, self.player) and
                                             _has_thorium(state, self.player))
         self.__connect_regions(self.node_multiplicative_reconstructor, self.node_exponential_reconstructor,
-                               lambda state: _has_overgrowth(state, self.player) and
-                                            _has_plastanium(state, self.player) and
+                               lambda state: _has_plastanium(state, self.player) and
                                             _has_phase_fabric(state, self.player))
         self.__connect_regions(self.node_exponential_reconstructor, self.node_tetrative_reconstructor,
                                lambda state: _has_surge_alloy(state, self.player))
 
         self.__connect_regions(self.node_core_shard, self.node_ground_zero)
         self.__connect_regions(self.node_ground_zero, self.node_frozen_forest)
-        self.__connect_regions(self.node_frozen_forest, self.node_the_craters,
-                              lambda state: _has_frozen_forest(state, self.player))
-        self.__connect_regions(self.node_the_craters, self.node_ruinous_shores,
-                              lambda state: _has_the_craters(state, self.player))
-        self.__connect_regions(self.node_ruinous_shores, self.node_windswept_islands,
-                              lambda state: _has_ruinous_shores(state, self.player))
-        self.__connect_regions(self.node_windswept_islands, self.node_tar_fields,
-                              lambda state: _has_windswept_islands(state, self.player))
-        self.__connect_regions(self.node_tar_fields, self.node_impact_0078,
-                               lambda state: _has_tar_fields(state, self.player))
-        self.__connect_regions(self.node_impact_0078, self.node_desolate_rift,
-                              lambda state: _has_impact_0078(state, self.player))
-        self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal,
-                              lambda state: _has_desolate_rift(state, self.player))
-        self.__connect_regions(self.node_windswept_islands, self.node_extraction_outpost,
-                               lambda state: _has_windswept_islands(state, self.player))
-        self.__connect_regions(self.node_windswept_islands, self.node_salt_flats,
-                               lambda state: _has_windswept_islands(state, self.player))
-        self.__connect_regions(self.node_salt_flats, self.node_coastline,
-                               lambda state: _has_salt_flats(state, self.player))
-        self.__connect_regions(self.node_coastline, self.node_naval_fortress,
-                               lambda state: _has_coastline(state, self.player))
-        self.__connect_regions(self.node_the_craters, self.node_overgrowth,
-                               lambda state: _has_the_craters(state, self.player))
-        self.__connect_regions(self.node_frozen_forest, self.node_biomass_synthesis_facility,
-                               lambda state: _has_frozen_forest(state, self.player))
-        self.__connect_regions(self.node_biomass_synthesis_facility, self.node_stained_mountains,
-                               lambda state: _has_biomass_synthesis_facility(state, self.player))
-        self.__connect_regions(self.node_stained_mountains, self.node_fungal_pass,
-                               lambda state: _has_stained_mountains(state, self.player))
-        self.__connect_regions(self.node_fungal_pass, self.node_nuclear_production_complex,
-                               lambda state: _has_fungal_pass(state, self.player))
+        self.__connect_regions(self.node_frozen_forest, self.node_the_craters)
+        self.__connect_regions(self.node_the_craters, self.node_ruinous_shores)
+        self.__connect_regions(self.node_ruinous_shores, self.node_windswept_islands)
+        self.__connect_regions(self.node_windswept_islands, self.node_tar_fields)
+        self.__connect_regions(self.node_tar_fields, self.node_impact_0078)
+        self.__connect_regions(self.node_impact_0078, self.node_desolate_rift)
+        self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal)
+        self.__connect_regions(self.node_windswept_islands, self.node_extraction_outpost)
+        self.__connect_regions(self.node_windswept_islands, self.node_salt_flats)
+        self.__connect_regions(self.node_salt_flats, self.node_coastline)
+        self.__connect_regions(self.node_coastline, self.node_naval_fortress)
+        self.__connect_regions(self.node_the_craters, self.node_overgrowth)
+        self.__connect_regions(self.node_frozen_forest, self.node_biomass_synthesis_facility)
+        self.__connect_regions(self.node_biomass_synthesis_facility, self.node_stained_mountains)
+        self.__connect_regions(self.node_stained_mountains, self.node_fungal_pass)
+        self.__connect_regions(self.node_fungal_pass, self.node_nuclear_production_complex)
         self.__connect_regions(self.node_core_shard, self.node_copper)
         self.__connect_regions(self.node_copper, self.node_water)
         self.__connect_regions(self.node_copper, self.node_lead)
         self.__connect_regions(self.node_lead, self.node_titanium)
-        self.__connect_regions(self.node_titanium, self.node_cryofluid,
-                               lambda state: _has_titanium(state, self.player))
-        self.__connect_regions(self.node_titanium, self.node_thorium,
-                               lambda state: _has_titanium(state, self.player))
-        self.__connect_regions(self.node_thorium, self.node_surge_alloy,
-                               lambda state: _has_thorium(state, self.player))
-        self.__connect_regions(self.node_thorium, self.node_phase_fabric,
-                               lambda state: _has_thorium(state, self.player))
+        self.__connect_regions(self.node_titanium, self.node_cryofluid)
+        self.__connect_regions(self.node_titanium, self.node_thorium)
+        self.__connect_regions(self.node_thorium, self.node_surge_alloy)
+        self.__connect_regions(self.node_thorium, self.node_phase_fabric)
         self.__connect_regions(self.node_lead, self.node_metaglass)
         self.__connect_regions(self.node_copper, self.node_sand)
         self.__connect_regions(self.node_sand, self.node_scrap)
         self.__connect_regions(self.node_scrap, self.node_slag)
         self.__connect_regions(self.node_sand, self.node_coal)
-        self.__connect_regions(self.node_coal, self.node_graphite,
-                               lambda state: _has_coal(state, self.player))
-        self.__connect_regions(self.node_graphite, self.node_silicon,
-                               lambda state: _has_graphite(state, self.player))
-        self.__connect_regions(self.node_coal, self.node_pyratite,
-                               lambda state: _has_coal(state, self.player))
-        self.__connect_regions(self.node_pyratite, self.node_blast_compound,
-                               lambda state: _has_pyratite(state, self.player))
-        self.__connect_regions(self.node_coal, self.node_spore_pod,
-                               lambda state: _has_coal(state, self.player))
-        self.__connect_regions(self.node_coal, self.node_oil,
-                               lambda state: _has_coal(state, self.player))
-        self.__connect_regions(self.node_oil, self.node_plastanium,
-                               lambda state: _has_oil(state, self.player))
+        self.__connect_regions(self.node_coal, self.node_graphite)
+        self.__connect_regions(self.node_graphite, self.node_silicon)
+        self.__connect_regions(self.node_coal, self.node_pyratite)
+        self.__connect_regions(self.node_pyratite, self.node_blast_compound)
+        self.__connect_regions(self.node_coal, self.node_spore_pod)
+        self.__connect_regions(self.node_coal, self.node_oil)
+        self.__connect_regions(self.node_oil, self.node_plastanium)
 
 
     def __create_erekir_campaign(self):
@@ -1431,34 +1424,34 @@ class MindustryRegions:
         self.node_oil = self.__add_region("Oil", None)
         self.node_plastanium = self.__add_region("Plastanium", None)
 
-    def __add_serpulo_events(self):
-        self.__add_event_location(self.node_frozen_forest, "Capture Frozen Forest", "Frozen Forest Captured")
-        self.__add_event_location(self.node_the_craters, "Capture The Craters", "The Craters Captured")
-        self.__add_event_location(self.node_ruinous_shores, "Capture Ruinous Shores", "Ruinous Shores Captured")
-        self.__add_event_location(self.node_windswept_islands, "Capture Windswept Islands", "Windswept Islands Captured")
-        self.__add_event_location(self.node_tar_fields, "Capture Tar Fields", "Tar Fields Captured")
-        self.__add_event_location(self.node_impact_0078, "Capture Impact 0078", "Impact 0078 Captured")
-        self.__add_event_location(self.node_desolate_rift, "Capture Desolate Rift", "Desolate Rift Captured")
-        self.__add_event_location(self.node_planetary_launch_terminal, "Capture Planetary Launch Terminal", "Planetary Launch Terminal Captured")
-        self.__add_event_location(self.node_extraction_outpost, "Capture Extraction Outpost", "Extraction Outpost Captured")
-        self.__add_event_location(self.node_salt_flats, "Capture Salt Flats", "Salt Flats Captured")
-        self.__add_event_location(self.node_coastline, "Capture Coastline", "Coastline Captured")
-        self.__add_event_location(self.node_naval_fortress, "Capture Naval Fortress", "Naval Fortress Captured")
-        self.__add_event_location(self.node_overgrowth, "Capture Overgrowth", "Overgrowth Captured")
-        self.__add_event_location(self.node_biomass_synthesis_facility, "Capture Biomass Synthesis Facility", "Biomass Synthesis Facility Captured")
-        self.__add_event_location(self.node_stained_mountains, "Capture Stained Mountains", "Stained Mountains Captured")
-        self.__add_event_location(self.node_fungal_pass, "Capture Fungal Pass", "Fungal Pass Captured")
-        self.__add_event_location(self.node_nuclear_production_complex, "Capture Nuclear Production Complex", "Nuclear Production Complex Captured")
-        self.__add_event_location(self.node_titanium, "Produce Titanium", "Titanium Produced")
-        self.__add_event_location(self.node_cryofluid, "Produce Cryofluid", "Cryofluid Produced")
-        self.__add_event_location(self.node_thorium, "Produce Thorium", "Thorium Produced")
-        self.__add_event_location(self.node_surge_alloy, "Produce Surge Alloy", "Surge Alloy Produced")
-        self.__add_event_location(self.node_phase_fabric, "Produce Phase Fabric", "Phase Fabric Produced")
-        self.__add_event_location(self.node_metaglass, "Produce Metaglass", "Metaglass Produced")
-        self.__add_event_location(self.node_coal, "Produce Coal", "Coal Produced")
-        self.__add_event_location(self.node_graphite, "Produce Graphite", "Graphite Produced")
-        self.__add_event_location(self.node_silicon, "Produce Silicon", "Silicon Produced")
-        self.__add_event_location(self.node_pyratite, "Produce Pyratite", "Pyratite Produced")
-        self.__add_event_location(self.node_blast_compound, "Produce Blast Compound", "Blast Compound Produced")
-        self.__add_event_location(self.node_spore_pod, "Produce Spore Pod", "Spore Pod Produced")
-        self.__add_event_location(self.node_oil, "Produce Oil", "Plastanium Produced")
+    def     __add_serpulo_events(self):
+        self.__add_event_location(self.node_frozen_forest, "Capture Frozen Forest", "Frozen Forest captured")
+        self.__add_event_location(self.node_the_craters, "Capture The Craters", "The Craters captured")
+        self.__add_event_location(self.node_ruinous_shores, "Capture Ruinous Shores", "Ruinous Shores captured")
+        self.__add_event_location(self.node_windswept_islands, "Capture Windswept Islands", "Windswept Islands captured")
+        self.__add_event_location(self.node_tar_fields, "Capture Tar Fields", "Tar Fields captured")
+        self.__add_event_location(self.node_impact_0078, "Capture Impact 0078", "Impact 0078 captured")
+        self.__add_event_location(self.node_desolate_rift, "Capture Desolate Rift", "Desolate Rift captured")
+        self.__add_event_location(self.node_planetary_launch_terminal, "Capture Planetary Launch Terminal", "Planetary Launch Terminal captured")
+        self.__add_event_location(self.node_extraction_outpost, "Capture Extraction Outpost", "Extraction Outpost captured")
+        self.__add_event_location(self.node_salt_flats, "Capture Salt Flats", "Salt Flats captured")
+        self.__add_event_location(self.node_coastline, "Capture Coastline", "Coastline captured")
+        self.__add_event_location(self.node_naval_fortress, "Capture Naval Fortress", "Naval Fortress captured")
+        self.__add_event_location(self.node_overgrowth, "Capture Overgrowth", "Overgrowth captured")
+        self.__add_event_location(self.node_biomass_synthesis_facility, "Capture Biomass Synthesis Facility", "Biomass Synthesis Facility captured")
+        self.__add_event_location(self.node_stained_mountains, "Capture Stained Mountains", "Stained Mountains captured")
+        self.__add_event_location(self.node_fungal_pass, "Capture Fungal Pass", "Fungal Pass captured")
+        self.__add_event_location(self.node_nuclear_production_complex, "Capture Nuclear Production Complex", "Nuclear Production Complex captured")
+        self.__add_event_location(self.node_titanium, "Produce Titanium", "Titanium produced")
+        self.__add_event_location(self.node_cryofluid, "Produce Cryofluid", "Cryofluid produced")
+        self.__add_event_location(self.node_thorium, "Produce Thorium", "Thorium produced")
+        self.__add_event_location(self.node_surge_alloy, "Produce Surge Alloy", "Surge Alloy produced")
+        self.__add_event_location(self.node_phase_fabric, "Produce Phase Fabric", "Phase Fabric produced")
+        self.__add_event_location(self.node_metaglass, "Produce Metaglass", "Metaglass produced")
+        self.__add_event_location(self.node_coal, "Produce Coal", "Coal produced")
+        self.__add_event_location(self.node_graphite, "Produce Graphite", "Graphite produced")
+        self.__add_event_location(self.node_silicon, "Produce Silicon", "Silicon produced")
+        self.__add_event_location(self.node_pyratite, "Produce Pyratite", "Pyratite produced")
+        self.__add_event_location(self.node_blast_compound, "Produce Blast Compound", "Blast Compound produced")
+        self.__add_event_location(self.node_spore_pod, "Produce Spore Pod", "Spore Pod produced")
+        self.__add_event_location(self.node_oil, "Produce Oil", "Plastanium produced")
