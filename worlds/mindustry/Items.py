@@ -93,6 +93,8 @@ class ItemData:
 
 """Information table for every item that is not an event."""
 item_table = {
+    #Serpulo
+
     #"Conveyor": ItemData(MINDUSTRY_BASE_ID + 0, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.BELT, 1),
     "Junction": ItemData(MINDUSTRY_BASE_ID + 1, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT, 1),
     "Router": ItemData(MINDUSTRY_BASE_ID + 2, ItemPlanet.SERPULO, ItemType.USEFUL, ItemGroup.BELT, 1),
@@ -265,4 +267,21 @@ item_table = {
     #"Spore Pod": ItemData(MINDUSTRY_BASE_ID + 197, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.RESSOURCES, 1),
     #"Oil": ItemData(MINDUSTRY_BASE_ID + 198, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.RESSOURCES, 1),
     #"Plastanium": ItemData(MINDUSTRY_BASE_ID + 199, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.RESSOURCES, 1),
+
+
+    #Erekir
+    #"Duct": ItemData(MINDUSTRY_BASE_ID + 200, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.BELT),
+    "Duct Router": ItemData(MINDUSTRY_BASE_ID + 201, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Duct Bridge": ItemData(MINDUSTRY_BASE_ID + 202, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Armored Duct": ItemData(MINDUSTRY_BASE_ID + 203, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Surge Conveyor": ItemData(MINDUSTRY_BASE_ID + 204, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Surge Router": ItemData(MINDUSTRY_BASE_ID + 205, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Unit Cargo Loader": ItemData(MINDUSTRY_BASE_ID + 206, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Unit Cargo Unload Point": ItemData(MINDUSTRY_BASE_ID + 207, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Overflow Duct": ItemData(MINDUSTRY_BASE_ID + 208, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Underflow Duct": ItemData(MINDUSTRY_BASE_ID + 209, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT),
+    "Reinforced Container": ItemData(MINDUSTRY_BASE_ID + 210, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.MISC),
+    "Reinforced Vault": ItemData(MINDUSTRY_BASE_ID + 211, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.MISC),
+    "Reinforced Message": ItemData(MINDUSTRY_BASE_ID + 212, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.LOGIC),
+    "Canvas": ItemData(MINDUSTRY_BASE_ID + 213, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.LOGIC),
 }
