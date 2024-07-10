@@ -578,13 +578,13 @@ class MindustryLocations:
     #serpulo_cryofluid = {
     #    "Node Cryofluid": MINDUSTRY_BASE_ID + 185,
     #}
-    #serpulo_thorium = {
+    #all_thorium = {
     #    "Node Thorium": MINDUSTRY_BASE_ID + 186,
     #}
-    #serpulo_surge_alloy = {
+    #all_surge_alloy = {
     #    "Node Surge Alloy": MINDUSTRY_BASE_ID + 187,
     #}
-    #serpulo_phase_fabric = {
+    #all_phase_fabric = {
     #    "Node Phase Fabric": MINDUSTRY_BASE_ID + 188,
     #}
     #serpulo_metaglass = {
@@ -620,6 +620,422 @@ class MindustryLocations:
     #serpulo_plastanium = {
     #    "Node Plastanium": MINDUSTRY_BASE_ID + 199,
     #}
+
+
+    erekir_duct = {
+        "Node Duct": MINDUSTRY_BASE_ID + 200,
+    }
+    erekir_duct_router = {
+        "Node Duct Router": MINDUSTRY_BASE_ID + 201,
+    }
+    erekir_duct_bridge = {
+        "Node Duct Bridge": MINDUSTRY_BASE_ID + 202,
+    }
+    erekir_armored_duct = {
+        "Node Armored Duct": MINDUSTRY_BASE_ID + 203,
+    }
+    erekir_surge_conveyor = {
+        "Node Surge Conveyor": MINDUSTRY_BASE_ID + 204,
+    }
+    erekir_surge_router = {
+        "Node Surge Router": MINDUSTRY_BASE_ID + 205,
+    }
+    erekir_unit_cargo_loader = {
+        "Node Unit Cargo Loader": MINDUSTRY_BASE_ID + 206,
+    }
+    erekir_unit_cargo_unload_point = {
+        "Node Unit Cargo Unload Point": MINDUSTRY_BASE_ID + 207,
+    }
+    erekir_overflow_duct = {
+        "Node Overflow Duct": MINDUSTRY_BASE_ID + 208,
+    }
+    erekir_underflow_duct = {
+        "Node Underflow Duct": MINDUSTRY_BASE_ID + 209,
+    }
+    erekir_reinforced_container = {
+        "Node Reinforced Container": MINDUSTRY_BASE_ID + 210,
+    }
+    erekir_reinforced_vault = {
+        "Node Reinforced Vault": MINDUSTRY_BASE_ID + 211,
+    }
+    erekir_reinforced_message = {
+        "Node Reinforced Message": MINDUSTRY_BASE_ID + 212,
+    }
+    erekir_canvas = {
+        "Node Canvas": MINDUSTRY_BASE_ID + 213,
+    }
+    erekir_reinforced_payload Conveyor = {
+        "Node Reinforced Payload Conveyor": MINDUSTRY_BASE_ID + 214,
+    }
+    erekir_payload_mass_driver = {
+        "Node Payload Mass Driver": MINDUSTRY_BASE_ID + 215,
+    }
+    erekir_payload_loader = {
+        "Node Payload Loader": MINDUSTRY_BASE_ID + 216,
+    }
+    erekir_payload_unloader = {
+        "Node Payload Unloader": MINDUSTRY_BASE_ID + 217,
+    }
+    erekir_large_payload_mass_driver = {
+        "Node Large Payload Mass Driver": MINDUSTRY_BASE_ID + 218,
+    }
+    erekir_constructor = {
+        "Node Constructor": MINDUSTRY_BASE_ID + 219,
+    }
+    erekir_deconstructor = {
+        "Node Deconstructor": MINDUSTRY_BASE_ID + 220,
+    }
+    erekir_large_constructor = {
+        "Node Large Constructor": MINDUSTRY_BASE_ID + 221,
+    }
+    erekir_large_deconstructor = {
+        "Node Large Deconstructor": MINDUSTRY_BASE_ID + 222,
+    }
+    erekir_reinforced_payload_router = {
+        "Node Reinforced Payload Router": MINDUSTRY_BASE_ID + 223,
+    }
+    erekir_plasma_bore = {
+        "Node Plasma Bore": MINDUSTRY_BASE_ID + 224,
+    }
+    erekir_impact_drill = {
+        "Node Impact Drill": MINDUSTRY_BASE_ID + 225,
+    }
+    erekir_large_plasma_bore = {
+        "Node Large Plasma Bore": MINDUSTRY_BASE_ID + 226,
+    }
+    erekir_eruption_drill = {
+        "Node Eruption Drill": MINDUSTRY_BASE_ID + 227,
+    }
+    erekir_turbine_condenser = {
+        "Node Turbine Condenser": MINDUSTRY_BASE_ID + 228,
+    }
+    erekir_beam_node = {
+        "Node Beam Node": MINDUSTRY_BASE_ID + 229,
+    }
+    erekir_vent_condenser = {
+        "Node Vent Condenser": MINDUSTRY_BASE_ID + 230,
+    }
+    erekir_chemical_combustion Chamber = {
+        "Node Chemical Combustion Chamber": MINDUSTRY_BASE_ID + 231,
+    }
+    erekir_pyrolysis_generator = {
+        "Node Pyrolysis Generator": MINDUSTRY_BASE_ID + 232,
+    }
+    erekir_flux_reactor = {
+        "Node Flux Reactor": MINDUSTRY_BASE_ID + 233,
+    }
+    erekir_neoplasia_reactor = {
+        "Node Neoplasia Reactor": MINDUSTRY_BASE_ID + 234,
+    }
+    erekir_beam_tower = {
+        "Node Beam Tower": MINDUSTRY_BASE_ID + 235,
+    }
+    erekir_regen_projector = {
+        "Node Regen Projector": MINDUSTRY_BASE_ID + 236,
+    }
+    erekir_build_tower = {
+        "Node Build Tower": MINDUSTRY_BASE_ID + 237,
+    }
+    erekir_shockwave_tower = {
+        "Node Shockwave Tower": MINDUSTRY_BASE_ID + 238,
+    }
+    erekir_reinforced_conduit = {
+        "Node Reinforced Conduit": MINDUSTRY_BASE_ID + 239,
+    }
+    erekir_reinforced_pump = {
+        "Node Reinforced Pump": MINDUSTRY_BASE_ID + 240,
+    }
+    erekir_reinforced_liquid_junction = {
+        "Node Reinforced Liquid Junction": MINDUSTRY_BASE_ID + 241,
+    }
+    erekir_reinforced_bridge_conduit = {
+        "Node Reinforced Bridge Conduit": MINDUSTRY_BASE_ID + 242,
+    }
+    erekir_reinforced_liquid_router = {
+        "Node Reinforced Liquid Router": MINDUSTRY_BASE_ID + 243,
+    }
+    erekir_reinforced_liquid_container = {
+        "Node Reinforced Liquid Container": MINDUSTRY_BASE_ID + 244,
+    }
+    erekir_reinforced_liquid_tank = {
+        "Node Reinforced Liquid Tank": MINDUSTRY_BASE_ID + 245,
+    }
+    erekir_cliff_crusher = {
+        "Node Cliff Crusher": MINDUSTRY_BASE_ID + 246,
+    }
+    erekir_silicon_arc_furnace = {
+        "Node Silicon Arc Furnace": MINDUSTRY_BASE_ID + 247,
+    }
+    erekir_electrolyzer = {
+        "Node Electrolyzer": MINDUSTRY_BASE_ID + 248,
+    }
+    erekir_oxidation_chamber = {
+        "Node Oxidation Chamber": MINDUSTRY_BASE_ID + 249,
+    }
+    erekir_surge_crucible = {
+        "Node Surge Crucible": MINDUSTRY_BASE_ID + 250,
+    }
+    erekir_heat_redirector = {
+        "Node Heat Redirector": MINDUSTRY_BASE_ID + 251,
+    }
+    erekir_electric_heater = {
+        "Node Electric Heater": MINDUSTRY_BASE_ID + 252,
+    }
+    erekir_slag_heater = {
+        "Node Slag Heater": MINDUSTRY_BASE_ID + 253,
+    }
+    erekir_atmospheric_concentrator = {
+        "Node Atmospheric Concentrator": MINDUSTRY_BASE_ID + 254,
+    }
+    erekir_cyanogen_synthesizer = {
+        "Node Cyanogen Synthesizer": MINDUSTRY_BASE_ID + 255,
+    }
+    erekir_carbide_crucible = {
+        "Node Carbide Crucible": MINDUSTRY_BASE_ID + 256,
+    }
+    erekir_phase_synthesizer = {
+        "Node Phase Synthesizer": MINDUSTRY_BASE_ID + 257,
+    }
+    erekir_phase_heater = {
+        "Node Phase Heater": MINDUSTRY_BASE_ID + 258,
+    }
+    erekir_heat_router = {
+        "Node Heat Router": MINDUSTRY_BASE_ID + 259,
+    }
+    erekir_slag_incinerator = {
+        "Node Slag Incinerator": MINDUSTRY_BASE_ID + 260,
+    }
+    erekir_breach = {
+        "Node Breach": MINDUSTRY_BASE_ID + 261,
+    }
+    erekir_beryllium_wall = {
+        "Node Beryllium Wall": MINDUSTRY_BASE_ID + 262,
+    }
+    erekir_large_beryllium_wall = {
+        "Node Large Beryllium Wall": MINDUSTRY_BASE_ID + 263,
+    }
+    erekir_tungsten_wall = {
+        "Node Tungsten Wall": MINDUSTRY_BASE_ID + 264,
+    }
+    erekir_large_tungsten_wall = {
+        "Node Large Tungsten Wall": MINDUSTRY_BASE_ID + 265,
+    }
+    erekir_blast_door = {
+        "Node Blast Door": MINDUSTRY_BASE_ID + 266,
+    }
+    erekir_reinforced_surge_wall = {
+        "Node Reinforced Surge Wall": MINDUSTRY_BASE_ID + 267,
+    }
+    erekir_large_reinforced_surge_wall = {
+        "Node Large Reinforced Surge Wall": MINDUSTRY_BASE_ID + 268,
+    }
+    erekir_shielded_wall = {
+        "Node Shielded Wall": MINDUSTRY_BASE_ID + 269,
+    }
+    erekir_carbide_wall = {
+        "Node Carbide Wall": MINDUSTRY_BASE_ID + 270,
+    }
+    erekir_large_carbide_wall = {
+        "Node Large Carbide Wall": MINDUSTRY_BASE_ID + 271,
+    }
+    erekir_diffuse = {
+        "Node Diffuse": MINDUSTRY_BASE_ID + 272,
+    }
+    erekir_sublimate = {
+        "Node Sublimate": MINDUSTRY_BASE_ID + 273,
+    }
+    erekir_afflict = {
+        "Node Afflict": MINDUSTRY_BASE_ID + 274,
+    }
+    erekir_titan = {
+        "Node Titan": MINDUSTRY_BASE_ID + 275,
+    }
+    erekir_lustre = {
+        "Node Lustre": MINDUSTRY_BASE_ID + 276,
+    }
+    erekir_smite = {
+        "Node Smite": MINDUSTRY_BASE_ID + 277,
+    }
+    erekir_disperse = {
+        "Node Disperse": MINDUSTRY_BASE_ID + 278,
+    }
+    erekir_scathe = {
+        "Node Scathe": MINDUSTRY_BASE_ID + 279,
+    }
+    erekir_malign = {
+        "Node Malign": MINDUSTRY_BASE_ID + 280,
+    }
+    erekir_radar = {
+        "Node Radar": MINDUSTRY_BASE_ID + 281,
+    }
+    erekir_core_citadel = {
+        "Node Core Citadel": MINDUSTRY_BASE_ID + 282,
+    }
+    erekir_core_acropolis = {
+        "Node Core Acropolis": MINDUSTRY_BASE_ID + 283,
+    }
+    erekir_tank_fabricator = {
+        "Node Tank Fabricator": MINDUSTRY_BASE_ID + 284,
+    }
+    erekir_stell = {
+        "Node Stell": MINDUSTRY_BASE_ID + 285,
+    }
+    erekir_unit_repair_tower = {
+        "Node Unit Repair Tower": MINDUSTRY_BASE_ID + 286,
+    }
+    erekir_ship_fabricator = {
+        "Node Ship Fabricator": MINDUSTRY_BASE_ID + 287,
+    }
+    erekir_elude = {
+        "Node Elude": MINDUSTRY_BASE_ID + 288,
+    }
+    erekir_mech_fabricator = {
+        "Node Mech Fabricator": MINDUSTRY_BASE_ID + 289,
+    }
+    erekir_merui = {
+        "Node Merui": MINDUSTRY_BASE_ID + 290,
+    }
+    erekir_tank_refabricator = {
+        "Node Tank Refabricator": MINDUSTRY_BASE_ID + 291,
+    }
+    erekir_locus = {
+        "Node Locus": MINDUSTRY_BASE_ID + 292,
+    }
+    erekir_mech_refrabricator = {
+        "Node Mech Refrabricator": MINDUSTRY_BASE_ID + 293,
+    }
+    erekir_cleroi = {
+        "Node Cleroi": MINDUSTRY_BASE_ID + 294,
+    }
+    erekir_ship_refabricator = {
+        "Node Ship Refabricator": MINDUSTRY_BASE_ID + 295,
+    }
+    erekir_avert = {
+        "Node Avert": MINDUSTRY_BASE_ID + 296,
+    }
+    erekir_prime_refabricator = {
+        "Node Prime Refabricator": MINDUSTRY_BASE_ID + 297,
+    }
+    erekir_precept = {
+        "Node Precept": MINDUSTRY_BASE_ID + 298,
+    }
+    erekir_anthicus = {
+        "Node Anthicus": MINDUSTRY_BASE_ID + 299,
+    }
+    erekir_obviate = {
+        "Node Obviate": MINDUSTRY_BASE_ID + 300,
+    }
+    erekir_tank_assembler = {
+        "Node Tank Assembler": MINDUSTRY_BASE_ID + 301,
+    }
+    erekir_vanquish = {
+        "Node Vanquish": MINDUSTRY_BASE_ID + 302,
+    }
+    erekir_conquer = {
+        "Node Conquer": MINDUSTRY_BASE_ID + 303,
+    }
+    erekir_ship_assembler = {
+        "Node Ship Assembler": MINDUSTRY_BASE_ID + 304,
+    }
+    erekir_quell = {
+        "Node Quell": MINDUSTRY_BASE_ID + 305,
+    }
+    erekir_disrupt = {
+        "Node Disrupt": MINDUSTRY_BASE_ID + 306,
+    }
+    erekir_mech_assembler = {
+        "Node Mech Assembler": MINDUSTRY_BASE_ID + 307,
+    }
+    erekir_tecta = {
+        "Node Tecta": MINDUSTRY_BASE_ID + 308,
+    }
+    erekir_collaris = {
+        "Node Collaris": MINDUSTRY_BASE_ID + 309,
+    }
+    erekir_basic_assembler_module = {
+        "Node Basic Assembler Module": MINDUSTRY_BASE_ID + 310,
+    }
+    erekir_aegis = {
+        "Node Aegis": MINDUSTRY_BASE_ID + 311,
+    }
+    erekir_lake = {
+        "Node Lake": MINDUSTRY_BASE_ID + 312,
+    }
+    erekir_intersect = {
+        "Node Intersect": MINDUSTRY_BASE_ID + 313,
+    }
+    erekir_atlas = {
+        "Node Atlas": MINDUSTRY_BASE_ID + 314,
+    }
+    erekir_split = {
+        "Node Split": MINDUSTRY_BASE_ID + 315,
+    }
+    erekir_basin = {
+        "Node Basin": MINDUSTRY_BASE_ID + 316,
+    }
+    erekir_marsh = {
+        "Node Marsh": MINDUSTRY_BASE_ID + 317,
+    }
+    erekir_ravine = {
+        "Node Ravine": MINDUSTRY_BASE_ID + 318,
+    }
+    erekir_caldera = {
+        "Node Caldera": MINDUSTRY_BASE_ID + 319,
+    }
+    erekir_stronghold = {
+        "Node Stronghold": MINDUSTRY_BASE_ID + 320,
+    }
+    erekir_crevice = {
+        "Node Crevice": MINDUSTRY_BASE_ID + 321,
+    }
+    erekir_siege = {
+        "Node Siege": MINDUSTRY_BASE_ID + 322,
+    }
+    erekir_crossroads = {
+        "Node Crossroads": MINDUSTRY_BASE_ID + 323,
+    }
+    erekir_krast = {
+        "Node Krast": MINDUSTRY_BASE_ID + 324,
+    }
+    erekir_origin = {
+        "Node Origin": MINDUSTRY_BASE_ID + 325,
+    }
+    erekir_peaks = {
+        "Node Peaks": MINDUSTRY_BASE_ID + 326,
+    }
+    erekir_oxide = {
+        "Node Oxide": MINDUSTRY_BASE_ID + 327,
+    }
+    erekir_ozone = {
+        "Node Ozone": MINDUSTRY_BASE_ID + 328,
+    }
+    erekir_hydrogen = {
+        "Node Hydrogen": MINDUSTRY_BASE_ID + 329,
+    }
+    erekir_nitrogen = {
+        "Node Nitrogen": MINDUSTRY_BASE_ID + 330,
+    }
+    erekir_cyanogen = {
+        "Node Cyanogen": MINDUSTRY_BASE_ID + 331,
+    }
+    erekir_neoplasm = {
+        "Node Neoplasm": MINDUSTRY_BASE_ID + 332,
+    }
+    erekir_tungsten = {
+        "Node Tungsten": MINDUSTRY_BASE_ID + 333,
+    }
+    erekir_slag = {
+        "Node Slag": MINDUSTRY_BASE_ID + 334,
+    }
+    erekir_arkycite = {
+        "Node Arkycite": MINDUSTRY_BASE_ID + 335,
+    }
+    erekir_carbide = {
+        "Node Carbide": MINDUSTRY_BASE_ID + 336,
+    }
+
+
+
 
 location_table = {
     #**MindustryLocations.serpulo_conveyor,
