@@ -24,274 +24,274 @@ class MindustryLocations:
     #    "Node Conveyor": MINDUSTRY_BASE_ID + 0,
     #}
     serpulo_junction = {
-        "Node Junction": MINDUSTRY_BASE_ID + 1,
+        "AP-S-01-02": MINDUSTRY_BASE_ID + 1,
     }
     serpulo_router = {
-        "Node Router": MINDUSTRY_BASE_ID + 2,
+        "AP-S-01-03": MINDUSTRY_BASE_ID + 2,
     }
     serpulo_launch_pad = {
-        "Node Launch Pad": MINDUSTRY_BASE_ID + 3,
+        "AP-S-01-04": MINDUSTRY_BASE_ID + 3,
     }
     serpulo_distributor = {
-        "Node Distributor": MINDUSTRY_BASE_ID + 4,
+        "AP-S-01-05": MINDUSTRY_BASE_ID + 4,
     }
     serpulo_sorter = {
-        "Node Sorter": MINDUSTRY_BASE_ID + 5,
+        "AP-S-01-06": MINDUSTRY_BASE_ID + 5,
     }
     serpulo_inverted_sorter = {
-        "Node Inverted Sorter": MINDUSTRY_BASE_ID + 6,
+        "AP-S-01-07": MINDUSTRY_BASE_ID + 6,
     }
     serpulo_overflow_gate = {
-        "Node Overflow Gate": MINDUSTRY_BASE_ID + 7,
+        "AP-S-01-08": MINDUSTRY_BASE_ID + 7,
     }
     serpulo_underflow_gate = {
-        "Node Underflow gate": MINDUSTRY_BASE_ID + 8,
+        "AP-S-01-09": MINDUSTRY_BASE_ID + 8,
     }
     serpulo_container = {
-        "Node Container": MINDUSTRY_BASE_ID + 9,
+        "AP-S-01-10": MINDUSTRY_BASE_ID + 9,
     }
     serpulo_unloader = {
-        "Node Unloader": MINDUSTRY_BASE_ID + 10,
+        "AP-S-01-11": MINDUSTRY_BASE_ID + 10,
     }
     serpulo_vault = {
-        "Node Vault": MINDUSTRY_BASE_ID + 11,
+        "AP-S-01-12": MINDUSTRY_BASE_ID + 11,
     }
     serpulo_bridge_conveyor = {
-        "Node Bridge Conveyor": MINDUSTRY_BASE_ID + 12,
+        "AP-S-01-13": MINDUSTRY_BASE_ID + 12,
     }
     serpulo_titanium_conveyor = {
-        "Node Titanium Conveyor": MINDUSTRY_BASE_ID + 13,
+        "AP-S-01-14": MINDUSTRY_BASE_ID + 13,
     }
     serpulo_phase_conveyor = {
-        "Node Phase Conveyor": MINDUSTRY_BASE_ID + 14,
+        "AP-S-01-15": MINDUSTRY_BASE_ID + 14,
     }
     serpulo_mass_driver = {
-        "Node Mass Driver": MINDUSTRY_BASE_ID + 15,
+        "AP-S-01-16": MINDUSTRY_BASE_ID + 15,
     }
     serpulo_payload_conveyor = {
-        "Node Payload Conveyor": MINDUSTRY_BASE_ID + 16,
+        "AP-S-01-17": MINDUSTRY_BASE_ID + 16,
     }
     serpulo_payload_router = {
-        "Node Payload Router": MINDUSTRY_BASE_ID + 17,
+        "AP-S-01-18": MINDUSTRY_BASE_ID + 17,
     }
     serpulo_armored_conveyor = {
-        "Node Armored Conveyor": MINDUSTRY_BASE_ID + 18,
+        "AP-S-01-19": MINDUSTRY_BASE_ID + 18,
     }
     serpulo_plastanium_conveyor = {
-        "Node Plastanium Conveyor": MINDUSTRY_BASE_ID + 19,
+        "AP-S-01-20": MINDUSTRY_BASE_ID + 19,
     }
     serpulo_core_foundation = {
-        "Node Core: Foundation": MINDUSTRY_BASE_ID + 20,
+        "AP-S-02-01": MINDUSTRY_BASE_ID + 20,
     }
     serpulo_core_nucleus = {
-        "Node Core: Nucleus": MINDUSTRY_BASE_ID + 21,
+        "AP-S-02-02": MINDUSTRY_BASE_ID + 21,
     }
     #serpulo_mechanical_drill = {
     #    "Node Mechanical Drill": MINDUSTRY_BASE_ID + 22,
     #}
     serpulo_mechanical_pump = {
-        "Node Mechanical Pump": MINDUSTRY_BASE_ID + 23,
+        "AP-S-03-02": MINDUSTRY_BASE_ID + 23,
     }
     serpulo_conduit = {
-        "Node Conduit": MINDUSTRY_BASE_ID + 24,
+        "AP-S-03-03": MINDUSTRY_BASE_ID + 24,
     }
     serpulo_liquid_junction = {
-        "Node Liquid Junction": MINDUSTRY_BASE_ID + 25,
+        "AP-S-03-04": MINDUSTRY_BASE_ID + 25,
     }
     serpulo_liquid_router = {
-        "Node Liquid Router": MINDUSTRY_BASE_ID + 26,
+        "AP-S-03-05": MINDUSTRY_BASE_ID + 26,
     }
     serpulo_liquid_container = {
-        "Node Liquid Container": MINDUSTRY_BASE_ID + 27,
+        "AP-S-03-06": MINDUSTRY_BASE_ID + 27,
     }
     serpulo_liquid_tank = {
-        "Node Liquid Tank": MINDUSTRY_BASE_ID + 28,
+        "AP-S-03-07": MINDUSTRY_BASE_ID + 28,
     }
     serpulo_bridge_conduit = {
-        "Node Bridge Conduit": MINDUSTRY_BASE_ID + 29,
+        "AP-S-03-08": MINDUSTRY_BASE_ID + 29,
         }
     serpulo_pulse_conduit = {
-        "Node Pulse Conduit": MINDUSTRY_BASE_ID + 30,
+        "AP-S-03-09": MINDUSTRY_BASE_ID + 30,
         }
     serpulo_phase_conduit = {
-        "Node Phase Conduit": MINDUSTRY_BASE_ID + 31,
+        "AP-S-03-10": MINDUSTRY_BASE_ID + 31,
     }
     serpulo_plated_conduit = {
-        "Node Plated Conduit": MINDUSTRY_BASE_ID + 32,
+        "AP-S-03-11": MINDUSTRY_BASE_ID + 32,
     }
     serpulo_rotary_pump = {
-        "Node Rotary Pump": MINDUSTRY_BASE_ID + 33,
+        "AP-S-03-12": MINDUSTRY_BASE_ID + 33,
     }
     serpulo_impulse_pump = {
-        "Node Impulse Pump": MINDUSTRY_BASE_ID + 34,
+        "AP-S-03-13": MINDUSTRY_BASE_ID + 34,
     }
     serpulo_graphite_press = {
-        "Node Graphite Press": MINDUSTRY_BASE_ID + 35,
+        "AP-S-03-14": MINDUSTRY_BASE_ID + 35,
     }
     serpulo_pneumatic_drill = {
-        "Node Pneumatic Drill": MINDUSTRY_BASE_ID + 36,
+        "AP-S-03-15": MINDUSTRY_BASE_ID + 36,
     }
     serpulo_cultivator = {
-        "Node Cultivator": MINDUSTRY_BASE_ID + 37,
+        "AP-S-03-16": MINDUSTRY_BASE_ID + 37,
     }
     serpulo_laser_drill = {
-        "Node Laser Drill": MINDUSTRY_BASE_ID + 38,
+        "AP-S-03-17": MINDUSTRY_BASE_ID + 38,
     }
     serpulo_airblast_drill = {
-        "Node Airblast Drill": MINDUSTRY_BASE_ID + 39,
+        "AP-S-03-18": MINDUSTRY_BASE_ID + 39,
     }
     serpulo_water_extractor = {
-        "Node Water Extractor": MINDUSTRY_BASE_ID + 40,
+        "AP-S-03-19": MINDUSTRY_BASE_ID + 40,
     }
     serpulo_oil_extractor = {
-        "Node Oil Extractor": MINDUSTRY_BASE_ID + 41,
+        "AP-S-03-20": MINDUSTRY_BASE_ID + 41,
     }
     serpulo_pyratite_mixer = {
-        "Node Pyratite Mixer": MINDUSTRY_BASE_ID + 42,
+        "AP-S-03-21": MINDUSTRY_BASE_ID + 42,
     }
     serpulo_blast_mixer = {
-        "Node Blast Mixer": MINDUSTRY_BASE_ID + 43,
+        "AP-S-03-22": MINDUSTRY_BASE_ID + 43,
     }
     serpulo_silicon_smelter = {
-        "Node Silicon Smelter": MINDUSTRY_BASE_ID + 44,
+        "AP-S-03-23": MINDUSTRY_BASE_ID + 44,
     }
     serpulo_spore_press = {
-        "Node Spore Press": MINDUSTRY_BASE_ID + 45,
+        "AP-S-03-24": MINDUSTRY_BASE_ID + 45,
     }
     serpulo_coal_centrifuge = {
-        "Node Coal Centrifuge": MINDUSTRY_BASE_ID + 46,
+        "AP-S-03-25": MINDUSTRY_BASE_ID + 46,
     }
     serpulo_multi_press = {
-        "Node Multi-Press": MINDUSTRY_BASE_ID + 47,
+        "AP-S-03-26": MINDUSTRY_BASE_ID + 47,
     }
     serpulo_silicon_crucible = {
-        "Node Silicon Crucible": MINDUSTRY_BASE_ID + 48,
+        "AP-S-03-27": MINDUSTRY_BASE_ID + 48,
     }
     serpulo_plastanium_compressor = {
-        "Node Plastanium Compressor": MINDUSTRY_BASE_ID + 49,
+        "AP-S-03-28": MINDUSTRY_BASE_ID + 49,
     }
     serpulo_phase_weaver = {
-        "Node Phase Weaver": MINDUSTRY_BASE_ID + 50,
+        "AP-S-03-29": MINDUSTRY_BASE_ID + 50,
     }
     serpulo_kiln = {
-        "Node Kiln": MINDUSTRY_BASE_ID + 51,
+        "AP-S-03-30": MINDUSTRY_BASE_ID + 51,
     }
     serpulo_pulveriser = {
-        "Node Pulveriser": MINDUSTRY_BASE_ID + 52,
+        "AP-S-03-31": MINDUSTRY_BASE_ID + 52,
     }
     serpulo_incinerator = {
-        "Node Incinerator": MINDUSTRY_BASE_ID + 53,
+        "AP-S-03-32": MINDUSTRY_BASE_ID + 53,
     }
     serpulo_melter = {
-        "Node Melter": MINDUSTRY_BASE_ID + 54,
+        "AP-S-03-33": MINDUSTRY_BASE_ID + 54,
     }
     serpulo_surge_smelter = {
-        "Node Surge Smelter": MINDUSTRY_BASE_ID + 55,
+        "AP-S-03-34": MINDUSTRY_BASE_ID + 55,
     }
     serpulo_separator = {
-        "Node Separator": MINDUSTRY_BASE_ID + 56,
+        "AP-S-03-35": MINDUSTRY_BASE_ID + 56,
     }
     serpulo_disassembler = {
-        "Node Disassembler": MINDUSTRY_BASE_ID + 57,
+        "AP-S-03-36": MINDUSTRY_BASE_ID + 57,
     }
     serpulo_cryofluid_mixer = {
-        "Node Cryofluid Mixer": MINDUSTRY_BASE_ID + 58,
+        "AP-S-03-37": MINDUSTRY_BASE_ID + 58,
     }
     serpulo_micro_processor = {
-        "Node Micro Processor": MINDUSTRY_BASE_ID + 59,
+        "AP-S-03-38": MINDUSTRY_BASE_ID + 59,
     }
     serpulo_switch = {
-        "Node Switch": MINDUSTRY_BASE_ID + 60,
+        "AP-S-03-39": MINDUSTRY_BASE_ID + 60,
     }
     serpulo_message = {
-        "Node Message": MINDUSTRY_BASE_ID + 61,
+        "AP-S-03-40": MINDUSTRY_BASE_ID + 61,
     }
     serpulo_logic_display = {
-        "Node Logic Display": MINDUSTRY_BASE_ID + 62,
+        "AP-S-03-41": MINDUSTRY_BASE_ID + 62,
     }
     serpulo_large_logic_display = {
-        "Node Large Logic Display": MINDUSTRY_BASE_ID + 63,
+        "AP-S-03-42": MINDUSTRY_BASE_ID + 63,
     }
     serpulo_memory_cell = {
-        "Node Memory Cell": MINDUSTRY_BASE_ID + 64,
+        "AP-S-03-43": MINDUSTRY_BASE_ID + 64,
     }
     serpulo_memory_bank = {
-        "Node Memory Bank": MINDUSTRY_BASE_ID + 65,
+        "AP-S-03-44": MINDUSTRY_BASE_ID + 65,
     }
     serpulo_logic_processor = {
-        "Node Logic Processor": MINDUSTRY_BASE_ID + 66,
+        "AP-S-03-45": MINDUSTRY_BASE_ID + 66,
     }
     serpulo_hyper_processor = {
-        "Node Hyper Processor": MINDUSTRY_BASE_ID + 67,
+        "AP-S-03-46": MINDUSTRY_BASE_ID + 67,
     }
     serpulo_illuminator = {
-        "Node Illuminator": MINDUSTRY_BASE_ID + 68,
+        "AP-S-03-47": MINDUSTRY_BASE_ID + 68,
     }
     serpulo_combustion_generator = {
-        "Node Combustion Generator": MINDUSTRY_BASE_ID + 69,
+        "AP-S-03-48": MINDUSTRY_BASE_ID + 69,
     }
     serpulo_power_node = {
-        "Node Power Node": MINDUSTRY_BASE_ID + 70,
+        "AP-S-03-49": MINDUSTRY_BASE_ID + 70,
     }
     serpulo_large_power_node = {
-        "Node Large Power Node": MINDUSTRY_BASE_ID + 71,
+        "AP-S-03-50": MINDUSTRY_BASE_ID + 71,
     }
     serpulo_battery_diode = {
-        "Node Battery Diode": MINDUSTRY_BASE_ID + 72,
+        "AP-S-03-51": MINDUSTRY_BASE_ID + 72,
     }
     serpulo_surge_tower = {
-        "Node Surge Tower": MINDUSTRY_BASE_ID + 73,
+        "AP-S-03-52": MINDUSTRY_BASE_ID + 73,
     }
     serpulo_battery = {
-        "Node Battery": MINDUSTRY_BASE_ID + 74,
+        "AP-S-03-53": MINDUSTRY_BASE_ID + 74,
     }
     serpulo_large_battery = {
-        "Node Large Battery": MINDUSTRY_BASE_ID + 75,
+        "AP-S-03-54": MINDUSTRY_BASE_ID + 75,
     }
     serpulo_mender = {
-        "Node Mender": MINDUSTRY_BASE_ID + 76,
+        "AP-S-03-55": MINDUSTRY_BASE_ID + 76,
     }
     serpulo_mend_projector = {
-        "Node Mend Projector": MINDUSTRY_BASE_ID + 77,
+        "AP-S-03-56": MINDUSTRY_BASE_ID + 77,
     }
     serpulo_force_projector = {
-        "Node Force Projector": MINDUSTRY_BASE_ID + 78,
+        "AP-S-03-57": MINDUSTRY_BASE_ID + 78,
     }
     serpulo_overdrive_projector = {
-        "Node Overdrive Projector": MINDUSTRY_BASE_ID + 79,
+        "AP-S-03-58": MINDUSTRY_BASE_ID + 79,
     }
     serpulo_overdrive_dome = {
-        "Node Overdrive Dome": MINDUSTRY_BASE_ID + 80,
+        "AP-S-03-59": MINDUSTRY_BASE_ID + 80,
     }
     serpulo_repair_point = {
-        "Node Repair Point": MINDUSTRY_BASE_ID + 81,
+        "AP-S-03-60": MINDUSTRY_BASE_ID + 81,
     }
     serpulo_repair_turret = {
-        "Node Repair Turret": MINDUSTRY_BASE_ID + 82,
+        "AP-S-03-61": MINDUSTRY_BASE_ID + 82,
     }
     serpulo_steam_generator = {
-        "Node Steam Generator": MINDUSTRY_BASE_ID + 83,
+        "AP-S-03-62": MINDUSTRY_BASE_ID + 83,
     }
     serpulo_thermal_generator = {
-        "Node Thermal Generator": MINDUSTRY_BASE_ID + 84,
+        "AP-S-03-63": MINDUSTRY_BASE_ID + 84,
     }
     serpulo_differential_generator = {
-        "Node Differential Generator": MINDUSTRY_BASE_ID + 85,
+        "AP-S-03-64": MINDUSTRY_BASE_ID + 85,
     }
     serpulo_thorium_reactor = {
-        "Node Thorium Reactor": MINDUSTRY_BASE_ID + 86,
+        "AP-S-03-65": MINDUSTRY_BASE_ID + 86,
     }
     serpulo_impact_reactor = {
-        "Node Impact Reactor": MINDUSTRY_BASE_ID + 87,
+        "AP-S-03-66": MINDUSTRY_BASE_ID + 87,
     }
     serpulo_rtg_generator = {
-        "Node RTG Generator": MINDUSTRY_BASE_ID + 88,
+        "AP-S-03-67": MINDUSTRY_BASE_ID + 88,
     }
     serpulo_solar_panel = {
-        "Node Solar Panel": MINDUSTRY_BASE_ID + 89,
+        "AP-S-03-68": MINDUSTRY_BASE_ID + 89,
     }
     serpulo_large_solar_panel = {
-        "Node Large Solar Panel": MINDUSTRY_BASE_ID + 90,
+        "AP-S-03-69": MINDUSTRY_BASE_ID + 90,
     }
     #serpulo_duo = {
     #    "Node Duo": MINDUSTRY_BASE_ID + 91,
@@ -300,223 +300,223 @@ class MindustryLocations:
     #    "Node Copper Wall": MINDUSTRY_BASE_ID + 92,
     #}
     serpulo_large_copper_wall = {
-        "Node Large Copper Wall": MINDUSTRY_BASE_ID + 93,
+        "AP-S-04-03": MINDUSTRY_BASE_ID + 93,
     }
     serpulo_titanium_wall = {
-        "Node Titanium Wall": MINDUSTRY_BASE_ID + 94,
+        "AP-S-04-04": MINDUSTRY_BASE_ID + 94,
     }
     serpulo_large_titanium_wall = {
-        "Node Large Titanium Wall": MINDUSTRY_BASE_ID + 95,
+        "AP-S-04-05": MINDUSTRY_BASE_ID + 95,
     }
     serpulo_door = {
-        "Node Door": MINDUSTRY_BASE_ID + 96,
+        "AP-S-04-06": MINDUSTRY_BASE_ID + 96,
     }
     serpulo_large_door = {
-        "Node Large Door": MINDUSTRY_BASE_ID + 97,
+        "AP-S-04-07": MINDUSTRY_BASE_ID + 97,
     }
     serpulo_plastanium_wall = {
-        "Node Plastanium Wall": MINDUSTRY_BASE_ID + 98,
+        "AP-S-04-08": MINDUSTRY_BASE_ID + 98,
     }
     serpulo_large_plastanium_wall = {
-        "Node Large Plastanium Wall": MINDUSTRY_BASE_ID + 99,
+        "AP-S-04-09": MINDUSTRY_BASE_ID + 99,
     }
     serpulo_thorium_wall = {
-        "Node Thorium Wall": MINDUSTRY_BASE_ID + 100,
+        "AP-S-04-10": MINDUSTRY_BASE_ID + 100,
     }
     serpulo_large_thorium_wall = {
-        "Node Large Thorium Wall": MINDUSTRY_BASE_ID + 101,
+        "AP-S-04-11": MINDUSTRY_BASE_ID + 101,
     }
     serpulo_surge_wall = {
-        "Node Surge Wall": MINDUSTRY_BASE_ID + 102,
+        "AP-S-04-12": MINDUSTRY_BASE_ID + 102,
     }
     serpulo_large_surge_wall = {
-        "Node Large Surge Wall": MINDUSTRY_BASE_ID + 103,
+        "AP-S-04-13": MINDUSTRY_BASE_ID + 103,
     }
     serpulo_phase_wall = {
-        "Node Phase Wall": MINDUSTRY_BASE_ID + 104,
+        "AP-S-04-14": MINDUSTRY_BASE_ID + 104,
     }
     serpulo_large_phase_wall = {
-        "Node Large Phase Wall": MINDUSTRY_BASE_ID + 105,
+        "AP-S-04-15": MINDUSTRY_BASE_ID + 105,
     }
     #serpulo_scatter = {
     #    "Node Scatter": MINDUSTRY_BASE_ID + 106,
     #}
     serpulo_hail = {
-        "Node Hail": MINDUSTRY_BASE_ID + 107,
+        "AP-S-04-17": MINDUSTRY_BASE_ID + 107,
     }
     serpulo_salvo = {
-        "Node Salvo": MINDUSTRY_BASE_ID + 108,
+        "AP-S-04-18": MINDUSTRY_BASE_ID + 108,
     }
     serpulo_swarmer = {
-        "Node Swarmer": MINDUSTRY_BASE_ID + 109,
+        "AP-S-04-19": MINDUSTRY_BASE_ID + 109,
     }
     serpulo_cyclone = {
-        "Node Cyclone": MINDUSTRY_BASE_ID + 110,
+        "AP-S-04-20": MINDUSTRY_BASE_ID + 110,
     }
     serpulo_spectre = {
-        "Node Spectre": MINDUSTRY_BASE_ID + 111,
+        "AP-S-04-21": MINDUSTRY_BASE_ID + 111,
     }
     serpulo_ripple = {
-        "Node Ripple": MINDUSTRY_BASE_ID + 112,
+        "AP-S-04-22": MINDUSTRY_BASE_ID + 112,
     }
     serpulo_fuse = {
-        "Node Fuse": MINDUSTRY_BASE_ID + 113,
+        "AP-S-04-23": MINDUSTRY_BASE_ID + 113,
     }
     serpulo_scorch = {
-        "Node Scorch": MINDUSTRY_BASE_ID + 114,
+        "AP-S-04-24": MINDUSTRY_BASE_ID + 114,
     }
     serpulo_arc = {
-        "Node Arc": MINDUSTRY_BASE_ID + 115,
+        "AP-S-04-25": MINDUSTRY_BASE_ID + 115,
     }
     serpulo_wave = {
-        "Node Wave": MINDUSTRY_BASE_ID + 116,
+        "AP-S-04-26": MINDUSTRY_BASE_ID + 116,
     }
     serpulo_parallax = {
-        "Node Parallax": MINDUSTRY_BASE_ID + 117,
+        "AP-S-04-27": MINDUSTRY_BASE_ID + 117,
     }
     serpulo_segment = {
-        "Node Segment": MINDUSTRY_BASE_ID + 118,
+        "AP-S-04-28": MINDUSTRY_BASE_ID + 118,
     }
     serpulo_tsunami = {
-        "Node Tsunami": MINDUSTRY_BASE_ID + 119,
+        "AP-S-04-29": MINDUSTRY_BASE_ID + 119,
     }
     serpulo_lancer = {
-        "Node Lancer": MINDUSTRY_BASE_ID + 120,
+        "AP-S-04-30": MINDUSTRY_BASE_ID + 120,
     }
     serpulo_meltdown = {
-        "Node Meltdown": MINDUSTRY_BASE_ID + 121,
+        "AP-S-04-31": MINDUSTRY_BASE_ID + 121,
     }
     serpulo_foreshadow = {
-        "Node Foreshadow": MINDUSTRY_BASE_ID + 122,
+        "AP-S-04-32": MINDUSTRY_BASE_ID + 122,
     }
     serpulo_shock_mine = {
-        "Node Shock Mine": MINDUSTRY_BASE_ID + 123,
+        "AP-S-04-33": MINDUSTRY_BASE_ID + 123,
     }
     serpulo_ground_factory = {
-        "Node Ground Factory": MINDUSTRY_BASE_ID + 124,
+        "AP-S-05-01": MINDUSTRY_BASE_ID + 124,
     }
     serpulo_dagger = {
-        "Node Dagger": MINDUSTRY_BASE_ID + 125,
+        "AP-S-05-02": MINDUSTRY_BASE_ID + 125,
     }
     serpulo_mace = {
-        "Node Mace": MINDUSTRY_BASE_ID + 126,
+        "AP-S-05-03": MINDUSTRY_BASE_ID + 126,
     }
     serpulo_fortress = {
-        "Node Fortress": MINDUSTRY_BASE_ID + 127,
+        "AP-S-05-04": MINDUSTRY_BASE_ID + 127,
     }
     serpulo_scepter = {
-        "Node Scepter": MINDUSTRY_BASE_ID + 128,
+        "AP-S-05-05": MINDUSTRY_BASE_ID + 128,
     }
     serpulo_reign = {
-        "Node Reign": MINDUSTRY_BASE_ID + 129,
+        "AP-S-05-06": MINDUSTRY_BASE_ID + 129,
     }
     serpulo_nova = {
-        "Node Nova": MINDUSTRY_BASE_ID + 130,
+        "AP-S-05-07": MINDUSTRY_BASE_ID + 130,
     }
     serpulo_pulsar = {
-        "Node Pulsar": MINDUSTRY_BASE_ID + 131,
+        "AP-S-05-08": MINDUSTRY_BASE_ID + 131,
     }
     serpulo_quasar = {
-        "Node Quasar": MINDUSTRY_BASE_ID + 132,
+        "AP-S-05-09": MINDUSTRY_BASE_ID + 132,
     }
     serpulo_vela = {
-        "Node Vela": MINDUSTRY_BASE_ID + 133,
+        "AP-S-05-10": MINDUSTRY_BASE_ID + 133,
     }
     serpulo_corvus = {
-        "Node Corvus": MINDUSTRY_BASE_ID + 134,
+        "AP-S-05-11": MINDUSTRY_BASE_ID + 134,
     }
     serpulo_crawler = {
-        "Node Crawler": MINDUSTRY_BASE_ID + 135,
+        "AP-S-05-12": MINDUSTRY_BASE_ID + 135,
     }
     serpulo_atrax = {
-        "Node Atrax": MINDUSTRY_BASE_ID + 136,
+        "AP-S-05-13": MINDUSTRY_BASE_ID + 136,
     }
     serpulo_spiroct = {
-        "Node Spiroct": MINDUSTRY_BASE_ID + 137,
+        "AP-S-05-14": MINDUSTRY_BASE_ID + 137,
     }
     serpulo_arkyid = {
-        "Node Arkyid": MINDUSTRY_BASE_ID + 138,
+        "AP-S-05-15": MINDUSTRY_BASE_ID + 138,
     }
     serpulo_toxopid = {
-        "Node Toxopid": MINDUSTRY_BASE_ID + 139,
+        "AP-S-05-16": MINDUSTRY_BASE_ID + 139,
     }
     serpulo_air_factory = {
-        "Node Air Factory": MINDUSTRY_BASE_ID + 140,
+        "AP-S-05-17": MINDUSTRY_BASE_ID + 140,
     }
     serpulo_flare = {
-        "Node Flare": MINDUSTRY_BASE_ID + 141,
+        "AP-S-05-18": MINDUSTRY_BASE_ID + 141,
     }
     serpulo_horizon = {
-        "Node Horizon": MINDUSTRY_BASE_ID + 142,
+        "AP-S-05-19": MINDUSTRY_BASE_ID + 142,
     }
     serpulo_zenith = {
-        "Node Zenith": MINDUSTRY_BASE_ID + 143,
+        "AP-S-05-20": MINDUSTRY_BASE_ID + 143,
     }
     serpulo_antumbra = {
-        "Node Antumbra": MINDUSTRY_BASE_ID + 144,
+        "AP-S-05-21": MINDUSTRY_BASE_ID + 144,
     }
     serpulo_eclipse = {
-        "Node Eclipse": MINDUSTRY_BASE_ID + 145,
+        "AP-S-05-22": MINDUSTRY_BASE_ID + 145,
     }
     serpulo_mono = {
-        "Node Mono": MINDUSTRY_BASE_ID + 146,
+        "AP-S-05-23": MINDUSTRY_BASE_ID + 146,
     }
     serpulo_poly = {
-        "Node Poly": MINDUSTRY_BASE_ID + 147,
+        "AP-S-05-24": MINDUSTRY_BASE_ID + 147,
     }
     serpulo_mega = {
-        "Node Mega": MINDUSTRY_BASE_ID + 148,
+        "AP-S-05-25": MINDUSTRY_BASE_ID + 148,
     }
     serpulo_quad = {
-        "Node Quad": MINDUSTRY_BASE_ID + 149,
+        "AP-S-05-26": MINDUSTRY_BASE_ID + 149,
     }
     serpulo_oct = {
-        "Node Oct": MINDUSTRY_BASE_ID + 150,
+        "AP-S-05-27": MINDUSTRY_BASE_ID + 150,
     }
     serpulo_naval_factory = {
-        "Node Naval Factory": MINDUSTRY_BASE_ID + 151,
+        "AP-S-05-28": MINDUSTRY_BASE_ID + 151,
     }
     serpulo_risso = {
-        "Node Risso": MINDUSTRY_BASE_ID + 152,
+        "AP-S-05-29": MINDUSTRY_BASE_ID + 152,
     }
     serpulo_minke = {
-        "Node Minke": MINDUSTRY_BASE_ID + 153,
+        "AP-S-05-30": MINDUSTRY_BASE_ID + 153,
     }
     serpulo_bryde = {
-        "Node Bryde": MINDUSTRY_BASE_ID + 154,
+        "AP-S-05-31": MINDUSTRY_BASE_ID + 154,
     }
     serpulo_sei = {
-        "Node Sei": MINDUSTRY_BASE_ID + 155,
+        "AP-S-05-32": MINDUSTRY_BASE_ID + 155,
     }
     serpulo_omura = {
-        "Node Omura": MINDUSTRY_BASE_ID + 156,
+        "AP-S-05-33": MINDUSTRY_BASE_ID + 156,
     }
     serpulo_retusa = {
-        "Node Retusa": MINDUSTRY_BASE_ID + 157,
+        "AP-S-05-34": MINDUSTRY_BASE_ID + 157,
     }
     serpulo_oxynoe = {
-        "Node Oxynoe": MINDUSTRY_BASE_ID + 158,
+        "AP-S-05-35": MINDUSTRY_BASE_ID + 158,
     }
     serpulo_cyerce = {
-        "Node Cyerce": MINDUSTRY_BASE_ID + 159,
+        "AP-S-05-36": MINDUSTRY_BASE_ID + 159,
     }
     serpulo_aegires = {
-        "Node Aegires": MINDUSTRY_BASE_ID + 160,
+        "AP-S-05-37": MINDUSTRY_BASE_ID + 160,
     }
     serpulo_navanax = {
-        "Node Navanax": MINDUSTRY_BASE_ID + 161,
+        "AP-S-05-38": MINDUSTRY_BASE_ID + 161,
     }
     serpulo_additive_reconstructor = {
-        "Node Additive Reconstructor": MINDUSTRY_BASE_ID + 162,
+        "AP-S-05-39": MINDUSTRY_BASE_ID + 162,
     }
     serpulo_multiplicative_reconstructor = {
-        "Node Multiplicative Reconstructor": MINDUSTRY_BASE_ID + 163,
+        "AP-S-05-40": MINDUSTRY_BASE_ID + 163,
     }
     serpulo_exponential_reconstructor = {
-        "Node Exponential Reconstructor": MINDUSTRY_BASE_ID + 164,
+        "AP-S-06-41": MINDUSTRY_BASE_ID + 164,
     }
     serpulo_tetrative_reconstructor = {
-        "Node Tetrative Reconstructor": MINDUSTRY_BASE_ID + 165,
+        "AP-S-05-42": MINDUSTRY_BASE_ID + 165,
     }
     #serpulo_frozen_forest = {
     #    "Node Frozen Forest": MINDUSTRY_BASE_ID + 166,

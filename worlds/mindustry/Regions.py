@@ -1068,140 +1068,140 @@ class MindustryRegions:
 
     def __initialise_serpulo_rules(self):
         """Initialise rules for Serpulo location"""
-        add_rule(self.multiworld.get_location("Node Launch Pad", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-04", self.player),
                  lambda state: _has_extraction_outpost(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Container", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-10", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
-        add_rule(self.multiworld.get_location("Node Unloader", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-11", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
-        add_rule(self.multiworld.get_location("Node Vault", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-12", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Titanium Conveyor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-14", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Phase Conveyor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-15", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Mass Driver", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-16", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Payload Conveyor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-17", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Payload Router", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-18", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Armored Conveyor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-19", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Plastanium Conveyor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-01-20", self.player),
                  lambda state: _has_the_craters(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Pulse Conduit", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-09", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
-        add_rule(self.multiworld.get_location("Node Phase Conduit", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-10", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
-        add_rule(self.multiworld.get_location("Node Plated Conduit", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-11", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
-        add_rule(self.multiworld.get_location("Node Rotary Pump", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-12", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
-        add_rule(self.multiworld.get_location("Node Impulse Pump", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-13", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Pneumatic Drill", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-15", self.player),
                  lambda state: _has_frozen_forest(state, self.player))
-        add_rule(self.multiworld.get_location("Node Cultivator", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-16", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                 _has_biomass_synthesis_facility(state, self.player))
-        add_rule(self.multiworld.get_location("Node Laser Drill", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-17", self.player),
                  lambda state: _has_frozen_forest(state, self.player))
-        add_rule(self.multiworld.get_location("Node Airblast Drill", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-18", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                 _has_nuclear_production_complex(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Water Extractor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-19", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                 _has_salt_flats(state, self.player))
-        add_rule(self.multiworld.get_location("Node Oil Extractor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-20", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                _has_salt_flats(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Plastanium Compressor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-28", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
-        add_rule(self.multiworld.get_location("Node Phase Weaver", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-29", self.player),
                  lambda state: _has_windswept_islands(state, self.player) and
                                _has_tar_fields(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Kiln", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-30", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Pulveriser", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-31", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Incinerator", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-32", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Melter", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-33", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Surge Smelter", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-34", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Separator", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-35", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Disassembler", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-36", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Cryofluid Mixer", self.player),
+        add_rule(self.multiworld.get_location("AP-S-03-37", self.player),
                  lambda state: _has_the_craters(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Hail", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-17", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Salvo", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-18", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Swarmer", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-19", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Cyclone", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-20", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Spectre", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-21", self.player),
                  lambda state: _has_the_craters(state, self.player) and
                                 _has_nuclear_production_complex(state, self.player))
-        add_rule(self.multiworld.get_location("Node Ripple", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-22", self.player),
                  lambda state: _has_the_craters(state, self.player))
-        add_rule(self.multiworld.get_location("Node Fuse", self.player),
+        add_rule(self.multiworld.get_location("AP-S-04-23", self.player),
                  lambda state: _has_the_craters(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Naval Factory", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-28", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
-        add_rule(self.multiworld.get_location("Node Risso", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-29", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
-        add_rule(self.multiworld.get_location("Node Minke", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-30", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
-        add_rule(self.multiworld.get_location("Node Bryde", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-31", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
-        add_rule(self.multiworld.get_location("Node Sei", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-32", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
-        add_rule(self.multiworld.get_location("Node Omura", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-33", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
-        add_rule(self.multiworld.get_location("Node Retusa", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-34", self.player),
                  lambda state: _has_ruinous_shores(state, self.player) and
                                 _has_windswept_islands(state, self.player))
-        add_rule(self.multiworld.get_location("Node Oxynoe", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-35", self.player),
                  lambda state: _has_ruinous_shores(state, self.player) and
                                _has_windswept_islands(state, self.player) and
                                 _has_coastline(state, self.player))
-        add_rule(self.multiworld.get_location("Node Cyerce", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-36", self.player),
                  lambda state: _has_ruinous_shores(state, self.player) and
                                _has_windswept_islands(state, self.player) and
                                _has_coastline(state, self.player))
-        add_rule(self.multiworld.get_location("Node Aegires", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-37", self.player),
                  lambda state: _has_ruinous_shores(state, self.player) and
                                _has_windswept_islands(state, self.player) and
                                _has_coastline(state, self.player))
-        add_rule(self.multiworld.get_location("Node Navanax", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-38", self.player),
                  lambda state: _has_ruinous_shores(state, self.player) and
                                _has_windswept_islands(state, self.player) and
                                _has_coastline(state, self.player) and
                                 _has_naval_fortress(state, self.player))
 #
-        add_rule(self.multiworld.get_location("Node Additive Reconstructor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-39", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
-        add_rule(self.multiworld.get_location("Node Multiplicative Reconstructor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-40", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
-        add_rule(self.multiworld.get_location("Node Exponential Reconstructor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-06-41", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player) and
                                 _has_overgrowth(state, self.player))
-        add_rule(self.multiworld.get_location("Node Tetrative Reconstructor", self.player),
+        add_rule(self.multiworld.get_location("AP-S-05-42", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player) and
                                 _has_overgrowth(state, self.player))
 
@@ -1225,171 +1225,171 @@ class MindustryRegions:
         self.serpulo: Region = self.__add_region("Serpulo", None)
         self.node_core_shard = self.__add_region("Core: Shard", None)
         self.node_conveyor = self.__add_region("Conveyor", None)
-        self.node_junction = self.__add_region("Junction", MindustryLocations.serpulo_junction)
-        self.node_router = self.__add_region("Router", MindustryLocations.serpulo_router)
-        self.node_launch_pad = self.__add_region("Launch Pad", MindustryLocations.serpulo_launch_pad)
-        self.node_distributor = self.__add_region("Distributor", MindustryLocations.serpulo_distributor)
-        self.node_sorter = self.__add_region("Sorter", MindustryLocations.serpulo_sorter)
-        self.node_inverted_sorter = self.__add_region("Inverted Sorter", MindustryLocations.serpulo_inverted_sorter)
-        self.node_overflow_gate = self.__add_region("Overflow Gate", MindustryLocations.serpulo_overflow_gate)
-        self.node_underflow_gate = self.__add_region("Underflow Gate", MindustryLocations.serpulo_underflow_gate)
-        self.node_container = self.__add_region("Container", MindustryLocations.serpulo_container)
-        self.node_unloader = self.__add_region("Unloader", MindustryLocations.serpulo_unloader)
-        self.node_vault = self.__add_region("Vault", MindustryLocations.serpulo_vault)
-        self.node_bridge_conveyor = self.__add_region("Bridge Conveyor", MindustryLocations.serpulo_bridge_conveyor)
-        self.node_titanium_conveyor = self.__add_region("Titanium Conveyor", MindustryLocations.serpulo_titanium_conveyor)
-        self.node_phase_conveyor = self.__add_region("Phase Conveyor", MindustryLocations.serpulo_phase_conveyor)
-        self.node_mass_driver = self.__add_region("Mass Driver", MindustryLocations.serpulo_mass_driver)
-        self.node_payload_conveyor = self.__add_region("Payload Conveyor", MindustryLocations.serpulo_payload_conveyor)
-        self.node_payload_router = self.__add_region("Payload Router", MindustryLocations.serpulo_payload_router)
-        self.node_armored_conveyor = self.__add_region("Armored Conveyor", MindustryLocations.serpulo_armored_conveyor)
-        self.node_plastanium_conveyor = self.__add_region("Plastanium Conveyor", MindustryLocations.serpulo_plastanium_conveyor)
-        self.node_core_foundation = self.__add_region("Core: Foundation", MindustryLocations.serpulo_core_foundation)
-        self.node_core_nucleus = self.__add_region("Core: Nucleus", MindustryLocations.serpulo_core_nucleus)
+        self.node_junction = self.__add_region("AP-S-01-02", MindustryLocations.serpulo_junction)
+        self.node_router = self.__add_region("AP-S-01-03", MindustryLocations.serpulo_router)
+        self.node_launch_pad = self.__add_region("AP-S-01-04", MindustryLocations.serpulo_launch_pad)
+        self.node_distributor = self.__add_region("AP-S-01-05", MindustryLocations.serpulo_distributor)
+        self.node_sorter = self.__add_region("AP-S-01-06", MindustryLocations.serpulo_sorter)
+        self.node_inverted_sorter = self.__add_region("AP-S-01-07", MindustryLocations.serpulo_inverted_sorter)
+        self.node_overflow_gate = self.__add_region("AP-S-01-08", MindustryLocations.serpulo_overflow_gate)
+        self.node_underflow_gate = self.__add_region("AP-S-01-09", MindustryLocations.serpulo_underflow_gate)
+        self.node_container = self.__add_region("AP-S-01-10", MindustryLocations.serpulo_container)
+        self.node_unloader = self.__add_region("AP-S-01-11", MindustryLocations.serpulo_unloader)
+        self.node_vault = self.__add_region("AP-S-01-12", MindustryLocations.serpulo_vault)
+        self.node_bridge_conveyor = self.__add_region("AP-S-01-13", MindustryLocations.serpulo_bridge_conveyor)
+        self.node_titanium_conveyor = self.__add_region("AP-S-01-14", MindustryLocations.serpulo_titanium_conveyor)
+        self.node_phase_conveyor = self.__add_region("AP-S-01-15", MindustryLocations.serpulo_phase_conveyor)
+        self.node_mass_driver = self.__add_region("AP-S-01-16", MindustryLocations.serpulo_mass_driver)
+        self.node_payload_conveyor = self.__add_region("AP-S-01-17", MindustryLocations.serpulo_payload_conveyor)
+        self.node_payload_router = self.__add_region("AP-S-01-18", MindustryLocations.serpulo_payload_router)
+        self.node_armored_conveyor = self.__add_region("AP-S-01-19", MindustryLocations.serpulo_armored_conveyor)
+        self.node_plastanium_conveyor = self.__add_region("AP-S-01-20", MindustryLocations.serpulo_plastanium_conveyor)
+        self.node_core_foundation = self.__add_region("AP-S-02-01", MindustryLocations.serpulo_core_foundation)
+        self.node_core_nucleus = self.__add_region("AP-S-02-02", MindustryLocations.serpulo_core_nucleus)
         self.node_mechanical_drill = self.__add_region("Mechanical Drill", None)
-        self.node_mechanical_pump = self.__add_region("Mechanical Pump", MindustryLocations.serpulo_mechanical_pump)
-        self.node_conduit = self.__add_region("Conduit", MindustryLocations.serpulo_conduit)
-        self.node_liquid_junction = self.__add_region("Liquid Junction", MindustryLocations.serpulo_liquid_junction)
-        self.node_liquid_router = self.__add_region("Liquid Router", MindustryLocations.serpulo_liquid_router)
-        self.node_liquid_container = self.__add_region("Liquid Container", MindustryLocations.serpulo_liquid_container)
-        self.node_liquid_tank = self.__add_region("Liquid Tank", MindustryLocations.serpulo_liquid_tank)
-        self.node_bridge_conduit = self.__add_region("Bridge Conduit", MindustryLocations.serpulo_bridge_conduit)
-        self.node_pulse_conduit = self.__add_region("Pulse Conduit", MindustryLocations.serpulo_pulse_conduit)
-        self.node_phase_conduit =  self.__add_region("Phase Conduit", MindustryLocations.serpulo_phase_conduit)
-        self.node_plated_conduit = self.__add_region("Plated Conduit", MindustryLocations.serpulo_plated_conduit)
-        self.node_rotary_pump = self.__add_region("Rotary Pump", MindustryLocations.serpulo_rotary_pump)
-        self.node_impulse_pump = self.__add_region("Impulse Pump", MindustryLocations.serpulo_impulse_pump)
-        self.node_graphite_press = self.__add_region("Graphite Press", MindustryLocations.serpulo_graphite_press)
-        self.node_pneumatic_drill = self.__add_region("Pneumatic Drill", MindustryLocations.serpulo_pneumatic_drill)
-        self.node_cultivator = self.__add_region("Cultivator", MindustryLocations.serpulo_cultivator)
-        self.node_laser_drill = self.__add_region("Laser Drill", MindustryLocations.serpulo_laser_drill)
-        self.node_airblast_drill = self.__add_region("Airblast Drill", MindustryLocations.serpulo_airblast_drill)
-        self.node_water_extractor = self.__add_region("Water Extractor", MindustryLocations.serpulo_water_extractor)
-        self.node_oil_extractor = self.__add_region("Oil Extractor", MindustryLocations.serpulo_oil_extractor)
-        self.node_pyratite_mixer = self.__add_region("Pyrate Mixer", MindustryLocations.serpulo_pyratite_mixer)
-        self.node_blast_mixer = self.__add_region("Blast Mixer", MindustryLocations.serpulo_blast_mixer)
-        self.node_silicon_smelter = self.__add_region("Silicon Smelter", MindustryLocations.serpulo_silicon_smelter)
-        self.node_spore_press = self.__add_region("Spore Press", MindustryLocations.serpulo_spore_press)
-        self.node_coal_centrifuge = self.__add_region("Coal Centrifuge", MindustryLocations.serpulo_coal_centrifuge)
-        self.node_multi_press = self.__add_region("Multi Press", MindustryLocations.serpulo_multi_press)
-        self.node_silicon_crucible = self.__add_region("Silicon Crucible", MindustryLocations.serpulo_silicon_crucible)
-        self.node_plastanium_compressor = self.__add_region("Plastanium Compressor", MindustryLocations.serpulo_plastanium_compressor)
-        self.node_phase_weaver = self.__add_region("Phase Weaver", MindustryLocations.serpulo_phase_weaver)
-        self.node_kiln = self.__add_region("Kiln", MindustryLocations.serpulo_kiln)
-        self.node_pulveriser = self.__add_region("Pulveriser", MindustryLocations.serpulo_pulveriser)
-        self.node_incinerator = self.__add_region("Incinerator", MindustryLocations.serpulo_incinerator)
-        self.node_melter = self.__add_region("Melter", MindustryLocations.serpulo_melter)
-        self.node_surge_smelter = self.__add_region("Surge Smelter", MindustryLocations.serpulo_surge_smelter)
-        self.node_separator = self.__add_region("Separator", MindustryLocations.serpulo_separator)
-        self.node_disassembler = self.__add_region("Disasembler", MindustryLocations.serpulo_disassembler)
-        self.node_cryofluid_mixer = self.__add_region("Cryofluid Mixer", MindustryLocations.serpulo_cryofluid_mixer)
-        self.node_micro_processor = self.__add_region("Micro Processor", MindustryLocations.serpulo_micro_processor)
-        self.node_switch = self.__add_region("Switch", MindustryLocations.serpulo_switch)
-        self.node_message = self.__add_region("Message", MindustryLocations.serpulo_message)
-        self.node_logic_display = self.__add_region("Logic Display", MindustryLocations.serpulo_logic_display)
-        self.node_large_logic_display = self.__add_region("Large Logic Display", MindustryLocations.serpulo_large_logic_display)
-        self.node_memory_cell = self.__add_region("Memory Cell", MindustryLocations.serpulo_memory_cell)
-        self.node_memory_bank = self.__add_region("Memory Bank", MindustryLocations.serpulo_memory_bank)
-        self.node_logic_processor = self.__add_region("Logic Processor", MindustryLocations.serpulo_logic_processor)
-        self.node_hyper_processor = self.__add_region("Hyper Processor", MindustryLocations.serpulo_hyper_processor)
-        self.node_illuminator = self.__add_region("Illuminator", MindustryLocations.serpulo_illuminator)
-        self.node_combustion_generator = self.__add_region("Combustion Generator", MindustryLocations.serpulo_combustion_generator)
-        self.node_power_node = self.__add_region("Power Node", MindustryLocations.serpulo_power_node)
-        self.node_large_power_node = self.__add_region("Large Power Node", MindustryLocations.serpulo_large_power_node)
-        self.node_battery_diode = self.__add_region("Battery Diode", MindustryLocations.serpulo_battery_diode)
-        self.node_surge_tower = self.__add_region("Surge Tower", MindustryLocations.serpulo_surge_tower)
-        self.node_battery = self.__add_region("Battery", MindustryLocations.serpulo_battery)
-        self.node_large_battery = self.__add_region("Large Battery", MindustryLocations.serpulo_large_battery)
-        self.node_mender = self.__add_region("Mender", MindustryLocations.serpulo_mender)
-        self.node_mend_projector = self.__add_region("Mend Projector", MindustryLocations.serpulo_mend_projector)
-        self.node_force_projector = self.__add_region("Forced Projector", MindustryLocations.serpulo_force_projector)
-        self.node_overdrive_projector = self.__add_region("Overdrive Projector", MindustryLocations.serpulo_overdrive_projector)
-        self.node_overdrive_dome = self.__add_region("Overdrive Dome", MindustryLocations.serpulo_overdrive_dome)
-        self.node_repair_point = self.__add_region("Repair Point", MindustryLocations.serpulo_repair_point)
-        self.node_repair_turret = self.__add_region("Repair Turret", MindustryLocations.serpulo_repair_turret)
-        self.node_steam_generator = self.__add_region("Steam Generator", MindustryLocations.serpulo_steam_generator)
-        self.node_thermal_generator = self.__add_region("Thermal Generator", MindustryLocations.serpulo_thermal_generator)
-        self.node_differential_generator = self.__add_region("Differiential Generator", MindustryLocations.serpulo_differential_generator)
-        self.node_thorium_reactor = self.__add_region("Thorium Reactor", MindustryLocations.serpulo_thorium_reactor)
-        self.node_impact_reactor = self.__add_region("Impact Reactor", MindustryLocations.serpulo_impact_reactor)
-        self.node_rtg_generator = self.__add_region("RTG Generator", MindustryLocations.serpulo_rtg_generator)
-        self.node_solar_panel = self.__add_region("Solar Panel", MindustryLocations.serpulo_solar_panel)
-        self.node_large_solar_panel = self.__add_region("Large Solar Panel", MindustryLocations.serpulo_large_solar_panel)
+        self.node_mechanical_pump = self.__add_region("AP-S-03-02", MindustryLocations.serpulo_mechanical_pump)
+        self.node_conduit = self.__add_region("AP-S-03-03", MindustryLocations.serpulo_conduit)
+        self.node_liquid_junction = self.__add_region("AP-S-03-04", MindustryLocations.serpulo_liquid_junction)
+        self.node_liquid_router = self.__add_region("AP-S-03-05", MindustryLocations.serpulo_liquid_router)
+        self.node_liquid_container = self.__add_region("AP-S-03-06", MindustryLocations.serpulo_liquid_container)
+        self.node_liquid_tank = self.__add_region("AP-S-03-07", MindustryLocations.serpulo_liquid_tank)
+        self.node_bridge_conduit = self.__add_region("AP-S-03-08", MindustryLocations.serpulo_bridge_conduit)
+        self.node_pulse_conduit = self.__add_region("AP-S-03-09", MindustryLocations.serpulo_pulse_conduit)
+        self.node_phase_conduit =  self.__add_region("AP-S-03-10", MindustryLocations.serpulo_phase_conduit)
+        self.node_plated_conduit = self.__add_region("AP-S-03-11", MindustryLocations.serpulo_plated_conduit)
+        self.node_rotary_pump = self.__add_region("AP-S-03-12", MindustryLocations.serpulo_rotary_pump)
+        self.node_impulse_pump = self.__add_region("AP-S-03-13", MindustryLocations.serpulo_impulse_pump)
+        self.node_graphite_press = self.__add_region("AP-S-03-14", MindustryLocations.serpulo_graphite_press)
+        self.node_pneumatic_drill = self.__add_region("AP-S-03-15", MindustryLocations.serpulo_pneumatic_drill)
+        self.node_cultivator = self.__add_region("AP-S-03-16", MindustryLocations.serpulo_cultivator)
+        self.node_laser_drill = self.__add_region("AP-S-03-17", MindustryLocations.serpulo_laser_drill)
+        self.node_airblast_drill = self.__add_region("AP-S-03-18", MindustryLocations.serpulo_airblast_drill)
+        self.node_water_extractor = self.__add_region("AP-S-03-19", MindustryLocations.serpulo_water_extractor)
+        self.node_oil_extractor = self.__add_region("AP-S-03-20", MindustryLocations.serpulo_oil_extractor)
+        self.node_pyratite_mixer = self.__add_region("AP-S-03-21", MindustryLocations.serpulo_pyratite_mixer)
+        self.node_blast_mixer = self.__add_region("AP-S-03-22", MindustryLocations.serpulo_blast_mixer)
+        self.node_silicon_smelter = self.__add_region("AP-S-03-23", MindustryLocations.serpulo_silicon_smelter)
+        self.node_spore_press = self.__add_region("AP-S-03-24", MindustryLocations.serpulo_spore_press)
+        self.node_coal_centrifuge = self.__add_region("AP-S-03-25", MindustryLocations.serpulo_coal_centrifuge)
+        self.node_multi_press = self.__add_region("AP-S-03-26", MindustryLocations.serpulo_multi_press)
+        self.node_silicon_crucible = self.__add_region("AP-S-03-27", MindustryLocations.serpulo_silicon_crucible)
+        self.node_plastanium_compressor = self.__add_region("AP-S-03-28", MindustryLocations.serpulo_plastanium_compressor)
+        self.node_phase_weaver = self.__add_region("AP-S-03-29", MindustryLocations.serpulo_phase_weaver)
+        self.node_kiln = self.__add_region("AP-S-03-30", MindustryLocations.serpulo_kiln)
+        self.node_pulveriser = self.__add_region("AP-S-03-31", MindustryLocations.serpulo_pulveriser)
+        self.node_incinerator = self.__add_region("AP-S-03-32", MindustryLocations.serpulo_incinerator)
+        self.node_melter = self.__add_region("AP-S-03-33", MindustryLocations.serpulo_melter)
+        self.node_surge_smelter = self.__add_region("AP-S-03-34", MindustryLocations.serpulo_surge_smelter)
+        self.node_separator = self.__add_region("AP-S-03-35", MindustryLocations.serpulo_separator)
+        self.node_disassembler = self.__add_region("AP-S-03-36", MindustryLocations.serpulo_disassembler)
+        self.node_cryofluid_mixer = self.__add_region("AP-S-03-37", MindustryLocations.serpulo_cryofluid_mixer)
+        self.node_micro_processor = self.__add_region("AP-S-03-38", MindustryLocations.serpulo_micro_processor)
+        self.node_switch = self.__add_region("AP-S-03-39", MindustryLocations.serpulo_switch)
+        self.node_message = self.__add_region("AP-S-03-40", MindustryLocations.serpulo_message)
+        self.node_logic_display = self.__add_region("AP-S-03-41", MindustryLocations.serpulo_logic_display)
+        self.node_large_logic_display = self.__add_region("AP-S-03-42", MindustryLocations.serpulo_large_logic_display)
+        self.node_memory_cell = self.__add_region("AP-S-03-43", MindustryLocations.serpulo_memory_cell)
+        self.node_memory_bank = self.__add_region("AP-S-03-44", MindustryLocations.serpulo_memory_bank)
+        self.node_logic_processor = self.__add_region("AP-S-03-45", MindustryLocations.serpulo_logic_processor)
+        self.node_hyper_processor = self.__add_region("AP-S-03-46", MindustryLocations.serpulo_hyper_processor)
+        self.node_illuminator = self.__add_region("AP-S-03-47", MindustryLocations.serpulo_illuminator)
+        self.node_combustion_generator = self.__add_region("AP-S-03-48", MindustryLocations.serpulo_combustion_generator)
+        self.node_power_node = self.__add_region("AP-S-03-49", MindustryLocations.serpulo_power_node)
+        self.node_large_power_node = self.__add_region("AP-S-03-50", MindustryLocations.serpulo_large_power_node)
+        self.node_battery_diode = self.__add_region("AP-S-03-51", MindustryLocations.serpulo_battery_diode)
+        self.node_surge_tower = self.__add_region("AP-S-03-52", MindustryLocations.serpulo_surge_tower)
+        self.node_battery = self.__add_region("AP-S-03-53", MindustryLocations.serpulo_battery)
+        self.node_large_battery = self.__add_region("AP-S-03-54", MindustryLocations.serpulo_large_battery)
+        self.node_mender = self.__add_region("AP-S-03-55", MindustryLocations.serpulo_mender)
+        self.node_mend_projector = self.__add_region("AP-S-03-56", MindustryLocations.serpulo_mend_projector)
+        self.node_force_projector = self.__add_region("AP-S-03-57", MindustryLocations.serpulo_force_projector)
+        self.node_overdrive_projector = self.__add_region("AP-S-03-58", MindustryLocations.serpulo_overdrive_projector)
+        self.node_overdrive_dome = self.__add_region("AP-S-03-59", MindustryLocations.serpulo_overdrive_dome)
+        self.node_repair_point = self.__add_region("AP-S-03-60", MindustryLocations.serpulo_repair_point)
+        self.node_repair_turret = self.__add_region("AP-S-03-61", MindustryLocations.serpulo_repair_turret)
+        self.node_steam_generator = self.__add_region("AP-S-03-62", MindustryLocations.serpulo_steam_generator)
+        self.node_thermal_generator = self.__add_region("AP-S-03-63", MindustryLocations.serpulo_thermal_generator)
+        self.node_differential_generator = self.__add_region("AP-S-03-64", MindustryLocations.serpulo_differential_generator)
+        self.node_thorium_reactor = self.__add_region("AP-S-03-65", MindustryLocations.serpulo_thorium_reactor)
+        self.node_impact_reactor = self.__add_region("AP-S-03-66", MindustryLocations.serpulo_impact_reactor)
+        self.node_rtg_generator = self.__add_region("AP-S-03-67", MindustryLocations.serpulo_rtg_generator)
+        self.node_solar_panel = self.__add_region("AP-S-03-68", MindustryLocations.serpulo_solar_panel)
+        self.node_large_solar_panel = self.__add_region("AP-S-03-69", MindustryLocations.serpulo_large_solar_panel)
         self.node_duo = self.__add_region("Duo", None)
         self.node_copper_wall = self.__add_region("Copper Wall", None)
-        self.node_large_copper_wall = self.__add_region("Large Copper Wall", MindustryLocations.serpulo_large_copper_wall)
-        self.node_titanium_wall = self.__add_region("Titanium Wall", MindustryLocations.serpulo_titanium_wall)
-        self.node_large_titanium_wall = self.__add_region("Large Titanium Wall", MindustryLocations.serpulo_large_titanium_wall)
-        self.node_door = self.__add_region("Door", MindustryLocations.serpulo_door)
-        self.node_large_door = self.__add_region("Large Door", MindustryLocations.serpulo_large_door)
-        self.node_plastanium_wall = self.__add_region("Plastanium Wall", MindustryLocations.serpulo_plastanium_wall)
-        self.node_large_plastanium_wall = self.__add_region("Large Plastanium Wall", MindustryLocations.serpulo_large_plastanium_wall)
-        self.node_thorium_wall = self.__add_region("Thorium Wall", MindustryLocations.serpulo_thorium_wall)
-        self.node_large_thorium_wall = self.__add_region("Large Thorium Wall", MindustryLocations.serpulo_large_thorium_wall)
-        self.node_surge_wall = self.__add_region("Surge Wall", MindustryLocations.serpulo_surge_wall)
-        self.node_large_surge_wall = self.__add_region("Large Surge Wall", MindustryLocations.serpulo_large_surge_wall)
-        self.node_phase_wall = self.__add_region("Phase Wall", MindustryLocations.serpulo_phase_wall)
-        self.node_large_phase_wall = self.__add_region("Large Phase Wall", MindustryLocations.serpulo_large_phase_wall)
+        self.node_large_copper_wall = self.__add_region("AP-S-04-03", MindustryLocations.serpulo_large_copper_wall)
+        self.node_titanium_wall = self.__add_region("AP-S-04-04", MindustryLocations.serpulo_titanium_wall)
+        self.node_large_titanium_wall = self.__add_region("AP-S-04-05", MindustryLocations.serpulo_large_titanium_wall)
+        self.node_door = self.__add_region("AP-S-04-06", MindustryLocations.serpulo_door)
+        self.node_large_door = self.__add_region("AP-S-04-07", MindustryLocations.serpulo_large_door)
+        self.node_plastanium_wall = self.__add_region("AP-S-04-08", MindustryLocations.serpulo_plastanium_wall)
+        self.node_large_plastanium_wall = self.__add_region("AP-S-04-09", MindustryLocations.serpulo_large_plastanium_wall)
+        self.node_thorium_wall = self.__add_region("AP-S-04-10", MindustryLocations.serpulo_thorium_wall)
+        self.node_large_thorium_wall = self.__add_region("AP-S-04-11", MindustryLocations.serpulo_large_thorium_wall)
+        self.node_surge_wall = self.__add_region("AP-S-04-12", MindustryLocations.serpulo_surge_wall)
+        self.node_large_surge_wall = self.__add_region("AP-S-04-13", MindustryLocations.serpulo_large_surge_wall)
+        self.node_phase_wall = self.__add_region("AP-S-04-14", MindustryLocations.serpulo_phase_wall)
+        self.node_large_phase_wall = self.__add_region("AP-S-04-15", MindustryLocations.serpulo_large_phase_wall)
         self.node_scatter = self.__add_region("Scatter", None)
-        self.node_hail = self.__add_region("Hail", MindustryLocations.serpulo_hail)
-        self.node_salvo = self.__add_region("Salvo", MindustryLocations.serpulo_salvo)
-        self.node_swarmer = self.__add_region("Swarmer", MindustryLocations.serpulo_swarmer)
-        self.node_cyclone = self.__add_region("Cyclone", MindustryLocations.serpulo_cyclone)
-        self.node_spectre = self.__add_region("Spectre", MindustryLocations.serpulo_spectre)
-        self.node_ripple = self.__add_region("Ripple", MindustryLocations.serpulo_ripple)
-        self.node_fuse = self.__add_region("Fuse", MindustryLocations.serpulo_fuse)
-        self.node_scorch = self.__add_region("Scorch", MindustryLocations.serpulo_scorch)
-        self.node_arc = self.__add_region("Arc", MindustryLocations.serpulo_arc)
-        self.node_wave = self.__add_region("Wave", MindustryLocations.serpulo_wave)
-        self.node_parallax = self.__add_region("Parallax", MindustryLocations.serpulo_parallax)
-        self.node_segment = self.__add_region("Segment", MindustryLocations.serpulo_segment)
-        self.node_tsunami = self.__add_region("Tsunami", MindustryLocations.serpulo_tsunami)
-        self.node_lancer = self.__add_region("Lancer", MindustryLocations.serpulo_lancer)
-        self.node_meltdown = self.__add_region("Meltdown", MindustryLocations.serpulo_meltdown)
-        self.node_foreshadow = self.__add_region("Foreshadow", MindustryLocations.serpulo_foreshadow)
-        self.node_shock_mine = self.__add_region("Shock Mine", MindustryLocations.serpulo_shock_mine)
-        self.node_ground_factory = self.__add_region("Ground Factory", MindustryLocations.serpulo_ground_factory)
-        self.node_dagger = self.__add_region("Dagger", MindustryLocations.serpulo_dagger)
-        self.node_mace = self.__add_region("Mace", MindustryLocations.serpulo_mace)
-        self.node_fortress = self.__add_region("Fortress", MindustryLocations.serpulo_fortress)
-        self.node_scepter = self.__add_region("Scepter", MindustryLocations.serpulo_scepter)
-        self.node_reign = self.__add_region("Reign", MindustryLocations.serpulo_reign)
-        self.node_nova = self.__add_region("Nova", MindustryLocations.serpulo_nova)
-        self.node_pulsar = self.__add_region("Pulsar", MindustryLocations.serpulo_pulsar)
-        self.node_quasar = self.__add_region("Quasar", MindustryLocations.serpulo_quasar)
-        self.node_vela = self.__add_region("Vela", MindustryLocations.serpulo_vela)
-        self.node_corvus = self.__add_region("Corvus", MindustryLocations.serpulo_corvus)
-        self.node_crawler = self.__add_region("Crawler", MindustryLocations.serpulo_crawler)
-        self.node_atrax = self.__add_region("Atrax", MindustryLocations.serpulo_atrax)
-        self.node_spiroct = self.__add_region("Spiroct", MindustryLocations.serpulo_spiroct)
-        self.node_arkyid = self.__add_region("Arkyid", MindustryLocations.serpulo_arkyid)
-        self.node_toxopid = self.__add_region("Toxopid", MindustryLocations.serpulo_toxopid)
-        self.node_air_factory = self.__add_region("Air Factory", MindustryLocations.serpulo_air_factory)
-        self.node_flare = self.__add_region("Flare", MindustryLocations.serpulo_flare)
-        self.node_horizon = self.__add_region("Horizon", MindustryLocations.serpulo_horizon)
-        self.node_zenith = self.__add_region("Zenith", MindustryLocations.serpulo_zenith)
-        self.node_antumbra = self.__add_region("Antumbra", MindustryLocations.serpulo_antumbra)
-        self.node_eclipse = self.__add_region("Eclipse", MindustryLocations.serpulo_eclipse)
-        self.node_mono = self.__add_region("Mono", MindustryLocations.serpulo_mono)
-        self.node_poly = self.__add_region("Poly", MindustryLocations.serpulo_poly)
-        self.node_mega = self.__add_region("Mega", MindustryLocations.serpulo_mega)
-        self.node_quad = self.__add_region("Quad", MindustryLocations.serpulo_quad)
-        self.node_oct = self.__add_region("Oct", MindustryLocations.serpulo_oct)
-        self.node_naval_factory = self.__add_region("Naval Factory", MindustryLocations.serpulo_naval_factory)
-        self.node_risso = self.__add_region("Risso", MindustryLocations.serpulo_risso)
-        self.node_minke = self.__add_region("Minke", MindustryLocations.serpulo_minke)
-        self.node_bryde = self.__add_region("Bryde", MindustryLocations.serpulo_bryde)
-        self.node_sei = self.__add_region("Sei", MindustryLocations.serpulo_sei)
-        self.node_omura = self.__add_region("Omura", MindustryLocations.serpulo_omura)
-        self.node_retusa = self.__add_region("Retusa", MindustryLocations.serpulo_retusa)
-        self.node_oxynoe = self.__add_region("Oxynoe", MindustryLocations.serpulo_oxynoe)
-        self.node_cyerce = self.__add_region("Cyerce", MindustryLocations.serpulo_cyerce)
-        self.node_aegires = self.__add_region("Aegires", MindustryLocations.serpulo_aegires)
-        self.node_navanax = self.__add_region("Navanax", MindustryLocations.serpulo_navanax)
-        self.node_additive_reconstructor = self.__add_region("Additive Reconstructor", MindustryLocations.serpulo_additive_reconstructor)
-        self.node_multiplicative_reconstructor = self.__add_region("Multiplicative Reconstructor", MindustryLocations.serpulo_multiplicative_reconstructor)
-        self.node_exponential_reconstructor = self.__add_region("Exponential Reconstructor", MindustryLocations.serpulo_exponential_reconstructor)
-        self.node_tetrative_reconstructor = self.__add_region("Tetrative Reconstructor", MindustryLocations.serpulo_tetrative_reconstructor)
+        self.node_hail = self.__add_region("AP-S-04-17", MindustryLocations.serpulo_hail)
+        self.node_salvo = self.__add_region("AP-S-04-18", MindustryLocations.serpulo_salvo)
+        self.node_swarmer = self.__add_region("AP-S-04-19", MindustryLocations.serpulo_swarmer)
+        self.node_cyclone = self.__add_region("AP-S-04-20", MindustryLocations.serpulo_cyclone)
+        self.node_spectre = self.__add_region("AP-S-04-21", MindustryLocations.serpulo_spectre)
+        self.node_ripple = self.__add_region("AP-S-04-22", MindustryLocations.serpulo_ripple)
+        self.node_fuse = self.__add_region("AP-S-04-23", MindustryLocations.serpulo_fuse)
+        self.node_scorch = self.__add_region("AP-S-04-24", MindustryLocations.serpulo_scorch)
+        self.node_arc = self.__add_region("AP-S-04-25", MindustryLocations.serpulo_arc)
+        self.node_wave = self.__add_region("AP-S-04-26", MindustryLocations.serpulo_wave)
+        self.node_parallax = self.__add_region("AP-S-04-27", MindustryLocations.serpulo_parallax)
+        self.node_segment = self.__add_region("AP-S-04-28", MindustryLocations.serpulo_segment)
+        self.node_tsunami = self.__add_region("AP-S-04-29", MindustryLocations.serpulo_tsunami)
+        self.node_lancer = self.__add_region("AP-S-04-30", MindustryLocations.serpulo_lancer)
+        self.node_meltdown = self.__add_region("AP-S-04-31", MindustryLocations.serpulo_meltdown)
+        self.node_foreshadow = self.__add_region("AP-S-04-32", MindustryLocations.serpulo_foreshadow)
+        self.node_shock_mine = self.__add_region("AP-S-04-33", MindustryLocations.serpulo_shock_mine)
+        self.node_ground_factory = self.__add_region("AP-S-05-01", MindustryLocations.serpulo_ground_factory)
+        self.node_dagger = self.__add_region("AP-S-05-02", MindustryLocations.serpulo_dagger)
+        self.node_mace = self.__add_region("AP-S-05-03", MindustryLocations.serpulo_mace)
+        self.node_fortress = self.__add_region("AP-S-05-04", MindustryLocations.serpulo_fortress)
+        self.node_scepter = self.__add_region("AP-S-05-05", MindustryLocations.serpulo_scepter)
+        self.node_reign = self.__add_region("AP-S-05-06", MindustryLocations.serpulo_reign)
+        self.node_nova = self.__add_region("AP-S-05-07", MindustryLocations.serpulo_nova)
+        self.node_pulsar = self.__add_region("AP-S-05-08", MindustryLocations.serpulo_pulsar)
+        self.node_quasar = self.__add_region("AP-S-05-09", MindustryLocations.serpulo_quasar)
+        self.node_vela = self.__add_region("AP-S-05-10", MindustryLocations.serpulo_vela)
+        self.node_corvus = self.__add_region("AP-S-05-11", MindustryLocations.serpulo_corvus)
+        self.node_crawler = self.__add_region("AP-S-05-12", MindustryLocations.serpulo_crawler)
+        self.node_atrax = self.__add_region("AP-S-05-13", MindustryLocations.serpulo_atrax)
+        self.node_spiroct = self.__add_region("AP-S-05-14", MindustryLocations.serpulo_spiroct)
+        self.node_arkyid = self.__add_region("AP-S-05-15", MindustryLocations.serpulo_arkyid)
+        self.node_toxopid = self.__add_region("AP-S-05-16", MindustryLocations.serpulo_toxopid)
+        self.node_air_factory = self.__add_region("AP-S-05-17", MindustryLocations.serpulo_air_factory)
+        self.node_flare = self.__add_region("AP-S-05-18", MindustryLocations.serpulo_flare)
+        self.node_horizon = self.__add_region("AP-S-05-19", MindustryLocations.serpulo_horizon)
+        self.node_zenith = self.__add_region("AP-S-05-20", MindustryLocations.serpulo_zenith)
+        self.node_antumbra = self.__add_region("AP-S-05-21", MindustryLocations.serpulo_antumbra)
+        self.node_eclipse = self.__add_region("AP-S-05-22", MindustryLocations.serpulo_eclipse)
+        self.node_mono = self.__add_region("AP-S-05-23", MindustryLocations.serpulo_mono)
+        self.node_poly = self.__add_region("AP-S-05-24", MindustryLocations.serpulo_poly)
+        self.node_mega = self.__add_region("AP-S-05-25", MindustryLocations.serpulo_mega)
+        self.node_quad = self.__add_region("AP-S-05-26", MindustryLocations.serpulo_quad)
+        self.node_oct = self.__add_region("AP-S-05-27", MindustryLocations.serpulo_oct)
+        self.node_naval_factory = self.__add_region("AP-S-05-28", MindustryLocations.serpulo_naval_factory)
+        self.node_risso = self.__add_region("AP-S-05-29", MindustryLocations.serpulo_risso)
+        self.node_minke = self.__add_region("AP-S-05-30", MindustryLocations.serpulo_minke)
+        self.node_bryde = self.__add_region("AP-S-05-31", MindustryLocations.serpulo_bryde)
+        self.node_sei = self.__add_region("AP-S-05-32", MindustryLocations.serpulo_sei)
+        self.node_omura = self.__add_region("AP-S-05-33", MindustryLocations.serpulo_omura)
+        self.node_retusa = self.__add_region("AP-S-05-34", MindustryLocations.serpulo_retusa)
+        self.node_oxynoe = self.__add_region("AP-S-05-35", MindustryLocations.serpulo_oxynoe)
+        self.node_cyerce = self.__add_region("AP-S-05-36", MindustryLocations.serpulo_cyerce)
+        self.node_aegires = self.__add_region("AP-S-05-37", MindustryLocations.serpulo_aegires)
+        self.node_navanax = self.__add_region("AP-S-05-38", MindustryLocations.serpulo_navanax)
+        self.node_additive_reconstructor = self.__add_region("AP-S-05-39", MindustryLocations.serpulo_additive_reconstructor)
+        self.node_multiplicative_reconstructor = self.__add_region("AP-S-05-40", MindustryLocations.serpulo_multiplicative_reconstructor)
+        self.node_exponential_reconstructor = self.__add_region("AP-S-06-41", MindustryLocations.serpulo_exponential_reconstructor)
+        self.node_tetrative_reconstructor = self.__add_region("AP-S-05-42", MindustryLocations.serpulo_tetrative_reconstructor)
         self.node_ground_zero = self.__add_region("Ground Zero", None)
         self.node_frozen_forest = self.__add_region("Frozen Forest", None)
         self.node_the_craters = self.__add_region("The Craters", None)
