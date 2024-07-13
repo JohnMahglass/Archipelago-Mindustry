@@ -486,6 +486,146 @@ class MindustryRegions:
     node_oil: Region
     node_plastanium: Region
 
+    node_erekir: Region
+    node_duct: Region
+    node_duct_router: Region
+    node_duct_bridge: Region
+    node_armored_duct: Region
+    node_surge_conveyor: Region
+    node_surge_router: Region
+    node_unit_cargo_unload_point: Region
+    node_overflow_duct: Region
+    node_underflow_duct: Region
+    node_reinforced_container: Region
+    node_duct_unloader: Region
+    node_reinforced_vault: Region
+    node_reinforced_message: Region
+    node_canvas: Region
+    node_reinforced_payload_conveyor: Region
+    node_payload_mass_driver: Region
+    node_payload_loader: Region
+    node_payload_unloader: Region
+    node_large_payload_mass_driver: Region
+    node_constructor: Region
+    node_deconstructor: Region
+    node_large_constructor: Region
+    node_large_deconstructor: Region
+    node_reinforced_payload_router: Region
+    node_plasma_bore: Region
+    node_impact_drill: Region
+    node_large_plasma_bore: Region
+    node_eruption_drill: Region
+    node_turbine_condenser: Region
+    node_beam_node: Region
+    node_vent_condenser: Region
+    node_chemical_combustion_chamber: Region
+    node_pyrolysis_generator: Region
+    node_flux_reactor: Region
+    node_neoplasia_reactor: Region
+    node_beam_tower: Region
+    node_regen_projector: Region
+    node_build_tower: Region
+    node_shockwave_tower: Region
+    node_reinforced_conduit: Region
+    node_reinforced_pump: Region
+    node_reinforced_liquid_junction: Region
+    node_reinforced_bridge_conduit: Region
+    node_reinforced_liquid_router: Region
+    node_reinforced_liquid_container: Region
+    node_reinforced_liquid_tank: Region
+    node_cliff_crusher: Region
+    node_silicon_arc_furnace: Region
+    node_electrolyzer: Region
+    node_oxidation_chamber: Region
+    node_surge_crucible: Region
+    node_heat_redirector: Region
+    node_electric_heater: Region
+    node_slag_heater: Region
+    node_atmospheric_concentrator: Region
+    node_cyanogen_synthesizer: Region
+    node_carbide_crucible: Region
+    node_phase_synthesizer: Region
+    node_phase_heater: Region
+    node_heat_router: Region
+    node_slag_incinerator: Region
+    node_breach: Region
+    node_beryllium_wall: Region
+    node_large_beryllium_wall: Region
+    node_tungsten_wall: Region
+    node_large_tungsten_wall: Region
+    node_blast_door: Region
+    node_reinforced_surge_wall: Region
+    node_large_reinforced_surge_wall: Region
+    node_shielded_wall: Region
+    node_carbide_wall: Region
+    node_large_carbide_wall: Region
+    node_diffuse: Region
+    node_sublimate: Region
+    node_afflict: Region
+    node_titan: Region
+    node_lustre: Region
+    node_smite: Region
+    node_disperse: Region
+    node_scathe: Region
+    node_malign: Region
+    node_radar: Region
+    node_core_citadel: Region
+    node_core_acropolis: Region
+    node_tank_fabricator: Region
+    node_stell: Region
+    node_unit_repair_tower: Region
+    node_ship_fabricator: Region
+    node_elude: Region
+    node_mech_fabricator: Region
+    node_merui: Region
+    node_tank_refabricator: Region
+    node_locus: Region
+    node_mech_refrabricator: Region
+    node_cleroi: Region
+    node_ship_refabricator: Region
+    node_avert: Region
+    node_prime_refabricator: Region
+    node_precept: Region
+    node_anthicus: Region
+    node_obviate: Region
+    node_tank_assembler: Region
+    node_vanquish: Region
+    node_conquer: Region
+    node_ship_assembler: Region
+    node_quell: Region
+    node_disrupt: Region
+    node_mech_assembler: Region
+    node_tecta: Region
+    node_collaris: Region
+    node_basic_assembler_module: Region
+    node_aegis: Region
+    node_lake: Region
+    node_intersect: Region
+    node_atlas: Region
+    node_split: Region
+    node_basin: Region
+    node_marsh: Region
+    node_ravine: Region
+    node_caldera: Region
+    node_stronghold: Region
+    node_crevice: Region
+    node_siege: Region
+    node_crossroads: Region
+    node_krast: Region
+    node_origin: Region
+    node_peaks: Region
+    node_oxide: Region
+    node_ozone: Region
+    node_hydrogen: Region
+    node_nitrogen: Region
+    node_cyanogen: Region
+    node_neoplasm: Region
+    node_tungsten: Region
+    node_slag: Region
+    node_arkycite: Region
+    node_carbide: Region
+
+
 
     multiworld: MultiWorld
     """
@@ -1030,9 +1170,8 @@ class MindustryRegions:
     def __create_erekir_campaign(self):
         """
         Create region related to the erekir campaign.
-        Method not implemented
         """
-        pass
+        self.serpulo: Region = self.__add_region("Serpulo", None)
 
 
     def __connect_erekir_campaign(self):
@@ -1070,14 +1209,14 @@ class MindustryRegions:
         """Initialise rules for Serpulo location"""
         add_rule(self.multiworld.get_location("AP-S-01-04", self.player),
                  lambda state: _has_extraction_outpost(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-01-10", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-01-11", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-01-12", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-01-14", self.player),
                  lambda state: _has_the_craters(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-01-15", self.player),
@@ -1092,7 +1231,7 @@ class MindustryRegions:
                  lambda state: _has_the_craters(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-01-20", self.player),
                  lambda state: _has_the_craters(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-03-09", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-10", self.player),
@@ -1103,7 +1242,7 @@ class MindustryRegions:
                  lambda state: _has_windswept_islands(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-13", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-03-15", self.player),
                  lambda state: _has_frozen_forest(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-16", self.player),
@@ -1114,20 +1253,20 @@ class MindustryRegions:
         add_rule(self.multiworld.get_location("AP-S-03-18", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                 _has_nuclear_production_complex(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-03-19", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                 _has_salt_flats(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-20", self.player),
                  lambda state: _has_frozen_forest(state, self.player) and
                                _has_salt_flats(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-03-28", self.player),
                  lambda state: _has_windswept_islands(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-29", self.player),
                  lambda state: _has_windswept_islands(state, self.player) and
                                _has_tar_fields(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-03-30", self.player),
                  lambda state: _has_the_craters(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-31", self.player),
@@ -1144,7 +1283,7 @@ class MindustryRegions:
                  lambda state: _has_the_craters(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-03-37", self.player),
                  lambda state: _has_the_craters(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-04-17", self.player),
                  lambda state: _has_the_craters(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-04-18", self.player),
@@ -1160,7 +1299,7 @@ class MindustryRegions:
                  lambda state: _has_the_craters(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-04-23", self.player),
                  lambda state: _has_the_craters(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-05-28", self.player),
                  lambda state: _has_ruinous_shores(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-05-29", self.player),
@@ -1193,7 +1332,7 @@ class MindustryRegions:
                                _has_windswept_islands(state, self.player) and
                                _has_coastline(state, self.player) and
                                 _has_naval_fortress(state, self.player))
-#
+
         add_rule(self.multiworld.get_location("AP-S-05-39", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player))
         add_rule(self.multiworld.get_location("AP-S-05-40", self.player),
