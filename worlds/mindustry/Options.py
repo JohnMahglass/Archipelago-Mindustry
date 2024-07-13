@@ -33,9 +33,6 @@ class DisableInvasions(Toggle):
     """Disable invasions and prevent losing progress."""
     display_name = "Disable invasions"
 
-class EarlyRessources(Toggle):
-    """Place (insert ressources here) earlier in the generation to prevent being stuck too early"""
-    display_name = "Early ressources"
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -47,4 +44,3 @@ class MindustryOptions(PerGameCommonOptions):
     sector_behavior: SectorBehavior
     ressource_behavior: RessourceBehavior
     disable_invasions: DisableInvasions
-    early_ressources: EarlyRessources

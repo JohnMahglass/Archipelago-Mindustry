@@ -121,6 +121,5 @@ class MindustryWorld(World):
             "campaign_choice": self.options.campaign_choice.value,
             "sector_behavior": self.options.sector_behavior.value,
             "ressource_behavior": self.options.ressource_behavior.value,
-            "disable_invasion": bool (self.options.disable_invasions.value),
-            "early_ressources": bool (self.options.early_ressources.value)
+            "disable_invasion": bool (self.options.disable_invasions.value)
         }
