@@ -20,9 +20,9 @@ class MindustryLocation(Location):
 
 class MindustryLocations:
 
-    #serpulo_conveyor = {
-    #    "Node Conveyor": MINDUSTRY_BASE_ID + 0,
-    #}
+    serpulo_conveyor = {
+        "Node Conveyor": MINDUSTRY_BASE_ID + 0,
+    }
     serpulo_junction = {
         "AP-S-01-02": MINDUSTRY_BASE_ID + 1,
     }
@@ -86,9 +86,9 @@ class MindustryLocations:
     serpulo_core_nucleus = {
         "AP-S-02-02": MINDUSTRY_BASE_ID + 21,
     }
-    #serpulo_mechanical_drill = {
-    #    "Node Mechanical Drill": MINDUSTRY_BASE_ID + 22,
-    #}
+    serpulo_mechanical_drill = {
+        "Node Mechanical Drill": MINDUSTRY_BASE_ID + 22,
+    }
     serpulo_mechanical_pump = {
         "AP-S-03-02": MINDUSTRY_BASE_ID + 23,
     }
@@ -109,10 +109,10 @@ class MindustryLocations:
     }
     serpulo_bridge_conduit = {
         "AP-S-03-08": MINDUSTRY_BASE_ID + 29,
-        }
+    }
     serpulo_pulse_conduit = {
         "AP-S-03-09": MINDUSTRY_BASE_ID + 30,
-        }
+    }
     serpulo_phase_conduit = {
         "AP-S-03-10": MINDUSTRY_BASE_ID + 31,
     }
@@ -293,12 +293,12 @@ class MindustryLocations:
     serpulo_large_solar_panel = {
         "AP-S-03-69": MINDUSTRY_BASE_ID + 90,
     }
-    #serpulo_duo = {
-    #    "Node Duo": MINDUSTRY_BASE_ID + 91,
-    #}
-    #serpulo_copper_wall = {
-    #    "Node Copper Wall": MINDUSTRY_BASE_ID + 92,
-    #}
+    serpulo_duo = {
+        "Node Duo": MINDUSTRY_BASE_ID + 91,
+    }
+    serpulo_copper_wall = {
+        "Node Copper Wall": MINDUSTRY_BASE_ID + 92,
+    }
     serpulo_large_copper_wall = {
         "AP-S-04-03": MINDUSTRY_BASE_ID + 93,
     }
@@ -338,9 +338,9 @@ class MindustryLocations:
     serpulo_large_phase_wall = {
         "AP-S-04-15": MINDUSTRY_BASE_ID + 105,
     }
-    #serpulo_scatter = {
-    #    "Node Scatter": MINDUSTRY_BASE_ID + 106,
-    #}
+    serpulo_scatter = {
+        "Node Scatter": MINDUSTRY_BASE_ID + 106,
+    }
     serpulo_hail = {
         "AP-S-04-17": MINDUSTRY_BASE_ID + 107,
     }
@@ -518,108 +518,109 @@ class MindustryLocations:
     serpulo_tetrative_reconstructor = {
         "AP-S-05-42": MINDUSTRY_BASE_ID + 165,
     }
-    #serpulo_frozen_forest = {
-    #    "Node Frozen Forest": MINDUSTRY_BASE_ID + 166,
-    #}
-    #serpulo_the_craters = {
-    #    "Node The Craters": MINDUSTRY_BASE_ID + 167,
-    #}
-    #serpulo_ruinous_shores = {
-    #    "Node Ruinous Shores": MINDUSTRY_BASE_ID + 168,
-    #}
-    #serpulo_windswept_islands = {
-    #    "Node Windswept Islands": MINDUSTRY_BASE_ID + 169,
-    #}
-    #serpulo_tar_fields = {
-    #    "Node Tar Fields": MINDUSTRY_BASE_ID + 170,
-    #}
-    #serpulo_impact_0078 = {
-    #    "Node Impact 0078": MINDUSTRY_BASE_ID + 171,
-    #}
-    #serpulo_desolate_rift = {
-    #    "Node Desolate Rift": MINDUSTRY_BASE_ID + 172,
-    #}
-    #serpulo_planetary_launch_terminal = {
-    #    "Node Planetary Launch Terminal": MINDUSTRY_BASE_ID + 173,
-    #}
-    #serpulo_extraction_outpost = {
-    #    "Node Extraction Outpost": MINDUSTRY_BASE_ID + 174,
-    #}
-    #serpulo_salt_flats = {
-    #    "Node Slat Flats": MINDUSTRY_BASE_ID + 175,
-    #}
-    #serpulo_coastline = {
-    #    "Node Coastline": MINDUSTRY_BASE_ID + 176,
-    #}
-    #serpulo_naval_fortress = {
-    #    "Node Naval Fortress": MINDUSTRY_BASE_ID + 177,
-    #}
-    #serpulo_overgrowth = {
-    #    "Node Overgrowth": MINDUSTRY_BASE_ID + 178,
-    #}
-    #serpulo_biomass_synthesis_facility = {
-    #    "Node Biomass Synthesis Facility": MINDUSTRY_BASE_ID + 179,
-    #}
-    #serpulo_stained_mountains = {
-    #    "Node Stained Mountains": MINDUSTRY_BASE_ID + 180,
-    #}
-    #serpulo_fungal_pass = {
-    #    "Node Fungal Pass": MINDUSTRY_BASE_ID + 181,
-    #}
-    #serpulo_nuclear_production_complex = {
-    #    "Node Nuclear Production Complex": MINDUSTRY_BASE_ID + 182,
-    #}
-    #serpulo_lead = {
-    #    "Node Lead": MINDUSTRY_BASE_ID + 183,
-    #}
-    #serpulo_titanium = {
-    #    "Node Titanium": MINDUSTRY_BASE_ID + 184,
-    #}
-    #serpulo_cryofluid = {
-    #    "Node Cryofluid": MINDUSTRY_BASE_ID + 185,
-    #}
-    #all_thorium = {
-    #    "Node Thorium": MINDUSTRY_BASE_ID + 186,
-    #}
-    #all_surge_alloy = {
-    #    "Node Surge Alloy": MINDUSTRY_BASE_ID + 187,
-    #}
-    #all_phase_fabric = {
-    #    "Node Phase Fabric": MINDUSTRY_BASE_ID + 188,
-    #}
-    #serpulo_metaglass = {
-    #    "Node Metaglass": MINDUSTRY_BASE_ID + 189,
-    #}
-    #serpulo_scrap = {
-    #    "Node Scrap": MINDUSTRY_BASE_ID + 190,
-    #}
-    #serpulo_slag = {
-    #    "Node Slag": MINDUSTRY_BASE_ID + 191,
-    #}
-    #serpulo_coal = {
-    #    "Node Coal": MINDUSTRY_BASE_ID + 192,
-    #}
-    #serpulo_graphite = {
-    #    "Node Graphite": MINDUSTRY_BASE_ID + 193,
-    #}
-    #serpulo_silicon = {
-    #    "Node Silicon": MINDUSTRY_BASE_ID + 194,
-    #}
-    #serpulo_pyratite = {
-    #    "Node Pyratite": MINDUSTRY_BASE_ID + 195,
-    #}
-    #serpulo_blast_compound = {
-    #    "Node Blast Compound": MINDUSTRY_BASE_ID + 196,
-    #}
-    #serpulo_spore_pod = {
-    #    "Node Spore Pod": MINDUSTRY_BASE_ID + 197,
-    #}
-    #serpulo_oil = {
-    #    "Node Oil": MINDUSTRY_BASE_ID + 198,
-    #}
-    #serpulo_plastanium = {
-    #    "Node Plastanium": MINDUSTRY_BASE_ID + 199,
-    #}
+    serpulo_frozen_forest = {
+        "Node Frozen Forest": MINDUSTRY_BASE_ID + 166,
+    }
+    serpulo_the_craters = {
+        "Node The Craters": MINDUSTRY_BASE_ID + 167,
+    }
+    serpulo_ruinous_shores = {
+        "Node Ruinous Shores": MINDUSTRY_BASE_ID + 168,
+    }
+    serpulo_windswept_islands = {
+        "Node Windswept Islands": MINDUSTRY_BASE_ID + 169,
+    }
+    serpulo_tar_fields = {
+        "Node Tar Fields": MINDUSTRY_BASE_ID + 170,
+    }
+    serpulo_impact_0078 = {
+        "Node Impact 0078": MINDUSTRY_BASE_ID + 171,
+    }
+    serpulo_desolate_rift = {
+        "Node Desolate Rift": MINDUSTRY_BASE_ID + 172,
+    }
+    serpulo_planetary_launch_terminal = {
+        "Node Planetary Launch Terminal": MINDUSTRY_BASE_ID + 173,
+    }
+    serpulo_extraction_outpost = {
+        "Node Extraction Outpost": MINDUSTRY_BASE_ID + 174,
+    }
+    serpulo_salt_flats = {
+        "Node Slat Flats": MINDUSTRY_BASE_ID + 175,
+    }
+    serpulo_coastline = {
+        "Node Coastline": MINDUSTRY_BASE_ID + 176,
+    }
+    serpulo_naval_fortress = {
+        "Node Naval Fortress": MINDUSTRY_BASE_ID + 177,
+    }
+    serpulo_overgrowth = {
+        "Node Overgrowth": MINDUSTRY_BASE_ID + 178,
+    }
+    serpulo_biomass_synthesis_facility = {
+        "Node Biomass Synthesis Facility": MINDUSTRY_BASE_ID + 179,
+    }
+    serpulo_stained_mountains = {
+        "Node Stained Mountains": MINDUSTRY_BASE_ID + 180,
+    }
+    serpulo_fungal_pass = {
+        "Node Fungal Pass": MINDUSTRY_BASE_ID + 181,
+    }
+    serpulo_nuclear_production_complex = {
+        "Node Nuclear Production Complex": MINDUSTRY_BASE_ID + 182,
+    }
+    serpulo_lead = {
+        "Node Lead": MINDUSTRY_BASE_ID + 183,
+    }
+    serpulo_titanium = {
+        "Node Titanium": MINDUSTRY_BASE_ID + 184,
+    }
+    serpulo_cryofluid = {
+        "Node Cryofluid": MINDUSTRY_BASE_ID + 185,
+    }
+    serpulo_thorium = {
+        "Node Thorium": MINDUSTRY_BASE_ID + 186,
+    }
+    serpulo_surge_alloy = {
+        "Node Surge Alloy": MINDUSTRY_BASE_ID + 187,
+    }
+    serpulo_phase_fabric = {
+        "Node Phase Fabric": MINDUSTRY_BASE_ID + 188,
+    }
+    serpulo_metaglass = {
+        "Node Metaglass": MINDUSTRY_BASE_ID + 189,
+    }
+    serpulo_scrap = {
+        "Node Scrap": MINDUSTRY_BASE_ID + 190,
+    }
+    serpulo_slag = {
+        "Node Slag": MINDUSTRY_BASE_ID + 191,
+    }
+    serpulo_coal = {
+        "Node Coal": MINDUSTRY_BASE_ID + 192,
+    }
+    serpulo_graphite = {
+        "Node Graphite": MINDUSTRY_BASE_ID + 193,
+    }
+    serpulo_silicon = {
+        "Node Silicon": MINDUSTRY_BASE_ID + 194,
+    }
+    serpulo_pyratite = {
+        "Node Pyratite": MINDUSTRY_BASE_ID + 195,
+    }
+    serpulo_blast_compound = {
+        "Node Blast Compound": MINDUSTRY_BASE_ID + 196,
+    }
+    serpulo_spore_pod = {
+        "Node Spore Pod": MINDUSTRY_BASE_ID + 197,
+    }
+    serpulo_oil = {
+        "Node Oil": MINDUSTRY_BASE_ID + 198,
+    }
+    serpulo_plastanium = {
+        "Node Plastanium": MINDUSTRY_BASE_ID + 199,
+    }
+
 
 
     erekir_duct = {
@@ -1041,7 +1042,7 @@ class MindustryLocations:
 
 
 location_table = {
-    #**MindustryLocations.serpulo_conveyor,
+    **MindustryLocations.serpulo_conveyor,
     **MindustryLocations.serpulo_junction,
     **MindustryLocations.serpulo_router,
     **MindustryLocations.serpulo_launch_pad,
@@ -1063,7 +1064,7 @@ location_table = {
     **MindustryLocations.serpulo_plastanium_conveyor,
     **MindustryLocations.serpulo_core_foundation,
     **MindustryLocations.serpulo_core_nucleus,
-    #**MindustryLocations.serpulo_mechanical_drill,
+    **MindustryLocations.serpulo_mechanical_drill,
     **MindustryLocations.serpulo_mechanical_pump,
     **MindustryLocations.serpulo_conduit,
     **MindustryLocations.serpulo_liquid_junction,
@@ -1132,8 +1133,8 @@ location_table = {
     **MindustryLocations.serpulo_rtg_generator,
     **MindustryLocations.serpulo_solar_panel,
     **MindustryLocations.serpulo_large_solar_panel,
-    #**MindustryLocations.serpulo_duo,
-    #**MindustryLocations.serpulo_copper_wall,
+    **MindustryLocations.serpulo_duo,
+    **MindustryLocations.serpulo_copper_wall,
     **MindustryLocations.serpulo_large_copper_wall,
     **MindustryLocations.serpulo_titanium_wall,
     **MindustryLocations.serpulo_large_titanium_wall,
@@ -1147,7 +1148,7 @@ location_table = {
     **MindustryLocations.serpulo_large_surge_wall,
     **MindustryLocations.serpulo_phase_wall,
     **MindustryLocations.serpulo_large_phase_wall,
-    #**MindustryLocations.serpulo_scatter,
+    **MindustryLocations.serpulo_scatter,
     **MindustryLocations.serpulo_hail,
     **MindustryLocations.serpulo_salvo,
     **MindustryLocations.serpulo_swarmer,
@@ -1207,42 +1208,42 @@ location_table = {
     **MindustryLocations.serpulo_multiplicative_reconstructor,
     **MindustryLocations.serpulo_exponential_reconstructor,
     **MindustryLocations.serpulo_tetrative_reconstructor,
-    #**MindustryLocations.serpulo_frozen_forest,
-    #**MindustryLocations.serpulo_the_craters,
-    #**MindustryLocations.serpulo_ruinous_shores,
-    #**MindustryLocations.serpulo_windswept_islands,
-    #**MindustryLocations.serpulo_tar_fields,
-    #**MindustryLocations.serpulo_impact_0078,
-    #**MindustryLocations.serpulo_desolate_rift,
-    #**MindustryLocations.serpulo_planetary_launch_terminal,
-    #**MindustryLocations.serpulo_extraction_outpost,
-    #**MindustryLocations.serpulo_salt_flats,
-    #**MindustryLocations.serpulo_coastline,
-    #**MindustryLocations.serpulo_naval_fortress,
-    #**MindustryLocations.serpulo_overgrowth,
-    #**MindustryLocations.serpulo_biomass_synthesis_facility,
-    #**MindustryLocations.serpulo_stained_mountains,
-    #**MindustryLocations.serpulo_fungal_pass,
-    #**MindustryLocations.serpulo_nuclear_production_complex,
-    #**MindustryLocations.serpulo_lead,
-    #**MindustryLocations.serpulo_titanium,
-    #**MindustryLocations.serpulo_cryofluid,
-    #**MindustryLocations.serpulo_thorium,
-    #**MindustryLocations.serpulo_surge_alloy,
-    #**MindustryLocations.serpulo_phase_fabric,
-    #**MindustryLocations.serpulo_metaglass,
-    #**MindustryLocations.serpulo_scrap,
-    #**MindustryLocations.serpulo_slag,
-    #**MindustryLocations.serpulo_coal,
-    #**MindustryLocations.serpulo_graphite,
-    #**MindustryLocations.serpulo_silicon,
-    #**MindustryLocations.serpulo_pyratite,
-    #**MindustryLocations.serpulo_blast_compound,
-    #**MindustryLocations.serpulo_spore_pod,
-    #**MindustryLocations.serpulo_oil,
-    #**MindustryLocations.serpulo_plastanium,
+    **MindustryLocations.serpulo_frozen_forest,
+    **MindustryLocations.serpulo_the_craters,
+    **MindustryLocations.serpulo_ruinous_shores,
+    **MindustryLocations.serpulo_windswept_islands,
+    **MindustryLocations.serpulo_tar_fields,
+    **MindustryLocations.serpulo_impact_0078,
+    **MindustryLocations.serpulo_desolate_rift,
+    **MindustryLocations.serpulo_planetary_launch_terminal,
+    **MindustryLocations.serpulo_extraction_outpost,
+    **MindustryLocations.serpulo_salt_flats,
+    **MindustryLocations.serpulo_coastline,
+    **MindustryLocations.serpulo_naval_fortress,
+    **MindustryLocations.serpulo_overgrowth,
+    **MindustryLocations.serpulo_biomass_synthesis_facility,
+    **MindustryLocations.serpulo_stained_mountains,
+    **MindustryLocations.serpulo_fungal_pass,
+    **MindustryLocations.serpulo_nuclear_production_complex,
+    **MindustryLocations.serpulo_lead,
+    **MindustryLocations.serpulo_titanium,
+    **MindustryLocations.serpulo_cryofluid,
+    **MindustryLocations.serpulo_thorium,
+    **MindustryLocations.serpulo_surge_alloy,
+    **MindustryLocations.serpulo_phase_fabric,
+    **MindustryLocations.serpulo_metaglass,
+    **MindustryLocations.serpulo_scrap,
+    **MindustryLocations.serpulo_slag,
+    **MindustryLocations.serpulo_coal,
+    **MindustryLocations.serpulo_graphite,
+    **MindustryLocations.serpulo_silicon,
+    **MindustryLocations.serpulo_pyratite,
+    **MindustryLocations.serpulo_blast_compound,
+    **MindustryLocations.serpulo_spore_pod,
+    **MindustryLocations.serpulo_oil,
+    **MindustryLocations.serpulo_plastanium,
 
-    #**MindustryLocations.erekir_duct,
+    **MindustryLocations.erekir_duct,
     **MindustryLocations.erekir_duct_router,
     **MindustryLocations.erekir_duct_bridge,
     **MindustryLocations.erekir_armored_duct,
@@ -1267,12 +1268,12 @@ location_table = {
     **MindustryLocations.erekir_large_constructor,
     **MindustryLocations.erekir_large_deconstructor,
     **MindustryLocations.erekir_reinforced_payload_router,
-    #**MindustryLocations.erekir_plasma_bore,
+    **MindustryLocations.erekir_plasma_bore,
     **MindustryLocations.erekir_impact_drill,
     **MindustryLocations.erekir_large_plasma_bore,
     **MindustryLocations.erekir_eruption_drill,
-    #**MindustryLocations.erekir_turbine_condenser,
-    #**MindustryLocations.erekir_beam_node,
+    **MindustryLocations.erekir_turbine_condenser,
+    **MindustryLocations.erekir_beam_node,
     **MindustryLocations.erekir_vent_condenser,
     **MindustryLocations.erekir_chemical_combustion_chamber,
     **MindustryLocations.erekir_pyrolysis_generator,
@@ -1289,7 +1290,7 @@ location_table = {
     **MindustryLocations.erekir_reinforced_liquid_router,
     **MindustryLocations.erekir_reinforced_liquid_container,
     **MindustryLocations.erekir_reinforced_liquid_tank,
-    #**MindustryLocations.erekir_cliff_crusher,
+    **MindustryLocations.erekir_cliff_crusher,
     **MindustryLocations.erekir_silicon_arc_furnace,
     **MindustryLocations.erekir_electrolyzer,
     **MindustryLocations.erekir_oxidation_chamber,
@@ -1304,8 +1305,8 @@ location_table = {
     **MindustryLocations.erekir_phase_heater,
     **MindustryLocations.erekir_heat_router,
     **MindustryLocations.erekir_slag_incinerator,
-    #**MindustryLocations.erekir_breach,
-    #**MindustryLocations.erekir_beryllium_wall,
+    **MindustryLocations.erekir_breach,
+    **MindustryLocations.erekir_beryllium_wall,
     **MindustryLocations.erekir_large_beryllium_wall,
     **MindustryLocations.erekir_tungsten_wall,
     **MindustryLocations.erekir_large_tungsten_wall,
@@ -1327,8 +1328,8 @@ location_table = {
     **MindustryLocations.erekir_radar,
     **MindustryLocations.erekir_core_citadel,
     **MindustryLocations.erekir_core_acropolis,
-    #**MindustryLocations.erekir_tank_fabricator,
-    #**MindustryLocations.erekir_stell,
+    **MindustryLocations.erekir_tank_fabricator,
+    **MindustryLocations.erekir_stell,
     **MindustryLocations.erekir_unit_repair_tower,
     **MindustryLocations.erekir_ship_fabricator,
     **MindustryLocations.erekir_elude,
