@@ -57,7 +57,7 @@ class MindustryWorld(World):
         """
         Create every Region in `regions`
         """
-        self.regions.connect_regions()
+        self.regions.connect_regions(self.options)
         self.regions.add_event_locations()
 
     def create_item(self, name: str) -> MindustryItem:

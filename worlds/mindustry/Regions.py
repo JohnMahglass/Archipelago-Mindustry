@@ -281,6 +281,7 @@ class MindustryRegions:
     serpulo: Region
     erekir: Region
     node_core_shard: Region
+    node_core_bastion: Region
     node_conveyor: Region
     node_junction: Region
     node_router: Region
@@ -493,6 +494,7 @@ class MindustryRegions:
     node_armored_duct: Region
     node_surge_conveyor: Region
     node_surge_router: Region
+    node_unit_cargo_loader : Region
     node_unit_cargo_unload_point: Region
     node_overflow_duct: Region
     node_underflow_duct: Region
@@ -638,8 +640,15 @@ class MindustryRegions:
     """
 
 
-    def connect_regions(self) -> None:
-        self.__connect_serpulo_campaign()
+    def connect_regions(self, options: MindustryOptions) -> None:
+        match options.campaign_choice.value:
+            case 0:
+                self.__connect_serpulo_campaign()
+            case 1:
+                self.__connect_erekir_campaign()
+            case 2:
+                self.__connect_all_campaign()
+
 
     def add_regions_to_world(self) -> None:
         """
@@ -658,7 +667,14 @@ class MindustryRegions:
 
     def initialise_rules(self, options: MindustryOptions) -> None:
         """Initialise rules"""
-        self.__initialise_serpulo_rules()
+        match options.campaign_choice.value:
+            case 0:
+                self.__initialise_serpulo_rules()
+            case 1:
+                self.__initialise_erekir_rules()
+            case 2:
+                self.__initialise_serpulo_rules()
+                self.__initialise_erekir_rules()
 
 
     def __init__(self, multiworld: MultiWorld, player: int):
@@ -1171,7 +1187,83 @@ class MindustryRegions:
         """
         Create region related to the erekir campaign.
         """
-        self.serpulo: Region = self.__add_region("Serpulo", None)
+        self.erekir: Region = self.__add_region("Erekir", None)
+        self.node_core_bastion = self.__add_region("Core: Bastion", None)
+
+        self.node_duct = self.__add_region("Duct", None)
+        self.node_duct_router = self.__add_region("AP-E-01-02", MindustryLocations.erekir_duct_router)
+        self.node_duct_bridge = self.__add_region("AP-E-01-03", MindustryLocations.erekir_duct_bridge)
+        self.node_armored_duct = self.__add_region("AP-E-01-04", MindustryLocations.erekir_armored_duct)
+        self.node_surge_conveyor = self.__add_region("AP-E-01-05", MindustryLocations.erekir_surge_conveyor)
+        self.node_surge_router = self.__add_region("AP-E-01-06", MindustryLocations.erekir_surge_router)
+        self.node_unit_cargo_loader = self.__add_region("AP-E-01-07", MindustryLocations.erekir_unit_cargo_loader)
+        self.node_unit_cargo_unload_point = self.__add_region("AP-E-01-08", MindustryLocations.erekir_unit_cargo_unload_point)
+        self.node_overflow_duct = self.__add_region("AP-E-01-09", MindustryLocations.erekir_overflow_duct)
+        self.node_underflow_duct = self.__add_region("AP-E-01-10", MindustryLocations.erekir_underflow_duct)
+        self.node_reinforced_container = self.__add_region("AP-E-01-11", MindustryLocations.erekir_reinforced_container)
+        self.node_duct_unloader = self.__add_region("AP-E-01-12", MindustryLocations.erekir_duct_unloader)
+        self.node_reinforced_vault = self.__add_region("AP-E-01-13", MindustryLocations.erekir_reinforced_vault)
+        self.node_reinforced_message = self.__add_region("AP-E-01-14", MindustryLocations.erekir_reinforced_message)
+        self.node_canvas = self.__add_region("AP-E-01-15", MindustryLocations.erekir_canvas)
+        self.node_reinforced_payload_conveyor = self.__add_region("AP-E-01-16", MindustryLocations.erekir_reinforced_payload_conveyor)
+        self.node_payload_mass_driver = self.__add_region("AP-E-01-17", MindustryLocations.erekir_payload_mass_driver)
+        self.node_payload_loader = self.__add_region("AP-E-01-18", MindustryLocations.erekir_payload_loader)
+        self.node_payload_unloader = self.__add_region("AP-E-01-19", MindustryLocations.erekir_payload_unloader)
+        self.node_large_payload_mass_driver = self.__add_region("AP-E-01-20", MindustryLocations.erekir_payload_mass_driver)
+        self.node_constructor = self.__add_region("AP-E-01-21", MindustryLocations.erekir_constructor)
+        self.node_deconstructor = self.__add_region("AP-E-01-22", MindustryLocations.erekir_deconstructor)
+        self.node_large_constructor = self.__add_region("AP-E-01-23", MindustryLocations.erekir_large_constructor)
+        self.node_large_deconstructor = self.__add_region("AP-E-01-24", MindustryLocations.erekir_large_deconstructor)
+        self.node_reinforced_payload_router = self.__add_region("AP-E-01-25", MindustryLocations.erekir_reinforced_payload_router)
+
+        self.node_plasma_bore = self.__add_region("Plasma Bore", None)
+        self.node_impact_drill = self.__add_region("AP-E-02-02", MindustryLocations.erekir_impact_drill)
+        self.node_large_plasma_bore = self.__add_region("AP-E-02-03", MindustryLocations.erekir_large_plasma_bore)
+        self.node_eruption_drill = self.__add_region("AP-E-02-04", MindustryLocations.erekir_eruption_drill)
+
+        self.node_turbine_condenser = self.__add_region("Turbine Condenser", None)
+        self.node_beam_node = self.__add_region("Beam Node", None)
+        self.node_vent_condenser = self.__add_region("AP-E-03-03", MindustryLocations.erekir_vent_condenser)
+        self.node_chemical_combustion_chamber = self.__add_region("AP-E-03-04", MindustryLocations.erekir_chemical_combustion_chamber)
+        self.node_pyrolysis_generator = self.__add_region("AP-E-03-05", MindustryLocations.erekir_pyrolysis_generator)
+        self.node_flux_reactor = self.__add_region("AP-E-03-06", MindustryLocations.erekir_flux_reactor)
+        self.node_neoplasia_reactor = self.__add_region("AP-E-03-07", MindustryLocations.erekir_neoplasia_reactor)
+        self.node_beam_tower = self.__add_region("AP-E-03-08", MindustryLocations.erekir_beam_tower)
+        self.node_regen_projector = self.__add_region("AP-E-03-09", MindustryLocations.erekir_regen_projector)
+        self.node_build_tower = self.__add_region("AP-E-03-10", MindustryLocations.erekir_build_tower)
+        self.node_shockwave_tower = self.__add_region("AP-E-03-11", MindustryLocations.erekir_shockwave_tower)
+        self.node_reinforced_conduit = self.__add_region("AP-E-03-12", MindustryLocations.erekir_reinforced_conduit)
+        self.node_reinforced_pump = self.__add_region("AP-E-03-13", MindustryLocations.erekir_reinforced_pump)
+        self.node_reinforced_liquid_junction = self.__add_region("AP-E-03-14", MindustryLocations.erekir_reinforced_liquid_junction)
+        self.node_reinforced_bridge_conduit = self.__add_region("AP-E-03-15", MindustryLocations.erekir_reinforced_bridge_conduit)
+        self.node_reinforced_liquid_router = self.__add_region("AP-E-03-16", MindustryLocations.erekir_reinforced_liquid_router)
+        self.node_reinforced_liquid_container = self.__add_region("AP-E-03-17", MindustryLocations.erekir_reinforced_container)
+        self.node_reinforced_liquid_tank = self.__add_region("AP-E-03-18", MindustryLocations.erekir_reinforced_liquid_tank)
+        self.node_cliff_crusher = self.__add_region("Cliff Crusher", None)
+        self.node_silicon_arc_furnace = self.__add_region("Silicon Arc Furnace", None)
+        self.node_electrolyzer = self.__add_region("AP-E-03-21", MindustryLocations.erekir_electrolyzer)
+        self.node_oxidation_chamber = self.__add_region("AP-E-03-22", MindustryLocations.erekir_oxidation_chamber)
+        self.node_surge_crucible = self.__add_region("AP-E-03-23", MindustryLocations.erekir_surge_crucible)
+        self.node_heat_redirector = self.__add_region("AP-E-03-24", MindustryLocations.erekir_heat_redirector)
+        self.node_electric_heater = self.__add_region("AP-E-03-25", MindustryLocations.erekir_electric_heater)
+        self.node_slag_heater = self.__add_region("AP-E-03-26", MindustryLocations.erekir_slag_heater)
+        self.node_atmospheric_concentrator = self.__add_region("AP-E-03-27", MindustryLocations.erekir_atmospheric_concentrator)
+        self.node_cyanogen_synthesizer = self.__add_region("AP-E-03-28", MindustryLocations.erekir_cyanogen_synthesizer)
+        self.node_carbide_crucible = self.__add_region("AP-E-03-29", MindustryLocations.erekir_carbide_crucible)
+        self.node_phase_synthesizer = self.__add_region("AP-E-03-30", MindustryLocations.erekir_phase_synthesizer)
+        self.node_phase_heater = self.__add_region("AP-E-03-31", MindustryLocations.erekir_phase_heater)
+        self.node_heat_router = self.__add_region("AP-E-03-32", MindustryLocations.erekir_heat_router)
+        self.node_slag_incinerator = self.__add_region("AP-E-03-33", MindustryLocations.erekir_slag_incinerator)
+
+        self.node_breach = self.__add_region("Breach", None)
+        self.node_beryllium_wall = self.__add_region("Beryllium Wall", None)
+
+        self.node_tank_fabricator = self.__add_region("Tank Fabricator", None)
+        self.node_stell = self.__add_region("Stell", None)
+
+
+
+
 
 
     def __connect_erekir_campaign(self):
@@ -1363,6 +1455,7 @@ class MindustryRegions:
         """
         self.serpulo: Region = self.__add_region("Serpulo", None)
         self.node_core_shard = self.__add_region("Core: Shard", None)
+
         self.node_conveyor = self.__add_region("Conveyor", None)
         self.node_junction = self.__add_region("AP-S-01-02", MindustryLocations.serpulo_junction)
         self.node_router = self.__add_region("AP-S-01-03", MindustryLocations.serpulo_router)
@@ -1383,8 +1476,10 @@ class MindustryRegions:
         self.node_payload_router = self.__add_region("AP-S-01-18", MindustryLocations.serpulo_payload_router)
         self.node_armored_conveyor = self.__add_region("AP-S-01-19", MindustryLocations.serpulo_armored_conveyor)
         self.node_plastanium_conveyor = self.__add_region("AP-S-01-20", MindustryLocations.serpulo_plastanium_conveyor)
+
         self.node_core_foundation = self.__add_region("AP-S-02-01", MindustryLocations.serpulo_core_foundation)
         self.node_core_nucleus = self.__add_region("AP-S-02-02", MindustryLocations.serpulo_core_nucleus)
+
         self.node_mechanical_drill = self.__add_region("Mechanical Drill", None)
         self.node_mechanical_pump = self.__add_region("AP-S-03-02", MindustryLocations.serpulo_mechanical_pump)
         self.node_conduit = self.__add_region("AP-S-03-03", MindustryLocations.serpulo_conduit)
@@ -1454,6 +1549,7 @@ class MindustryRegions:
         self.node_rtg_generator = self.__add_region("AP-S-03-67", MindustryLocations.serpulo_rtg_generator)
         self.node_solar_panel = self.__add_region("AP-S-03-68", MindustryLocations.serpulo_solar_panel)
         self.node_large_solar_panel = self.__add_region("AP-S-03-69", MindustryLocations.serpulo_large_solar_panel)
+
         self.node_duo = self.__add_region("Duo", None)
         self.node_copper_wall = self.__add_region("Copper Wall", None)
         self.node_large_copper_wall = self.__add_region("AP-S-04-03", MindustryLocations.serpulo_large_copper_wall)
@@ -1487,6 +1583,7 @@ class MindustryRegions:
         self.node_meltdown = self.__add_region("AP-S-04-31", MindustryLocations.serpulo_meltdown)
         self.node_foreshadow = self.__add_region("AP-S-04-32", MindustryLocations.serpulo_foreshadow)
         self.node_shock_mine = self.__add_region("AP-S-04-33", MindustryLocations.serpulo_shock_mine)
+
         self.node_ground_factory = self.__add_region("AP-S-05-01", MindustryLocations.serpulo_ground_factory)
         self.node_dagger = self.__add_region("AP-S-05-02", MindustryLocations.serpulo_dagger)
         self.node_mace = self.__add_region("AP-S-05-03", MindustryLocations.serpulo_mace)
@@ -1527,8 +1624,9 @@ class MindustryRegions:
         self.node_navanax = self.__add_region("AP-S-05-38", MindustryLocations.serpulo_navanax)
         self.node_additive_reconstructor = self.__add_region("AP-S-05-39", MindustryLocations.serpulo_additive_reconstructor)
         self.node_multiplicative_reconstructor = self.__add_region("AP-S-05-40", MindustryLocations.serpulo_multiplicative_reconstructor)
-        self.node_exponential_reconstructor = self.__add_region("AP-S-06-41", MindustryLocations.serpulo_exponential_reconstructor)
+        self.node_exponential_reconstructor = self.__add_region("AP-S-05-41", MindustryLocations.serpulo_exponential_reconstructor)
         self.node_tetrative_reconstructor = self.__add_region("AP-S-05-42", MindustryLocations.serpulo_tetrative_reconstructor)
+
         self.node_ground_zero = self.__add_region("Ground Zero", None)
         self.node_frozen_forest = self.__add_region("Frozen Forest", None)
         self.node_the_craters = self.__add_region("The Craters", None)
@@ -1547,6 +1645,7 @@ class MindustryRegions:
         self.node_stained_mountains = self.__add_region("Stained Mountains", None)
         self.node_fungal_pass = self.__add_region("Fungal Pass", None)
         self.node_nuclear_production_complex = self.__add_region("Nuclear Production Complex", None)
+
         self.node_copper = self.__add_region("Copper", None)
         self.node_water = self.__add_region("Water", None)
         self.node_sand = self.__add_region("Sand", None)
@@ -1599,3 +1698,6 @@ class MindustryRegions:
         self.__add_event_location(self.node_spore_pod, "Produce Spore Pod", "Spore Pod produced")
         self.__add_event_location(self.node_oil, "Produce Oil", "Oil produced")
         self.__add_event_location(self.node_plastanium, "Produce Plastanium", "Plastanium produced")
+
+    def __initialise_erekir_rules(self):
+        pass
