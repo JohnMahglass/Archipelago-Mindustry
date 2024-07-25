@@ -7,7 +7,7 @@ from worlds.mindustry.Items import item_table, MindustryItem, ItemType
 from worlds.mindustry.Locations import location_table
 from worlds.mindustry.Options import MindustryOptions
 from worlds.mindustry.Regions import MindustryRegions
-from Utils import visualize_regions
+from worlds.mindustry.Items import ItemPlanet
 
 class MindustryWeb(WebWorld):
     """Mindustry web page for Archipelago"""
@@ -89,17 +89,38 @@ class MindustryWorld(World):
     def create_items(self) -> None:
         """Create every item in the world"""
         precollected = [item.name for item in self.multiworld.precollected_items[self.player]]
+        campaign = self.options.campaign_choice.value
         for name, data in item_table.items():
-            if name in precollected:
-                precollected.remove(name)
-                self.multiworld.itempool.append(self.create_item(self.get_filler_item_name()))
-            else:
-                if name not in self.exclude:
-                    item_count = item_table.get(name).count
-                    for i in range(item_count):
-                        item = self.create_item(name)
-                        self.multiworld.itempool.append(item)
+            if self.__from_selected_campaign(data, campaign):
+                if name in precollected:
+                    precollected.remove(name)
+                    self.multiworld.itempool.append(self.create_item(self.get_filler_item_name()))
+                else:
+                    if name not in self.exclude:
+                        item_count = item_table.get(name).count
+                        for i in range(item_count):
+                            item = self.create_item(name)
+                            self.multiworld.itempool.append(item)
 
+    def __from_selected_campaign(self, data, campaign: int) -> bool:
+        """
+        Determine if an item is from the selected campaign.
+        """
+        valid = False
+
+        match campaign:
+            case 0:
+                if data.item_planet == ItemPlanet.SERPULO:
+                    valid = True
+            case 1:
+                if data.item_planet == ItemPlanet.EREKIR:
+                    valid = True
+            case 2:
+                valid = True
+            case _:
+                valid = False
+
+        return valid
 
     def set_rules(self) -> None:
         """
