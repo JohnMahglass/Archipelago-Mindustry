@@ -86,35 +86,35 @@ def _has_titanium(state: CollectionState, player: int) -> bool:
 def _has_cryofluid(state: CollectionState, player: int) -> bool:
     """If the player has produced Cryofluid"""
     available: bool = False
-    if state.has("Cryofluid produced", player) and _has_electricity(state, player) and _has_cryofluid_mixer(state, player):
+    if state.has("Cryofluid produced", player) and _has_power_serpulo(state, player) and _has_cryofluid_mixer(state, player):
         available = True
     return available
 
 def _has_thorium(state: CollectionState, player: int) -> bool:
     """If the player has produced Thorium"""
     available: bool = False
-    if state.has("Thorium produced", player) and _has_electricity(state, player) and _has_laser_drill(state, player):
+    if state.has("Thorium produced", player) and _has_power_serpulo(state, player) and _has_laser_drill(state, player):
         available = True
     return available
 
 def _has_surge_alloy(state: CollectionState, player: int) -> bool:
     """If the player has produced Surge Alloy"""
     available: bool = False
-    if state.has("Surge Alloy produced", player) and _has_electricity(state, player) and _has_surge_smelter(state, player):
+    if state.has("Surge Alloy produced", player) and _has_power_serpulo(state, player) and _has_surge_smelter(state, player):
         available = True
     return available
 
 def _has_phase_fabric(state: CollectionState, player: int) -> bool:
     """If the player has produced Phase Fabric"""
     available: bool = False
-    if state.has("Phase Fabric produced", player) and _has_electricity(state, player) and _has_phase_weaver(state, player):
+    if state.has("Phase Fabric produced", player) and _has_power_serpulo(state, player) and _has_phase_weaver(state, player):
         available = True
     return available
 
 def _has_metaglass(state: CollectionState, player: int) -> bool:
     """If the player has produced Metaglass"""
     available: bool = False
-    if state.has("Metaglass produced", player) and _has_electricity(state, player) and _has_kiln(state, player):
+    if state.has("Metaglass produced", player) and _has_power_serpulo(state, player) and _has_kiln(state, player):
         available = True
     return available
 
@@ -128,28 +128,28 @@ def _has_graphite(state: CollectionState, player: int) -> bool:
 def _has_silicon(state: CollectionState, player: int) -> bool:
     """If the player has produced Silicon"""
     available: bool = False
-    if state.has("Silicon produced", player) and _has_electricity(state, player) and _has_silicon_smelter(state, player):
+    if state.has("Silicon produced", player) and _has_power_serpulo(state, player) and _has_silicon_smelter(state, player):
         available = True
     return available
 
 def _has_pyratite(state: CollectionState, player: int) -> bool:
     """If the player has produced Pyratite"""
     available: bool = False
-    if state.has("Pyratite produced", player) and _has_electricity(state, player) and _has_pyratite_mixer(state, player):
+    if state.has("Pyratite produced", player) and _has_power_serpulo(state, player) and _has_pyratite_mixer(state, player):
         available = True
     return available
 
 def _has_blast_compound(state: CollectionState, player: int) -> bool:
     """If the player has produced Blast Compound"""
     available: bool = False
-    if state.has("Blast Compound produced", player) and _has_electricity(state, player) and _has_blast_mixer(state, player):
+    if state.has("Blast Compound produced", player) and _has_power_serpulo(state, player) and _has_blast_mixer(state, player):
         available = True
     return available
 
 def _has_spore_pod(state: CollectionState, player: int) -> bool:
     """If the player has produced Spore Pod"""
     available: bool = False
-    if state.has("Spore Pod produced", player) and _has_electricity(state, player) and _has_cultivator(state, player):
+    if state.has("Spore Pod produced", player) and _has_power_serpulo(state, player) and _has_cultivator(state, player):
         available = True
     return available
 
@@ -163,13 +163,13 @@ def _has_oil(state: CollectionState, player: int) -> bool:
 def _has_plastanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Plastanium"""
     available: bool = False
-    if state.has("Plastanium produced", player) and _has_electricity(state, player) and _has_plastanium_compressor(state, player):
+    if state.has("Plastanium produced", player) and _has_power_serpulo(state, player) and _has_plastanium_compressor(state, player):
         available = True
     return available
 
-def _has_electricity(state: CollectionState, player: int) -> bool:
+def _has_power_serpulo(state: CollectionState, player: int) -> bool:
     """If the player has acces to electricity"""
-    return state.has_all({"Combustion Generator", "Power Node"}, player)
+    return state.has("Combustion Generator", player)
 
 def _has_mechanical_pump(state: CollectionState, player: int) -> bool:
     """If the player has received Mechanical Pump"""
@@ -1460,6 +1460,7 @@ class MindustryRegions:
 
     def __initialise_serpulo_rules(self):
         """Initialise rules for Serpulo location"""
+        """
         add_rule(self.multiworld.get_location("AP-S-01-04", self.player),
                  lambda state: _has_extraction_outpost(state, self.player))
 
@@ -1596,6 +1597,7 @@ class MindustryRegions:
         add_rule(self.multiworld.get_location("AP-S-05-42", self.player),
                  lambda state: _has_biomass_synthesis_facility(state, self.player) and
                                 _has_overgrowth(state, self.player))
+         """
 
 
     def __connect_regions(self, source_region: Region, target_region: Region, rule = None) -> None:
