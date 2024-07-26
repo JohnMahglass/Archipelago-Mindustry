@@ -1257,13 +1257,57 @@ class MindustryRegions:
 
         self.node_breach = self.__add_region("Breach", None)
         self.node_beryllium_wall = self.__add_region("Beryllium Wall", None)
+        self.node_large_beryllium_wall = self.__add_region("AP-E-04-03", MindustryLocations.erekir_large_beryllium_wall)
+        self.node_tungsten_wall = self.__add_region("AP-E-04-04", MindustryLocations.erekir_tungsten_wall)
+        self.node_large_tungsten_wall = self.__add_region("AP-E-04-05", MindustryLocations.erekir_large_tungsten_wall)
+        self.node_blast_door = self.__add_region("AP-E-04-06", MindustryLocations.erekir_blast_door)
+        self.node_reinforced_surge_wall = self.__add_region("AP-E-04-07", MindustryLocations.erekir_reinforced_surge_wall)
+        self.node_large_reinforced_surge_wall = self.__add_region("AP-E-04-08", MindustryLocations.erekir_large_reinforced_surge_wall)
+        self.node_shielded_wall = self.__add_region("AP-E-04-09", MindustryLocations.erekir_shielded_wall)
+        self.node_carbide_wall = self.__add_region("AP-E-04-10", MindustryLocations.erekir_carbide_wall)
+        self.node_large_carbide_wall = self.__add_region("AP-E-04-11", MindustryLocations.erekir_large_carbide_wall)
+        self.node_diffuse = self.__add_region("AP-E-04-12", MindustryLocations.erekir_diffuse)
+        self.node_sublimate = self.__add_region("AP-E-04-13", MindustryLocations.erekir_sublimate)
+        self.node_afflict = self.__add_region("AP-E-04-14", MindustryLocations.erekir_afflict)
+        self.node_titan = self.__add_region("AP-E-04-15", MindustryLocations.erekir_titan)
+        self.node_lustre = self.__add_region("AP-E-04-16", MindustryLocations.erekir_lustre)
+        self.node_smite = self.__add_region("AP-E-04-17", MindustryLocations.erekir_smite)
+        self.node_disperse = self.__add_region("AP-E-04-18", MindustryLocations.erekir_disperse)
+        self.node_scathe = self.__add_region("AP-E-04-19", MindustryLocations.erekir_scathe)
+        self.node_malign = self.__add_region("AP-E-04-20", MindustryLocations.erekir_malign)
+        self.node_radar = self.__add_region("AP-E-04-21", MindustryLocations.erekir_radar)
+
+        self.node_core_citadel = self.__add_region("AP-E-05-01", MindustryLocations.erekir_core_citadel)
+        self.node_core_acropolis = self.__add_region("AP-E-05-02", MindustryLocations.erekir_core_acropolis)
+
 
         self.node_tank_fabricator = self.__add_region("Tank Fabricator", None)
         self.node_stell = self.__add_region("Stell", None)
-
-
-
-
+        self.node_unit_repair_tower = self.__add_region("AP-E-06-03", MindustryLocations.erekir_unit_repair_tower)
+        self.node_ship_fabricator = self.__add_region("AP-E-06-04", MindustryLocations.erekir_ship_fabricator)
+        self.node_elude = self.__add_region("AP-E-06-05", MindustryLocations.erekir_elude)
+        self.node_mech_fabricator = self.__add_region("AP-E-06-06", MindustryLocations.erekir_mech_fabricator)
+        self.node_merui = self.__add_region("AP-E-06-07", MindustryLocations.erekir_merui)
+        self.node_tank_refabricator = self.__add_region("AP-E-06-08", MindustryLocations.erekir_tank_refabricator)
+        self.node_locus = self.__add_region("AP-E-06-09", MindustryLocations.erekir_locus)
+        self.node_mech_refrabricator = self.__add_region("AP-E-06-10", MindustryLocations.erekir_mech_refrabricator)
+        self.node_cleroi = self.__add_region("AP-E-06-11", MindustryLocations.erekir_cleroi)
+        self.node_ship_refabricator = self.__add_region("AP-E-06-12", MindustryLocations.erekir_ship_refabricator)
+        self.node_avert = self.__add_region("AP-E-06-13", MindustryLocations.erekir_avert)
+        self.node_prime_refabricator = self.__add_region("AP-E-06-14", MindustryLocations.erekir_prime_refabricator)
+        self.node_precept = self.__add_region("AP-E-06-15", MindustryLocations.erekir_precept)
+        self.node_anthicus = self.__add_region("AP-E-06-16", MindustryLocations.erekir_anthicus)
+        self.node_obviate = self.__add_region("AP-E-06-17", MindustryLocations.erekir_obviate)
+        self.node_tank_assembler = self.__add_region("AP-E-06-18", MindustryLocations.erekir_tank_assembler)
+        self.node_vanquish = self.__add_region("AP-E-06-19", MindustryLocations.erekir_vanquish)
+        self.node_conquer = self.__add_region("AP-E-06-20", MindustryLocations.erekir_conquer)
+        self.node_ship_assembler = self.__add_region("AP-E-06-21", MindustryLocations.erekir_ship_assembler)
+        self.node_quell = self.__add_region("AP-E-06-22", MindustryLocations.erekir_quell)
+        self.node_disrupt = self.__add_region("AP-E-06-23", MindustryLocations.erekir_disrupt)
+        self.node_mech_assembler = self.__add_region("AP-E-06-24", MindustryLocations.erekir_mech_assembler)
+        self.node_tecta = self.__add_region("AP-E-06-25", MindustryLocations.erekir_tecta)
+        self.node_collaris = self.__add_region("AP-E-06-26", MindustryLocations.erekir_collaris)
+        self.node_basic_assembler_module = self.__add_region("AP-E-06-27", MindustryLocations.erekir_basic_assembler_module)
 
 
     def __connect_erekir_campaign(self):
