@@ -57,8 +57,9 @@ class MindustryWorld(World):
         """
         Create every Region in `regions`
         """
+        self.regions.create_campaign(self.options)
         self.regions.connect_regions(self.options)
-        self.regions.add_event_locations()
+        self.regions.add_event_locations(self.options)
 
     def create_item(self, name: str) -> MindustryItem:
         """
@@ -104,10 +105,9 @@ class MindustryWorld(World):
 
     def __from_selected_campaign(self, data, campaign: int) -> bool:
         """
-        Determine if an item is from the selected campaign.
+        Return if an item is from the selected campaign.
         """
         valid = False
-
         match campaign:
             case 0:
                 if data.item_planet == ItemPlanet.SERPULO:
@@ -119,16 +119,15 @@ class MindustryWorld(World):
                 valid = True
             case _:
                 valid = False
-
         return valid
 
     def set_rules(self) -> None:
         """
         Launched when the Multiworld generator is ready to generate rules
         """
-        self.regions.initialise_rules(self.options)
         self.multiworld.completion_condition[self.player] = lambda \
                 state: state.has("Victory", self.player)
+        self.regions.initialise_rules(self.options)
 
     def __init__(self, multiworld: MultiWorld, player: int):
         """Initialise the Mindustry World"""

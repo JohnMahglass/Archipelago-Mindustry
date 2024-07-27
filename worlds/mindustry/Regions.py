@@ -9,71 +9,71 @@ from worlds.generic.Rules import set_rule, add_rule
 
 
 def _has_frozen_forest(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Frozen Forest"""
+    """If the player has captured Frozen Forest"""
     return state.has("Frozen Forest captured", player)
 
 def _has_the_craters(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked The Craters"""
+    """If the player has captured The Craters"""
     return state.has("The Craters captured", player)
 
 def _has_ruinous_shores(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Ruinous Shores"""
+    """If the player has captured Ruinous Shores"""
     return state.has("Ruinous Shores captured", player)
 
 def _has_windswept_islands(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Windswept Islands"""
+    """If the player has captured Windswept Islands"""
     return state.has("Windswept Islands captured", player)
 
 def _has_tar_fields(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Tar Fields"""
+    """If the player has captured Tar Fields"""
     return state.has("Tar Fields captured", player)
 
 def _has_impact_0078(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Impact 0078"""
+    """If the player has captured Impact 0078"""
     return state.has("Impact 0078 captured", player)
 
 def _has_desolate_rift(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Desolate Rift"""
+    """If the player has captured Desolate Rift"""
     return state.has("Desolate Rift captured", player)
 
 def _has_planetary_launch_terminal(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Planetary Launch Terminal"""
+    """If the player has captured Planetary Launch Terminal"""
     return state.has("Planetary Launch Terminal captured", player)
 
 def _has_extraction_outpost(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Extraction Outpost"""
+    """If the player has captured Extraction Outpost"""
     return state.has("Extraction Outpost captured", player)
 
 def _has_salt_flats(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Salt Flats"""
+    """If the player has captured Salt Flats"""
     return state.has("Salt Flats captured", player)
 
 def _has_coastline(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Coastline"""
+    """If the player has captured Coastline"""
     return state.has("Coastline captured", player)
 
 def _has_naval_fortress(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Naval Fortress"""
+    """If the player has captured Naval Fortress"""
     return state.has("Naval Fortress captured", player)
 
 def _has_overgrowth(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Overgrowth"""
+    """If the player has captured Overgrowth"""
     return state.has("Overgrowth captured", player)
 
 def _has_biomass_synthesis_facility(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Biomass Synthesis Facility"""
+    """If the player has captured Biomass Synthesis Facility"""
     return state.has("Biomass Synthesis Facility captured", player)
 
 def _has_stained_mountains(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Stained Mountains"""
+    """If the player has captured Stained Mountains"""
     return state.has("Stained Mountains captured", player)
 
 def _has_fungal_pass(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Fungal Pass"""
+    """If the player has captured Fungal Pass"""
     return state.has("Fungal Pass captured", player)
 
 def _has_nuclear_production_complex(state: CollectionState, player: int) -> bool:
-    """If the player has unlocked Nuclear Production Complex"""
+    """If the player has captured Nuclear Production Complex"""
     return state.has("Nuclear Production Complex captured", player)
 
 def _has_titanium(state: CollectionState, player: int) -> bool:
@@ -272,16 +272,79 @@ def _has_naval_factory(state: CollectionState, player:int) -> bool:
     return available
 
 
+def _has_aegis(state: CollectionState, player:int) -> bool:
+    """If the player has captured Aegis"""
+    return state.has("Aegis captured", player)
+
+def _has_lake(state: CollectionState, player:int) -> bool:
+    """If the player captured Lake"""
+    return state.has("Lake captured", player)
+
+def _has_intersect(state: CollectionState, player:int) -> bool:
+    """If the player captured Intersect"""
+    return state.has("Intersect captured", player)
+
+def _has_atlas(state: CollectionState, player:int) -> bool:
+    """If the player captured Atlas"""
+    return state.has("Atlas captured", player)
+
+def _has_split(state: CollectionState, player:int) -> bool:
+    """If the player captured Split"""
+    return state.has("Split captured", player)
+
+def _has_basin(state: CollectionState, player:int) -> bool:
+    """If the player captured Basin"""
+    return state.has("Basin captured", player)
+
+def _has_marsh(state: CollectionState, player:int) -> bool:
+    """If the player captured Marsh"""
+    return state.has("Marsh captured", player)
+
+def _has_ravine(state: CollectionState, player:int) -> bool:
+    """If the player captured Ravine"""
+    return state.has("Ravine captured", player)
+
+def _has_caldera(state: CollectionState, player:int) -> bool:
+    """If the player captured Caldera"""
+    return state.has("Caldera captured", player)
+
+def _has_stronghold(state: CollectionState, player:int) -> bool:
+    """If the player captured Stronghold"""
+    return state.has("Stronghold captured", player)
+
+def _has_crevice(state: CollectionState, player:int) -> bool:
+    """If the player captured Crevice"""
+    return state.has("Crevice captured", player)
+
+def _has_siege(state: CollectionState, player:int) -> bool:
+    """If the player captured Siege"""
+    return state.has("Siege captured", player)
+
+def _has_crossroads(state: CollectionState, player:int) -> bool:
+    """If the player captured Crossroads"""
+    return state.has("Crossroads captured", player)
+
+def _has_karst(state: CollectionState, player:int) -> bool:
+    """If the player captured Karst"""
+    return state.has("Karst captured", player)
+
+def _has_origin(state: CollectionState, player:int) -> bool:
+    """If the player captured Origin"""
+    return state.has("Origin captured", player)
+
+def _has_peaks(state: CollectionState, player:int) -> bool:
+    """If the player captured Peaks"""
+    return state.has("Peaks captured", player)
+
 class MindustryRegions:
     """
     Class used to create region for Mindustry
     """
     menu: Region
     victory: Region
+
     serpulo: Region
-    erekir: Region
     node_core_shard: Region
-    node_core_bastion: Region
     node_conveyor: Region
     node_junction: Region
     node_router: Region
@@ -487,7 +550,9 @@ class MindustryRegions:
     node_oil: Region
     node_plastanium: Region
 
-    node_erekir: Region
+
+    erekir: Region
+    node_core_bastion: Region
     node_duct: Region
     node_duct_router: Region
     node_duct_bridge: Region
@@ -600,6 +665,7 @@ class MindustryRegions:
     node_tecta: Region
     node_collaris: Region
     node_basic_assembler_module: Region
+    node_the_onset : Region
     node_aegis: Region
     node_lake: Region
     node_intersect: Region
@@ -613,7 +679,7 @@ class MindustryRegions:
     node_crevice: Region
     node_siege: Region
     node_crossroads: Region
-    node_krast: Region
+    node_karst: Region
     node_origin: Region
     node_peaks: Region
     node_oxide: Region
@@ -641,6 +707,9 @@ class MindustryRegions:
 
 
     def connect_regions(self, options: MindustryOptions) -> None:
+        """
+        Connect regions based on user options.
+        """
         match options.campaign_choice.value:
             case 0:
                 self.__connect_serpulo_campaign()
@@ -656,17 +725,24 @@ class MindustryRegions:
         """
         pass
 
-    def add_event_locations(self) -> None:
+    def add_event_locations(self, options: MindustryOptions) -> None:
         """
-        Add every event (locations and items) to the `world`
+        Add events based on user options.
         """
         self.__add_event_location(self.victory, "Objective complete",
                                   "Victory")
-        self.__add_serpulo_events()
+        match options.campaign_choice.value:
+            case 0:
+                self.__add_serpulo_events()
+            case 1:
+                self.__add_erekir_events()
+            case 2:
+                self.__add_serpulo_events()
+                self.__add_erekir_events()
 
 
     def initialise_rules(self, options: MindustryOptions) -> None:
-        """Initialise rules"""
+        """Initialise rules based on user options"""
         match options.campaign_choice.value:
             case 0:
                 self.__initialise_serpulo_rules()
@@ -683,7 +759,6 @@ class MindustryRegions:
         """
         self.multiworld = multiworld
         self.player = player
-        self.__create_campaign(0)
 
 
     def __add_event_location(self, region: Region, name: str, event_name: str) -> None:
@@ -698,13 +773,13 @@ class MindustryRegions:
         location.place_locked_item(MindustryItem(event_name, ItemClassification.progression, None, self.player))
 
 
-    def __create_campaign(self, campaign: int):
+    def create_campaign(self, options: MindustryOptions) -> None:
         """
         Create region for selected campaign
         """
         self.menu = self.__add_region("Menu", None)
         self.victory = self.__add_region("Victory", None)
-        match campaign:
+        match options.campaign_choice.value:
             case 0:
                 self.__create_serpulo_campaign()
             case 1:
@@ -1185,7 +1260,7 @@ class MindustryRegions:
 
     def __create_erekir_campaign(self):
         """
-        Create region related to the erekir campaign.
+        Create region related to the Erekir campaign.
         """
         self.erekir: Region = self.__add_region("Erekir", None)
         self.node_core_bastion = self.__add_region("Core: Bastion", None)
@@ -1209,7 +1284,7 @@ class MindustryRegions:
         self.node_payload_mass_driver = self.__add_region("AP-E-01-17", MindustryLocations.erekir_payload_mass_driver)
         self.node_payload_loader = self.__add_region("AP-E-01-18", MindustryLocations.erekir_payload_loader)
         self.node_payload_unloader = self.__add_region("AP-E-01-19", MindustryLocations.erekir_payload_unloader)
-        self.node_large_payload_mass_driver = self.__add_region("AP-E-01-20", MindustryLocations.erekir_payload_mass_driver)
+        self.node_large_payload_mass_driver = self.__add_region("AP-E-01-20", MindustryLocations.erekir_large_payload_mass_driver)
         self.node_constructor = self.__add_region("AP-E-01-21", MindustryLocations.erekir_constructor)
         self.node_deconstructor = self.__add_region("AP-E-01-22", MindustryLocations.erekir_deconstructor)
         self.node_large_constructor = self.__add_region("AP-E-01-23", MindustryLocations.erekir_large_constructor)
@@ -1237,7 +1312,7 @@ class MindustryRegions:
         self.node_reinforced_liquid_junction = self.__add_region("AP-E-03-14", MindustryLocations.erekir_reinforced_liquid_junction)
         self.node_reinforced_bridge_conduit = self.__add_region("AP-E-03-15", MindustryLocations.erekir_reinforced_bridge_conduit)
         self.node_reinforced_liquid_router = self.__add_region("AP-E-03-16", MindustryLocations.erekir_reinforced_liquid_router)
-        self.node_reinforced_liquid_container = self.__add_region("AP-E-03-17", MindustryLocations.erekir_reinforced_container)
+        self.node_reinforced_liquid_container = self.__add_region("AP-E-03-17", MindustryLocations.erekir_reinforced_liquid_container)
         self.node_reinforced_liquid_tank = self.__add_region("AP-E-03-18", MindustryLocations.erekir_reinforced_liquid_tank)
         self.node_cliff_crusher = self.__add_region("Cliff Crusher", None)
         self.node_silicon_arc_furnace = self.__add_region("Silicon Arc Furnace", None)
@@ -1309,6 +1384,23 @@ class MindustryRegions:
         self.node_collaris = self.__add_region("AP-E-06-26", MindustryLocations.erekir_collaris)
         self.node_basic_assembler_module = self.__add_region("AP-E-06-27", MindustryLocations.erekir_basic_assembler_module)
 
+        self.node_the_onset = self.__add_region("The Onset", None)
+        self.node_aegis = self.__add_region("Aegis", None)
+        self.node_lake = self.__add_region("Lake", None)
+        self.node_intersect = self.__add_region("Intersect", None)
+        self.node_atlas = self.__add_region("Atlas", None)
+        self.node_split = self.__add_region("Split", None)
+        self.node_basin = self.__add_region("Basin", None)
+        self.node_marsh = self.__add_region("Marsh", None)
+        self.node_ravine = self.__add_region("Ravine", None)
+        self.node_caldera = self.__add_region("Caldera", None)
+        self.node_stronghold = self.__add_region("Stronghold", None)
+        self.node_crevice = self.__add_region("Crevice", None)
+        self.node_siege = self.__add_region("Siege", None)
+        self.node_crossroads = self.__add_region("Crossroads", None)
+        self.node_karst = self.__add_region("Karst", None)
+        self.node_origin = self.__add_region("Origin", None)
+        self.node_peaks = self.__add_region("Peaks", None)
 
     def __connect_erekir_campaign(self):
         """
@@ -1405,6 +1497,9 @@ class MindustryRegions:
         self.__connect_regions(self.node_scathe, self.node_malign)
         self.__connect_regions(self.node_breach, self.node_radar)
 
+        self.__connect_regions(self.node_core_bastion, self.node_core_citadel)
+        self.__connect_regions(self.node_core_citadel, self.node_core_acropolis)
+
         self.__connect_regions(self.node_core_bastion, self.node_tank_fabricator)
         self.__connect_regions(self.node_tank_fabricator, self.node_stell)
         self.__connect_regions(self.node_tank_fabricator, self.node_unit_repair_tower)
@@ -1432,6 +1527,24 @@ class MindustryRegions:
         self.__connect_regions(self.node_mech_assembler, self.node_tecta)
         self.__connect_regions(self.node_tecta, self.node_collaris)
         self.__connect_regions(self.node_tank_assembler, self.node_basic_assembler_module)
+
+        self.__connect_regions(self.node_core_bastion, self.node_the_onset)
+        self.__connect_regions(self.node_the_onset, self.node_aegis)
+        self.__connect_regions(self.node_aegis, self.node_lake)
+        self.__connect_regions(self.node_aegis, self.node_intersect)
+        self.__connect_regions(self.node_intersect, self.node_atlas)
+        self.__connect_regions(self.node_atlas, self.node_split)
+        self.__connect_regions(self.node_atlas, self.node_basin)
+        self.__connect_regions(self.node_basin, self.node_marsh)
+        self.__connect_regions(self.node_marsh, self.node_ravine)
+        self.__connect_regions(self.node_ravine, self.node_caldera)
+        self.__connect_regions(self.node_caldera, self.node_stronghold)
+        self.__connect_regions(self.node_stronghold, self.node_crevice)
+        self.__connect_regions(self.node_crevice, self.node_siege)
+        self.__connect_regions(self.node_siege, self.node_crossroads)
+        self.__connect_regions(self.node_crossroads, self.node_karst)
+        self.__connect_regions(self.node_karst, self.node_origin)
+        self.__connect_regions(self.node_marsh, self.node_peaks)
 
 
     def __create_all_campaign(self):
@@ -1830,7 +1943,7 @@ class MindustryRegions:
         self.node_oil = self.__add_region("Oil", None)
         self.node_plastanium = self.__add_region("Plastanium", None)
 
-    def     __add_serpulo_events(self):
+    def __add_serpulo_events(self):
         self.__add_event_location(self.node_frozen_forest, "Capture Frozen Forest", "Frozen Forest captured")
         self.__add_event_location(self.node_the_craters, "Capture The Craters", "The Craters captured")
         self.__add_event_location(self.node_ruinous_shores, "Capture Ruinous Shores", "Ruinous Shores captured")
@@ -1864,3 +1977,21 @@ class MindustryRegions:
 
     def __initialise_erekir_rules(self):
         pass
+
+    def __add_erekir_events(self):
+        self.__add_event_location(self.node_aegis, "Capture Aegis", "Aegis captured")
+        self.__add_event_location(self.node_lake, "Capture Lake", "Lake captured")
+        self.__add_event_location(self.node_intersect, "Capture Intersect", "Intersect captured")
+        self.__add_event_location(self.node_atlas, "Capture Atlas", "Atlas captured")
+        self.__add_event_location(self.node_split, "Capture Split", "Split captured")
+        self.__add_event_location(self.node_basin, "Capture Basin", "Basin captured")
+        self.__add_event_location(self.node_marsh, "Capture Marsh", "Marsh captured")
+        self.__add_event_location(self.node_ravine, "Capture Ravine", "Ravine captured")
+        self.__add_event_location(self.node_caldera, "Capture Caldera", "Caldera captured")
+        self.__add_event_location(self.node_stronghold, "Capture Stronghold", "Stronghold captured")
+        self.__add_event_location(self.node_crevice, "Capture Crevice", "Crevice captured")
+        self.__add_event_location(self.node_siege, "Capture Siege", "Siege captured")
+        self.__add_event_location(self.node_crossroads, "Capture Crossroads", "Crossroads captured")
+        self.__add_event_location(self.node_karst, "Capture Karst", "Karst captured")
+        self.__add_event_location(self.node_origin, "Capture Origin", "Origin captured")
+        self.__add_event_location(self.node_peaks, "Capture Peaks", "Peaks captured")
