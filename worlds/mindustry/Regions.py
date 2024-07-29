@@ -1227,14 +1227,18 @@ class MindustryRegions:
         self.__connect_regions(self.node_tar_fields, self.node_impact_0078)
         self.__connect_regions(self.node_impact_0078, self.node_desolate_rift)
         self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal)
-        self.__connect_regions(self.node_windswept_islands, self.node_extraction_outpost)
-        self.__connect_regions(self.node_windswept_islands, self.node_salt_flats)
+        self.__connect_regions(self.node_windswept_islands, self.node_extraction_outpost,
+                                lambda state: _has_ground_factory(state, self.player))
+        self.__connect_regions(self.node_windswept_islands, self.node_salt_flats,
+                                lambda state: _has_ground_factory(state, self.player))
         self.__connect_regions(self.node_salt_flats, self.node_coastline)
-        self.__connect_regions(self.node_coastline, self.node_naval_fortress)
+        self.__connect_regions(self.node_coastline, self.node_naval_fortress,
+                                lambda state: _has_naval_factory(state, self.player))
         self.__connect_regions(self.node_the_craters, self.node_overgrowth)
         self.__connect_regions(self.node_frozen_forest, self.node_biomass_synthesis_facility)
         self.__connect_regions(self.node_biomass_synthesis_facility, self.node_stained_mountains)
-        self.__connect_regions(self.node_stained_mountains, self.node_fungal_pass)
+        self.__connect_regions(self.node_stained_mountains, self.node_fungal_pass,
+                                lambda state: _has_ground_factory(state, self.player))
         self.__connect_regions(self.node_fungal_pass, self.node_nuclear_production_complex)
         self.__connect_regions(self.node_core_shard, self.node_copper)
         self.__connect_regions(self.node_copper, self.node_water)
