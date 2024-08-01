@@ -22,6 +22,10 @@ class FasterProduction(Toggle):
     """Enable faster production of ressource."""
     display_name = "Faster production"
 
+class deathLink(Toggle):
+    """Enable death link."""
+    display_name = "Death link"
+
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -32,3 +36,4 @@ class MindustryOptions(PerGameCommonOptions):
     campaign_choice: CampaignChoice
     disable_invasions: DisableInvasions
     faster_production: FasterProduction
+    death_link: deathLink

@@ -140,5 +140,6 @@ class MindustryWorld(World):
             "tutorial_skip": bool(self.options.tutorial_skip.value),
             "campaign_choice": self.options.campaign_choice.value,
             "disable_invasion": bool(self.options.disable_invasions.value),
-            "faster_production": bool(self.options.faster_production.value)
+            "faster_production": bool(self.options.faster_production.value),
+            "death_link": bool(self.options.death_link)
         }
