@@ -3,7 +3,7 @@ from Options import DefaultOnToggle, Choice, Toggle, PerGameCommonOptions
 
 
 class TutorialSkip(Toggle):
-    """Remove the need to complete the tutorial and unlock tutorial related tech."""
+    """Remove the need to complete the tutorial and unlock tutorial related tech. Grant a free launch for every selected planet."""
     display_name = "Tutorial skip"
 
 class CampaignChoice(Choice):
@@ -19,7 +19,7 @@ class DisableInvasions(Toggle):
     display_name = "Disable invasions"
 
 class FasterProduction(Toggle):
-    """Enable faster production of ressource."""
+    """Enable faster production and harvesting of resources."""
     display_name = "Faster production"
 
 class deathLink(Toggle):
