@@ -125,8 +125,6 @@ class MindustryWorld(World):
         """
         Launched when the Multiworld generator is ready to generate rules
         """
-        self.multiworld.completion_condition[self.player] = lambda \
-                state: state.has("Victory", self.player)
         self.regions.initialise_rules(self.options)
 
     def __init__(self, multiworld: MultiWorld, player: int):
