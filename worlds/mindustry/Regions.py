@@ -1,11 +1,10 @@
-import json
 
 from BaseClasses import Region, MultiWorld, Entrance, CollectionState, ItemClassification
 from .Items import MindustryItem
 from .Options import MindustryOptions
 from .Locations import MindustryLocations, MindustryLocation
 from typing import Optional, Dict
-from worlds.generic.Rules import set_rule, add_rule
+from worlds.generic.Rules import set_rule
 
 
 def _has_serpulo_victory(state: CollectionState, player: int) -> bool:
@@ -1738,7 +1737,7 @@ class MindustryRegions:
         self.node_liquid_tank = self.__add_region("AP-S-03-07", MindustryLocations.serpulo_liquid_tank)
         self.node_bridge_conduit = self.__add_region("AP-S-03-08", MindustryLocations.serpulo_bridge_conduit)
         self.node_pulse_conduit = self.__add_region("AP-S-03-09", MindustryLocations.serpulo_pulse_conduit)
-        self.node_phase_conduit =  self.__add_region("AP-S-03-10", MindustryLocations.serpulo_phase_conduit)
+        self.node_phase_conduit = self.__add_region("AP-S-03-10", MindustryLocations.serpulo_phase_conduit)
         self.node_plated_conduit = self.__add_region("AP-S-03-11", MindustryLocations.serpulo_plated_conduit)
         self.node_rotary_pump = self.__add_region("AP-S-03-12", MindustryLocations.serpulo_rotary_pump)
         self.node_impulse_pump = self.__add_region("AP-S-03-13", MindustryLocations.serpulo_impulse_pump)
