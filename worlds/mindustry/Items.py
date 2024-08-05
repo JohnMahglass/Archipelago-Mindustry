@@ -316,7 +316,7 @@ item_table = {
     "Regen Projector": ItemData(MINDUSTRY_BASE_ID + 237, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.MISC, 1),
     "Build Tower": ItemData(MINDUSTRY_BASE_ID + 238, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.MISC, 1),
     "Shockwave Tower": ItemData(MINDUSTRY_BASE_ID + 239, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.MISC, 1),
-    "Reinforced Conduit": ItemData(MINDUSTRY_BASE_ID + 240, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.CONDUIT, 1),
+    "Reinforced Conduit": ItemData(MINDUSTRY_BASE_ID + 240, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.CONDUIT, 1),
     "Reinforced Pump": ItemData(MINDUSTRY_BASE_ID + 241, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.EXTRACTION, 1),
     "Reinforced Liquid Junction": ItemData(MINDUSTRY_BASE_ID + 242, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.CONDUIT, 1),
     "Reinforced Bridge Conduit": ItemData(MINDUSTRY_BASE_ID + 243, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.CONDUIT, 1),

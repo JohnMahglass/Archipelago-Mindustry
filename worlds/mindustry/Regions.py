@@ -345,51 +345,111 @@ def _has_peaks(state: CollectionState, player:int) -> bool:
 
 def _has_oxide(state: CollectionState, player:int) -> bool:
     """If the player has produced Oxide on Erekir"""
-    return state.has("Oxide produced on Erekir", player)
+    return state.has("Oxide produced on Erekir", player) and _has_oxidation_chamber(state, player)
 
 def _has_ozone(state: CollectionState, player:int) -> bool:
     """If the player has produced Ozone on Erekir"""
-    return state.has("Ozone produced on Erekir", player)
+    return state.has("Ozone produced on Erekir", player) and _has_electrolyzer(state, player)
 
 def _has_hydrogen(state: CollectionState, player:int) -> bool:
     """If the player has produced Hydrogen on Erekir"""
-    return state.has("Hydrogen produced on Erekir", player)
+    return state.has("Hydrogen produced on Erekir", player) and _has_electrolyzer(state, player)
 
 def _has_nitrogen(state: CollectionState, player:int) -> bool:
     """If the player has produced Nitrogen on Erekir"""
-    return state.has("Nitrogen produced on Erekir", player)
+    return state.has("Nitrogen produced on Erekir", player) and _has_atmospheric_concentrator(state, player)
 
 def _has_cyanogen(state: CollectionState, player:int) -> bool:
     """If the player has produced Cyanogen on Erekir"""
-    return state.has("Cyanogen produced on Erekir", player)
+    return state.has("Cyanogen produced on Erekir", player) and _has_cyanogen_synthesizer(state, player)
 
 def _has_neoplasm(state: CollectionState, player:int) -> bool:
     """If the player has produced Neoplasm"""
-    return state.has("Neoplasm produced", player)
+    return state.has("Neoplasm produced", player) and _has_neoplasia_reactor(state, player)
 
 def _has_tungsten(state: CollectionState, player:int) -> bool:
     """If the player has produced Tungsten on Erekir"""
-    return state.has("Tungsten produced on Erekir", player)
+    return state.has("Tungsten produced on Erekir", player) and _has_impact_drill(state, player)
 
 def _has_arkycite(state: CollectionState, player:int) -> bool:
     """If the player has produced Arkycite on Erekir"""
-    return state.has("Arkycite produced on Erekir", player)
+    return state.has("Arkycite produced on Erekir", player) and _has_reinforced_pump(state, player)
 
 def _has_thorium_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Thorium on Erekir"""
-    return state.has("Thorium produced on Erekir", player)
+    return state.has("Thorium produced on Erekir", player) and _has_eruption_drill(state, player)
 
 def _has_carbide(state: CollectionState, player:int) -> bool:
     """If the player has produced Carbide on Erekir"""
-    return state.has("Carbide produced on Erekir", player)
+    return state.has("Carbide produced on Erekir", player) and _has_carbide_crucible(state, player)
 
 def _has_surge_alloy_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Surge Alloy on Erekir"""
-    return state.has("Surge Alloy produced on Erekir", player)
+    return state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player)
 
 def _has_phase_fabric_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Phase Fabric on Erekir"""
-    return state.has("Phase Fabric produced on Erekir", player)
+    return state.has("Phase Fabric produced on Erekir", player) and _has_phase_synthesizer(state, player)
+
+def _has_slag_erekir(state: CollectionState, player:int) -> bool:
+    """If the player has produced Slag on Erekir"""
+    return state.has("Slag produced on Erekir", player) and _has_reinforced_pump(state, player)
+def _has_reinforced_conduit(state: CollectionState, player:int) -> bool:
+    """If the player received Reinforced Conduit"""
+    return state.has("Reinforced Conduit", player)
+
+def _has_heat(state: CollectionState, player:int) -> bool:
+    """If the player has access to heat"""
+    return _has_oxidation_chamber(state, player)
+
+def _has_electrolyzer(state: CollectionState, player:int) -> bool:
+    """If the player received Electrolyzer"""
+    return state.has("Electrolyzer", player) and _has_tungsten(state, player) and _has_reinforced_conduit(state, player)
+
+def _has_oxidation_chamber(state: CollectionState, player:int) -> bool:
+    """If the player received Oxidation Chamber"""
+    return state.has("Oxidation Chamber", player) and _has_electrolyzer(state, player)
+
+def _has_surge_crucible(state: CollectionState, player:int) -> bool:
+    """If the player received Surge Crucible"""
+    return state.has("Surge Crucible", player) and _has_heat(state, player) and _has_tungsten(state, player) and _has_oxidation_chamber(state, player) and _has_slag_erekir(state, player)
+
+def _has_reinforced_pump(state: CollectionState, player:int) -> bool:
+    """If the player received Reinforced Pump"""
+    return state.has("Reinforced Pump", player) and _has_tungsten(state, player)
+
+def _has_atmospheric_concentrator(state: CollectionState, player:int) -> bool:
+    """If the player received Atmospheric Concentrator"""
+    return state.has("Atmospheric Concentrator", player) and _has_carbide(state, player) and _has_heat(state, player)
+
+def _has_cyanogen_synthesizer(state: CollectionState, player:int) -> bool:
+    """If the player received Cyanogen Synthesizer"""
+    return state.has("Cyanogen Synthesizer", player) and _has_carbide(state, player) and _has_heat(state, player) and _has_arkycite(state, player)
+
+def _has_carbide_crucible(state: CollectionState, player:int) -> bool:
+    """If the player received Carbide Crucible"""
+    return (state.has("Carbide Crucible", player) and _has_thorium_erekir(state, player) and
+            _has_tungsten(state, player) and _has_oxide(state, player) and _has_tungsten(state, player) and _has_heat(state, player))
+
+def _has_phase_synthesizer(state: CollectionState, player:int) -> bool:
+    """If the player received Phase Synthesizer"""
+    return (state.has("Phase Synthesizer", player) and _has_thorium_erekir(state, player)
+            and _has_tungsten(state, player) and _has_carbide(state, player) and _has_ozone(state, player) and _has_heat(state, player))
+
+def _has_neoplasia_reactor(state: CollectionState, player:int) -> bool:
+    """If the player received Neoplasia Reactor"""
+    return (state.has("Neoplasia Reactor", player) and _has_heat(state, player) and _has_tungsten(state, player)
+            and _has_phase_fabric_erekir(state, player) and _has_surge_alloy_erekir(state, player) and
+            _has_oxide(state, player) and _has_carbide(state, player) and _has_arkycite(state, player))
+
+def _has_impact_drill(state: CollectionState, player:int) -> bool:
+    """If the player received Impact Drill"""
+    return state.has("Impact Drill", player)
+
+def _has_eruption_drill(state: CollectionState, player:int) -> bool:
+    """If the player received Eruption Drill"""
+    return state.has("Eruption Drill", player)
+
 
 class MindustryRegions:
     """
@@ -817,6 +877,7 @@ class MindustryRegions:
                 self.__initialise_erekir_rules()
             case 2:
                 self.__initialise_all_rules()
+
 
 
     def __init__(self, multiworld: MultiWorld, player: int):
@@ -1498,64 +1559,98 @@ class MindustryRegions:
         self.__connect_regions(self.node_core_bastion, self.node_duct)
         self.__connect_regions(self.node_duct, self.node_duct_router)
         self.__connect_regions(self.node_duct_router, self.node_duct_bridge)
-        self.__connect_regions(self.node_duct_bridge, self.node_armored_duct)
-        self.__connect_regions(self.node_armored_duct, self.node_surge_conveyor)
+        self.__connect_regions(self.node_duct_bridge, self.node_armored_duct,
+                               lambda state: _has_tungsten(state, self.player))
+        self.__connect_regions(self.node_armored_duct, self.node_surge_conveyor,
+                               lambda state: _has_surge_alloy_erekir(state, self.player))
         self.__connect_regions(self.node_surge_conveyor, self.node_surge_router)
-        self.__connect_regions(self.node_duct_bridge, self.node_unit_cargo_loader)
+        self.__connect_regions(self.node_duct_bridge, self.node_unit_cargo_loader,
+                               lambda state: _has_surge_alloy_erekir(state, self.player) and
+                                            _has_oxide(state, self.player))
         self.__connect_regions(self.node_unit_cargo_loader, self.node_unit_cargo_unload_point)
         self.__connect_regions(self.node_duct_router, self.node_overflow_duct)
         self.__connect_regions(self.node_overflow_duct, self.node_underflow_duct)
-        self.__connect_regions(self.node_overflow_duct, self.node_reinforced_container)
+        self.__connect_regions(self.node_overflow_duct, self.node_reinforced_container,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_reinforced_container, self.node_duct_unloader)
-        self.__connect_regions(self.node_reinforced_container, self.node_reinforced_vault)
+        self.__connect_regions(self.node_reinforced_container, self.node_reinforced_vault,
+                               lambda state: _has_thorium_erekir(state, self.player))
         self.__connect_regions(self.node_duct_router, self.node_reinforced_message)
         self.__connect_regions(self.node_reinforced_message, self.node_canvas)
-        self.__connect_regions(self.node_duct, self.node_reinforced_payload_conveyor)
+        self.__connect_regions(self.node_duct, self.node_reinforced_payload_conveyor,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_reinforced_payload_conveyor, self.node_payload_mass_driver)
         self.__connect_regions(self.node_payload_mass_driver, self.node_payload_loader)
         self.__connect_regions(self.node_payload_loader, self.node_payload_unloader)
-        self.__connect_regions(self.node_payload_unloader, self.node_large_payload_mass_driver)
+        self.__connect_regions(self.node_payload_unloader, self.node_large_payload_mass_driver,
+                               lambda state: _has_thorium_erekir(state, self.player) and
+                                            _has_oxide(state, self.player))
         self.__connect_regions(self.node_payload_mass_driver, self.node_constructor)
-        self.__connect_regions(self.node_constructor, self.node_deconstructor)
-        self.__connect_regions(self.node_deconstructor, self.node_large_constructor)
-        self.__connect_regions(self.node_deconstructor, self.node_large_deconstructor)
+        self.__connect_regions(self.node_constructor, self.node_deconstructor,
+                               lambda state: _has_oxide(state, self.player))
+        self.__connect_regions(self.node_deconstructor, self.node_large_constructor,
+                               lambda state: _has_phase_fabric_erekir(state, self.player))
+        self.__connect_regions(self.node_deconstructor, self.node_large_deconstructor,
+                               lambda state: _has_carbide(state, self.player))
         self.__connect_regions(self.node_reinforced_payload_conveyor, self.node_reinforced_payload_router)
 
         self.__connect_regions(self.node_core_bastion, self.node_plasma_bore)
         self.__connect_regions(self.node_plasma_bore, self.node_impact_drill)
-        self.__connect_regions(self.node_impact_drill, self.node_large_plasma_bore)
-        self.__connect_regions(self.node_large_plasma_bore, self.node_eruption_drill)
+        self.__connect_regions(self.node_impact_drill, self.node_large_plasma_bore,
+                               lambda state: _has_tungsten(state, self.player) and
+                                            _has_oxide(state, self.player))
+        self.__connect_regions(self.node_large_plasma_bore, self.node_eruption_drill,
+                               lambda state: _has_thorium_erekir(state, self.player))
 
         self.__connect_regions(self.node_core_bastion, self.node_turbine_condenser)
         self.__connect_regions(self.node_turbine_condenser, self.node_beam_node)
         self.__connect_regions(self.node_beam_node, self.node_vent_condenser)
-        self.__connect_regions(self.node_vent_condenser, self.node_chemical_combustion_chamber)
-        self.__connect_regions(self.node_chemical_combustion_chamber, self.node_pyrolysis_generator)
-        self.__connect_regions(self.node_pyrolysis_generator, self.node_flux_reactor)
-        self.__connect_regions(self.node_flux_reactor, self.node_neoplasia_reactor)
-        self.__connect_regions(self.node_beam_node, self.node_beam_tower)
-        self.__connect_regions(self.node_beam_node, self.node_regen_projector)
-        self.__connect_regions(self.node_regen_projector, self.node_build_tower)
-        self.__connect_regions(self.node_build_tower, self.node_shockwave_tower)
+        self.__connect_regions(self.node_vent_condenser, self.node_chemical_combustion_chamber,
+                               lambda state: _has_oxide(state, self.player) and
+                                            _has_tungsten(state, self.player))
+        self.__connect_regions(self.node_chemical_combustion_chamber, self.node_pyrolysis_generator,
+                               lambda state: _has_carbide(state, self.player))
+        self.__connect_regions(self.node_pyrolysis_generator, self.node_flux_reactor,
+                               lambda state: _has_surge_alloy_erekir(state, self.player) and
+                                            _has_carbide(state, self.player))
+        self.__connect_regions(self.node_flux_reactor, self.node_neoplasia_reactor,
+                               lambda state: _has_phase_fabric_erekir(state, self.player))
+        self.__connect_regions(self.node_beam_node, self.node_beam_tower,
+                                lambda state: _has_oxide(state, self.player))
+        self.__connect_regions(self.node_beam_node, self.node_regen_projector,
+                               lambda state: _has_oxide(state, self.player) and
+                                            _has_tungsten(state, self.player))
+        self.__connect_regions(self.node_regen_projector, self.node_build_tower,
+                               lambda state: _has_thorium_erekir(state, self.player))
+        self.__connect_regions(self.node_build_tower, self.node_shockwave_tower,
+                               lambda state: _has_surge_alloy_erekir(state, self.player))
         self.__connect_regions(self.node_turbine_condenser, self.node_reinforced_conduit)
-        self.__connect_regions(self.node_reinforced_conduit, self.node_reinforced_pump)
+        self.__connect_regions(self.node_reinforced_conduit, self.node_reinforced_pump,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_reinforced_conduit, self.node_reinforced_liquid_junction)
         self.__connect_regions(self.node_reinforced_liquid_junction, self.node_reinforced_bridge_conduit)
         self.__connect_regions(self.node_reinforced_liquid_junction, self.node_reinforced_liquid_router)
-        self.__connect_regions(self.node_reinforced_liquid_router, self.node_reinforced_liquid_container)
+        self.__connect_regions(self.node_reinforced_liquid_router, self.node_reinforced_liquid_container,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_reinforced_liquid_container, self.node_reinforced_liquid_tank)
         self.__connect_regions(self.node_turbine_condenser, self.node_cliff_crusher)
         self.__connect_regions(self.node_cliff_crusher, self.node_silicon_arc_furnace)
-        self.__connect_regions(self.node_silicon_arc_furnace, self.node_electrolyzer)
+        self.__connect_regions(self.node_silicon_arc_furnace, self.node_electrolyzer,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_electrolyzer, self.node_oxidation_chamber)
-        self.__connect_regions(self.node_oxidation_chamber, self.node_surge_crucible)
+        self.__connect_regions(self.node_oxidation_chamber, self.node_surge_crucible,
+                               lambda state: _has_oxide(state, self.player))
         self.__connect_regions(self.node_oxidation_chamber, self.node_heat_redirector)
-        self.__connect_regions(self.node_heat_redirector, self.node_electric_heater)
+        self.__connect_regions(self.node_heat_redirector, self.node_electric_heater,
+                                lambda state: _has_oxide(state, self.player))
         self.__connect_regions(self.node_electric_heater, self.node_slag_heater)
         self.__connect_regions(self.node_electric_heater, self.node_atmospheric_concentrator)
-        self.__connect_regions(self.node_atmospheric_concentrator, self.node_cyanogen_synthesizer)
-        self.__connect_regions(self.node_electric_heater, self.node_carbide_crucible)
-        self.__connect_regions(self.node_carbide_crucible, self.node_phase_synthesizer)
+        self.__connect_regions(self.node_atmospheric_concentrator, self.node_cyanogen_synthesizer,
+                               lambda state: _has_carbide(state, self.player))
+        self.__connect_regions(self.node_electric_heater, self.node_carbide_crucible,
+                               lambda state: _has_thorium_erekir(state, self.player))
+        self.__connect_regions(self.node_carbide_crucible, self.node_phase_synthesizer,
+                               lambda state: _has_carbide(state, self.player))
         self.__connect_regions(self.node_phase_synthesizer, self.node_phase_heater)
         self.__connect_regions(self.node_electric_heater, self.node_heat_router)
         self.__connect_regions(self.node_electrolyzer, self.node_slag_incinerator)
@@ -1563,46 +1658,70 @@ class MindustryRegions:
         self.__connect_regions(self.node_core_bastion, self.node_breach)
         self.__connect_regions(self.node_breach, self.node_beryllium_wall)
         self.__connect_regions(self.node_beryllium_wall, self.node_large_beryllium_wall)
-        self.__connect_regions(self.node_beryllium_wall, self.node_tungsten_wall)
+        self.__connect_regions(self.node_beryllium_wall, self.node_tungsten_wall,
+                                lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_tungsten_wall, self.node_large_tungsten_wall)
         self.__connect_regions(self.node_large_tungsten_wall, self.node_blast_door)
-        self.__connect_regions(self.node_tungsten_wall, self.node_reinforced_surge_wall)
+        self.__connect_regions(self.node_tungsten_wall, self.node_reinforced_surge_wall,
+                               lambda state: _has_surge_alloy_erekir(state, self.player))
         self.__connect_regions(self.node_reinforced_surge_wall, self.node_large_reinforced_surge_wall)
-        self.__connect_regions(self.node_large_reinforced_surge_wall, self.node_shielded_wall)
-        self.__connect_regions(self.node_tungsten_wall, self.node_carbide_wall)
+        self.__connect_regions(self.node_large_reinforced_surge_wall, self.node_shielded_wall,
+                               lambda state: _has_phase_fabric_erekir(state, self.player))
+        self.__connect_regions(self.node_tungsten_wall, self.node_carbide_wall,
+                               lambda state: _has_thorium_erekir(state, self.player) and
+                                            _has_carbide(state, self.player))
         self.__connect_regions(self.node_carbide_wall, self.node_large_carbide_wall)
-        self.__connect_regions(self.node_breach, self.node_diffuse)
-        self.__connect_regions(self.node_diffuse, self.node_sublimate)
-        self.__connect_regions(self.node_sublimate, self.node_afflict)
-        self.__connect_regions(self.node_afflict, self.node_titan)
-        self.__connect_regions(self.node_titan, self.node_lustre)
-        self.__connect_regions(self.node_lustre, self.node_smite)
-        self.__connect_regions(self.node_diffuse, self.node_disperse)
-        self.__connect_regions(self.node_disperse, self.node_scathe)
-        self.__connect_regions(self.node_scathe, self.node_malign)
+        self.__connect_regions(self.node_breach, self.node_diffuse,
+                               lambda state: _has_tungsten(state, self.player))
+        self.__connect_regions(self.node_diffuse, self.node_sublimate,
+                               lambda state: _has_oxide(state, self.player))
+        self.__connect_regions(self.node_sublimate, self.node_afflict,
+                               lambda state: _has_surge_alloy_erekir(state, self.player))
+        self.__connect_regions(self.node_afflict, self.node_titan,
+                               lambda state: _has_thorium_erekir(state, self.player))
+        self.__connect_regions(self.node_titan, self.node_lustre,
+                               lambda state: _has_carbide(state, self.player))
+        self.__connect_regions(self.node_lustre, self.node_smite,
+                               lambda state: _has_phase_fabric_erekir(state, self.player))
+        self.__connect_regions(self.node_diffuse, self.node_disperse,
+                               lambda state: _has_oxide(state, self.player) and
+                                            _has_thorium_erekir(state, self.player))
+        self.__connect_regions(self.node_disperse, self.node_scathe,
+                               lambda state: _has_carbide(state, self.player))
+        self.__connect_regions(self.node_scathe, self.node_malign,
+                               lambda state: _has_phase_fabric_erekir(state, self.player))
         self.__connect_regions(self.node_breach, self.node_radar)
 
-        self.__connect_regions(self.node_core_bastion, self.node_core_citadel)
-        self.__connect_regions(self.node_core_citadel, self.node_core_acropolis)
+        self.__connect_regions(self.node_core_bastion, self.node_core_citadel,
+                               lambda state: _has_oxide(state, self.player) and
+                                            _has_tungsten(state, self.player))
+        self.__connect_regions(self.node_core_citadel, self.node_core_acropolis,
+                               lambda state: _has_carbide(state, self.player))
 
         self.__connect_regions(self.node_core_bastion, self.node_tank_fabricator)
         self.__connect_regions(self.node_tank_fabricator, self.node_stell)
-        self.__connect_regions(self.node_tank_fabricator, self.node_unit_repair_tower)
+        self.__connect_regions(self.node_tank_fabricator, self.node_unit_repair_tower,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_tank_fabricator, self.node_ship_fabricator)
         self.__connect_regions(self.node_ship_fabricator, self.node_elude)
-        self.__connect_regions(self.node_ship_fabricator, self.node_mech_fabricator)
+        self.__connect_regions(self.node_ship_fabricator, self.node_mech_fabricator,
+                               lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_mech_fabricator, self.node_merui)
         self.__connect_regions(self.node_mech_fabricator, self.node_tank_refabricator)
         self.__connect_regions(self.node_tank_refabricator, self.node_locus)
         self.__connect_regions(self.node_tank_refabricator, self.node_mech_refabricator)
         self.__connect_regions(self.node_mech_refabricator, self.node_cleroi)
-        self.__connect_regions(self.node_mech_refabricator, self.node_ship_refabricator)
+        self.__connect_regions(self.node_mech_refabricator, self.node_ship_refabricator,
+                               lambda state: _has_oxide(state, self.player))
         self.__connect_regions(self.node_ship_refabricator, self.node_avert)
-        self.__connect_regions(self.node_ship_refabricator, self.node_prime_refabricator)
+        self.__connect_regions(self.node_ship_refabricator, self.node_prime_refabricator,
+                               lambda state: _has_thorium_erekir(state, self.player))
         self.__connect_regions(self.node_prime_refabricator, self.node_precept)
         self.__connect_regions(self.node_prime_refabricator, self.node_anthicus)
         self.__connect_regions(self.node_prime_refabricator, self.node_obviate)
-        self.__connect_regions(self.node_ship_refabricator, self.node_tank_assembler)
+        self.__connect_regions(self.node_ship_refabricator, self.node_tank_assembler,
+                               lambda state: _has_thorium_erekir(state, self.player) and
+                                            _has_carbide(state, self.player))
         self.__connect_regions(self.node_tank_assembler, self.node_vanquish)
         self.__connect_regions(self.node_vanquish, self.node_conquer)
         self.__connect_regions(self.node_tank_assembler, self.node_ship_assembler)
@@ -1611,7 +1730,8 @@ class MindustryRegions:
         self.__connect_regions(self.node_tank_assembler, self.node_mech_assembler)
         self.__connect_regions(self.node_mech_assembler, self.node_tecta)
         self.__connect_regions(self.node_tecta, self.node_collaris)
-        self.__connect_regions(self.node_tank_assembler, self.node_basic_assembler_module)
+        self.__connect_regions(self.node_tank_assembler, self.node_basic_assembler_module,
+                               lambda state: _has_phase_fabric_erekir(state, self.player))
 
         self.__connect_regions(self.node_core_bastion, self.node_the_onset)
         self.__connect_regions(self.node_the_onset, self.node_aegis)
@@ -1983,7 +2103,7 @@ class MindustryRegions:
         self.__add_event_location(self.node_thorium_erekir, "Produce Thorium on Erekir", "Thorium produced on Erekir")
         self.__add_event_location(self.node_carbide, "Produce Carbide on Erekir", "Carbide produced on Erekir")
         self.__add_event_location(self.node_surge_alloy_erekir, "Produce Surge Alloy on Erekir", "Surge Alloy produced on Erekir")
-        self.__add_event_location(self.node_phase_fabric_erekir, "Produce Phase Fabric on Erekir", "Phase Fabric produced on Erekir")
+        self.__add_event_location(self.node_phase_fabric_erekir, "Produce Slag on Erekir", "Slag produced on Erekir")
 
     def __add_all_events(self):
         self.__add_event_location(self.all_campaign_victory, "All campaign victory", "Victory archived on all campaign")
