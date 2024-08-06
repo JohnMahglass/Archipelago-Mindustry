@@ -283,7 +283,7 @@ item_table = {
     "Unit Cargo Unload Point": ItemData(MINDUSTRY_BASE_ID + 207, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
     "Overflow Duct": ItemData(MINDUSTRY_BASE_ID + 208, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
     "Underflow Duct": ItemData(MINDUSTRY_BASE_ID + 209, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
-    "Duct Unloader": ItemData(MINDUSTRY_BASE_ID+ 210, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
+    "Duct Unloader": ItemData(MINDUSTRY_BASE_ID + 210, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
     "Reinforced Container": ItemData(MINDUSTRY_BASE_ID + 211, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.MISC, 1),
     "Reinforced Vault": ItemData(MINDUSTRY_BASE_ID + 212, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.MISC, 1),
     "Reinforced Message": ItemData(MINDUSTRY_BASE_ID + 213, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.LOGIC, 1),
@@ -302,12 +302,12 @@ item_table = {
 
     #"Plasma Bore": ItemData(MINDUSTRY_BASE_ID + 225, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.EXTRACTION, 1),
     "Impact Drill": ItemData(MINDUSTRY_BASE_ID + 226, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.EXTRACTION, 1),
-    "Large Plasma Bore": ItemData(MINDUSTRY_BASE_ID + 227, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.EXTRACTION, 1),
+    "Large Plasma Bore": ItemData(MINDUSTRY_BASE_ID + 227, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.EXTRACTION, 1),
     "Eruption Drill": ItemData(MINDUSTRY_BASE_ID + 228, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.EXTRACTION, 1),
 
     #"Turbine Condenser": ItemData(MINDUSTRY_BASE_ID + 229, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.ENERGY, 1),
     #"Beam Node": ItemData(MINDUSTRY_BASE_ID + 230, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.ENERGY, 1),
-    "Vent Condenser": ItemData(MINDUSTRY_BASE_ID + 231, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.ENERGY, 1),
+    "Vent Condenser": ItemData(MINDUSTRY_BASE_ID + 231, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.ENERGY, 1),
     "Chemical Combustion Chamber": ItemData(MINDUSTRY_BASE_ID + 232, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.ENERGY, 1),
     "Pyrolysis Generator": ItemData(MINDUSTRY_BASE_ID + 233, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.ENERGY, 1),
     "Flux Reactor": ItemData(MINDUSTRY_BASE_ID + 234, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.ENERGY, 1),
@@ -331,8 +331,8 @@ item_table = {
     "Heat Redirector": ItemData(MINDUSTRY_BASE_ID + 252, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.INDUSTRY, 1),
     "Electric Heater": ItemData(MINDUSTRY_BASE_ID + 253, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.INDUSTRY, 1),
     "Slag Heater": ItemData(MINDUSTRY_BASE_ID + 254, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.INDUSTRY, 1),
-    "Atmospheric Concentrator": ItemData(MINDUSTRY_BASE_ID + 255, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.INDUSTRY, 1),
-    "Cyanogen Synthesizer": ItemData(MINDUSTRY_BASE_ID + 256, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.INDUSTRY, 1),
+    "Atmospheric Concentrator": ItemData(MINDUSTRY_BASE_ID + 255, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.INDUSTRY, 1),
+    "Cyanogen Synthesizer": ItemData(MINDUSTRY_BASE_ID + 256, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.INDUSTRY, 1),
     "Carbide Crucible": ItemData(MINDUSTRY_BASE_ID + 257, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.INDUSTRY, 1),
     "Phase Synthesizer": ItemData(MINDUSTRY_BASE_ID + 258, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.INDUSTRY, 1),
     "Phase Heater": ItemData(MINDUSTRY_BASE_ID + 259, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.INDUSTRY, 1),
@@ -371,7 +371,7 @@ item_table = {
     "Elude": ItemData(MINDUSTRY_BASE_ID + 289, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 1),
     "Mech Fabricator": ItemData(MINDUSTRY_BASE_ID + 290, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.FACTORY, 1),
     "Merui": ItemData(MINDUSTRY_BASE_ID + 291, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 1),
-    "Tank Refabricator": ItemData(MINDUSTRY_BASE_ID + 292, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.FACTORY, 1),
+    "Tank Refabricator": ItemData(MINDUSTRY_BASE_ID + 292, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),
     "Locus": ItemData(MINDUSTRY_BASE_ID + 293, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 1),
     "Mech Refrabricator": ItemData(MINDUSTRY_BASE_ID + 294, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),
     "Cleroi": ItemData(MINDUSTRY_BASE_ID + 295, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 1),
@@ -405,7 +405,7 @@ item_table = {
     #"Crevice": ItemData(MINDUSTRY_BASE_ID + 322, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
     #"Siege": ItemData(MINDUSTRY_BASE_ID + 323, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
     #"Crossroads": ItemData(MINDUSTRY_BASE_ID + 324, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
-    #"Krast": ItemData(MINDUSTRY_BASE_ID + 325, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
+    #"Karst": ItemData(MINDUSTRY_BASE_ID + 325, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
     #"Origin": ItemData(MINDUSTRY_BASE_ID + 326, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
     #"Peaks": ItemData(MINDUSTRY_BASE_ID + 327, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.SECTOR, 1),
 #
@@ -419,5 +419,7 @@ item_table = {
     #"Slag": ItemData(MINDUSTRY_BASE_ID + 335, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1),
     #"Arkycite": ItemData(MINDUSTRY_BASE_ID + 336, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1),
     #"Carbide": ItemData(MINDUSTRY_BASE_ID + 337, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1),
-
+    #"Thorium Erekir": ItemData(MINDUSTRY_BASE_ID + 338, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1),
+    #"Phase Fabric Erekir": ItemData(MINDUSTRY_BASE_ID + 339, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1),
+    #"Surge Alloy Erekir": ItemData(MINDUSTRY_BASE_ID + 340, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1)
 }

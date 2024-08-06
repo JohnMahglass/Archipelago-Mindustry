@@ -357,11 +357,11 @@ def _has_hydrogen(state: CollectionState, player:int) -> bool:
 
 def _has_nitrogen(state: CollectionState, player:int) -> bool:
     """If the player has produced Nitrogen on Erekir"""
-    return state.has("Nitrogen produced on Erekir", player) and _has_atmospheric_concentrator(state, player)
+    return state.has("Nitrogen produced on Erekir", player) and _has_atmospheric_concentrator(state, player) and _has_heat(state, player)
 
 def _has_cyanogen(state: CollectionState, player:int) -> bool:
     """If the player has produced Cyanogen on Erekir"""
-    return state.has("Cyanogen produced on Erekir", player) and _has_cyanogen_synthesizer(state, player)
+    return state.has("Cyanogen produced on Erekir", player) and _has_cyanogen_synthesizer(state, player) and _has_heat(state, player)
 
 def _has_neoplasm(state: CollectionState, player:int) -> bool:
     """If the player has produced Neoplasm"""
@@ -377,19 +377,19 @@ def _has_arkycite(state: CollectionState, player:int) -> bool:
 
 def _has_thorium_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Thorium on Erekir"""
-    return state.has("Thorium produced on Erekir", player) and _has_eruption_drill(state, player)
+    return state.has("Thorium produced on Erekir", player) and _has_large_plasma_bore(state, player)
 
 def _has_carbide(state: CollectionState, player:int) -> bool:
     """If the player has produced Carbide on Erekir"""
-    return state.has("Carbide produced on Erekir", player) and _has_carbide_crucible(state, player)
+    return state.has("Carbide produced on Erekir", player) and _has_carbide_crucible(state, player) and _has_heat(state, player)
 
 def _has_surge_alloy_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Surge Alloy on Erekir"""
-    return state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player)
+    return state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player) and _has_heat(state, player)
 
 def _has_phase_fabric_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Phase Fabric on Erekir"""
-    return state.has("Phase Fabric produced on Erekir", player) and _has_phase_synthesizer(state, player)
+    return state.has("Phase Fabric produced on Erekir", player) and _has_phase_synthesizer(state, player) and _has_heat(state, player)
 
 def _has_slag_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Slag on Erekir"""
@@ -404,51 +404,59 @@ def _has_heat(state: CollectionState, player:int) -> bool:
 
 def _has_electrolyzer(state: CollectionState, player:int) -> bool:
     """If the player received Electrolyzer"""
-    return state.has("Electrolyzer", player) and _has_tungsten(state, player) and _has_reinforced_conduit(state, player)
+    return state.has("Electrolyzer", player) and _has_tungsten(state, player)
 
 def _has_oxidation_chamber(state: CollectionState, player:int) -> bool:
     """If the player received Oxidation Chamber"""
-    return state.has("Oxidation Chamber", player) and _has_electrolyzer(state, player)
+    return state.has("Oxidation Chamber", player) and _has_tungsten(state, player)
 
 def _has_surge_crucible(state: CollectionState, player:int) -> bool:
     """If the player received Surge Crucible"""
-    return state.has("Surge Crucible", player) and _has_heat(state, player) and _has_tungsten(state, player) and _has_oxidation_chamber(state, player) and _has_slag_erekir(state, player)
+    return state.has("Surge Crucible", player) and _has_tungsten(state, player) and _has_oxide(state, player)
 
 def _has_reinforced_pump(state: CollectionState, player:int) -> bool:
     """If the player received Reinforced Pump"""
-    return state.has("Reinforced Pump", player) and _has_tungsten(state, player)
+    return state.has("Reinforced Pump", player) and _has_tungsten(state, player) and _has_reinforced_conduit(state, player)
 
 def _has_atmospheric_concentrator(state: CollectionState, player:int) -> bool:
     """If the player received Atmospheric Concentrator"""
-    return state.has("Atmospheric Concentrator", player) and _has_carbide(state, player) and _has_heat(state, player)
+    return state.has("Atmospheric Concentrator", player) and _has_carbide(state, player)
 
 def _has_cyanogen_synthesizer(state: CollectionState, player:int) -> bool:
     """If the player received Cyanogen Synthesizer"""
-    return state.has("Cyanogen Synthesizer", player) and _has_carbide(state, player) and _has_heat(state, player) and _has_arkycite(state, player)
+    return state.has("Cyanogen Synthesizer", player) and _has_carbide(state, player)
 
 def _has_carbide_crucible(state: CollectionState, player:int) -> bool:
     """If the player received Carbide Crucible"""
     return (state.has("Carbide Crucible", player) and _has_thorium_erekir(state, player) and
-            _has_tungsten(state, player) and _has_oxide(state, player) and _has_tungsten(state, player) and _has_heat(state, player))
+            _has_tungsten(state, player) and _has_oxide(state, player))
 
 def _has_phase_synthesizer(state: CollectionState, player:int) -> bool:
     """If the player received Phase Synthesizer"""
     return (state.has("Phase Synthesizer", player) and _has_thorium_erekir(state, player)
-            and _has_tungsten(state, player) and _has_carbide(state, player) and _has_ozone(state, player) and _has_heat(state, player))
+            and _has_tungsten(state, player) and _has_carbide(state, player))
 
 def _has_neoplasia_reactor(state: CollectionState, player:int) -> bool:
     """If the player received Neoplasia Reactor"""
-    return (state.has("Neoplasia Reactor", player) and _has_heat(state, player) and _has_tungsten(state, player)
+    return (state.has("Neoplasia Reactor", player) and _has_tungsten(state, player)
             and _has_phase_fabric_erekir(state, player) and _has_surge_alloy_erekir(state, player) and
-            _has_oxide(state, player) and _has_carbide(state, player) and _has_arkycite(state, player))
+            _has_oxide(state, player) and _has_carbide(state, player))
 
 def _has_impact_drill(state: CollectionState, player:int) -> bool:
     """If the player received Impact Drill"""
     return state.has("Impact Drill", player)
 
-def _has_eruption_drill(state: CollectionState, player:int) -> bool:
-    """If the player received Eruption Drill"""
-    return state.has("Eruption Drill", player)
+def _has_large_plasma_bore(state: CollectionState, player:int) -> bool:
+    """If the player received Large Plasma Bore"""
+    return state.has("Large Plasma Bore", player) and _has_oxide(state, player) and _has_tungsten(state, player)
+
+def _has_lake_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has received the research required to clear Lake"""
+    return state.has_all({"Ship Fabricator", "Elude"}, player)
+
+def _has_intersect_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has received the research required to clear Intersect"""
+    return state.has_all({"Mech Fabricator", "Merui"}, player)
 
 
 class MindustryRegions:
@@ -1735,8 +1743,10 @@ class MindustryRegions:
 
         self.__connect_regions(self.node_core_bastion, self.node_the_onset)
         self.__connect_regions(self.node_the_onset, self.node_aegis)
-        self.__connect_regions(self.node_aegis, self.node_lake)
-        self.__connect_regions(self.node_aegis, self.node_intersect)
+        self.__connect_regions(self.node_aegis, self.node_lake,
+                               lambda state: _has_lake_requirements(state, self.player))
+        self.__connect_regions(self.node_aegis, self.node_intersect,
+                               lambda state: _has_intersect_requirements(state, self.player))
         self.__connect_regions(self.node_intersect, self.node_atlas)
         self.__connect_regions(self.node_atlas, self.node_split)
         self.__connect_regions(self.node_atlas, self.node_basin)
@@ -2092,7 +2102,7 @@ class MindustryRegions:
         self.__add_event_location(self.node_origin, "Capture Origin", "Origin captured")
         self.__add_event_location(self.node_peaks, "Capture Peaks", "Peaks captured")
 
-        self.__add_event_location(self.node_oxide, "Produce Oxyde on Erekir", "Oxyde produced on Erekir")
+        self.__add_event_location(self.node_oxide, "Produce Oxide on Erekir", "Oxide produced on Erekir")
         self.__add_event_location(self.node_ozone, "Produce Ozone on Erekir", "Ozone produced on Erekir")
         self.__add_event_location(self.node_hydrogen, "Produce Hydrogen on Erekir", "Hydrogen produced on Erekir")
         self.__add_event_location(self.node_nitrogen, "Produce Nitrogen on Erekir", "Nitrogen produced on Erekir")
@@ -2103,6 +2113,7 @@ class MindustryRegions:
         self.__add_event_location(self.node_thorium_erekir, "Produce Thorium on Erekir", "Thorium produced on Erekir")
         self.__add_event_location(self.node_carbide, "Produce Carbide on Erekir", "Carbide produced on Erekir")
         self.__add_event_location(self.node_surge_alloy_erekir, "Produce Surge Alloy on Erekir", "Surge Alloy produced on Erekir")
+        self.__add_event_location(self.node_phase_fabric_erekir, "Produce Phase Fabric on Erekir", "Phase Fabric produced on Erekir")
         self.__add_event_location(self.node_phase_fabric_erekir, "Produce Slag on Erekir", "Slag produced on Erekir")
 
     def __add_all_events(self):
