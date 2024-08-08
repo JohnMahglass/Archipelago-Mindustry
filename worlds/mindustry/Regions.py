@@ -293,7 +293,7 @@ def _has_intersect(state: CollectionState, player:int) -> bool:
 
 def _has_atlas(state: CollectionState, player:int) -> bool:
     """If the player captured Atlas"""
-    return state.has("Atlas captured", player) and _has_intersect(state, player) and _has_lake(state, player) and _has_aegis(state, player)
+    return state.has("Atlas captured", player) and _has_intersect(state, player) and _has_lake(state, player) and _has_aegis(state, player) and _has_split_requirements(state, player)
 
 def _has_split(state: CollectionState, player:int) -> bool:
     """If the player captured Split"""
@@ -461,6 +461,10 @@ def _has_intersect_requirements(state: CollectionState, player:int) -> bool:
 def _has_aegis_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Aegis"""
     return state.has_all({"Impact Drill", "Reinforced Conduit"}, player)
+
+def _has_split_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has received the research required to clear Split"""
+    return state.has_all({"Payload Mass Driver", "Payload Loader", "Payload Unloader", "Reinforced Container"}, player)
 
 
 class MindustryRegions:
