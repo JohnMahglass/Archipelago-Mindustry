@@ -281,11 +281,11 @@ def _has_naval_factory(state: CollectionState, player:int) -> bool:
 
 def _has_aegis(state: CollectionState, player:int) -> bool:
     """If the player has captured Aegis"""
-    return state.has("Aegis captured", player) and _has_lake_requirements(state, player)
+    return state.has("Aegis captured", player)
 
 def _has_lake(state: CollectionState, player:int) -> bool:
     """If the player captured Lake"""
-    return state.has("Lake captured", player) and _has_intersect_requirements(state, player)
+    return state.has("Lake captured", player) and _has_aegis(state, player)
 
 def _has_intersect(state: CollectionState, player:int) -> bool:
     """If the player captured Intersect"""
@@ -293,7 +293,7 @@ def _has_intersect(state: CollectionState, player:int) -> bool:
 
 def _has_atlas(state: CollectionState, player:int) -> bool:
     """If the player captured Atlas"""
-    return state.has("Atlas captured", player) and _has_intersect(state, player) and _has_lake(state, player) and _has_aegis(state, player) and _has_split_requirements(state, player)
+    return state.has("Atlas captured", player) and _has_intersect(state, player)
 
 def _has_split(state: CollectionState, player:int) -> bool:
     """If the player captured Split"""
@@ -460,7 +460,7 @@ def _has_intersect_requirements(state: CollectionState, player:int) -> bool:
 
 def _has_aegis_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Aegis"""
-    return state.has_all({"Impact Drill", "Reinforced Conduit"}, player)
+    return _has_impact_drill(state, player)
 
 def _has_split_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Split"""
@@ -1832,15 +1832,19 @@ class MindustryRegions:
                                             _has_karst(state, self.player))
 
         self.__connect_regions(self.node_core_bastion, self.node_the_onset)
-        self.__connect_regions(self.node_the_onset, self.node_aegis)
+        self.__connect_regions(self.node_the_onset, self.node_aegis,
+                               lambda state: _has_aegis_requirements(state, self.player))
         self.__connect_regions(self.node_aegis, self.node_lake,
-                               lambda state: _has_aegis(state, self.player))
+                               lambda state: _has_aegis(state, self.player) and
+                                            _has_lake_requirements(state, self.player))
         self.__connect_regions(self.node_aegis, self.node_intersect,
-                               lambda state: _has_aegis(state, self.player))
+                               lambda state: _has_aegis(state, self.player) and
+                                            _has_intersect_requirements(state, self.player))
         self.__connect_regions(self.node_intersect, self.node_atlas,
                                lambda state: _has_intersect(state, self.player))
         self.__connect_regions(self.node_atlas, self.node_split,
-                               lambda state: _has_atlas(state, self.player))
+                               lambda state: _has_atlas(state, self.player) and
+                                            _has_split_requirements(state, self.player))
         self.__connect_regions(self.node_atlas, self.node_basin,
                                lambda state: _has_atlas(state, self.player))
         self.__connect_regions(self.node_basin, self.node_marsh,
