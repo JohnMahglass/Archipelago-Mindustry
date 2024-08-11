@@ -21,67 +21,67 @@ def _has_frozen_forest(state: CollectionState, player: int) -> bool:
 
 def _has_the_craters(state: CollectionState, player: int) -> bool:
     """If the player has captured The Craters"""
-    return state.has("The Craters captured", player)
+    return state.has("The Craters captured", player) and _has_frozen_forest(state, player)
 
 def _has_ruinous_shores(state: CollectionState, player: int) -> bool:
     """If the player has captured Ruinous Shores"""
-    return state.has("Ruinous Shores captured", player)
+    return state.has("Ruinous Shores captured", player) and _has_the_craters(state, player)
 
 def _has_windswept_islands(state: CollectionState, player: int) -> bool:
     """If the player has captured Windswept Islands"""
-    return state.has("Windswept Islands captured", player)
+    return state.has("Windswept Islands captured", player) and _has_ruinous_shores(state, player)
 
 def _has_tar_fields(state: CollectionState, player: int) -> bool:
     """If the player has captured Tar Fields"""
-    return state.has("Tar Fields captured", player)
+    return state.has("Tar Fields captured", player) and _has_windswept_islands(state, player)
 
 def _has_impact_0078(state: CollectionState, player: int) -> bool:
     """If the player has captured Impact 0078"""
-    return state.has("Impact 0078 captured", player)
+    return state.has("Impact 0078 captured", player) and _has_tar_fields(state, player)
 
 def _has_desolate_rift(state: CollectionState, player: int) -> bool:
     """If the player has captured Desolate Rift"""
-    return state.has("Desolate Rift captured", player)
+    return state.has("Desolate Rift captured", player) and _has_impact_0078(state, player)
 
 def _has_planetary_launch_terminal(state: CollectionState, player: int) -> bool:
     """If the player has captured Planetary Launch Terminal"""
-    return state.has("Planetary Launch Terminal captured", player)
+    return state.has("Planetary Launch Terminal captured", player) and _has_desolate_rift(state, player)
 
 def _has_extraction_outpost(state: CollectionState, player: int) -> bool:
     """If the player has captured Extraction Outpost"""
-    return state.has("Extraction Outpost captured", player)
+    return state.has("Extraction Outpost captured", player) and _has_windswept_islands(state, player)
 
 def _has_salt_flats(state: CollectionState, player: int) -> bool:
     """If the player has captured Salt Flats"""
-    return state.has("Salt Flats captured", player)
+    return state.has("Salt Flats captured", player) and _has_windswept_islands(state, player)
 
 def _has_coastline(state: CollectionState, player: int) -> bool:
     """If the player has captured Coastline"""
-    return state.has("Coastline captured", player)
+    return state.has("Coastline captured", player) and _has_salt_flats(state, player)
 
 def _has_naval_fortress(state: CollectionState, player: int) -> bool:
     """If the player has captured Naval Fortress"""
-    return state.has("Naval Fortress captured", player)
+    return state.has("Naval Fortress captured", player) and _has_coastline(state, player)
 
 def _has_overgrowth(state: CollectionState, player: int) -> bool:
     """If the player has captured Overgrowth"""
-    return state.has("Overgrowth captured", player)
+    return state.has("Overgrowth captured", player) and _has_the_craters(state, player)
 
 def _has_biomass_synthesis_facility(state: CollectionState, player: int) -> bool:
     """If the player has captured Biomass Synthesis Facility"""
-    return state.has("Biomass Synthesis Facility captured", player)
+    return state.has("Biomass Synthesis Facility captured", player) and _has_frozen_forest(state, player)
 
 def _has_stained_mountains(state: CollectionState, player: int) -> bool:
     """If the player has captured Stained Mountains"""
-    return state.has("Stained Mountains captured", player)
+    return state.has("Stained Mountains captured", player) and _has_biomass_synthesis_facility(state, player)
 
 def _has_fungal_pass(state: CollectionState, player: int) -> bool:
     """If the player has captured Fungal Pass"""
-    return state.has("Fungal Pass captured", player)
+    return state.has("Fungal Pass captured", player) and _has_stained_mountains(state, player)
 
 def _has_nuclear_production_complex(state: CollectionState, player: int) -> bool:
     """If the player has captured Nuclear Production Complex"""
-    return state.has("Nuclear Production Complex captured", player)
+    return state.has("Nuclear Production Complex captured", player) and _has_fungal_pass(state, player)
 
 def _has_titanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Titanium on Serpulo"""
@@ -149,7 +149,7 @@ def _has_pyratite(state: CollectionState, player: int) -> bool:
 def _has_blast_compound(state: CollectionState, player: int) -> bool:
     """If the player has produced Blast Compound on Serpulo"""
     available: bool = False
-    if state.has("Blast Compound produced on Serpulo", player) and _has_power_serpulo(state, player) and _has_blast_mixer(state, player):
+    if state.has("Blast Compound produced on Serpulo", player) and _has_power_serpulo(state, player) and _has_blast_mixer(state, player) and _has_pyratite(state, player) and _has_spore_pod(state, player):
         available = True
     return available
 
@@ -170,7 +170,7 @@ def _has_oil(state: CollectionState, player: int) -> bool:
 def _has_plastanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Plastanium on Serpulo"""
     available: bool = False
-    if state.has("Plastanium produced on Serpulo", player) and _has_power_serpulo(state, player) and _has_plastanium_compressor(state, player):
+    if state.has("Plastanium produced on Serpulo", player) and _has_power_serpulo(state, player) and _has_plastanium_compressor(state, player) and _has_oil(state, player):
         available = True
     return available
 
@@ -289,7 +289,7 @@ def _has_lake(state: CollectionState, player:int) -> bool:
 
 def _has_intersect(state: CollectionState, player:int) -> bool:
     """If the player captured Intersect"""
-    return state.has("Intersect captured", player)
+    return state.has("Intersect captured", player) and _has_aegis(state, player)
 
 def _has_atlas(state: CollectionState, player:int) -> bool:
     """If the player captured Atlas"""
@@ -345,7 +345,7 @@ def _has_peaks(state: CollectionState, player:int) -> bool:
 
 def _has_oxide(state: CollectionState, player:int) -> bool:
     """If the player has produced Oxide on Erekir"""
-    return state.has("Oxide produced on Erekir", player) and _has_oxidation_chamber(state, player)
+    return state.has("Oxide produced on Erekir", player) and _has_oxidation_chamber(state, player) and _has_ozone(state, player)
 
 def _has_ozone(state: CollectionState, player:int) -> bool:
     """If the player has produced Ozone on Erekir"""
@@ -361,11 +361,11 @@ def _has_nitrogen(state: CollectionState, player:int) -> bool:
 
 def _has_cyanogen(state: CollectionState, player:int) -> bool:
     """If the player has produced Cyanogen on Erekir"""
-    return state.has("Cyanogen produced on Erekir", player) and _has_cyanogen_synthesizer(state, player) and _has_heat(state, player)
+    return state.has("Cyanogen produced on Erekir", player) and _has_cyanogen_synthesizer(state, player) and _has_arkycite(state, player) and _has_heat(state, player)
 
 def _has_neoplasm(state: CollectionState, player:int) -> bool:
     """If the player has produced Neoplasm"""
-    return state.has("Neoplasm produced", player) and _has_neoplasia_reactor(state, player)
+    return state.has("Neoplasm produced", player) and _has_neoplasia_reactor(state, player) and _has_arkycite(state, player)
 
 def _has_tungsten(state: CollectionState, player:int) -> bool:
     """If the player has produced Tungsten on Erekir"""
@@ -1357,26 +1357,42 @@ class MindustryRegions:
 
         self.__connect_regions(self.node_core_shard, self.node_ground_zero)
         self.__connect_regions(self.node_ground_zero, self.node_frozen_forest)
-        self.__connect_regions(self.node_frozen_forest, self.node_the_craters)
-        self.__connect_regions(self.node_the_craters, self.node_ruinous_shores)
-        self.__connect_regions(self.node_ruinous_shores, self.node_windswept_islands)
-        self.__connect_regions(self.node_windswept_islands, self.node_tar_fields)
-        self.__connect_regions(self.node_tar_fields, self.node_impact_0078)
-        self.__connect_regions(self.node_impact_0078, self.node_desolate_rift)
-        self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal)
+        self.__connect_regions(self.node_frozen_forest, self.node_the_craters,
+                               lambda state: _has_frozen_forest(state, self.player))
+        self.__connect_regions(self.node_the_craters, self.node_ruinous_shores,
+                               lambda state: _has_the_craters(state, self.player))
+        self.__connect_regions(self.node_ruinous_shores, self.node_windswept_islands,
+                               lambda state: _has_ruinous_shores(state, self.player))
+        self.__connect_regions(self.node_windswept_islands, self.node_tar_fields,
+                               lambda state: _has_windswept_islands(state, self.player))
+        self.__connect_regions(self.node_tar_fields, self.node_impact_0078,
+                               lambda state: _has_tar_fields(state, self.player))
+        self.__connect_regions(self.node_impact_0078, self.node_desolate_rift,
+                               lambda state: _has_impact_0078(state, self.player))
+        self.__connect_regions(self.node_desolate_rift, self.node_planetary_launch_terminal,
+                               lambda state: _has_desolate_rift(state, self.player))
         self.__connect_regions(self.node_windswept_islands, self.node_extraction_outpost,
-                                lambda state: _has_ground_factory(state, self.player))
+                                lambda state: _has_ground_factory(state, self.player) and
+                                            _has_windswept_islands(state, self.player))
         self.__connect_regions(self.node_windswept_islands, self.node_salt_flats,
-                                lambda state: _has_ground_factory(state, self.player))
-        self.__connect_regions(self.node_salt_flats, self.node_coastline)
+                                lambda state: _has_ground_factory(state, self.player) and
+                                            _has_windswept_islands(state, self.player))
+        self.__connect_regions(self.node_salt_flats, self.node_coastline,
+                               lambda state: _has_salt_flats(state, self.player))
         self.__connect_regions(self.node_coastline, self.node_naval_fortress,
-                                lambda state: _has_naval_factory(state, self.player))
-        self.__connect_regions(self.node_the_craters, self.node_overgrowth)
-        self.__connect_regions(self.node_frozen_forest, self.node_biomass_synthesis_facility)
-        self.__connect_regions(self.node_biomass_synthesis_facility, self.node_stained_mountains)
+                                lambda state: _has_naval_factory(state, self.player) and
+                                            _has_coastline(state, self.player))
+        self.__connect_regions(self.node_the_craters, self.node_overgrowth,
+                               lambda state: _has_the_craters(state, self.player))
+        self.__connect_regions(self.node_frozen_forest, self.node_biomass_synthesis_facility,
+                               lambda state: _has_frozen_forest(state, self.player))
+        self.__connect_regions(self.node_biomass_synthesis_facility, self.node_stained_mountains,
+                               lambda state: _has_biomass_synthesis_facility(state, self.player))
         self.__connect_regions(self.node_stained_mountains, self.node_fungal_pass,
-                                lambda state: _has_ground_factory(state, self.player))
-        self.__connect_regions(self.node_fungal_pass, self.node_nuclear_production_complex)
+                                lambda state: _has_ground_factory(state, self.player) and
+                                                _has_stained_mountains(state, self.player))
+        self.__connect_regions(self.node_fungal_pass, self.node_nuclear_production_complex,
+                               lambda state: _has_fungal_pass(state, self.player))
         self.__connect_regions(self.node_core_shard, self.node_copper)
         self.__connect_regions(self.node_copper, self.node_water_serpulo)
         self.__connect_regions(self.node_copper, self.node_lead)
