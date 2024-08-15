@@ -1838,6 +1838,7 @@ class MindustryRegions:
                                             _has_lake_requirements(state, self.player))
         self.__connect_regions(self.node_aegis, self.node_intersect,
                                lambda state: _has_aegis(state, self.player) and
+                                            _has_lake(state, self.player) and
                                             _has_intersect_requirements(state, self.player))
         self.__connect_regions(self.node_intersect, self.node_atlas,
                                lambda state: _has_intersect(state, self.player))
