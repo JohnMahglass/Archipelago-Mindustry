@@ -374,7 +374,8 @@ def _has_peaks_launch(state: CollectionState, player:int) -> bool:
 
 def _has_peaks_requirement(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Peaks"""
-    return state.has_all({"Beam Tower", "Ship Refabricator"}, player) and state.has("Progressive Ships", player)
+    return (state.has_all({"Beam Tower", "Chemical Combustion Chamber", "Ship Refabricator"}, player) and
+            state.has_any_count({"Progressive Ships": 1}, player))
 
 def _has_peaks(state: CollectionState, player:int) -> bool:
     """If the player captured Peaks"""
@@ -414,8 +415,7 @@ def _has_arkycite(state: CollectionState, player:int) -> bool:
 
 def _has_thorium_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Thorium on Erekir"""
-    return state.has("Thorium produced on Erekir", player) and _has_large_plasma_bore(state, player) and _has_caldera(state, player)
-
+    return state.has("Thorium produced on Erekir", player) and _has_large_plasma_bore(state, player)
 def _has_carbide(state: CollectionState, player:int) -> bool:
     """If the player has produced Carbide on Erekir"""
     return state.has("Carbide produced on Erekir", player) and _has_carbide_crucible(state, player) and _has_heat(state, player)
@@ -1641,8 +1641,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_payload_unloader, self.node_large_payload_mass_driver,
                                lambda state: _has_thorium_erekir(state, self.player) and
                                             _has_oxide(state, self.player))
-        self.__connect_regions(self.node_payload_mass_driver, self.node_constructor,
-                               lambda state: _has_atlas(state, self.player))
+        self.__connect_regions(self.node_payload_mass_driver, self.node_constructor)
         self.__connect_regions(self.node_constructor, self.node_deconstructor,
                                lambda state: _has_oxide(state, self.player))
         self.__connect_regions(self.node_deconstructor, self.node_large_constructor,

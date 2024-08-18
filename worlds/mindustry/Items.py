@@ -375,7 +375,7 @@ item_table = {
     #"Locus": ItemData(MINDUSTRY_BASE_ID + 293, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 1),
     "Mech Refrabricator": ItemData(MINDUSTRY_BASE_ID + 294, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),
     #"Cleroi": ItemData(MINDUSTRY_BASE_ID + 295, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 1),
-    "Ship Refabricator": ItemData(MINDUSTRY_BASE_ID + 296, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),
+    "Ship Refabricator": ItemData(MINDUSTRY_BASE_ID + 296, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.FACTORY, 1),
     #"Avert": ItemData(MINDUSTRY_BASE_ID + 297, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 1),
     "Prime Refabricator": ItemData(MINDUSTRY_BASE_ID + 298, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),
     #"Precept": ItemData(MINDUSTRY_BASE_ID + 299, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 1),
@@ -424,6 +424,6 @@ item_table = {
     #"Surge Alloy Erekir": ItemData(MINDUSTRY_BASE_ID + 340, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.RESSOURCES, 1),
 
     "Progressive Tanks": ItemData(MINDUSTRY_BASE_ID + 341, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 4),
-    "Progressive Ships": ItemData(MINDUSTRY_BASE_ID + 342, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 4),
+    "Progressive Ships": ItemData(MINDUSTRY_BASE_ID + 342, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 4),
     "Progressive Mechs": ItemData(MINDUSTRY_BASE_ID + 343, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 4),
 }
