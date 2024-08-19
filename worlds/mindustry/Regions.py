@@ -450,7 +450,7 @@ def _has_surge_crucible(state: CollectionState, player:int) -> bool:
 
 def _has_reinforced_pump(state: CollectionState, player:int) -> bool:
     """If the player received Reinforced Pump"""
-    return state.has_all({"Reinforced Pump", "Reinforced Conduit"}, player) and _has_tungsten(state, player)
+    return state.has_all({"Reinforced Pump", "Reinforced Conduit"}, player) and _has_tungsten(state, player) and _has_hydrogen(state, player)
 
 def _has_atmospheric_concentrator(state: CollectionState, player:int) -> bool:
     """If the player received Atmospheric Concentrator"""
@@ -1883,21 +1883,35 @@ class MindustryRegions:
         self.__connect_regions(self.node_core_bastion, self.node_beryllium)
         self.__connect_regions(self.node_beryllium, self.node_sand_erekir)
         self.__connect_regions(self.node_sand_erekir, self.node_silicon_erekir)
-        self.__connect_regions(self.node_silicon_erekir, self.node_oxide)
+        self.__connect_regions(self.node_silicon_erekir, self.node_oxide,
+                               lambda state: _has_oxidation_chamber(state, self.player))
         self.__connect_regions(self.node_beryllium, self.node_water_erekir)
-        self.__connect_regions(self.node_water_erekir, self.node_ozone)
-        self.__connect_regions(self.node_ozone, self.node_hydrogen)
-        self.__connect_regions(self.node_hydrogen, self.node_nitrogen)
-        self.__connect_regions(self.node_hydrogen, self.node_cyanogen)
+        self.__connect_regions(self.node_water_erekir, self.node_ozone,
+                               lambda state: _has_electrolyzer(state, self.player))
+        self.__connect_regions(self.node_ozone, self.node_hydrogen,
+                               lambda state: _has_electrolyzer(state, self.player))
+        self.__connect_regions(self.node_hydrogen, self.node_nitrogen,
+                               lambda state: _has_atmospheric_concentrator(state, self.player))
+        self.__connect_regions(self.node_hydrogen, self.node_cyanogen,
+                               lambda state: _has_cyanogen_synthesizer(state, self.player))
         self.__connect_regions(self.node_cyanogen, self.node_neoplasm)
         self.__connect_regions(self.node_beryllium, self.node_graphite_erekir)
-        self.__connect_regions(self.node_graphite_erekir, self.node_tungsten)
-        self.__connect_regions(self.node_tungsten, self.node_slag_erekir)
-        self.__connect_regions(self.node_tungsten, self.node_arkycite)
-        self.__connect_regions(self.node_tungsten, self.node_thorium_erekir)
-        self.__connect_regions(self.node_thorium_erekir, self.node_carbide)
-        self.__connect_regions(self.node_tungsten, self.node_surge_alloy_erekir)
-        self.__connect_regions(self.node_surge_alloy_erekir, self.node_phase_fabric_erekir)
+        self.__connect_regions(self.node_graphite_erekir, self.node_tungsten,
+                               lambda state: _has_impact_drill(state, self.player))
+        self.__connect_regions(self.node_tungsten, self.node_slag_erekir,
+                               lambda state: _has_reinforced_pump(state, self.player))
+        self.__connect_regions(self.node_tungsten, self.node_arkycite,
+                               lambda state: _has_reinforced_pump(state, self.player))
+        self.__connect_regions(self.node_tungsten, self.node_thorium_erekir,
+                               lambda state: _has_large_plasma_bore(state, self.player) and
+                                            _has_caldera(state, self.player))
+        self.__connect_regions(self.node_thorium_erekir, self.node_carbide,
+                               lambda state: _has_carbide_crucible(state, self.player))
+        self.__connect_regions(self.node_tungsten, self.node_surge_alloy_erekir,
+                               lambda state: _has_surge_crucible(state, self.player) and
+                                            _has_reinforced_pump(state, self.player))
+        self.__connect_regions(self.node_surge_alloy_erekir, self.node_phase_fabric_erekir,
+                               lambda state: _has_phase_synthesizer(state, self.player))
 
     def __create_all_campaign(self):
         """
