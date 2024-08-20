@@ -310,7 +310,7 @@ def _has_atlas(state: CollectionState, player:int) -> bool:
 
 def _has_split_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Split"""
-    return state.has_all({"Payload Mass Driver", "Payload Loader", "Payload Unloader", "Reinforced Container"}, player)
+    return state.has("Payload Mass Driver", player)
 
 def _has_split(state: CollectionState, player:int) -> bool:
     """If the player captured Split"""
@@ -1618,7 +1618,8 @@ class MindustryRegions:
         self.__connect_regions(self.node_duct_bridge, self.node_armored_duct,
                                lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_armored_duct, self.node_surge_conveyor,
-                               lambda state: _has_surge_alloy_erekir(state, self.player))
+                               lambda state: _has_surge_alloy_erekir(state, self.player) and
+                                            _has_stronghold(state, self.player)) #Temporary until surge alloy bug fixed
         self.__connect_regions(self.node_surge_conveyor, self.node_surge_router)
         self.__connect_regions(self.node_duct_bridge, self.node_unit_cargo_loader,
                                lambda state: _has_surge_alloy_erekir(state, self.player) and
