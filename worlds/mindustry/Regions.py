@@ -873,14 +873,12 @@ class MindustryRegions:
         """
         Connect regions based on user options.
         """
-        match options.campaign_choice.value:
-            case 0:
-                self.__connect_serpulo_campaign()
-            case 1:
-                self.__connect_erekir_campaign()
-            case 2:
-                self.__connect_all_campaign()
-
+        if options.campaign_choice.value == 0:
+            self.__connect_serpulo_campaign()
+        elif options.campaign_choice.value == 1:
+            self.__connect_erekir_campaign()
+        elif options.campaign_choice.value == 2:
+            self.__connect_all_campaign()
 
     def add_regions_to_world(self) -> None:
         """
