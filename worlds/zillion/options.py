@@ -1,9 +1,9 @@
 from collections import Counter
 from dataclasses import dataclass
-from typing import ClassVar, Dict, Literal, Tuple
+from typing import ClassVar, Dict, Tuple
 from typing_extensions import TypeGuard  # remove when Python >= 3.10
 
-from Options import Choice, DefaultOnToggle, NamedRange, OptionGroup, PerGameCommonOptions, Range, Removed, Toggle
+from Options import Choice, DefaultOnToggle, NamedRange, OptionGroup, PerGameCommonOptions, Range, Toggle
 
 from zilliandomizer.options import (
     Options as ZzOptions, char_to_gun, char_to_jump, ID,
@@ -251,25 +251,9 @@ class ZillionStartingCards(NamedRange):
     }
 
 
-class ZillionMapGen(Choice):
-    """
-    - none: vanilla map
-    - rooms: random terrain inside rooms, but path through base is vanilla
-    - full: random path through base
-    """
-    display_name = "map generation"
-    option_none = 0
-    option_rooms = 1
-    option_full = 2
-    default = 0
-
-    def zz_value(self) -> Literal['none', 'rooms', 'full']:
-        if self.value == ZillionMapGen.option_none:
-            return "none"
-        if self.value == ZillionMapGen.option_rooms:
-            return "rooms"
-        assert self.value == ZillionMapGen.option_full
-        return "full"
+class ZillionRoomGen(Toggle):
+    """ whether to generate rooms with random terrain """
+    display_name = "room generation"
 
 
 @dataclass
@@ -292,9 +276,7 @@ class ZillionOptions(PerGameCommonOptions):
     early_scope: ZillionEarlyScope
     skill: ZillionSkill
     starting_cards: ZillionStartingCards
-    map_gen: ZillionMapGen
-
-    room_gen: Removed
+    room_gen: ZillionRoomGen
 
 
 z_option_groups = [
@@ -393,7 +375,7 @@ def validate(options: ZillionOptions) -> "Tuple[ZzOptions, Counter[str]]":
 
     starting_cards = options.starting_cards
 
-    map_gen = options.map_gen.zz_value()
+    room_gen = options.room_gen
 
     zz_item_counts = convert_item_counts(item_counts)
     zz_op = ZzOptions(
@@ -411,7 +393,7 @@ def validate(options: ZillionOptions) -> "Tuple[ZzOptions, Counter[str]]":
         bool(options.early_scope.value),
         True,  # balance defense
         starting_cards.value,
-        map_gen
+        bool(room_gen.value)
     )
     zz_validate(zz_op)
     return zz_op, item_counts

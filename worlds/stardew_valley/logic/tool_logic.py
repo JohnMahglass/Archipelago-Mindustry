@@ -1,4 +1,4 @@
-from typing import Union, Iterable, Tuple
+from typing import Union, Iterable
 
 from Utils import cache_self1
 from .base_logic import BaseLogicMixin, BaseLogic
@@ -42,17 +42,9 @@ class ToolLogicMixin(BaseLogicMixin):
 
 
 class ToolLogic(BaseLogic[Union[ToolLogicMixin, HasLogicMixin, ReceivedLogicMixin, RegionLogicMixin, SeasonLogicMixin, MoneyLogicMixin, MagicLogicMixin]]):
-
-    def has_all_tools(self, tools: Iterable[Tuple[str, str]]):
-        return self.logic.and_(*(self.logic.tool.has_tool(tool, material) for tool, material in tools))
-
     # Should be cached
     def has_tool(self, tool: str, material: str = ToolMaterial.basic) -> StardewRule:
-        if tool == Tool.fishing_rod:
-            return self.logic.tool.has_fishing_rod(tool_materials[material])
-
-        if tool == Tool.pan and material == ToolMaterial.basic:
-            material = ToolMaterial.copper  # The first Pan is the copper one, so the basic one does not exist
+        assert tool != Tool.fishing_rod, "Use `has_fishing_rod` instead of `has_tool`."
 
         if material == ToolMaterial.basic or tool == Tool.scythe:
             return True_()
@@ -60,14 +52,7 @@ class ToolLogic(BaseLogic[Union[ToolLogicMixin, HasLogicMixin, ReceivedLogicMixi
         if self.options.tool_progression & ToolProgression.option_progressive:
             return self.logic.received(f"Progressive {tool}", tool_materials[material])
 
-        can_upgrade_rule = self.logic.has(f"{material} Bar") & self.logic.money.can_spend_at(Region.blacksmith, tool_upgrade_prices[material])
-        if tool == Tool.pan:
-            has_base_pan = self.logic.received("Glittering Boulder Removed") & self.logic.region.can_reach(Region.mountain)
-            if material == ToolMaterial.copper:
-                return has_base_pan
-            return has_base_pan & can_upgrade_rule
-
-        return can_upgrade_rule
+        return self.logic.has(f"{material} Bar") & self.logic.money.can_spend_at(Region.blacksmith, tool_upgrade_prices[material])
 
     def can_use_tool_at(self, tool: str, material: str, region: str) -> StardewRule:
         return self.has_tool(tool, material) & self.logic.region.can_reach(region)

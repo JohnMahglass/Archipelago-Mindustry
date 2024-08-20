@@ -37,8 +37,8 @@ def _has_laser(laser_hex: str, world: "WitnessWorld", player: int, redirect_requ
             _can_solve_panel(laser_hex, world, world.player, world.player_logic, world.player_locations)(state)
             and state.has("Desert Laser Redirection", player)
         )
-
-    return _can_solve_panel(laser_hex, world, world.player, world.player_logic, world.player_locations)
+    else:
+        return _can_solve_panel(laser_hex, world, world.player, world.player_logic, world.player_locations)
 
 
 def _has_lasers(amount: int, world: "WitnessWorld", redirect_required: bool) -> CollectionRule:
@@ -63,8 +63,8 @@ def _can_solve_panel(panel: str, world: "WitnessWorld", player: int, player_logi
 
     if entity_name + " Solved" in player_locations.EVENT_LOCATION_TABLE:
         return lambda state: state.has(player_logic.EVENT_ITEM_PAIRS[entity_name + " Solved"], player)
-
-    return make_lambda(panel, world)
+    else:
+        return make_lambda(panel, world)
 
 
 def _can_do_expert_pp2(state: CollectionState, world: "WitnessWorld") -> bool:
@@ -175,9 +175,11 @@ def _can_do_expert_pp2(state: CollectionState, world: "WitnessWorld") -> bool:
     # We can get to Hedge 3 from Hedge 2. If we can get from Keep to Hedge 2, we're good.
     # This covers both Hedge 1 Exit and Hedge 2 Shortcut, because Hedge 1 is just part of the Keep region.
 
-    return any(
+    hedge_2_from_keep = any(
         e.can_reach(state) for e in player_regions.two_way_entrance_register["Keep 2nd Maze", "Keep"]
     )
+
+    return hedge_2_from_keep
 
 
 def _can_do_theater_to_tunnels(state: CollectionState, world: "WitnessWorld") -> bool:
@@ -209,11 +211,13 @@ def _can_do_theater_to_tunnels(state: CollectionState, world: "WitnessWorld") ->
 
     # We also need a way from Town to Tunnels.
 
-    return (
+    tunnels_from_town = (
         any(e.can_reach(state) for e in player_regions.two_way_entrance_register["Tunnels", "Windmill Interior"])
         and any(e.can_reach(state) for e in player_regions.two_way_entrance_register["Town", "Windmill Interior"])
         or any(e.can_reach(state) for e in player_regions.two_way_entrance_register["Tunnels", "Town"])
     )
+
+    return tunnels_from_town
 
 
 def _has_item(item: str, world: "WitnessWorld", player: int,
@@ -233,9 +237,9 @@ def _has_item(item: str, world: "WitnessWorld", player: int,
     if item == "11 Lasers + Redirect":
         laser_req = world.options.challenge_lasers.value
         return _has_lasers(laser_req, world, True)
-    if item == "PP2 Weirdness":
+    elif item == "PP2 Weirdness":
         return lambda state: _can_do_expert_pp2(state, world)
-    if item == "Theater to Tunnels":
+    elif item == "Theater to Tunnels":
         return lambda state: _can_do_theater_to_tunnels(state, world)
     if item in player_logic.USED_EVENT_NAMES_BY_HEX:
         return _can_solve_panel(item, world, player, player_logic, player_locations)

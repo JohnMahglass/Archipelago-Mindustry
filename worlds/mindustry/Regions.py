@@ -446,7 +446,7 @@ def _has_oxidation_chamber(state: CollectionState, player:int) -> bool:
 
 def _has_surge_crucible(state: CollectionState, player:int) -> bool:
     """If the player received Surge Crucible"""
-    return state.has("Surge Crucible", player) and _has_tungsten(state, player) and _has_oxide(state, player)
+    return state.has("Surge Crucible", player) and _has_tungsten(state, player) and _has_oxide(state, player) and _has_slag_erekir(state, player)
 
 def _has_reinforced_pump(state: CollectionState, player:int) -> bool:
     """If the player received Reinforced Pump"""

@@ -292,9 +292,6 @@ blacklisted_combos = {
     # See above comment
     "Time Rift - Deep Sea":             ["Alpine Free Roam", "Nyakuza Free Roam", "Contractual Obligations",
                                          "Murder on the Owl Express"],
-
-    # was causing test failures
-    "Time Rift - Balcony":              ["Alpine Free Roam"],
 }
 
 

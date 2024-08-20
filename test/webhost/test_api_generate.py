@@ -1,16 +1,31 @@
 import io
+import unittest
 import json
 import yaml
 
-from . import TestBase
 
+class TestDocs(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        from WebHostLib import app as raw_app
+        from WebHost import get_app
+        raw_app.config["PONY"] = {
+            "provider": "sqlite",
+            "filename": ":memory:",
+            "create_db": True,
+        }
+        raw_app.config.update({
+            "TESTING": True,
+        })
+        app = get_app()
 
-class TestAPIGenerate(TestBase):
-    def test_correct_error_empty_request(self) -> None:
+        cls.client = app.test_client()
+
+    def test_correct_error_empty_request(self):
         response = self.client.post("/api/generate")
         self.assertIn("No options found. Expected file attachment or json weights.", response.text)
 
-    def test_generation_queued_weights(self) -> None:
+    def test_generation_queued_weights(self):
         options = {
             "Tester1":
                 {
@@ -28,7 +43,7 @@ class TestAPIGenerate(TestBase):
         self.assertTrue(json_data["text"].startswith("Generation of seed "))
         self.assertTrue(json_data["text"].endswith(" started successfully."))
 
-    def test_generation_queued_file(self) -> None:
+    def test_generation_queued_file(self):
         options = {
             "game": "Archipelago",
             "name": "Tester",

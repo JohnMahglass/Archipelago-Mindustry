@@ -80,7 +80,7 @@ def generate_itempool(tlozworld):
             location.item.classification = ItemClassification.progression
 
 def get_pool_core(world):
-    random = world.random
+    random = world.multiworld.random
 
     pool = []
     placed_items = {}
@@ -131,6 +131,14 @@ def get_pool_core(world):
             placed_items[possible_level_locations.pop(random.randint(0, len(possible_level_locations) - 1))] = fragment
         else:
             pool.append(fragment)
+
+    # Level 9 junk fill
+    if world.options.ExpandedPool > 0:
+        spots = random.sample(level_locations[8], len(level_locations[8]) // 2)
+        for spot in spots:
+            junk = random.choice(list(minor_items.keys()))
+            placed_items[spot] = junk
+            minor_items[junk] -= 1
 
     # Finish Pool
     final_pool = basic_pool

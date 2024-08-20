@@ -33,6 +33,9 @@ class True_(LiteralStardewRule):  # noqa
     def __and__(self, other) -> StardewRule:
         return other
 
+    def get_difficulty(self):
+        return 0
+
 
 class False_(LiteralStardewRule):  # noqa
     value = False
@@ -48,6 +51,9 @@ class False_(LiteralStardewRule):  # noqa
 
     def __and__(self, other) -> StardewRule:
         return self
+
+    def get_difficulty(self):
+        return 999999999
 
 
 false_ = False_()

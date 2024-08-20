@@ -1,5 +1,3 @@
-import unittest
-
 from BaseClasses import get_seed
 from .. import SVTestCase
 from ..assertion import WorldAssertMixin
@@ -9,8 +7,7 @@ from ... import options
 class TestGeneratePreRolledRandomness(WorldAssertMixin, SVTestCase):
     def test_given_pre_rolled_difficult_randomness_when_generate_then_basic_checks(self):
         if self.skip_long_tests:
-            raise unittest.SkipTest("Long tests disabled")
-
+            return
         choices = {
             options.EntranceRandomization.internal_name: options.EntranceRandomization.option_buildings,
             options.BundleRandomization.internal_name: options.BundleRandomization.option_remixed,

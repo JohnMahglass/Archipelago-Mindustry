@@ -1,5 +1,4 @@
 class Material:
-    moss = "Moss"
     coal = "Coal"
     fiber = "Fiber"
     hardwood = "Hardwood"

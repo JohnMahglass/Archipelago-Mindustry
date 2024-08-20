@@ -1,5 +1,3 @@
-from typing import Dict, Set, cast
-
 from . import static_logic as static_witness_logic
 
 ID_START = 158000
@@ -443,17 +441,17 @@ OBELISK_SIDES = {
     "Town Obelisk Side 6",
 }
 
-ALL_LOCATIONS_TO_ID: Dict[str, int] = {}
+ALL_LOCATIONS_TO_ID = dict()
 
-AREA_LOCATION_GROUPS: Dict[str, Set[str]] = {}
+AREA_LOCATION_GROUPS = dict()
 
 
-def get_id(entity_hex: str) -> int:
+def get_id(entity_hex: str) -> str:
     """
     Calculates the location ID for any given location
     """
 
-    return cast(int, static_witness_logic.ENTITIES_BY_HEX[entity_hex]["id"])
+    return static_witness_logic.ENTITIES_BY_HEX[entity_hex]["id"]
 
 
 def get_event_name(entity_hex: str) -> str:
@@ -463,7 +461,7 @@ def get_event_name(entity_hex: str) -> str:
 
     action = " Opened" if static_witness_logic.ENTITIES_BY_HEX[entity_hex]["entityType"] == "Door" else " Solved"
 
-    return cast(str, static_witness_logic.ENTITIES_BY_HEX[entity_hex]["checkName"]) + action
+    return static_witness_logic.ENTITIES_BY_HEX[entity_hex]["checkName"] + action
 
 
 ALL_LOCATIONS_TO_IDS = {
@@ -481,4 +479,4 @@ for key, item in ALL_LOCATIONS_TO_IDS.items():
 
 for loc in ALL_LOCATIONS_TO_IDS:
     area = static_witness_logic.ENTITIES_BY_NAME[loc]["area"]["name"]
-    AREA_LOCATION_GROUPS.setdefault(area, set()).add(loc)
+    AREA_LOCATION_GROUPS.setdefault(area, []).append(loc)

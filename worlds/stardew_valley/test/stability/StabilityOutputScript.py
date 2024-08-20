@@ -1,7 +1,7 @@
 import argparse
 import json
 
-from ...test import setup_solo_multiworld, allsanity_mods_6_x_x
+from ...test import setup_solo_multiworld, allsanity_options_with_mods
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -11,7 +11,7 @@ if __name__ == "__main__":
     seed = args.seed
 
     multi_world = setup_solo_multiworld(
-        allsanity_mods_6_x_x(),
+        allsanity_options_with_mods(),
         seed=seed
     )
 
