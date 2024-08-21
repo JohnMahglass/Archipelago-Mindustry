@@ -422,7 +422,8 @@ def _has_carbide(state: CollectionState, player:int) -> bool:
 
 def _has_surge_alloy_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Surge Alloy on Erekir"""
-    return state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player) and _has_heat(state, player) and _has_reinforced_pump(state, player)
+    return (state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player) and _has_heat(state, player) and
+            _has_reinforced_pump(state, player) and _has_aegis_requirements(state, player)) #Can land on Lake = access to lava for surge crucible
 
 def _has_phase_fabric_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Phase Fabric on Erekir"""
