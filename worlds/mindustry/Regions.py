@@ -4,7 +4,7 @@ from .Items import MindustryItem
 from .Options import MindustryOptions
 from .Locations import MindustryLocations, MindustryLocation
 from typing import Optional, Dict
-from worlds.generic.Rules import set_rule, add_rule
+from worlds.generic.Rules import set_rule
 
 
 def _has_serpulo_victory(state: CollectionState, player: int) -> bool:
@@ -422,7 +422,7 @@ def _has_carbide(state: CollectionState, player:int) -> bool:
 
 def _has_surge_alloy_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Surge Alloy on Erekir"""
-    return state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player) and _has_heat(state, player)
+    return state.has("Surge Alloy produced on Erekir", player) and _has_surge_crucible(state, player) and _has_heat(state, player) and _has_reinforced_pump(state, player)
 
 def _has_phase_fabric_erekir(state: CollectionState, player:int) -> bool:
     """If the player has produced Phase Fabric on Erekir"""
@@ -890,26 +890,21 @@ class MindustryRegions:
         """
         Add events based on user options.
         """
-
-        match options.campaign_choice.value:
-            case 0:
-                self.__add_serpulo_events()
-            case 1:
-                self.__add_erekir_events()
-            case 2:
-                self.__add_all_events()
-
+        if options.campaign_choice.value == 0:
+            self.__add_serpulo_events()
+        elif options.campaign_choice.value == 1:
+            self.__add_erekir_events()
+        elif options.campaign_choice.value == 2:
+            self.__add_all_events()
 
     def initialise_rules(self, options: MindustryOptions) -> None:
         """Initialise rules based on user options"""
-        match options.campaign_choice.value:
-            case 0:
-                self.__initialise_serpulo_rules()
-            case 1:
-                self.__initialise_erekir_rules()
-            case 2:
-                self.__initialise_all_rules()
-
+        if options.campaign_choice.value == 0:
+            self.__initialise_serpulo_rules()
+        elif options.campaign_choice.value == 1:
+            self.__initialise_erekir_rules()
+        elif options.campaign_choice.value == 2:
+            self.__initialise_all_rules()
 
 
     def __init__(self, multiworld: MultiWorld, player: int):
@@ -938,16 +933,12 @@ class MindustryRegions:
         """
         self.menu = self.__add_region("Menu", None)
 
-        match options.campaign_choice.value:
-            case 0:
-                self.__create_serpulo_campaign()
-            case 1:
-                self.__create_erekir_campaign()
-            case 2:
-                self.__create_all_campaign()
-            case _:
-                raise ValueError("Invalid campaign choice")
-
+        if options.campaign_choice.value == 0:
+            self.__create_serpulo_campaign()
+        elif options.campaign_choice.value == 1:
+            self.__create_erekir_campaign()
+        elif options.campaign_choice.value == 2:
+            self.__create_all_campaign()
 
     def __connect_serpulo_campaign(self):
         """
@@ -1616,8 +1607,7 @@ class MindustryRegions:
         self.__connect_regions(self.node_duct_bridge, self.node_armored_duct,
                                lambda state: _has_tungsten(state, self.player))
         self.__connect_regions(self.node_armored_duct, self.node_surge_conveyor,
-                               lambda state: _has_surge_alloy_erekir(state, self.player) and
-                                            _has_stronghold(state, self.player)) #Temporary until surge alloy bug fixed
+                               lambda state: _has_surge_alloy_erekir(state, self.player))
         self.__connect_regions(self.node_surge_conveyor, self.node_surge_router)
         self.__connect_regions(self.node_duct_bridge, self.node_unit_cargo_loader,
                                lambda state: _has_surge_alloy_erekir(state, self.player) and
