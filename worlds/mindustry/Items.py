@@ -291,8 +291,8 @@ item_table = {
 
     "Reinforced Payload Conveyor": ItemData(MINDUSTRY_BASE_ID + 215, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
     "Payload Mass Driver": ItemData(MINDUSTRY_BASE_ID + 216, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.BELT, 1),
-    "Payload Loader": ItemData(MINDUSTRY_BASE_ID + 217, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
-    "Payload Unloader": ItemData(MINDUSTRY_BASE_ID + 218, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
+    "Payload Loader": ItemData(MINDUSTRY_BASE_ID + 217, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.BELT, 1),
+    "Payload Unloader": ItemData(MINDUSTRY_BASE_ID + 218, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.BELT, 1),
     "Large Payload Mass Driver": ItemData(MINDUSTRY_BASE_ID + 219, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.BELT, 1),
     "Constructor": ItemData(MINDUSTRY_BASE_ID + 220, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),
     "Deconstructor": ItemData(MINDUSTRY_BASE_ID + 221, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.FACTORY, 1),

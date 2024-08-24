@@ -374,7 +374,8 @@ def _has_peaks_launch(state: CollectionState, player:int) -> bool:
 
 def _has_peaks_requirement(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Peaks"""
-    return (state.has_all({"Beam Tower", "Chemical Combustion Chamber", "Ship Refabricator"}, player) and
+    return (state.has_all({"Beam Tower", "Chemical Combustion Chamber", "Ship Refabricator", "Reinforced Container",
+                           "Payload Loader", "Payload Unloader"}, player) and
             state.has_any_count({"Progressive Ships": 1}, player))
 
 def _has_peaks(state: CollectionState, player:int) -> bool:
