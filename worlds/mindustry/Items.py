@@ -38,6 +38,7 @@ class ItemGroup(Enum):
     UNIT = 10
     RESSOURCES = 11
     SECTOR = 12
+    FILLER = 13
 
 class ItemPlanet(Enum):
     """
@@ -426,4 +427,7 @@ item_table = {
     "Progressive Tanks": ItemData(MINDUSTRY_BASE_ID + 341, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 4),
     "Progressive Ships": ItemData(MINDUSTRY_BASE_ID + 342, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 4),
     "Progressive Mechs": ItemData(MINDUSTRY_BASE_ID + 343, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 4),
+
+    #Filler Items
+    #"A fistful of nothing...": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
 }

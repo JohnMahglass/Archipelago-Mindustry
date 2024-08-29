@@ -173,6 +173,10 @@ def _has_oil(state: CollectionState, player: int) -> bool:
         available = True
     return available
 
+def _has_slag_serpulo(state: CollectionState, player: int) -> bool:
+    """If the player has produced Slag on Serpulo"""
+    return state.has("Slag produced on Serpulo", player) and _has_melter(state, player) and _has_mechanical_pump(state, player)
+
 def _has_plastanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Plastanium on Serpulo"""
     available: bool = False
@@ -2391,6 +2395,7 @@ class MindustryRegions:
         self.__add_event_location(self.node_thorium_serpulo, "Produce Thorium on Serpulo", "Thorium produced on Serpulo")
         self.__add_event_location(self.node_surge_alloy_serpulo, "Produce Surge Alloy on Serpulo", "Surge Alloy produced on Serpulo")
         self.__add_event_location(self.node_phase_fabric_serpulo, "Produce Phase Fabric on Serpulo", "Phase Fabric produced on Serpulo")
+        self.__add_event_location(self.node_slag_serpulo, "Produce Slag on Serpulo", "Slag produced on Serpulo")
         self.__add_event_location(self.node_metaglass, "Produce Metaglass on Serpulo", "Metaglass produced on Serpulo")
         self.__add_event_location(self.node_graphite_serpulo, "Produce Graphite on Serpulo", "Graphite produced on Serpulo")
         self.__add_event_location(self.node_silicon_serpulo, "Produce Silicon on Serpulo", "Silicon produced on Serpulo")
