@@ -1,10 +1,11 @@
+import typing
 
 from BaseClasses import Region, MultiWorld, Entrance, CollectionState, ItemClassification
 from .Items import MindustryItem
 from .Options import MindustryOptions
 from .Locations import MindustryLocations, MindustryLocation
 from typing import Optional, Dict
-from worlds.generic.Rules import set_rule
+from worlds.generic.Rules import set_rule, add_rule
 
 
 def _has_serpulo_victory(state: CollectionState, player: int) -> bool:
@@ -126,6 +127,10 @@ def _has_metaglass(state: CollectionState, player: int) -> bool:
         available = True
     return available
 
+def _has_melter(state: CollectionState, player: int) -> bool:
+    """If the player has and can use the melter"""
+    return state.has("Melter", player) and _has_power_serpulo(state, player)
+
 def _has_graphite_serpulo(state: CollectionState, player: int) -> bool:
     """If the player has produced Graphite on Serpulo"""
     available: bool = False
@@ -182,7 +187,7 @@ def _has_power_serpulo(state: CollectionState, player: int) -> bool:
 def _has_mechanical_pump(state: CollectionState, player: int) -> bool:
     """If the player has received Mechanical Pump"""
     available: bool = False
-    if state.has("Mechanical Pump", player) and _has_metaglass(state, player):
+    if state.has_all(["Mechanical Pump", "Conduit"], player) and _has_metaglass(state, player):
         available = True
     return available
 
@@ -224,7 +229,7 @@ def _has_blast_mixer(state: CollectionState, player: int) -> bool:
 
 def _has_silicon_smelter(state: CollectionState, player: int) -> bool:
     """If the player received Silicon Smelter"""
-    return state.has("Silicon Smelter", player)
+    return state.has("Silicon Smelter", player) and _has_power_serpulo(state, player)
 
 def _has_plastanium_compressor(state: CollectionState, player: int) -> bool:
     """If the player received Plastanium Compressor"""
@@ -278,6 +283,154 @@ def _has_naval_factory(state: CollectionState, player:int) -> bool:
     if state.has("Naval Factory", player) and _has_metaglass(state, player):
         available = True
     return available
+
+def _get_military_score_serpulo(state: CollectionState, player:int) -> int:
+    """Return the military score of the player based on their available research"""
+    score = 0
+
+    if state.has("Hail", player) and _has_hail_requirements(state, player):
+        score += 1
+    if state.has("Arc", player) and _has_arc_requirements(state, player):
+        score += 1
+    if state.has("Scorch", player) and _has_scorch_requirements(state, player):
+        score += 1
+    if state.has("Parallax", player) and _has_parallax_requirements(state, player):
+        score += 1 #Parallax is bad so the score is 1 :^)
+    if state.has("Wave", player) and _has_wave_requirements(state, player):
+        score += 1
+    if state.has("Lancer", player) and _has_lancer_requirements(state, player):
+        score += 3
+    if state.has("Salvo", player) and _has_salvo_requirements(state, player):
+        score += 3
+    if state.has("Swarmer", player) and _has_swarmer_requirements(state, player):
+        score += 5
+    if state.has("Ripple", player) and _has_ripple_requirements(state, player):
+        score += 4
+    if state.has("Tsunami", player) and _has_tsunami_requirements(state, player):
+        score += 4
+    if state.has("Fuse", player) and _has_fuse_requirements(state, player):
+        score += 4
+    if state.has("Meltdown", player) and _has_meltdown_requirements(state, player):
+        score += 10
+    if state.has("Foreshadow", player) and _has_foreshadow_requirements(state, player):
+        score += 10
+    if state.has("Cyclone", player) and _has_cyclone_requirements(state, player):
+        score += 4
+    if state.has("Spectre", player) and _has_spectre_requirements(state, player):
+        score += 10
+    if state.has("Segment", player) and _has_segment_requirements(state, player):
+        score += 10
+
+    if state.has("Mender", player) and _has_power_serpulo(state, player):
+        score += 2
+    if state.has("Mend Projector", player) and _has_mend_projector_requirements(state, player):
+        score += 3
+    if state.has("Shock Mine", player) and _has_silicon_serpulo(state, player):
+        score += 2
+
+    return score
+
+def _has_segment_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Segment turret."""
+    can_place = _has_titanium(state, player) and _has_thorium_serpulo(state, player) and _has_silicon_serpulo(state, player) and _has_phase_fabric_serpulo(state, player)
+    can_fire = _has_power_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_cyclone_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Cyclone turret."""
+    can_place = _has_titanium(state, player) and _has_plastanium(state, player)
+    can_fire = _has_metaglass(state, player) or _has_plastanium(state, player) or _has_surge_alloy_serpulo(state, player) or _has_blast_compound(state, player)
+    return can_place and can_fire
+
+def _has_spectre_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Spectre turret."""
+    can_place = _has_graphite_serpulo(state, player) and _has_thorium_serpulo(state, player) and _has_plastanium(state, player) and _has_surge_alloy_serpulo(state, player)
+    can_fire = _has_thorium_serpulo(state, player) or _has_pyratite(state, player)
+    return can_place and can_fire
+
+def _has_foreshadow_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Foreshadow turret."""
+    can_place = _has_metaglass(state, player) and _has_silicon_serpulo(state, player) and _has_plastanium(state, player) and _has_surge_alloy_serpulo(state, player)
+    can_fire = _has_surge_alloy_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_meltdown_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Meltdown turret."""
+    can_place = _has_graphite_serpulo(state, player) and _has_silicon_serpulo(state, player) and _has_surge_alloy_serpulo(state, player)
+    can_fire = _has_mechanical_pump(state, player) # Req fluids
+    return can_place and can_fire
+
+def _has_scorch_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Scorch turret."""
+    can_place = _has_graphite_serpulo(state, player)
+    can_fire = True # Req coal = no requirement for logic
+    return can_place and can_fire
+
+def _has_wave_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Wave turret."""
+    can_place = _has_metaglass(state, player)
+    can_fire = _has_mechanical_pump(state, player)
+    return can_place and can_fire
+
+def _has_parallax_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Parallax turret."""
+    can_place = _has_titanium(state, player) and _has_silicon_serpulo(state, player)
+    can_fire = _has_power_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_hail_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Hail turret."""
+    can_place = _has_graphite_serpulo(state, player)
+    can_fire = _has_graphite_serpulo(state, player) or _has_silicon_serpulo(state, player) or _has_pyratite(state, player)
+    return can_place and can_fire
+
+def _has_arc_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Arc turret."""
+    can_place = True #No special requirements
+    can_fire = _has_power_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_lancer_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Lancer turret."""
+    can_place = _has_titanium(state, player) and _has_silicon_serpulo(state, player)
+    can_fire = _has_power_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_salvo_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Salvo turret."""
+    can_place = _has_titanium(state, player) and _has_graphite_serpulo(state, player)
+    can_fire = _has_graphite_serpulo(state, player) or _has_pyratite(state, player) or _has_silicon_serpulo(state, player) or _has_thorium_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_swarmer_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Swarmer turret."""
+    can_place = _has_graphite_serpulo(state, player) and _has_titanium(state, player) and _has_silicon_serpulo(state, player) and _has_plastanium(state, player)
+    can_fire = _has_pyratite(state, player) or _has_blast_compound(state, player) or _has_surge_alloy_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_ripple_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Ripple turret."""
+    can_place = _has_graphite_serpulo(state, player) and _has_titanium(state, player)
+    can_fire = _has_graphite_serpulo(state, player) or _has_silicon_serpulo(state, player) or _has_plastanium(state, player) or _has_blast_compound(state, player or _has_pyratite(state, player))
+    return can_place and can_fire
+
+def _has_tsunami_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Tsunami turret."""
+    can_place = _has_metaglass(state, player) and _has_titanium(state, player) and _has_thorium_serpulo(state, player)
+    can_fire = _has_mechanical_pump(state, player)
+    return can_place and can_fire
+
+def _has_fuse_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and fire the Fuse turret."""
+    can_place = _has_graphite_serpulo(state, player) and _has_thorium_serpulo(state, player)
+    can_fire = _has_thorium_serpulo(state, player) or _has_thorium_serpulo(state, player)
+    return can_place and can_fire
+
+def _has_mend_projector_requirements(state: CollectionState, player:int) -> bool:
+    """If the player has requirement to place and use the Mender."""
+    can_place = _has_titanium(state, player) and _has_silicon_serpulo(state, player)
+    can_use = _has_power_serpulo(state, player)
+    return can_place and can_use
 
 
 def _has_aegis_requirements(state: CollectionState, player:int) -> bool:
@@ -1405,23 +1558,37 @@ class MindustryRegions:
         self.__connect_regions(self.node_core_shard, self.node_copper)
         self.__connect_regions(self.node_copper, self.node_water_serpulo)
         self.__connect_regions(self.node_copper, self.node_lead)
-        self.__connect_regions(self.node_lead, self.node_titanium)
-        self.__connect_regions(self.node_titanium, self.node_cryofluid)
-        self.__connect_regions(self.node_titanium, self.node_thorium_serpulo)
-        self.__connect_regions(self.node_thorium_serpulo, self.node_surge_alloy_serpulo)
-        self.__connect_regions(self.node_thorium_serpulo, self.node_phase_fabric_serpulo)
-        self.__connect_regions(self.node_lead, self.node_metaglass)
+        self.__connect_regions(self.node_lead, self.node_titanium,
+                               lambda state: _has_pneumatic_drill(state, self.player))
+        self.__connect_regions(self.node_titanium, self.node_cryofluid,
+                               lambda state: _has_cryofluid_mixer(state, self.player))
+        self.__connect_regions(self.node_titanium, self.node_thorium_serpulo,
+                               lambda state: _has_laser_drill(state, self.player))
+        self.__connect_regions(self.node_thorium_serpulo, self.node_surge_alloy_serpulo,
+                               lambda state: _has_surge_smelter(state, self.player))
+        self.__connect_regions(self.node_thorium_serpulo, self.node_phase_fabric_serpulo,
+                               lambda state: _has_phase_weaver(state, self.player))
+        self.__connect_regions(self.node_lead, self.node_metaglass,
+                               lambda state: _has_kiln(state, self.player))
         self.__connect_regions(self.node_copper, self.node_sand_serpulo)
         self.__connect_regions(self.node_sand_serpulo, self.node_scrap)
-        self.__connect_regions(self.node_scrap, self.node_slag_serpulo)
+        self.__connect_regions(self.node_scrap, self.node_slag_serpulo,
+                               lambda state: _has_melter(state, self.player))
         self.__connect_regions(self.node_sand_serpulo, self.node_coal)
-        self.__connect_regions(self.node_coal, self.node_graphite_serpulo)
-        self.__connect_regions(self.node_graphite_serpulo, self.node_silicon_serpulo)
-        self.__connect_regions(self.node_coal, self.node_pyratite)
-        self.__connect_regions(self.node_pyratite, self.node_blast_compound)
-        self.__connect_regions(self.node_coal, self.node_spore_pod)
-        self.__connect_regions(self.node_coal, self.node_oil)
-        self.__connect_regions(self.node_oil, self.node_plastanium)
+        self.__connect_regions(self.node_coal, self.node_graphite_serpulo,
+                               lambda state: _has_graphite_press(state, self.player))
+        self.__connect_regions(self.node_graphite_serpulo, self.node_silicon_serpulo,
+                               lambda state: _has_silicon_smelter(state, self.player))
+        self.__connect_regions(self.node_coal, self.node_pyratite,
+                               lambda state: _has_pyratite_mixer(state, self.player))
+        self.__connect_regions(self.node_pyratite, self.node_blast_compound,
+                               lambda state: _has_blast_mixer(state, self.player))
+        self.__connect_regions(self.node_coal, self.node_spore_pod,
+                               lambda state: _has_cultivator(state, self.player))
+        self.__connect_regions(self.node_coal, self.node_oil,
+                               lambda state: _has_mechanical_pump(state, self.player))
+        self.__connect_regions(self.node_oil, self.node_plastanium,
+                               lambda state: _has_plastanium_compressor(state, self.player))
 
 
     def __create_erekir_campaign(self):
@@ -1937,6 +2104,36 @@ class MindustryRegions:
         self.multiworld.completion_condition[self.player] = lambda \
                 state: state.has("Victory archived on Serpulo", self.player)
 
+        add_rule(self.multiworld.get_location("Capture Ruinous Shores", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 4)
+        add_rule(self.multiworld.get_location("Capture Windswept Islands", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 5)
+        add_rule(self.multiworld.get_location("Capture Tar Fields", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Impact 0078", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 10)
+        add_rule(self.multiworld.get_location("Capture Desolate Rift", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 30)
+        add_rule(self.multiworld.get_location("Capture Planetary Launch Terminal", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 55)
+        add_rule(self.multiworld.get_location("Capture Extraction Outpost", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Salt Flats", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Coastline", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 7)
+        add_rule(self.multiworld.get_location("Capture Naval Fortress", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 30)
+        add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 4)
+        add_rule(self.multiworld.get_location("Capture Stained Mountains", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 4)
+        add_rule(self.multiworld.get_location("Capture Fungal Pass", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 5)
+        add_rule(self.multiworld.get_location("Capture Nuclear Production Complex", self.player),
+                 lambda state: _get_military_score_serpulo(state, self.player) >= 10)
 
     def __connect_regions(self, source_region: Region, target_region: Region, rule = None) -> None:
         """
