@@ -154,5 +154,8 @@ class MindustryWorld(World):
             "campaign_choice": self.options.campaign_choice.value,
             "disable_invasions": bool(self.options.disable_invasions.value),
             "faster_production": bool(self.options.faster_production.value),
-            "death_link": bool(self.options.death_link.value)
+            "death_link": bool(self.options.death_link.value),
+            "military_level_tracking": bool(self.options.military_level_tracking.value),
+            "randomize_player_shots": bool(self.options.randomize_player_shots.value),
+            "randomize_block_size": bool(self.options.randomize_block_size.value),
         }

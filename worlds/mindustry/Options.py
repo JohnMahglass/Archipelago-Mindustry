@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import DefaultOnToggle, Choice, Toggle, PerGameCommonOptions
+from Options import Choice, Toggle, PerGameCommonOptions, DefaultOnToggle
 
 
 class TutorialSkip(Toggle):
@@ -22,10 +22,21 @@ class FasterProduction(Toggle):
     """Enable faster production and harvesting of resources."""
     display_name = "Faster production"
 
-class deathLink(Toggle):
+class DeathLink(Toggle):
     """Enable death link."""
     display_name = "Death link"
 
+class MilitaryLevelTracking(DefaultOnToggle):
+    """Ensure the player has enough military power to clear sectors. If turned off, the logic will consider that the player can clear every sector once they have the minimal requirement to land on that sector."""
+    display_name = "Military level tracking"
+
+class RandomizePlayerShots(Toggle):
+    """Will randomize the player shots for every player ship they can control."""
+    display_name = "Randomize player shots"
+
+class RandomizeBlockSize(Toggle):
+    """Will randomize the size of blocks. Some blocks might be excluded from randomization."""
+    display_name = "Randomize block size"
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -36,4 +47,7 @@ class MindustryOptions(PerGameCommonOptions):
     campaign_choice: CampaignChoice
     disable_invasions: DisableInvasions
     faster_production: FasterProduction
-    death_link: deathLink
+    death_link: DeathLink
+    military_level_tracking: MilitaryLevelTracking
+    randomize_player_shots: RandomizePlayerShots
+    randomize_block_size: RandomizeBlockSize
