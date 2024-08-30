@@ -86,10 +86,7 @@ def _has_nuclear_production_complex(state: CollectionState, player: int) -> bool
 
 def _has_titanium(state: CollectionState, player: int) -> bool:
     """If the player has produced Titanium on Serpulo"""
-    available: bool = False
-    if (state.has("Titanium produced on Serpulo", player)) and (_has_pneumatic_drill(state, player)):
-        available = True
-    return available
+    return state.has("Titanium produced on Serpulo", player) and _has_pneumatic_drill(state, player)
 
 def _has_cryofluid(state: CollectionState, player: int) -> bool:
     """If the player has produced Cryofluid on Serpulo"""
@@ -129,7 +126,7 @@ def _has_metaglass(state: CollectionState, player: int) -> bool:
 
 def _has_melter(state: CollectionState, player: int) -> bool:
     """If the player has and can use the melter"""
-    return state.has("Melter", player) and _has_power_serpulo(state, player)
+    return state.has("Melter", player) and _has_power_serpulo(state, player) and _has_graphite_serpulo(state, player)
 
 def _has_graphite_serpulo(state: CollectionState, player: int) -> bool:
     """If the player has produced Graphite on Serpulo"""
@@ -1576,8 +1573,7 @@ class MindustryRegions:
                                lambda state: _has_kiln(state, self.player))
         self.__connect_regions(self.node_copper, self.node_sand_serpulo)
         self.__connect_regions(self.node_sand_serpulo, self.node_scrap)
-        self.__connect_regions(self.node_scrap, self.node_slag_serpulo,
-                               lambda state: _has_melter(state, self.player))
+        self.__connect_regions(self.node_scrap, self.node_slag_serpulo)
         self.__connect_regions(self.node_sand_serpulo, self.node_coal)
         self.__connect_regions(self.node_coal, self.node_graphite_serpulo,
                                lambda state: _has_graphite_press(state, self.player))

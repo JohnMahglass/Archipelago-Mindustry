@@ -429,5 +429,5 @@ item_table = {
     "Progressive Mechs": ItemData(MINDUSTRY_BASE_ID + 343, ItemPlanet.EREKIR, ItemType.USEFUL, ItemGroup.UNIT, 4),
 
     #Filler Items
-    #"A fistful of nothing...": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
+    "A fistful of nothing...": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
 }

@@ -3,7 +3,7 @@ from typing import ClassVar, Dict, List, Mapping, Any
 from BaseClasses import MultiWorld, ItemClassification
 from worlds.AutoWorld import World, WebWorld
 from worlds.mindustry.Shared import MINDUSTRY_BASE_ID
-from worlds.mindustry.Items import item_table, MindustryItem, ItemType
+from worlds.mindustry.Items import item_table, MindustryItem, ItemType, ItemGroup
 from worlds.mindustry.Locations import location_table
 from worlds.mindustry.Options import MindustryOptions
 from worlds.mindustry.Regions import MindustryRegions
@@ -69,7 +69,7 @@ class MindustryWorld(World):
         try:
             data = item_table[name]
             classification: ItemClassification = ItemClassification.useful
-            if data.type == ItemType.JUNK:
+            if data.group == ItemGroup.FILLER:
                 classification = ItemClassification.filler
             if data.type == ItemType.NECESSARY:
                 classification = ItemClassification.progression
@@ -102,23 +102,35 @@ class MindustryWorld(World):
                         for i in range(item_count):
                             item = self.create_item(name)
                             self.multiworld.itempool.append(item)
+        #Check how many location are empty and fill them with FILLERS
+        remaining = len(self.multiworld.get_unfilled_locations(self.player)) - len(self.multiworld.itempool)
+        while remaining > 0:
+            self.__create_filler_item(campaign)
+            remaining -= 1
+
+    def __create_filler_item(self, campaign):
+        """
+        Create a filler item from the selected campaign
+        """
+        self.multiworld.itempool.append(self.create_item("A fistful of nothing..."))
 
     def __from_selected_campaign(self, data, campaign: int) -> bool:
         """
         Return if an item is from the selected campaign.
         """
         valid = False
-        match campaign:
-            case 0:
-                if data.item_planet == ItemPlanet.SERPULO:
+        if data.group != ItemGroup.FILLER: #We dont want filler items to get thrown in yet.
+            match campaign:
+                case 0:
+                    if data.item_planet == ItemPlanet.SERPULO:
+                        valid = True
+                case 1:
+                    if data.item_planet == ItemPlanet.EREKIR:
+                        valid = True
+                case 2:
                     valid = True
-            case 1:
-                if data.item_planet == ItemPlanet.EREKIR:
-                    valid = True
-            case 2:
-                valid = True
-            case _:
-                valid = False
+                case _:
+                    valid = False
         return valid
 
     def set_rules(self) -> None:
@@ -126,6 +138,9 @@ class MindustryWorld(World):
         Launched when the Multiworld generator is ready to generate rules
         """
         self.regions.initialise_rules(self.options)
+
+    def get_filler_item_name(self) -> str:
+        return self.multiworld.random.choice(["A fistful of nothing..."])
 
     def __init__(self, multiworld: MultiWorld, player: int):
         """Initialise the Mindustry World"""
