@@ -1,6 +1,6 @@
 from BaseClasses import CollectionState
 
-
+#region Victory rules
 def has_serpulo_victory(state: CollectionState, player: int) -> bool:
     """If the player has archived victory on Serpulo"""
     return state.has("Victory archived on Serpulo", player)
@@ -9,6 +9,9 @@ def has_erekir_victory(state: CollectionState, player: int) -> bool:
     """If the player has archived victory on Erekir"""
     return state.has("Victory archived on Erekir", player)
 
+#endregion
+
+#region Serpulo rules
 def has_frozen_forest(state: CollectionState, player: int) -> bool:
     """If the player has captured Frozen Forest"""
     return state.has("Frozen Forest captured", player)
@@ -281,7 +284,6 @@ def has_naval_factory(state: CollectionState, player:int) -> bool:
 def get_military_score_serpulo(state: CollectionState, player:int) -> int:
     """Return the military score of the player based on their available research"""
     score = 0
-
     if state.has("Hail", player) and has_hail_requirements(state, player):
         score += 1
     if state.has("Arc", player) and has_arc_requirements(state, player):
@@ -321,7 +323,6 @@ def get_military_score_serpulo(state: CollectionState, player:int) -> int:
         score += 3
     if state.has("Shock Mine", player) and has_silicon_serpulo(state, player):
         score += 2
-
     return score
 
 def has_segment_requirements(state: CollectionState, player:int) -> bool:
@@ -426,7 +427,9 @@ def has_mend_projector_requirements(state: CollectionState, player:int) -> bool:
     can_use = has_power_serpulo(state, player)
     return can_place and can_use
 
+#endregion
 
+#region Erekir rules
 def has_aegis_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Aegis"""
     return has_impact_drill(state, player)
@@ -633,3 +636,4 @@ def has_large_plasma_bore(state: CollectionState, player:int) -> bool:
     """If the player received Large Plasma Bore"""
     return state.has("Large Plasma Bore", player) and has_oxide(state, player) and has_tungsten(state, player)
 
+#endregion
