@@ -13,7 +13,6 @@ class MindustryWeb(WebWorld):
     """Mindustry web page for Archipelago"""
     theme = "stone"
 
-
 class MindustryWorld(World):
     """
     In Mindustry, you control a small ship that defends a structure called the Core,
@@ -90,6 +89,7 @@ class MindustryWorld(World):
     def create_items(self) -> None:
         """Create every item in the world"""
         campaign = self.options.campaign_choice.value
+        self.__exclude_items(campaign)
         for name, data in item_table.items():
             if self.__from_selected_campaign(data, campaign):
                 if name not in self.exclude:
@@ -155,3 +155,57 @@ class MindustryWorld(World):
             "randomize_block_size": bool(self.options.randomize_block_size.value),
             "logistic_distribution": self.options.campaign_choice.value,
         }
+
+    def __exclude_items(self, campaign:int) -> None:
+        """Exclude items from the item pools depending on player options"""
+        if self.options.logistic_distribution == 2: #Starter logistics
+            if campaign == 0: #Serpulo
+                self.__exclude_serpulo_logistics()
+            if campaign == 1: #Erekir
+                self.__exclude_erekir_logistics()
+            if campaign == 2: #All
+                self.__exclude_serpulo_logistics()
+                self.__exclude_erekir_logistics()
+
+    def __exclude_serpulo_logistics(self) -> None:
+        """Exclude Serpulo logistics items from the item pool for the Starter logistics options"""
+        self.multiworld.push_precollected(self.create_item("Conduit"))
+        self.exclude.append("Conduit")
+
+        self.multiworld.push_precollected(self.create_item("Liquid Junction"))
+        self.exclude.append("Liquid Junction")
+
+        self.multiworld.push_precollected(self.create_item("Liquid Router"))
+        self.exclude.append("Liquid Router")
+
+        self.multiworld.push_precollected(self.create_item("Bridge Conduit"))
+        self.exclude.append("Bridge Conduit")
+
+        self.multiworld.push_precollected(self.create_item("Junction"))
+        self.exclude.append("Junction")
+
+        self.multiworld.push_precollected(self.create_item("Router"))
+        self.exclude.append("Router")
+
+        self.multiworld.push_precollected(self.create_item("Bridge Conveyor"))
+        self.exclude.append("Bridge Conveyor")
+
+    def __exclude_erekir_logistics(self) -> None:
+        """Exclude Erekir logistics items from the item pool for the Starter logistics options"""
+        self.multiworld.push_precollected(self.create_item("Duct Router"))
+        self.exclude.append("Duct Router")
+
+        self.multiworld.push_precollected(self.create_item("Duct Bridge"))
+        self.exclude.append("Duct Bridge")
+
+        self.multiworld.push_precollected(self.create_item("Reinforced Conduit"))
+        self.exclude.append("Reinforced Conduit")
+
+        self.multiworld.push_precollected(self.create_item("Reinforced Liquid Junction"))
+        self.exclude.append("Reinforced Liquid Junction")
+
+        self.multiworld.push_precollected(self.create_item("Reinforced Bridge Conduit"))
+        self.exclude.append("Reinforced Bridge Conduit")
+
+        self.multiworld.push_precollected(self.create_item("Reinforced Liquid Router"))
+        self.exclude.append("Reinforced Liquid Router")
