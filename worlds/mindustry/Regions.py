@@ -1129,14 +1129,17 @@ class MindustryRegions():
                                lambda state: has_desolate_rift(state, self.player))
         self.__connect_regions(self.node_windswept_islands, self.node_extraction_outpost,
                                 lambda state: has_ground_factory(state, self.player) and
+                                            can_produce_ground_unit(state, self.player) and
                                             has_windswept_islands(state, self.player))
         self.__connect_regions(self.node_windswept_islands, self.node_salt_flats,
                                 lambda state: has_ground_factory(state, self.player) and
+                                            can_produce_ground_unit(state, self.player) and
                                             has_windswept_islands(state, self.player))
         self.__connect_regions(self.node_salt_flats, self.node_coastline,
                                lambda state: has_salt_flats(state, self.player))
         self.__connect_regions(self.node_coastline, self.node_naval_fortress,
                                 lambda state: has_naval_factory(state, self.player) and
+                                            can_produce_naval_unit(state, self.player) and
                                             has_coastline(state, self.player))
         self.__connect_regions(self.node_the_craters, self.node_overgrowth,
                                lambda state: has_the_craters(state, self.player))

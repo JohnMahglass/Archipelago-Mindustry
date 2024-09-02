@@ -283,6 +283,14 @@ def has_naval_factory(state: CollectionState, player:int) -> bool:
         available = True
     return available
 
+def can_produce_naval_unit(state: CollectionState, player:int) -> bool:
+    """If the player can produce naval units"""
+    return state.has_any({"Progressive Offensive Naval Unit","Progressive Support Naval Unit"}, player)
+
+def can_produce_ground_unit(state: CollectionState, player:int) -> bool:
+    """If the player can produce ground units"""
+    return state.has_any({"Progressive Offensive Ground Unit","Progressive Support Ground Unit", "Progressive Insectoid Ground Unit"}, player)
+
 def get_military_score_serpulo(state: CollectionState, player:int) -> int:
     """Return the military score of the player based on their available research"""
     score = 0
