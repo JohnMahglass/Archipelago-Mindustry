@@ -283,6 +283,10 @@ def has_naval_factory(state: CollectionState, player:int) -> bool:
         available = True
     return available
 
+def has_early_logistics_serpulo(state: CollectionState, player:int) -> bool:
+    """Rules for early logistics options on Serpulo"""
+    return state.has_all({"Conduit", "Liquid Junction", "Liquid Router", "Bridge Conduit", "Junction", "Router", "Bridge Conveyor"}, player)
+
 def can_produce_naval_unit(state: CollectionState, player:int) -> bool:
     """If the player can produce naval units"""
     return state.has_any({"Progressive Offensive Naval Unit","Progressive Support Naval Unit"}, player)
@@ -651,6 +655,9 @@ def has_large_plasma_bore(state: CollectionState, player:int) -> bool:
     """If the player received Large Plasma Bore"""
     return state.has("Large Plasma Bore", player) and has_oxide(state, player) and has_tungsten(state, player)
 
+def has_early_logistics_erekir(state: CollectionState, player:int) -> bool:
+    """Rules for early logistics options on Erekir"""
+    return state.has_all({"Duct Router", "Duct Bridge", "Reinforced Conduit", "Reinforced Liquid Junction", "Reinforced Bridge Conduit", "Reinforced Liquid Router"}, player)
 
 def _has_erekir_t3_unit_requirements(state: CollectionState, player:int) -> bool:
     has_base_t3_requirements = False

@@ -424,6 +424,8 @@ class MindustryRegions():
             self.__initialise_serpulo_rules()
             if options.military_level_tracking:
                 self.__apply_serpulo_military_level_rules()
+            if options.logistic_distribution == 1: #Early logistics
+                self.__apply_serpulo_early_logistics_rules()
         elif options.campaign_choice.value == 1:
             self.__initialise_erekir_rules()
             if options.military_level_tracking:
@@ -1850,3 +1852,17 @@ class MindustryRegions():
         add_rule(self.multiworld.get_location("Capture Origin", self.player),
                  lambda state: get_defense_military_score_erekir(state, self.player) > 50 and
                                get_unit_military_score_erekir(state, self.player) > 35)
+
+    def __apply_serpulo_early_logistics_rules(self):
+        """Apply the Early logistics options to Serpulo"""
+        add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
+                 lambda state: has_early_logistics_serpulo(state, self.player))
+        add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
+                 lambda state: has_early_logistics_serpulo(state, self.player))
+        add_rule(self.multiworld.get_location("Capture Ruinous Shores", self.player),
+                 lambda state: has_early_logistics_serpulo(state, self.player))
+
+    def __apply_erekir_early_logistics_rules(self):
+        """Apply the Early logistics options to Erekir"""
+        add_rule(self.multiworld.get_location("Capture Basin", self.player),
+                 lambda state: has_early_logistics_erekir(state, self.player))

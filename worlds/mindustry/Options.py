@@ -38,6 +38,14 @@ class RandomizeBlockSize(Toggle):
     """Will randomize the size of blocks. Some blocks might be excluded from randomization."""
     display_name = "Randomize block size"
 
+class LogisticDistribution(Choice):
+    """Change how logistics research are distributed."""
+    display_name = "Logistic distribution"
+    option_randomized_logistics = 0
+    option_early_logistics = 1
+    option_starter_logistics = 2
+    default = 1
+
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
     """
@@ -52,3 +60,4 @@ class MindustryOptions(PerGameCommonOptions):
     military_level_tracking: MilitaryLevelTracking
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     randomize_block_size: RandomizeBlockSize
+    logistic_distribution: LogisticDistribution
