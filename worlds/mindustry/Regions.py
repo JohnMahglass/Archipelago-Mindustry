@@ -422,10 +422,17 @@ class MindustryRegions():
         """Initialise rules based on user options"""
         if options.campaign_choice.value == 0:
             self.__initialise_serpulo_rules()
+            if options.military_level_tracking:
+                self.__apply_serpulo_military_level_rules()
         elif options.campaign_choice.value == 1:
             self.__initialise_erekir_rules()
+            if options.military_level_tracking:
+                self.__apply_erekir_military_level_rules()
         elif options.campaign_choice.value == 2:
             self.__initialise_all_rules()
+            if options.military_level_tracking:
+                self.__apply_serpulo_military_level_rules()
+                self.__apply_erekir_military_level_rules()
 
     def create_campaign(self, options: MindustryOptions) -> None:
         """
@@ -1689,36 +1696,7 @@ class MindustryRegions():
         self.multiworld.completion_condition[self.player] = lambda \
                 state: state.has("Victory archived on Serpulo", self.player)
 
-        add_rule(self.multiworld.get_location("Capture Ruinous Shores", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
-        add_rule(self.multiworld.get_location("Capture Windswept Islands", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 5)
-        add_rule(self.multiworld.get_location("Capture Tar Fields", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
-        add_rule(self.multiworld.get_location("Capture Impact 0078", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
-        add_rule(self.multiworld.get_location("Capture Desolate Rift", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 30)
-        add_rule(self.multiworld.get_location("Capture Planetary Launch Terminal", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 55)
-        add_rule(self.multiworld.get_location("Capture Extraction Outpost", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
-        add_rule(self.multiworld.get_location("Capture Salt Flats", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
-        add_rule(self.multiworld.get_location("Capture Coastline", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 7)
-        add_rule(self.multiworld.get_location("Capture Naval Fortress", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 30)
-        add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
-        add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
-        add_rule(self.multiworld.get_location("Capture Stained Mountains", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
-        add_rule(self.multiworld.get_location("Capture Fungal Pass", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 5)
-        add_rule(self.multiworld.get_location("Capture Nuclear Production Complex", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
+
 
     def __connect_regions(self, source_region: Region, target_region: Region, rule = None) -> None:
         """
@@ -1812,3 +1790,60 @@ class MindustryRegions():
     def __initialise_all_rules(self):
         self.multiworld.completion_condition[self.player] = lambda \
                 state: state.has("Victory archived on all campaign", self.player)
+
+    def __apply_serpulo_military_level_rules(self):
+        add_rule(self.multiworld.get_location("Capture Ruinous Shores", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
+        add_rule(self.multiworld.get_location("Capture Windswept Islands", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 5)
+        add_rule(self.multiworld.get_location("Capture Tar Fields", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Impact 0078", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
+        add_rule(self.multiworld.get_location("Capture Desolate Rift", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 30)
+        add_rule(self.multiworld.get_location("Capture Planetary Launch Terminal", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 55)
+        add_rule(self.multiworld.get_location("Capture Extraction Outpost", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Salt Flats", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Coastline", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 7)
+        add_rule(self.multiworld.get_location("Capture Naval Fortress", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 30)
+        add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
+        add_rule(self.multiworld.get_location("Capture Stained Mountains", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
+        add_rule(self.multiworld.get_location("Capture Fungal Pass", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 5)
+        add_rule(self.multiworld.get_location("Capture Nuclear Production Complex", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
+
+    def __apply_erekir_military_level_rules(self):
+        add_rule(self.multiworld.get_location("Capture Ravine", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 3)
+        add_rule(self.multiworld.get_location("Capture Caldera", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 3 and
+                            get_unit_military_score_erekir(state, self.player) > 4)
+        add_rule(self.multiworld.get_location("Capture Stronghold", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 6 and
+                               get_unit_military_score_erekir(state, self.player) > 8)
+        add_rule(self.multiworld.get_location("Capture Crevice", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 10 and
+                               get_unit_military_score_erekir(state, self.player) > 8)
+        add_rule(self.multiworld.get_location("Capture Siege", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 10 and
+                               get_unit_military_score_erekir(state, self.player) > 15)
+        add_rule(self.multiworld.get_location("Capture Crossroads", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 15 and
+                               get_unit_military_score_erekir(state, self.player) > 20)
+        add_rule(self.multiworld.get_location("Capture Karst", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 40 and
+                               get_unit_military_score_erekir(state, self.player) > 25)
+        add_rule(self.multiworld.get_location("Capture Origin", self.player),
+                 lambda state: get_defense_military_score_erekir(state, self.player) > 50 and
+                               get_unit_military_score_erekir(state, self.player) > 35)

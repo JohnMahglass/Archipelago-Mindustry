@@ -1,4 +1,6 @@
 from BaseClasses import CollectionState
+from worlds._sc2common.bot import player
+
 
 #region Victory rules
 def has_serpulo_victory(state: CollectionState, player: int) -> bool:
@@ -440,7 +442,7 @@ def has_aegis(state: CollectionState, player:int) -> bool:
 
 def has_lake_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Lake"""
-    return state.has_all({"Ship Fabricator", "Elude"}, player)
+    return state.has("Ship Fabricator", player) and state.has_any_count({"Progressive Ships": 1}, player)
 
 def has_lake(state: CollectionState, player:int) -> bool:
     """If the player captured Lake"""
@@ -448,7 +450,7 @@ def has_lake(state: CollectionState, player:int) -> bool:
 
 def has_intersect_requirements(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Intersect"""
-    return state.has_all({"Mech Fabricator", "Merui"}, player)
+    return state.has("Mech Fabricator", player) and state.has_any_count({"Progressive Mechs": 1}, player)
 
 def has_intersect(state: CollectionState, player:int) -> bool:
     """If the player captured Intersect"""
@@ -526,7 +528,7 @@ def has_peaks_requirement(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Peaks"""
     return (state.has_all({"Beam Tower", "Chemical Combustion Chamber", "Ship Refabricator", "Reinforced Container",
                            "Payload Loader", "Payload Unloader"}, player) and
-            state.has_any_count({"Progressive Ships": 1}, player))
+            state.has_any_count({"Progressive Ships": 2}, player))
 
 def has_peaks(state: CollectionState, player:int) -> bool:
     """If the player captured Peaks"""
@@ -588,6 +590,11 @@ def has_heat(state: CollectionState, player:int) -> bool:
     """If the player has access to heat"""
     return has_oxidation_chamber(state, player)
 
+def has_high_heat(state: CollectionState, player:int) -> bool:
+    """If the player has acces to higher heat"""
+    return ((state.has_all({"Electric Heater", "Slag Heater", "Phase Heater", "Heat Redirector", "Heat Router"}, player) and has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_phase_fabric_erekir(state, player)) or (
+            state.has_all({"Neoplasia Reactor", "Heat Redirector", "Heat Router"}, player) and has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_surge_alloy_erekir(state, player) and has_phase_fabric_erekir(state, player) and has_arkycite(state, player)))
+
 def has_electrolyzer(state: CollectionState, player:int) -> bool:
     """If the player received Electrolyzer"""
     return state.has("Electrolyzer", player) and has_tungsten(state, player)
@@ -635,5 +642,327 @@ def has_impact_drill(state: CollectionState, player:int) -> bool:
 def has_large_plasma_bore(state: CollectionState, player:int) -> bool:
     """If the player received Large Plasma Bore"""
     return state.has("Large Plasma Bore", player) and has_oxide(state, player) and has_tungsten(state, player)
+
+
+def _has_erekir_t3_unit_requirements(state: CollectionState, player:int) -> bool:
+    has_base_t3_requirements = False
+    if state.has("Prime Refabricator", player) and has_tungsten(state, player) and has_oxide(
+            state, player) and has_thorium_erekir(state, player) and has_nitrogen(state, player):
+        has_base_t3_requirements = True
+    return has_base_t3_requirements
+
+def _has_mech_assembler_requirements(state: CollectionState, player:int) -> bool:
+    has_mech_assembler_requirements = False
+    if has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_thorium_erekir(state, player) and has_cyanogen(state, player):
+        has_mech_assembler_requirements = True
+    return has_mech_assembler_requirements
+
+def _has_ship_assembler_requirements(state: CollectionState, player:int) -> bool:
+    has_ship_assembler_requirements = False
+    if has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_thorium_erekir(state, player) and has_cyanogen(state, player):
+        has_ship_assembler_requirements = True
+    return has_ship_assembler_requirements
+
+def _has_tank_assembler_requirements(state: CollectionState, player:int) -> bool:
+    has_tank_assembler_requirements = False
+    if has_oxide(state, player) and has_thorium_erekir(state, player) and has_carbide(state, player) and has_cyanogen(state, player):
+        has_tank_assembler_requirements = True
+    return has_tank_assembler_requirements
+
+def _has_basic_assembler_module_requirements(state: CollectionState, player:int) -> bool:
+    has_basic_assembler_module_requirements = False
+    if has_oxide(state, player) and has_thorium_erekir(state, player) and has_carbide(state, player) and has_phase_fabric_erekir(state, player):
+        has_basic_assembler_module_requirements = True
+    return has_basic_assembler_module_requirements
+
+def _has_elude_requirements(state: CollectionState, player:int) -> bool:
+    can_use_elude = False
+    if state.has("Ship Fabricator", player) and state.has_any_count({"Progressive Ships": 1}, player):
+        can_use_elude = True
+    return can_use_elude
+
+
+def _has_avert_requirements(state, player) -> bool:
+    can_use_avert = False
+    if state.has("Ship Refabricator", player) and state.has_all_counts({"Progressive Ships": 2}, player) and _has_elude_requirements(
+            state, player) and has_tungsten(state, player) and has_hydrogen(state, player) and has_oxide(state, player):
+        can_use_avert = True
+    return can_use_avert
+
+
+def _has_obviate_requirements(state, player) -> bool:
+    can_use_obviate = False
+    if _has_erekir_t3_unit_requirements(state, player) and state.has_all_counts({"Progressive Ships": 3}, player) and _has_avert_requirements(state, player):
+        can_use_obviate = True
+    return can_use_obviate
+
+
+def _has_quell_requirements(state, player) -> bool:
+    can_use_quell = False
+    if _has_ship_assembler_requirements(state, player) and state.has_all({"Large Beryllium Wall", "Constructor"}, player) and state.has_all_counts(
+            {"Progressive Ships": 4}, player) and _has_elude_requirements(state, player):
+        can_use_quell = True
+    return can_use_quell
+
+
+def _has_disrupt_requiremts(state, player):
+    can_use_disrupt = False
+    if _has_basic_assembler_module_requirements(state, player) and _has_ship_assembler_requirements(state, player) and state.has_all(
+            {"Large Carbide Wall", "Constructor"}, player) and _has_avert_requirements(state, player) and state.has_all_counts({"Progressive Ships": 5}, player):
+        can_use_disrupt = True
+    return can_use_disrupt
+
+
+def _has_merui_requirements(state, player) -> bool:
+    can_use_merui = False
+    if state.has("Mech Fabricator", player) and state.has_any_count({"Progressive Mechs": 1}, player) and has_tungsten(state, player):
+        can_use_merui = True
+    return can_use_merui
+
+
+def _has_cleroi_requirements(state, player):
+    can_use_cleroi = False
+    if state.has("Mech Refrabricator", player) and _has_merui_requirements(state, player) and state.has_all_counts(
+            {"Progressive Mechs": 2}, player) and has_tungsten(state, player) and has_hydrogen(state, player):
+        can_use_cleroi = True
+    return can_use_cleroi
+
+
+def _has_anthicus_requirements(state, player):
+    can_use_anthicus = False
+    if _has_erekir_t3_unit_requirements(state, player) and state.has_all_counts({"Progressive Mechs": 3}, player) and _has_cleroi_requirements(state, player):
+        can_use_anthicus = True
+    return can_use_anthicus
+
+
+def _has_tecta_requirements(state, player):
+    can_use_tecta = False
+    if _has_mech_assembler_requirements(state, player) and state.has_all_counts({"Progressive Mechs": 4}, player) and state.has_all(
+            {"Large Tungsten Wall", "Constructor"}, player) and _has_merui_requirements(state, player):
+        can_use_tecta = True
+    return can_use_tecta
+
+
+def _has_collaris_requirements(state, player):
+    can_use_collaris = False
+    if _has_mech_assembler_requirements(state, player) and _has_basic_assembler_module_requirements(state, player) and state.has_all_counts(
+            {"Progressive Mechs": 5}, player) and state.has_all({"Large Carbide Wall", "Constructor"}, player) and _has_cleroi_requirements(state, player):
+        can_use_collaris = True
+    return can_use_collaris
+
+
+def _has_locus_requirements(state, player):
+    can_use_locus = False
+    if state.has("Tank Refabricator", player) and state.has_all_counts({"Progressive Tanks": 1}, player) and has_tungsten(state, player) and has_hydrogen(state, player):
+        can_use_locus = True
+    return can_use_locus
+
+
+def _has_precept_requirements(state, player):
+    can_use_precept = False
+    if _has_erekir_t3_unit_requirements(state, player) and _has_locus_requirements(state, player) and state.has_all_counts({"Progressive Tanks": 2}, player):
+        can_use_precept = True
+    return can_use_precept
+
+
+def _has_vanquish_requirements(state, player):
+    can_use_vanquish = False
+    if _has_tank_assembler_requirements(state, player) and state.has_all_counts({"Progressive Tanks": 3}, player) and state.has_all(
+            {"Large Tungsten Wall", "Constructor"}, player):
+        can_use_vanquish = True
+    return can_use_vanquish
+
+
+def _has_conquer_requirements(state, player):
+    can_use_conquer = False
+    if _has_tank_assembler_requirements(state, player) and _has_basic_assembler_module_requirements(state, player) and state.has_all_counts(
+            {"Progressive Tanks": 4}, player) and _has_locus_requirements(state, player) and state.has_all({"Large Carbide Wall", "Constructor"}, player):
+        can_use_conquer = True
+    return can_use_conquer
+
+
+def _has_diffuse_requirements(state, player):
+    can_use_diffuse = False
+    if state.has("Diffuse", player) and has_tungsten(state, player):
+        can_use_diffuse = True
+    return can_use_diffuse
+
+
+def _has_sublimate_requirements(state, player):
+    can_use_sublimate = False
+    if state.has_all({"Sublimate", "Reinforced Conduit"}, player) and has_tungsten(state, player) and has_oxide(state, player) and (has_ozone(state, player) or has_cyanogen(state, player)):
+        can_use_sublimate = True
+    return can_use_sublimate
+
+
+def has_disperse_requirements(state, player):
+    can_use_disperse = False
+    if state.has("Disperse", player) and has_thorium_erekir(state, player) and has_oxide(state, player) and has_tungsten(state, player):
+        can_use_disperse = True
+    return can_use_disperse
+
+
+def has_afflict_requirements(state, player):
+    can_use_afflict = False
+    if state.has("Afflict", player) and has_surge_alloy_erekir(state, player) and has_oxide(state, player) and has_heat(state, player):
+        can_use_afflict = True
+    return can_use_afflict
+
+
+def has_scathe_requirements(state, player):
+    can_use_scathe = False
+    if state.has("Scathe", player) and has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player):
+        can_use_scathe = True
+    return can_use_scathe
+
+
+def has_titan_requirements(state, player):
+    can_use_titan = False
+    if state.has("Titan", player) and has_thorium_erekir(state, player) and has_tungsten(state, player) and has_hydrogen(state, player):
+        can_use_titan = True
+    return can_use_titan
+
+def has_malign_requirements(state, player):
+    can_use_malign = False
+    if state.has("Malign", player) and has_phase_fabric_erekir(state, player) and has_carbide(state, player) and has_high_heat(state, player):
+        can_use_malign = True
+    return can_use_malign
+
+
+def has_lustre_requirements(state, player):
+    can_use_lustre = False
+    if state.has_all({"Lustre", "Reinforced Conduit"}, player) and has_oxide(state, player) and has_carbide(state, player) and has_nitrogen(state, player):
+        can_use_lustre = True
+    return can_use_lustre
+
+
+def has_smite_requirements(state, player):
+    can_use_smite = False
+    if state.has("Smite", player) and has_phase_fabric_erekir(state, player) and has_surge_alloy_erekir(state, player) and has_oxide(state, player) and has_carbide(state, player):
+        can_use_smite = True
+    return can_use_smite
+
+
+def has_tungsten_wall_requirements(state, player):
+    can_use_wall = False
+    if state.has_any({"Tungsten Wall", "Large Tungsten Wall"}, player) and has_tungsten(state, player):
+        can_use_wall = True
+    return can_use_wall
+
+def has_surge_wall_requirements(state, player):
+    can_use_wall = False
+    if state.has_any({"Reinforced Surge Wall", "Large Reinforced Surge Wall"}, player) and has_tungsten(state, player) and has_surge_alloy_erekir(state, player):
+        can_use_wall = True
+    return can_use_wall
+
+def has_carbide_wall_requirements(state, player):
+    can_use_wall = False
+    if state.has_any({"Carbide Wall", "Large Carbide Wall"}, player) and has_carbide(state, player) and has_thorium_erekir(state, player):
+        can_use_wall = True
+    return can_use_wall
+
+def has_shielded_wall_requirements(state, player):
+    can_use_wall = False
+    if state.has("Shielded Wall", player) and has_surge_alloy_erekir(state, player) and has_phase_fabric_erekir(state, player):
+        can_use_wall = True
+    return can_use_wall
+
+
+def has_regen_projector_requirements(state, player):
+    can_use_projector = False
+    if state.has_all({"Regen Projector", "Reinforced Conduit"}, player) and has_tungsten(state, player) and has_oxide(state, player) and has_hydrogen(state, player):
+        can_use_projector = True
+    return can_use_projector
+
+def has_build_tower_requirements(state, player):
+    can_use_tower = False
+    if state.has_all({"Build Tower", "Reinforced Conduit"}, player) and has_thorium_erekir(state, player) and has_oxide(state, player) and has_nitrogen(state, player):
+        can_use_tower = True
+    return can_use_tower
+
+def has_shockwave_tower_requirements(state, player):
+    can_use_tower = False
+    if state.has_all({"Shockwave Tower", "Reinforced Conduit"}, player) and has_tungsten(state, player) and has_oxide(state, player) and has_surge_alloy_erekir(state, player) and has_cyanogen(state, player):
+        can_use_tower = True
+    return can_use_tower
+
+
+def get_defense_military_score_erekir(state: CollectionState, player:int) ->int:
+    """Return the military score of the player defense based on their research"""
+    score = 0
+
+    if _has_diffuse_requirements(state, player):
+        score += 1
+    if _has_sublimate_requirements(state, player):
+        score += 2
+    if has_disperse_requirements(state, player):
+        score += 3
+    if has_afflict_requirements(state, player):
+        score += 4
+    if has_scathe_requirements(state, player):
+        score += 4
+    if has_titan_requirements(state, player):
+        score += 4
+    if has_malign_requirements(state, player):
+        score += 8
+    if has_lustre_requirements(state, player):
+        score += 8
+    if has_smite_requirements(state, player):
+        score += 10
+
+    if has_tungsten_wall_requirements(state, player):
+        score += 1
+    if has_surge_wall_requirements(state, player):
+        score += 3
+    if has_carbide_wall_requirements(state, player):
+        score += 5
+    if has_shielded_wall_requirements(state, player):
+        score += 10
+
+    if has_regen_projector_requirements(state, player):
+        score += 3
+    if has_build_tower_requirements(state, player):
+        score += 4
+    if has_shockwave_tower_requirements(state, player):
+        score += 8
+    # Total = 78
+    return score
+
+def get_unit_military_score_erekir(state: CollectionState, player:int) -> int:
+    """Return the military score of the player unit based on their research"""
+    score = 0
+
+    if _has_elude_requirements(state, player):
+        score += 1
+    if _has_avert_requirements(state, player):
+        score += 2
+    if _has_obviate_requirements(state, player):
+        score += 3
+    if _has_quell_requirements(state, player):
+        score += 4
+    if _has_disrupt_requiremts(state, player):
+        score += 5
+
+    if _has_merui_requirements(state, player):
+        score += 1
+    if _has_cleroi_requirements(state, player):
+        score += 2
+    if _has_anthicus_requirements(state, player):
+        score += 3
+    if _has_tecta_requirements(state, player):
+        score += 4
+    if _has_collaris_requirements(state, player):
+        score += 5
+
+    if _has_locus_requirements(state, player):
+        score += 2
+    if _has_precept_requirements(state, player):
+        score += 3
+    if _has_vanquish_requirements(state, player):
+        score += 4
+    if _has_conquer_requirements(state, player):
+        score += 5
+    #Total = 44
+    return score
 
 #endregion
