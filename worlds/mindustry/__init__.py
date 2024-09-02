@@ -89,19 +89,14 @@ class MindustryWorld(World):
 
     def create_items(self) -> None:
         """Create every item in the world"""
-        precollected = [item.name for item in self.multiworld.precollected_items[self.player]]
         campaign = self.options.campaign_choice.value
         for name, data in item_table.items():
             if self.__from_selected_campaign(data, campaign):
-                if name in precollected:
-                    precollected.remove(name)
-                    self.multiworld.itempool.append(self.create_item(self.get_filler_item_name()))
-                else:
-                    if name not in self.exclude:
-                        item_count = item_table.get(name).count
-                        for i in range(item_count):
-                            item = self.create_item(name)
-                            self.multiworld.itempool.append(item)
+                if name not in self.exclude:
+                    item_count = item_table.get(name).count
+                    for i in range(item_count):
+                        item = self.create_item(name)
+                        self.multiworld.itempool.append(item)
         #Check how many location are empty and fill them with FILLERS
         remaining = len(self.multiworld.get_unfilled_locations(self.player)) - len(self.multiworld.itempool)
         while remaining > 0:
@@ -156,6 +151,6 @@ class MindustryWorld(World):
             "faster_production": bool(self.options.faster_production.value),
             "death_link": bool(self.options.death_link.value),
             "military_level_tracking": bool(self.options.military_level_tracking.value),
-            "randomize_player_shots": bool(self.options.randomize_player_shots.value),
+            "randomize_core_units_weapon": bool(self.options.randomize_core_units_weapon.value),
             "randomize_block_size": bool(self.options.randomize_block_size.value),
         }

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, Toggle, PerGameCommonOptions, DefaultOnToggle
+from Options import Choice, Toggle, PerGameCommonOptions, DefaultOnToggle, StartInventoryPool
 
 
 class TutorialSkip(Toggle):
@@ -30,9 +30,9 @@ class MilitaryLevelTracking(DefaultOnToggle):
     """Ensure the player has enough military power to clear sectors. If turned off, the logic will consider that the player can clear every sector once they have the minimal requirement to land on that sector."""
     display_name = "Military level tracking"
 
-class RandomizePlayerShots(Toggle):
-    """Will randomize the player shots for every player ship they can control."""
-    display_name = "Randomize player shots"
+class RandomizeCoreUnitsWeapon(Toggle):
+    """Will randomize core units weapon. Erekir core unit will be made vulnerable and be given an ability instead."""
+    display_name = "Randomize core units weapon"
 
 class RandomizeBlockSize(Toggle):
     """Will randomize the size of blocks. Some blocks might be excluded from randomization."""
@@ -43,11 +43,12 @@ class MindustryOptions(PerGameCommonOptions):
     """
     Options for Mindustry randomizer.
     """
+    start_inventory_from_pool: StartInventoryPool
     tutorial_skip: TutorialSkip
     campaign_choice: CampaignChoice
     disable_invasions: DisableInvasions
     faster_production: FasterProduction
     death_link: DeathLink
     military_level_tracking: MilitaryLevelTracking
-    randomize_player_shots: RandomizePlayerShots
+    randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     randomize_block_size: RandomizeBlockSize
