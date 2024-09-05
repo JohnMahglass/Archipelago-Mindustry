@@ -1,4 +1,4 @@
-from typing import ClassVar, Dict, List, Mapping, Any
+from typing import ClassVar, Dict, List, Any
 
 from BaseClasses import MultiWorld, ItemClassification
 from worlds.AutoWorld import World, WebWorld
@@ -153,7 +153,7 @@ class MindustryWorld(World):
             "military_level_tracking": bool(self.options.military_level_tracking.value),
             "randomize_core_units_weapon": bool(self.options.randomize_core_units_weapon.value),
             "randomize_block_size": bool(self.options.randomize_block_size.value),
-            "logistic_distribution": self.options.campaign_choice.value,
+            "logistic_distribution": self.options.logistic_distribution.value,
         }
 
     def __exclude_items(self, campaign:int) -> None:

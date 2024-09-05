@@ -420,21 +420,26 @@ class MindustryRegions():
 
     def initialise_rules(self, options: MindustryOptions) -> None:
         """Initialise rules based on user options"""
-        if options.campaign_choice.value == 0:
+        if options.campaign_choice.value == 0: #Serpulo
             self.__initialise_serpulo_rules()
             if options.military_level_tracking:
                 self.__apply_serpulo_military_level_rules()
             if options.logistic_distribution == 1: #Early logistics
                 self.__apply_serpulo_early_logistics_rules()
-        elif options.campaign_choice.value == 1:
+        elif options.campaign_choice.value == 1: #Erekir
             self.__initialise_erekir_rules()
             if options.military_level_tracking:
                 self.__apply_erekir_military_level_rules()
-        elif options.campaign_choice.value == 2:
+            if options.logistic_distribution == 1: #Early logistics
+                self.__apply_erekir_early_logistics_rules()
+        elif options.campaign_choice.value == 2: #All
             self.__initialise_all_rules()
             if options.military_level_tracking:
                 self.__apply_serpulo_military_level_rules()
                 self.__apply_erekir_military_level_rules()
+            if options.logistic_distribution == 1: #Early logistics
+                self.__apply_serpulo_early_logistics_rules()
+                self.__apply_erekir_early_logistics_rules()
 
     def create_campaign(self, options: MindustryOptions) -> None:
         """
