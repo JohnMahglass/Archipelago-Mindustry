@@ -103,6 +103,103 @@ class MindustryWorld(World):
             self.__create_filler_item(campaign)
             remaining -= 1
 
+    def generate_early(self) -> None:
+        """Change item classification based on options."""
+        campaign = self.options.campaign_choice.value
+        if self.options.military_level_tracking:
+            if campaign == 0: #Serpulo
+                self.__apply_serpulo_military_item_classification()
+            elif campaign == 1: #Erekir
+                self.__apply_erekir_military_item_classification()
+            elif campaign == 2: #All
+                self.__apply_serpulo_military_item_classification()
+                self.__apply_erekir_military_item_classification()
+
+        if self.options.logistic_distribution == 1: #Early logistics
+            if campaign == 0: #Serpulo
+                self.__apply_serpulo_early_logistics_classification()
+            elif campaign == 1: #Erekir
+                self.__apply_erekir_early_logistics_classification()
+            elif campaign == 2: #All
+                self.__apply_serpulo_early_logistics_classification()
+                self.__apply_erekir_early_logistics_classification()
+
+    def __apply_serpulo_early_logistics_classification(self):
+        """Apply the NECESSARY item classification for Serpulo logistics items."""
+        item_table["Conduit"].type = ItemType.NECESSARY
+        item_table["Liquid Junction"].type = ItemType.NECESSARY
+        item_table["Liquid Router"].type = ItemType.NECESSARY
+        item_table["Bridge Conduit"].type = ItemType.NECESSARY
+        item_table["Junction"].type = ItemType.NECESSARY
+        item_table["Router"].type = ItemType.NECESSARY
+        item_table["Bridge Conveyor"].type = ItemType.NECESSARY
+
+    def __apply_erekir_early_logistics_classification(self):
+        """Apply the NECESSARY item classification for Erekir logistics items."""
+        item_table["Duct Router"].type = ItemType.NECESSARY
+        item_table["Duct Bridge"].type = ItemType.NECESSARY
+        item_table["Reinforced Conduit"].type = ItemType.NECESSARY
+        item_table["Reinforced Liquid Junction"].type = ItemType.NECESSARY
+        item_table["Reinforced Bridge Conduit"].type = ItemType.NECESSARY
+        item_table["Reinforced Liquid Router"].type = ItemType.NECESSARY
+
+    def __apply_erekir_military_item_classification(self):
+        """Apply the NECESSARY item classification for Erekir military items."""
+        item_table["Diffuse"].type = ItemType.NECESSARY
+        item_table["Sublimate"].type = ItemType.NECESSARY
+        item_table["Disperse"].type = ItemType.NECESSARY
+        item_table["Afflict"].type = ItemType.NECESSARY
+        item_table["Scathe"].type = ItemType.NECESSARY
+        item_table["Titan"].type = ItemType.NECESSARY
+        item_table["Malign"].type = ItemType.NECESSARY
+        item_table["Electric Heater"].type = ItemType.NECESSARY
+        item_table["Slag Heater"].type = ItemType.NECESSARY
+        item_table["Phase Heater"].type = ItemType.NECESSARY
+        item_table["Heat Redirector"].type = ItemType.NECESSARY
+        item_table["Heat Router"].type = ItemType.NECESSARY
+        item_table["Neoplasia Reactor"].type = ItemType.NECESSARY
+        item_table["Lustre"].type = ItemType.NECESSARY
+        item_table["Smite"].type = ItemType.NECESSARY
+        item_table["Tungsten Wall"].type = ItemType.NECESSARY
+        item_table["Large Tungsten Wall"].type = ItemType.NECESSARY
+        item_table["Reinforced Surge Wall"].type = ItemType.NECESSARY
+        item_table["Large Reinforced Surge Wall"].type = ItemType.NECESSARY
+        item_table["Carbide Wall"].type = ItemType.NECESSARY
+        item_table["Large Carbide Wall"].type = ItemType.NECESSARY
+        item_table["Shielded Wall"].type = ItemType.NECESSARY
+        item_table["Regen Projector"].type = ItemType.NECESSARY
+        item_table["Build Tower"].type = ItemType.NECESSARY
+        item_table["Shockwave Tower"].type = ItemType.NECESSARY
+        item_table["Prime Refabricator"].type = ItemType.NECESSARY
+        item_table["Large Beryllium Wall"].type = ItemType.NECESSARY
+        item_table["Constructor"].type = ItemType.NECESSARY
+        item_table["Tank Assembler"].type = ItemType.NECESSARY
+        item_table["Ship Assembler"].type = ItemType.NECESSARY
+        item_table["Mech Assembler"].type = ItemType.NECESSARY
+        item_table["Basic Assembler Module"].type = ItemType.NECESSARY
+
+    def __apply_serpulo_military_item_classification(self):
+        """Apply the NECESSARY item classification for Serpulo military items."""
+        item_table["Hail"].type = ItemType.NECESSARY
+        item_table["Arc"].type = ItemType.NECESSARY
+        item_table["Scorch"].type = ItemType.NECESSARY
+        item_table["Parallax"].type = ItemType.NECESSARY
+        item_table["Wave"].type = ItemType.NECESSARY
+        item_table["Lancer"].type = ItemType.NECESSARY
+        item_table["Salvo"].type = ItemType.NECESSARY
+        item_table["Swarmer"].type = ItemType.NECESSARY
+        item_table["Ripple"].type = ItemType.NECESSARY
+        item_table["Tsunami"].type = ItemType.NECESSARY
+        item_table["Fuse"].type = ItemType.NECESSARY
+        item_table["Meltdown"].type = ItemType.NECESSARY
+        item_table["Foreshadow"].type = ItemType.NECESSARY
+        item_table["Cyclone"].type = ItemType.NECESSARY
+        item_table["Spectre"].type = ItemType.NECESSARY
+        item_table["Segment"].type = ItemType.NECESSARY
+        item_table["Mender"].type = ItemType.NECESSARY
+        item_table["Mend Projector"].type = ItemType.NECESSARY
+        item_table["Shock Mine"].type = ItemType.NECESSARY
+
     def __create_filler_item(self, campaign):
         """
         Create a filler item from the selected campaign
@@ -152,7 +249,6 @@ class MindustryWorld(World):
             "death_link": bool(self.options.death_link.value),
             "military_level_tracking": bool(self.options.military_level_tracking.value),
             "randomize_core_units_weapon": bool(self.options.randomize_core_units_weapon.value),
-            "randomize_block_size": bool(self.options.randomize_block_size.value),
             "logistic_distribution": self.options.logistic_distribution.value,
         }
 

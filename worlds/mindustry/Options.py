@@ -34,10 +34,6 @@ class RandomizeCoreUnitsWeapon(Toggle):
     """Will randomize core units weapon. Erekir core unit will be made vulnerable and be given an ability instead."""
     display_name = "Randomize core units weapon"
 
-class RandomizeBlockSize(Toggle):
-    """Will randomize the size of blocks. Some blocks might be excluded from randomization."""
-    display_name = "Randomize block size"
-
 class LogisticDistribution(Choice):
     """Change how logistics research are distributed."""
     display_name = "Logistic distribution"
@@ -59,5 +55,4 @@ class MindustryOptions(PerGameCommonOptions):
     death_link: DeathLink
     military_level_tracking: MilitaryLevelTracking
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
-    randomize_block_size: RandomizeBlockSize
     logistic_distribution: LogisticDistribution

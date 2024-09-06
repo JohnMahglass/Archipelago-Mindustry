@@ -668,25 +668,25 @@ def _has_erekir_t3_unit_requirements(state: CollectionState, player:int) -> bool
 
 def _has_mech_assembler_requirements(state: CollectionState, player:int) -> bool:
     has_mech_assembler_requirements = False
-    if has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_thorium_erekir(state, player) and has_cyanogen(state, player):
+    if state.has("Mech Assembler", player) and has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_thorium_erekir(state, player) and has_cyanogen(state, player):
         has_mech_assembler_requirements = True
     return has_mech_assembler_requirements
 
 def _has_ship_assembler_requirements(state: CollectionState, player:int) -> bool:
     has_ship_assembler_requirements = False
-    if has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_thorium_erekir(state, player) and has_cyanogen(state, player):
+    if state.has("Ship Assembler", player) and has_tungsten(state, player) and has_oxide(state, player) and has_carbide(state, player) and has_thorium_erekir(state, player) and has_cyanogen(state, player):
         has_ship_assembler_requirements = True
     return has_ship_assembler_requirements
 
 def _has_tank_assembler_requirements(state: CollectionState, player:int) -> bool:
     has_tank_assembler_requirements = False
-    if has_oxide(state, player) and has_thorium_erekir(state, player) and has_carbide(state, player) and has_cyanogen(state, player):
+    if state.has("Tank Assembler", player) and has_oxide(state, player) and has_thorium_erekir(state, player) and has_carbide(state, player) and has_cyanogen(state, player):
         has_tank_assembler_requirements = True
     return has_tank_assembler_requirements
 
 def _has_basic_assembler_module_requirements(state: CollectionState, player:int) -> bool:
     has_basic_assembler_module_requirements = False
-    if has_oxide(state, player) and has_thorium_erekir(state, player) and has_carbide(state, player) and has_phase_fabric_erekir(state, player):
+    if state.has("Basic Assembler Module", player) and has_oxide(state, player) and has_thorium_erekir(state, player) and has_carbide(state, player) and has_phase_fabric_erekir(state, player):
         has_basic_assembler_module_requirements = True
     return has_basic_assembler_module_requirements
 
