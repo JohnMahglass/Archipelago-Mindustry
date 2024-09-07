@@ -285,7 +285,7 @@ def has_naval_factory(state: CollectionState, player:int) -> bool:
 
 def has_early_logistics_serpulo(state: CollectionState, player:int) -> bool:
     """Rules for early logistics options on Serpulo"""
-    return state.has_all({"Conduit", "Liquid Junction", "Liquid Router", "Bridge Conduit", "Junction", "Router", "Bridge Conveyor"}, player)
+    return state.has_all({"Conduit", "Liquid Junction", "Liquid Router", "Bridge Conduit", "Junction", "Router", "Bridge Conveyor", "Power Node"}, player)
 
 def can_produce_naval_unit(state: CollectionState, player:int) -> bool:
     """If the player can produce naval units"""

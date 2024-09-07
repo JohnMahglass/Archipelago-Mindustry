@@ -133,6 +133,7 @@ class MindustryWorld(World):
         item_table["Junction"].type = ItemType.NECESSARY
         item_table["Router"].type = ItemType.NECESSARY
         item_table["Bridge Conveyor"].type = ItemType.NECESSARY
+        item_table["Power Node"].type = ItemType.NECESSARY
 
     def __apply_erekir_early_logistics_classification(self):
         """Apply the NECESSARY item classification for Erekir logistics items."""
@@ -285,6 +286,9 @@ class MindustryWorld(World):
 
         self.multiworld.push_precollected(self.create_item("Bridge Conveyor"))
         self.exclude.append("Bridge Conveyor")
+
+        self.multiworld.push_precollected(self.create_item("Power Node"))
+        self.exclude.append("Power Node")
 
     def __exclude_erekir_logistics(self) -> None:
         """Exclude Erekir logistics items from the item pool for the Starter logistics options"""
