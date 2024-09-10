@@ -1803,35 +1803,35 @@ class MindustryRegions():
 
     def __apply_serpulo_military_level_rules(self):
         add_rule(self.multiworld.get_location("Capture Ruinous Shores", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
-        add_rule(self.multiworld.get_location("Capture Windswept Islands", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 5)
+        add_rule(self.multiworld.get_location("Capture Windswept Islands", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 6)
         add_rule(self.multiworld.get_location("Capture Tar Fields", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
-        add_rule(self.multiworld.get_location("Capture Impact 0078", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 10)
+        add_rule(self.multiworld.get_location("Capture Impact 0078", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 12)
         add_rule(self.multiworld.get_location("Capture Desolate Rift", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 30)
         add_rule(self.multiworld.get_location("Capture Planetary Launch Terminal", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 55)
         add_rule(self.multiworld.get_location("Capture Extraction Outpost", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
         add_rule(self.multiworld.get_location("Capture Salt Flats", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
         add_rule(self.multiworld.get_location("Capture Coastline", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 7)
+                 lambda state: get_military_score_serpulo(state, self.player) >= 9)
         add_rule(self.multiworld.get_location("Capture Naval Fortress", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 30)
         add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
-        add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
-        add_rule(self.multiworld.get_location("Capture Stained Mountains", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 4)
-        add_rule(self.multiworld.get_location("Capture Fungal Pass", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 5)
-        add_rule(self.multiworld.get_location("Capture Nuclear Production Complex", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 10)
+        add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 6)
+        add_rule(self.multiworld.get_location("Capture Stained Mountains", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 7)
+        add_rule(self.multiworld.get_location("Capture Fungal Pass", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 8)
+        add_rule(self.multiworld.get_location("Capture Nuclear Production Complex", self.player),
+                 lambda state: get_military_score_serpulo(state, self.player) >= 12)
 
     def __apply_erekir_military_level_rules(self):
         add_rule(self.multiworld.get_location("Capture Ravine", self.player),
