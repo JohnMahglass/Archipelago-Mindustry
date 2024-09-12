@@ -1862,12 +1862,10 @@ class MindustryRegions():
         """Apply the Early logistics options to Serpulo"""
         add_rule(self.multiworld.get_location("Capture Biomass Synthesis Facility", self.player),
                  lambda state: has_early_logistics_serpulo(state, self.player))
-        add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
-                 lambda state: has_early_logistics_serpulo(state, self.player))
-        add_rule(self.multiworld.get_location("Capture Ruinous Shores", self.player),
+        add_rule(self.multiworld.get_location("Capture The Craters", self.player),
                  lambda state: has_early_logistics_serpulo(state, self.player))
 
     def __apply_erekir_early_logistics_rules(self):
         """Apply the Early logistics options to Erekir"""
-        add_rule(self.multiworld.get_location("Capture Basin", self.player),
+        add_rule(self.multiworld.get_location("Capture Atlas", self.player),
                  lambda state: has_early_logistics_erekir(state, self.player))

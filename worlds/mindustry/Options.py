@@ -42,6 +42,7 @@ class LogisticDistribution(Choice):
     option_starter_logistics = 2
     default = 1
 
+
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
     """
