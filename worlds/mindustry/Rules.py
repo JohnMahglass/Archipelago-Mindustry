@@ -486,7 +486,7 @@ def has_basin(state: CollectionState, player:int) -> bool:
 
 def has_marsh_requirement(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Marsh"""
-    return state.has_all({"Oxidation Chamber", "Reinforced Pump", "Chemical Combustion Chamber"}, player)
+    return state.has_all({"Oxidation Chamber", "Reinforced Pump", "Chemical Combustion Chamber"}, player) and has_basin(state, player)
 
 def has_marsh(state: CollectionState, player:int) -> bool:
     """If the player captured Marsh"""
