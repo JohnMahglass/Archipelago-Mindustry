@@ -283,6 +283,7 @@ def has_naval_factory(state: CollectionState, player:int) -> bool:
         available = True
     return available
 
+@DeprecationWarning
 def has_early_logistics_serpulo(state: CollectionState, player:int) -> bool:
     """Rules for early logistics options on Serpulo"""
     return state.has_all({"Conduit", "Liquid Junction", "Liquid Router", "Bridge Conduit", "Junction", "Router", "Bridge Conveyor", "Power Node"}, player)
@@ -486,7 +487,7 @@ def has_basin(state: CollectionState, player:int) -> bool:
 
 def has_marsh_requirement(state: CollectionState, player:int) -> bool:
     """If the player has received the research required to clear Marsh"""
-    return state.has_all({"Oxidation Chamber", "Reinforced Pump", "Chemical Combustion Chamber"}, player) and has_basin(state, player)
+    return state.has_all({"Oxidation Chamber", "Reinforced Pump", "Chemical Combustion Chamber"}, player)
 
 def has_marsh(state: CollectionState, player:int) -> bool:
     """If the player captured Marsh"""
@@ -655,6 +656,7 @@ def has_large_plasma_bore(state: CollectionState, player:int) -> bool:
     """If the player received Large Plasma Bore"""
     return state.has("Large Plasma Bore", player) and has_oxide(state, player) and has_tungsten(state, player)
 
+@DeprecationWarning
 def has_early_logistics_erekir(state: CollectionState, player:int) -> bool:
     """Rules for early logistics options on Erekir"""
     return state.has_all({"Duct Router", "Duct Bridge", "Reinforced Conduit", "Reinforced Liquid Junction", "Reinforced Bridge Conduit", "Reinforced Liquid Router"}, player)

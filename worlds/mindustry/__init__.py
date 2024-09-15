@@ -117,32 +117,60 @@ class MindustryWorld(World):
 
         if self.options.logistic_distribution == 1: #Early logistics
             if campaign == 0: #Serpulo
-                self.__apply_serpulo_early_logistics_classification()
+                self.__apply_serpulo_early_logistics()
             elif campaign == 1: #Erekir
-                self.__apply_erekir_early_logistics_classification()
+                self.__apply_erekir_early_logistics()
             elif campaign == 2: #All
-                self.__apply_serpulo_early_logistics_classification()
-                self.__apply_erekir_early_logistics_classification()
+                self.__apply_serpulo_early_logistics()
+                self.__apply_erekir_early_logistics()
+        if self.options.logistic_distribution == 2: #Local early logistics
+            if campaign == 0:
+                self.__apply_serpulo_local_early_logistics()
+            elif campaign == 1:
+                self.__apply_erekir_local_early_logistics()
+            elif campaign == 2:
+                self.__apply_serpulo_local_early_logistics()
+                self.__apply_erekir_local_early_logistics()
 
-    def __apply_serpulo_early_logistics_classification(self):
+    def __apply_serpulo_early_logistics(self):
         """Apply the NECESSARY item classification for Serpulo logistics items."""
-        item_table["Conduit"].type = ItemType.NECESSARY
-        item_table["Liquid Junction"].type = ItemType.NECESSARY
-        item_table["Liquid Router"].type = ItemType.NECESSARY
-        item_table["Bridge Conduit"].type = ItemType.NECESSARY
-        item_table["Junction"].type = ItemType.NECESSARY
-        item_table["Router"].type = ItemType.NECESSARY
-        item_table["Bridge Conveyor"].type = ItemType.NECESSARY
-        item_table["Power Node"].type = ItemType.NECESSARY
+        self.multiworld.early_items[self.player]["Conduit"] = 1
+        self.multiworld.early_items[self.player]["Liquid Junction"] = 1
+        self.multiworld.early_items[self.player]["Liquid Router"] = 1
+        self.multiworld.early_items[self.player]["Bridge Conduit"] = 1
+        self.multiworld.early_items[self.player]["Junction"] = 1
+        self.multiworld.early_items[self.player]["Router"] = 1
+        self.multiworld.early_items[self.player]["Bridge Conveyor"] = 1
+        self.multiworld.early_items[self.player]["Power Node"] = 1
 
-    def __apply_erekir_early_logistics_classification(self):
+    def __apply_serpulo_local_early_logistics(self):
+        """Apply the NECESSARY item classification for Serpulo logistics items."""
+        self.multiworld.local_early_items[self.player]["Conduit"] = 1
+        self.multiworld.local_early_items[self.player]["Liquid Junction"] = 1
+        self.multiworld.local_early_items[self.player]["Liquid Router"] = 1
+        self.multiworld.local_early_items[self.player]["Bridge Conduit"] = 1
+        self.multiworld.local_early_items[self.player]["Junction"] = 1
+        self.multiworld.local_early_items[self.player]["Router"] = 1
+        self.multiworld.local_early_items[self.player]["Bridge Conveyor"] = 1
+        self.multiworld.local_early_items[self.player]["Power Node"] = 1
+
+    def __apply_erekir_early_logistics(self):
         """Apply the NECESSARY item classification for Erekir logistics items."""
-        item_table["Duct Router"].type = ItemType.NECESSARY
-        item_table["Duct Bridge"].type = ItemType.NECESSARY
-        item_table["Reinforced Conduit"].type = ItemType.NECESSARY
-        item_table["Reinforced Liquid Junction"].type = ItemType.NECESSARY
-        item_table["Reinforced Bridge Conduit"].type = ItemType.NECESSARY
-        item_table["Reinforced Liquid Router"].type = ItemType.NECESSARY
+        self.multiworld.early_items[self.player]["Duct Router"] = 1
+        self.multiworld.early_items[self.player]["Duct Bridge"] = 1
+        self.multiworld.early_items[self.player]["Reinforced Conduit"] = 1
+        self.multiworld.early_items[self.player]["Reinforced Liquid Junction"] = 1
+        self.multiworld.early_items[self.player]["Reinforced Bridge Conduit"] = 1
+        self.multiworld.early_items[self.player]["Reinforced Liquid Router"] = 1
+
+    def __apply_erekir_local_early_logistics(self):
+        """Apply the NECESSARY item classification for Erekir logistics items."""
+        self.multiworld.local_early_items[self.player]["Duct Router"] = 1
+        self.multiworld.local_early_items[self.player]["Duct Bridge"] = 1
+        self.multiworld.local_early_items[self.player]["Reinforced Conduit"] = 1
+        self.multiworld.local_early_items[self.player]["Reinforced Liquid Junction"] = 1
+        self.multiworld.local_early_items[self.player]["Reinforced Bridge Conduit"] = 1
+        self.multiworld.local_early_items[self.player]["Reinforced Liquid Router"] = 1
 
     def __apply_erekir_military_item_classification(self):
         """Apply the NECESSARY item classification for Erekir military items."""
@@ -255,7 +283,7 @@ class MindustryWorld(World):
 
     def __exclude_items(self, campaign:int) -> None:
         """Exclude items from the item pools depending on player options"""
-        if self.options.logistic_distribution == 2: #Starter logistics
+        if self.options.logistic_distribution == 3: #Starter logistics
             if campaign == 0: #Serpulo
                 self.__exclude_serpulo_logistics()
             if campaign == 1: #Erekir

@@ -39,7 +39,8 @@ class LogisticDistribution(Choice):
     display_name = "Logistic distribution"
     option_randomized_logistics = 0
     option_early_logistics = 1
-    option_starter_logistics = 2
+    option_local_early_logistics = 2
+    option_starter_logistics = 3
     default = 1
 
 
