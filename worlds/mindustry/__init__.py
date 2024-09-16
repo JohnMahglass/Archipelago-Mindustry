@@ -1,9 +1,9 @@
 from typing import ClassVar, Dict, List, Any
 
-from BaseClasses import MultiWorld, ItemClassification
+from BaseClasses import MultiWorld
 from worlds.AutoWorld import World, WebWorld
 from worlds.mindustry.Shared import MINDUSTRY_BASE_ID
-from worlds.mindustry.Items import item_table, MindustryItem, ItemType, ItemGroup
+from worlds.mindustry.Items import item_table, MindustryItem, ItemClassification, ItemGroup
 from worlds.mindustry.Locations import location_table
 from worlds.mindustry.Options import MindustryOptions
 from worlds.mindustry.Regions import MindustryRegions
@@ -70,7 +70,7 @@ class MindustryWorld(World):
             classification: ItemClassification = ItemClassification.useful
             if data.group == ItemGroup.FILLER:
                 classification = ItemClassification.filler
-            if data.type == ItemType.NECESSARY:
+            if data.type == ItemClassification.NECESSARY:
                 classification = ItemClassification.progression
             result = MindustryItem(name, classification, data.id, self.player)
         except BaseException:
@@ -133,7 +133,7 @@ class MindustryWorld(World):
                 self.__apply_erekir_local_early_logistics()
 
     def __apply_serpulo_early_logistics(self):
-        """Apply the NECESSARY item classification for Serpulo logistics items."""
+        """Add Serpulo logistics items to the early items list."""
         self.multiworld.early_items[self.player]["Conduit"] = 1
         self.multiworld.early_items[self.player]["Liquid Junction"] = 1
         self.multiworld.early_items[self.player]["Liquid Router"] = 1
@@ -144,7 +144,7 @@ class MindustryWorld(World):
         self.multiworld.early_items[self.player]["Power Node"] = 1
 
     def __apply_serpulo_local_early_logistics(self):
-        """Apply the NECESSARY item classification for Serpulo logistics items."""
+        """Add Serpulo logistics items to the local early items list."""
         self.multiworld.local_early_items[self.player]["Conduit"] = 1
         self.multiworld.local_early_items[self.player]["Liquid Junction"] = 1
         self.multiworld.local_early_items[self.player]["Liquid Router"] = 1
@@ -155,7 +155,7 @@ class MindustryWorld(World):
         self.multiworld.local_early_items[self.player]["Power Node"] = 1
 
     def __apply_erekir_early_logistics(self):
-        """Apply the NECESSARY item classification for Erekir logistics items."""
+        """Add Erekir logistics items to the early items list."""
         self.multiworld.early_items[self.player]["Duct Router"] = 1
         self.multiworld.early_items[self.player]["Duct Bridge"] = 1
         self.multiworld.early_items[self.player]["Reinforced Conduit"] = 1
@@ -164,7 +164,7 @@ class MindustryWorld(World):
         self.multiworld.early_items[self.player]["Reinforced Liquid Router"] = 1
 
     def __apply_erekir_local_early_logistics(self):
-        """Apply the NECESSARY item classification for Erekir logistics items."""
+        """Add Erekir logistics items to the local early items list."""
         self.multiworld.local_early_items[self.player]["Duct Router"] = 1
         self.multiworld.local_early_items[self.player]["Duct Bridge"] = 1
         self.multiworld.local_early_items[self.player]["Reinforced Conduit"] = 1
@@ -174,60 +174,60 @@ class MindustryWorld(World):
 
     def __apply_erekir_military_item_classification(self):
         """Apply the NECESSARY item classification for Erekir military items."""
-        item_table["Diffuse"].type = ItemType.NECESSARY
-        item_table["Sublimate"].type = ItemType.NECESSARY
-        item_table["Disperse"].type = ItemType.NECESSARY
-        item_table["Afflict"].type = ItemType.NECESSARY
-        item_table["Scathe"].type = ItemType.NECESSARY
-        item_table["Titan"].type = ItemType.NECESSARY
-        item_table["Malign"].type = ItemType.NECESSARY
-        item_table["Electric Heater"].type = ItemType.NECESSARY
-        item_table["Slag Heater"].type = ItemType.NECESSARY
-        item_table["Phase Heater"].type = ItemType.NECESSARY
-        item_table["Heat Redirector"].type = ItemType.NECESSARY
-        item_table["Heat Router"].type = ItemType.NECESSARY
-        item_table["Neoplasia Reactor"].type = ItemType.NECESSARY
-        item_table["Lustre"].type = ItemType.NECESSARY
-        item_table["Smite"].type = ItemType.NECESSARY
-        item_table["Tungsten Wall"].type = ItemType.NECESSARY
-        item_table["Large Tungsten Wall"].type = ItemType.NECESSARY
-        item_table["Reinforced Surge Wall"].type = ItemType.NECESSARY
-        item_table["Large Reinforced Surge Wall"].type = ItemType.NECESSARY
-        item_table["Carbide Wall"].type = ItemType.NECESSARY
-        item_table["Large Carbide Wall"].type = ItemType.NECESSARY
-        item_table["Shielded Wall"].type = ItemType.NECESSARY
-        item_table["Regen Projector"].type = ItemType.NECESSARY
-        item_table["Build Tower"].type = ItemType.NECESSARY
-        item_table["Shockwave Tower"].type = ItemType.NECESSARY
-        item_table["Prime Refabricator"].type = ItemType.NECESSARY
-        item_table["Large Beryllium Wall"].type = ItemType.NECESSARY
-        item_table["Constructor"].type = ItemType.NECESSARY
-        item_table["Tank Assembler"].type = ItemType.NECESSARY
-        item_table["Ship Assembler"].type = ItemType.NECESSARY
-        item_table["Mech Assembler"].type = ItemType.NECESSARY
-        item_table["Basic Assembler Module"].type = ItemType.NECESSARY
+        item_table["Diffuse"].type = ItemClassification.NECESSARY
+        item_table["Sublimate"].type = ItemClassification.NECESSARY
+        item_table["Disperse"].type = ItemClassification.NECESSARY
+        item_table["Afflict"].type = ItemClassification.NECESSARY
+        item_table["Scathe"].type = ItemClassification.NECESSARY
+        item_table["Titan"].type = ItemClassification.NECESSARY
+        item_table["Malign"].type = ItemClassification.NECESSARY
+        item_table["Electric Heater"].type = ItemClassification.NECESSARY
+        item_table["Slag Heater"].type = ItemClassification.NECESSARY
+        item_table["Phase Heater"].type = ItemClassification.NECESSARY
+        item_table["Heat Redirector"].type = ItemClassification.NECESSARY
+        item_table["Heat Router"].type = ItemClassification.NECESSARY
+        item_table["Neoplasia Reactor"].type = ItemClassification.NECESSARY
+        item_table["Lustre"].type = ItemClassification.NECESSARY
+        item_table["Smite"].type = ItemClassification.NECESSARY
+        item_table["Tungsten Wall"].type = ItemClassification.NECESSARY
+        item_table["Large Tungsten Wall"].type = ItemClassification.NECESSARY
+        item_table["Reinforced Surge Wall"].type = ItemClassification.NECESSARY
+        item_table["Large Reinforced Surge Wall"].type = ItemClassification.NECESSARY
+        item_table["Carbide Wall"].type = ItemClassification.NECESSARY
+        item_table["Large Carbide Wall"].type = ItemClassification.NECESSARY
+        item_table["Shielded Wall"].type = ItemClassification.NECESSARY
+        item_table["Regen Projector"].type = ItemClassification.NECESSARY
+        item_table["Build Tower"].type = ItemClassification.NECESSARY
+        item_table["Shockwave Tower"].type = ItemClassification.NECESSARY
+        item_table["Prime Refabricator"].type = ItemClassification.NECESSARY
+        item_table["Large Beryllium Wall"].type = ItemClassification.NECESSARY
+        item_table["Constructor"].type = ItemClassification.NECESSARY
+        item_table["Tank Assembler"].type = ItemClassification.NECESSARY
+        item_table["Ship Assembler"].type = ItemClassification.NECESSARY
+        item_table["Mech Assembler"].type = ItemClassification.NECESSARY
+        item_table["Basic Assembler Module"].type = ItemClassification.NECESSARY
 
     def __apply_serpulo_military_item_classification(self):
         """Apply the NECESSARY item classification for Serpulo military items."""
-        item_table["Hail"].type = ItemType.NECESSARY
-        item_table["Arc"].type = ItemType.NECESSARY
-        item_table["Scorch"].type = ItemType.NECESSARY
-        item_table["Parallax"].type = ItemType.NECESSARY
-        item_table["Wave"].type = ItemType.NECESSARY
-        item_table["Lancer"].type = ItemType.NECESSARY
-        item_table["Salvo"].type = ItemType.NECESSARY
-        item_table["Swarmer"].type = ItemType.NECESSARY
-        item_table["Ripple"].type = ItemType.NECESSARY
-        item_table["Tsunami"].type = ItemType.NECESSARY
-        item_table["Fuse"].type = ItemType.NECESSARY
-        item_table["Meltdown"].type = ItemType.NECESSARY
-        item_table["Foreshadow"].type = ItemType.NECESSARY
-        item_table["Cyclone"].type = ItemType.NECESSARY
-        item_table["Spectre"].type = ItemType.NECESSARY
-        item_table["Segment"].type = ItemType.NECESSARY
-        item_table["Mender"].type = ItemType.NECESSARY
-        item_table["Mend Projector"].type = ItemType.NECESSARY
-        item_table["Shock Mine"].type = ItemType.NECESSARY
+        item_table["Hail"].type = ItemClassification.NECESSARY
+        item_table["Arc"].type = ItemClassification.NECESSARY
+        item_table["Scorch"].type = ItemClassification.NECESSARY
+        item_table["Parallax"].type = ItemClassification.NECESSARY
+        item_table["Wave"].type = ItemClassification.NECESSARY
+        item_table["Lancer"].type = ItemClassification.NECESSARY
+        item_table["Salvo"].type = ItemClassification.NECESSARY
+        item_table["Swarmer"].type = ItemClassification.NECESSARY
+        item_table["Ripple"].type = ItemClassification.NECESSARY
+        item_table["Tsunami"].type = ItemClassification.NECESSARY
+        item_table["Fuse"].type = ItemClassification.NECESSARY
+        item_table["Meltdown"].type = ItemClassification.NECESSARY
+        item_table["Foreshadow"].type = ItemClassification.NECESSARY
+        item_table["Cyclone"].type = ItemClassification.NECESSARY
+        item_table["Spectre"].type = ItemClassification.NECESSARY
+        item_table["Segment"].type = ItemClassification.NECESSARY
+        item_table["Mender"].type = ItemClassification.NECESSARY
+        item_table["Mend Projector"].type = ItemClassification.NECESSARY
+        item_table["Shock Mine"].type = ItemClassification.NECESSARY
 
     def __create_filler_item(self, campaign):
         """
@@ -256,7 +256,7 @@ class MindustryWorld(World):
 
     def set_rules(self) -> None:
         """
-        Launched when the Multiworld generator is ready to generate rules
+        Called when the Multiworld generator is ready to generate rules
         """
         self.regions.initialise_rules(self.options)
 

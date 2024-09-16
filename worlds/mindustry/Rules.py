@@ -1,5 +1,4 @@
 from BaseClasses import CollectionState
-from worlds._sc2common.bot import player
 
 
 #region Victory rules
