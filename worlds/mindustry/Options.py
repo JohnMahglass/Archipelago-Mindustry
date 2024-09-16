@@ -31,7 +31,7 @@ class MilitaryLevelTracking(DefaultOnToggle):
     display_name = "Military level tracking"
 
 class RandomizeCoreUnitsWeapon(Toggle):
-    """Will randomize core units weapon. Erekir core unit will be made vulnerable and is given an ability instead."""
+    """Will randomize core units weapon. Erekir core unit will be made vulnerable and be given an ability instead."""
     display_name = "Randomize core units weapon"
 
 class LogisticDistribution(Choice):
