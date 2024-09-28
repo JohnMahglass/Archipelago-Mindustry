@@ -26,6 +26,15 @@ class DeathLink(Toggle):
     """Enable death link."""
     display_name = "Death link"
 
+class DeathLinkMode(Choice):
+    "Select the death link mode."
+    display_name = "Death link mode"
+    option_death_link_unit = 0
+    option_death_link_core = 1
+    option_death_link_core_russian_roulette = 2
+    default = 0
+
+
 class MilitaryLevelTracking(DefaultOnToggle):
     """Ensure the player has enough military power to clear sectors. If turned off, the logic will consider that the player can clear every sector once they have the minimal requirement to land on that sector."""
     display_name = "Military level tracking"
@@ -55,6 +64,7 @@ class MindustryOptions(PerGameCommonOptions):
     disable_invasions: DisableInvasions
     faster_production: FasterProduction
     death_link: DeathLink
+    death_link_mode: DeathLinkMode
     military_level_tracking: MilitaryLevelTracking
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     logistic_distribution: LogisticDistribution

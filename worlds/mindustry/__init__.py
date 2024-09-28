@@ -133,7 +133,7 @@ class MindustryWorld(World):
                 self.__apply_erekir_local_early_logistics()
 
     def __apply_serpulo_early_logistics(self):
-        """Apply the NECESSARY item classification for Serpulo logistics items."""
+        """Add Serpulo's logistics items to the early items list."""
         self.multiworld.early_items[self.player]["Conduit"] = 1
         self.multiworld.early_items[self.player]["Liquid Junction"] = 1
         self.multiworld.early_items[self.player]["Liquid Router"] = 1
@@ -144,7 +144,7 @@ class MindustryWorld(World):
         self.multiworld.early_items[self.player]["Power Node"] = 1
 
     def __apply_serpulo_local_early_logistics(self):
-        """Apply the NECESSARY item classification for Serpulo logistics items."""
+        """Add Serpulo's logistics items to the local early items list."""
         self.multiworld.local_early_items[self.player]["Conduit"] = 1
         self.multiworld.local_early_items[self.player]["Liquid Junction"] = 1
         self.multiworld.local_early_items[self.player]["Liquid Router"] = 1
@@ -155,7 +155,7 @@ class MindustryWorld(World):
         self.multiworld.local_early_items[self.player]["Power Node"] = 1
 
     def __apply_erekir_early_logistics(self):
-        """Apply the NECESSARY item classification for Erekir logistics items."""
+        """Add Erekir's logistics items to the early items list."""
         self.multiworld.early_items[self.player]["Duct Router"] = 1
         self.multiworld.early_items[self.player]["Duct Bridge"] = 1
         self.multiworld.early_items[self.player]["Reinforced Conduit"] = 1
@@ -164,7 +164,7 @@ class MindustryWorld(World):
         self.multiworld.early_items[self.player]["Reinforced Liquid Router"] = 1
 
     def __apply_erekir_local_early_logistics(self):
-        """Apply the NECESSARY item classification for Erekir logistics items."""
+        """Add Erekir's logistics items to the local early items list."""
         self.multiworld.local_early_items[self.player]["Duct Router"] = 1
         self.multiworld.local_early_items[self.player]["Duct Bridge"] = 1
         self.multiworld.local_early_items[self.player]["Reinforced Conduit"] = 1
@@ -276,6 +276,7 @@ class MindustryWorld(World):
             "disable_invasions": bool(self.options.disable_invasions.value),
             "faster_production": bool(self.options.faster_production.value),
             "death_link": bool(self.options.death_link.value),
+            "death_link_mode": self.options.death_link_mode.value,
             "military_level_tracking": bool(self.options.military_level_tracking.value),
             "randomize_core_units_weapon": bool(self.options.randomize_core_units_weapon.value),
             "logistic_distribution": self.options.logistic_distribution.value,
