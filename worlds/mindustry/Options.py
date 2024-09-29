@@ -52,6 +52,10 @@ class LogisticDistribution(Choice):
     option_starter_logistics = 3
     default = 1
 
+class MakeEarlyRoadblocksLocal(Toggle):
+    """Make items that could block the player early on local."""
+    display_name = "Make early roadblocks local"
+
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -68,3 +72,4 @@ class MindustryOptions(PerGameCommonOptions):
     military_level_tracking: MilitaryLevelTracking
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     logistic_distribution: LogisticDistribution
+    make_early_roadblocks_local: MakeEarlyRoadblocksLocal

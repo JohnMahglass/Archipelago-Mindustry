@@ -115,6 +115,15 @@ class MindustryWorld(World):
                 self.__apply_serpulo_military_item_classification()
                 self.__apply_erekir_military_item_classification()
 
+        if self.options.make_early_roadblocks_local:
+            if campaign == 0: #Serpulo
+                self.__apply_serpulo_local_roadblocks()
+            elif campaign == 1: #Erekir
+                self.__apply_erekir_local_roadblocks()
+            elif campaign == 2: #All
+                self.__apply_serpulo_local_roadblocks()
+                self.__apply_erekir_local_roadblocks()
+
         if self.options.logistic_distribution == 1: #Early logistics
             if campaign == 0: #Serpulo
                 self.__apply_serpulo_early_logistics()
@@ -131,6 +140,19 @@ class MindustryWorld(World):
             elif campaign == 2:
                 self.__apply_serpulo_local_early_logistics()
                 self.__apply_erekir_local_early_logistics()
+
+    def __apply_serpulo_local_roadblocks(self):
+        """Add some Serpulo research to the local early items list"""
+        self.multiworld.local_early_items[self.player]["Graphite Press"] = 1
+        self.multiworld.local_early_items[self.player]["Silicon Smelter"] = 1
+        self.multiworld.local_early_items[self.player]["Combustion Generator"] = 1
+
+    def __apply_erekir_local_roadblocks(self):
+        """Add some Erekir research to the local early items list"""
+        self.multiworld.local_early_items[self.player]["Impact Drill"] = 1
+        self.multiworld.local_early_items[self.player]["Reinforced Conduit"] = 1
+        self.multiworld.local_early_items[self.player]["Ship Fabricator"] = 1
+        self.multiworld.local_early_items[self.player]["Progressive Ships"] = 1
 
     def __apply_serpulo_early_logistics(self):
         """Add Serpulo's logistics items to the early items list."""
@@ -158,7 +180,8 @@ class MindustryWorld(World):
         """Add Erekir's logistics items to the early items list."""
         self.multiworld.early_items[self.player]["Duct Router"] = 1
         self.multiworld.early_items[self.player]["Duct Bridge"] = 1
-        self.multiworld.early_items[self.player]["Reinforced Conduit"] = 1
+        if not self.options.make_early_roadblocks_local: #Item was already added previously.
+            self.multiworld.early_items[self.player]["Reinforced Conduit"] = 1
         self.multiworld.early_items[self.player]["Reinforced Liquid Junction"] = 1
         self.multiworld.early_items[self.player]["Reinforced Bridge Conduit"] = 1
         self.multiworld.early_items[self.player]["Reinforced Liquid Router"] = 1
@@ -167,7 +190,8 @@ class MindustryWorld(World):
         """Add Erekir's logistics items to the local early items list."""
         self.multiworld.local_early_items[self.player]["Duct Router"] = 1
         self.multiworld.local_early_items[self.player]["Duct Bridge"] = 1
-        self.multiworld.local_early_items[self.player]["Reinforced Conduit"] = 1
+        if not self.options.make_early_roadblocks_local:  # Item was already added previously.
+            self.multiworld.early_items[self.player]["Reinforced Conduit"] = 1
         self.multiworld.local_early_items[self.player]["Reinforced Liquid Junction"] = 1
         self.multiworld.local_early_items[self.player]["Reinforced Bridge Conduit"] = 1
         self.multiworld.local_early_items[self.player]["Reinforced Liquid Router"] = 1
@@ -280,6 +304,7 @@ class MindustryWorld(World):
             "military_level_tracking": bool(self.options.military_level_tracking.value),
             "randomize_core_units_weapon": bool(self.options.randomize_core_units_weapon.value),
             "logistic_distribution": self.options.logistic_distribution.value,
+            "make_early_roadblocks_local": bool(self.options.make_early_roadblocks_local),
         }
 
     def __exclude_items(self, campaign:int) -> None:
