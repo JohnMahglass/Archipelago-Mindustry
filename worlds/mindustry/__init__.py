@@ -305,6 +305,7 @@ class MindustryWorld(World):
             "randomize_core_units_weapon": bool(self.options.randomize_core_units_weapon.value),
             "logistic_distribution": self.options.logistic_distribution.value,
             "make_early_roadblocks_local": bool(self.options.make_early_roadblocks_local),
+            "amount_of_resources_required": self.options.amount_of_resources_required.value
         }
 
     def __exclude_items(self, campaign:int) -> None:

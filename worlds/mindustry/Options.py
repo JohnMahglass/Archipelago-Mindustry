@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, Toggle, PerGameCommonOptions, DefaultOnToggle, StartInventoryPool
+from Options import Choice, Toggle, PerGameCommonOptions, DefaultOnToggle, StartInventoryPool, Range
 
 
 class TutorialSkip(Toggle):
@@ -56,6 +56,12 @@ class MakeEarlyRoadblocksLocal(Toggle):
     """Make items that could block the player early on local."""
     display_name = "Make early roadblocks local"
 
+class AmountOfResourcesRequired(Range):
+    """The amount of resources required to complete the 'Every resources collection' goal."""
+    display_name = "Amount of resources required"
+    range_start = 100
+    range_end = 100000
+    default = 2000
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -73,3 +79,4 @@ class MindustryOptions(PerGameCommonOptions):
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     logistic_distribution: LogisticDistribution
     make_early_roadblocks_local: MakeEarlyRoadblocksLocal
+    amount_of_resources_required: AmountOfResourcesRequired
