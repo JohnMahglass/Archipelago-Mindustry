@@ -34,6 +34,12 @@ class DeathLinkMode(Choice):
     option_death_link_core_russian_roulette = 2
     default = 0
 
+class CoreRussianRouletteChambers(Range):
+    "The number of chambers for the Core Russian roulette option. If you select X amount of chambers, you will have 1 in a X chance of having your cores destroyed"
+    display_name = "Core Russian Roulette Chambers"
+    range_start = 2
+    range_end = 100
+    default = 6
 
 class MilitaryLevelTracking(DefaultOnToggle):
     """Ensure the player has enough military power to clear sectors. If turned off, the logic will consider that the player can clear every sector once they have the minimal requirement to land on that sector."""
@@ -59,7 +65,7 @@ class MakeEarlyRoadblocksLocal(Toggle):
 class AmountOfResourcesRequired(Range):
     """The amount of resources required to complete the 'Every resources collection' goal."""
     display_name = "Amount of resources required"
-    range_start = 100
+    range_start = 1000
     range_end = 100000
     default = 2000
 
@@ -80,3 +86,4 @@ class MindustryOptions(PerGameCommonOptions):
     logistic_distribution: LogisticDistribution
     make_early_roadblocks_local: MakeEarlyRoadblocksLocal
     amount_of_resources_required: AmountOfResourcesRequired
+    core_russian_roulette_chambers: CoreRussianRouletteChambers
