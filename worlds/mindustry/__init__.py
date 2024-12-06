@@ -100,7 +100,7 @@ class MindustryWorld(World):
                         self.multiworld.itempool.append(item)
                         world_item_count += 1
         #Check how many location are empty and fill them with FILLERS
-        remaining = len(self.multiworld.get_unfilled_locations(self.player)) - world_item_count # a changer
+        remaining = len(self.multiworld.get_unfilled_locations(self.player)) - world_item_count
         while remaining > 0:
             self.__create_filler_item(campaign)
             remaining -= 1
