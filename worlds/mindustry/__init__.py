@@ -300,6 +300,7 @@ class MindustryWorld(World):
         return {
             "tutorial_skip": bool(self.options.tutorial_skip.value),
             "campaign_choice": self.options.campaign_choice.value,
+            "goal": self.options.goal.value,
             "disable_invasions": bool(self.options.disable_invasions.value),
             "faster_production": bool(self.options.faster_production.value),
             "death_link": bool(self.options.death_link.value),

@@ -395,11 +395,11 @@ class MindustryRegions():
         Connect regions based on user options.
         """
         if options.campaign_choice.value == 0:
-            self.__connect_serpulo_campaign()
+            self.__connect_serpulo_campaign(options)
         elif options.campaign_choice.value == 1:
-            self.__connect_erekir_campaign()
+            self.__connect_erekir_campaign(options)
         elif options.campaign_choice.value == 2:
-            self.__connect_all_campaign()
+            self.__connect_all_campaign(options)
 
     def add_regions_to_world(self) -> None:
         """
@@ -689,23 +689,18 @@ class MindustryRegions():
         self.node_plastanium = self.__add_region("Plastanium", None)
 
 
-    def __connect_serpulo_campaign(self):
+    def __connect_serpulo_campaign(self, options: MindustryOptions):
         """
         Connect region related to Serpulo's campaign
         """
         self.__connect_regions(self.menu, self.serpulo)
-        self.__connect_regions(self.menu, self.node_serpulo_victory,
-                               lambda state: has_titanium(state, self.player) and
-                                            has_thorium_serpulo(state, self.player) and
-                                            has_surge_alloy_serpulo(state, self.player) and
-                                            has_phase_fabric_serpulo(state, self.player) and
-                                            has_metaglass(state, self.player) and
-                                            has_graphite_serpulo(state, self.player) and
-                                            has_silicon_serpulo(state, self.player) and
-                                            has_pyratite(state, self.player) and
-                                            has_blast_compound(state, self.player) and
-                                            has_spore_pod(state, self.player) and
-                                            has_plastanium(state, self.player))
+        if options.goal == 0: #resources
+            self.__connect_serpulo_resources_goal()
+        elif options.goal == 1: #conquest
+            self.__connect_serpulo_conquest_goal()
+        else:
+            self.__connect_serpulo_resources_goal() # default to resources for now
+
         self.__connect_regions(self.serpulo, self.node_core_shard)
 
         self.__connect_regions(self.node_core_shard, self.node_conveyor)
@@ -1186,6 +1181,46 @@ class MindustryRegions():
         self.__connect_regions(self.node_oil, self.node_plastanium,
                                lambda state: has_plastanium_compressor(state, self.player))
 
+    def __connect_serpulo_resources_goal(self):
+        """
+        Connect Victory node with resources goal requirement for Serpulo campaign.
+        """
+        self.__connect_regions(self.menu, self.node_serpulo_victory,
+                               lambda state: has_titanium(state, self.player) and
+                                             has_thorium_serpulo(state, self.player) and
+                                             has_surge_alloy_serpulo(state, self.player) and
+                                             has_phase_fabric_serpulo(state, self.player) and
+                                             has_metaglass(state, self.player) and
+                                             has_graphite_serpulo(state, self.player) and
+                                             has_silicon_serpulo(state, self.player) and
+                                             has_pyratite(state, self.player) and
+                                             has_blast_compound(state, self.player) and
+                                             has_spore_pod(state, self.player) and
+                                             has_plastanium(state, self.player))
+
+    def __connect_serpulo_conquest_goal(self):
+        """
+        Connect Victory node with conquest goal requirement for serpulo.
+        """
+        self.__connect_regions(self.menu, self.node_serpulo_victory,
+                               lambda state: has_frozen_forest(state, self.player) and
+                                             has_the_craters(state, self.player) and
+                                             has_biomass_synthesis_facility(state, self.player) and
+                                             has_ruinous_shores(state, self.player) and
+                                             has_stained_mountains(state, self.player) and
+                                             has_windswept_islands(state, self.player) and
+                                             has_fungal_pass(state, self.player) and
+                                             has_overgrowth(state, self.player) and
+                                             has_tar_fields(state, self.player) and
+                                             has_extraction_outpost(state, self.player) and
+                                             has_salt_flats(state, self.player) and
+                                             has_coastline(state, self.player) and
+                                             has_nuclear_production_complex(state, self.player) and
+                                             has_impact_0078(state, self.player) and
+                                             has_naval_fortress(state, self.player) and
+                                             has_desolate_rift(state, self.player) and
+                                             has_planetary_launch_terminal(state, self.player))
+
     def __create_erekir_campaign(self):
         """
         Create region related to the Erekir campaign.
@@ -1351,18 +1386,18 @@ class MindustryRegions():
         self.node_surge_alloy_erekir = self.__add_region("Surge Alloy Erekir", None)
         self.node_phase_fabric_erekir = self.__add_region("Phase Fabric Erekir", None)
 
-    def __connect_erekir_campaign(self):
+    def __connect_erekir_campaign(self, options: MindustryOptions):
         """
         Connect region related to Erekir's campaign
         """
         self.__connect_regions(self.menu, self.erekir)
-        self.__connect_regions(self.menu, self.node_erekir_victory,
-                               lambda state: has_oxide(state, self.player) and
-                                            has_tungsten(state, self.player) and
-                                            has_thorium_erekir(state, self.player) and
-                                            has_carbide(state, self.player) and
-                                            has_surge_alloy_erekir(state, self.player) and
-                                            has_phase_fabric_erekir(state, self.player))
+        if options.goal == 0: # Resources
+            self.__connect_erekir_resources_goal()
+        elif options.goal == 1: # Conquest
+            self.__connect_erekir_conquest_goal()
+        else:
+            self.__connect_erekir_resources_goal()# default to resources for now
+
         self.__connect_regions(self.erekir, self.node_core_bastion)
 
         self.__connect_regions(self.node_core_bastion, self.node_duct)
@@ -1666,6 +1701,34 @@ class MindustryRegions():
         self.__connect_regions(self.node_surge_alloy_erekir, self.node_phase_fabric_erekir,
                                lambda state: has_phase_synthesizer(state, self.player))
 
+    def __connect_erekir_conquest_goal(self):
+        self.__connect_regions(self.menu, self.node_erekir_victory,
+                               lambda state: has_aegis(state, self.player) and
+                                             has_lake(state, self.player) and
+                                             has_intersect(state, self.player) and
+                                             has_atlas(state, self.player) and
+                                             has_split(state, self.player) and
+                                             has_basin(state, self.player) and
+                                             has_marsh(state, self.player) and
+                                             has_peaks(state, self.player) and
+                                             has_ravine(state, self.player) and
+                                             has_caldera(state, self.player) and
+                                             has_stronghold(state, self.player) and
+                                             has_crevice(state, self.player) and
+                                             has_siege(state, self.player) and
+                                             has_crossroads(state, self.player) and
+                                             has_karst(state, self.player) and
+                                             has_origin(state, self.player))
+
+    def __connect_erekir_resources_goal(self):
+        self.__connect_regions(self.menu, self.node_erekir_victory,
+                               lambda state: has_oxide(state, self.player) and
+                                             has_tungsten(state, self.player) and
+                                             has_thorium_erekir(state, self.player) and
+                                             has_carbide(state, self.player) and
+                                             has_surge_alloy_erekir(state, self.player) and
+                                             has_phase_fabric_erekir(state, self.player))
+
     def __create_all_campaign(self):
         """
         Create region related to the all campaigns.
@@ -1675,15 +1738,15 @@ class MindustryRegions():
         self.__create_erekir_campaign()
 
 
-    def __connect_all_campaign(self):
+    def __connect_all_campaign(self, options:MindustryOptions):
         """
         Connect region related to all campaigns.
         """
         self.__connect_regions(self.menu, self.all_campaign_victory,
                                lambda state: has_serpulo_victory(state, self.player) and
                                              has_erekir_victory(state, self.player))
-        self.__connect_serpulo_campaign()
-        self.__connect_erekir_campaign()
+        self.__connect_serpulo_campaign(options)
+        self.__connect_erekir_campaign(options)
 
     def __add_region(self, hint: str,
                      locations: Optional[Dict[str, Optional[int]]]) -> Region:

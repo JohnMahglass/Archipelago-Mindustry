@@ -14,6 +14,14 @@ class CampaignChoice(Choice):
     option_all_planets = 2
     default = 0
 
+class Goal(Choice):
+    """The goal for the multiworld"""
+    display_name = "Goal"
+    option_resources = 0
+    option_conquest = 1
+    default = 0
+
+
 class DisableInvasions(Toggle):
     """Disable invasions and prevent losing progress."""
     display_name = "Disable invasions"
@@ -77,6 +85,7 @@ class MindustryOptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     tutorial_skip: TutorialSkip
     campaign_choice: CampaignChoice
+    goal: Goal
     disable_invasions: DisableInvasions
     faster_production: FasterProduction
     death_link: DeathLink
