@@ -66,6 +66,14 @@ class LogisticDistribution(Choice):
     option_starter_logistics = 3
     default = 1
 
+class ProgressiveDrills(Toggle):
+    """Makes Drills progressive."""
+    display_name = "Progressive Drills"
+
+class ProgressiveGenerators(Toggle):
+    """Makes Generators progressive."""
+    display_name = "Progressive Generators"
+
 class MakeEarlyRoadblocksLocal(Toggle):
     """Make items that could block the player early on local."""
     display_name = "Make early roadblocks local"
@@ -93,6 +101,8 @@ class MindustryOptions(PerGameCommonOptions):
     military_level_tracking: MilitaryLevelTracking
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     logistic_distribution: LogisticDistribution
+    progressive_drills : ProgressiveDrills
+    progressive_generators : ProgressiveGenerators
     make_early_roadblocks_local: MakeEarlyRoadblocksLocal
     amount_of_resources_required: AmountOfResourcesRequired
     core_russian_roulette_chambers: CoreRussianRouletteChambers
