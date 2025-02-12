@@ -267,19 +267,17 @@ class MindustryWorld(World):
         """
         valid = False
         if data.group != ItemGroup.FILLER: #We dont want filler items to get thrown in yet.
-            match campaign:
-                case 0:
-                    if data.item_planet == ItemPlanet.SERPULO:
-                        valid = True
-                case 1:
-                    if data.item_planet == ItemPlanet.EREKIR:
-                        valid = True
-                case 2:
+            if campaign == 0:
+                if data.item_planet == ItemPlanet.SERPULO:
                     valid = True
-                case _:
-                    valid = False
+            elif campaign == 1:
+                if data.item_planet == ItemPlanet.EREKIR:
+                    valid = True
+            elif campaign == 2:
+                valid = True
+            else:
+                valid = False
         return valid
-
 
     def set_rules(self) -> None:
         """
