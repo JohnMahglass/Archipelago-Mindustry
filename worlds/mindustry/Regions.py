@@ -1144,6 +1144,7 @@ class MindustryRegions():
                                lambda state: has_biomass_synthesis_facility(state, self.player))
         self.__connect_regions(self.node_stained_mountains, self.node_fungal_pass,
                                 lambda state: has_ground_factory(state, self.player) and
+                                              can_produce_ground_unit(state, self.player) and
                                                 has_stained_mountains(state, self.player))
         self.__connect_regions(self.node_fungal_pass, self.node_nuclear_production_complex,
                                lambda state: has_fungal_pass(state, self.player))
@@ -1875,7 +1876,7 @@ class MindustryRegions():
         add_rule(self.multiworld.get_location("Capture Salt Flats", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 10)
         add_rule(self.multiworld.get_location("Capture Coastline", self.player),
-                 lambda state: get_military_score_serpulo(state, self.player) >= 9)
+                 lambda state: get_military_score_serpulo(state, self.player) >= 10)
         add_rule(self.multiworld.get_location("Capture Naval Fortress", self.player),
                  lambda state: get_military_score_serpulo(state, self.player) >= 30)
         add_rule(self.multiworld.get_location("Capture Overgrowth", self.player),
