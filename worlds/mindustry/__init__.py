@@ -301,6 +301,7 @@ class MindustryWorld(World):
             "goal": self.options.goal.value,
             "disable_invasions": bool(self.options.disable_invasions.value),
             "faster_production": bool(self.options.faster_production.value),
+            "faster_conveyor": bool(self.options.faster_conveyor.value),
             "death_link": bool(self.options.death_link.value),
             "death_link_mode": self.options.death_link_mode.value,
             "military_level_tracking": bool(self.options.military_level_tracking.value),

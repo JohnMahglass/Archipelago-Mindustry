@@ -30,6 +30,10 @@ class FasterProduction(Toggle):
     """Enable faster production and harvesting of resources."""
     display_name = "Faster production"
 
+class FasterConveyor(Toggle):
+    """Enable faster conveyor."""
+    display_name = "Faster conveyor"
+
 class DeathLink(Toggle):
     """Enable death link."""
     display_name = "Death link"
@@ -96,6 +100,7 @@ class MindustryOptions(PerGameCommonOptions):
     goal: Goal
     disable_invasions: DisableInvasions
     faster_production: FasterProduction
+    faster_conveyor: FasterConveyor
     death_link: DeathLink
     death_link_mode: DeathLinkMode
     military_level_tracking: MilitaryLevelTracking
