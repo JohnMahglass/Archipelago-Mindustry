@@ -1892,25 +1892,25 @@ class MindustryRegions():
 
     def __apply_erekir_military_level_rules(self):
         add_rule(self.multiworld.get_location("Capture Ravine", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 3)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 3)
         add_rule(self.multiworld.get_location("Capture Caldera", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 3 and
-                            get_unit_military_score_erekir(state, self.player) > 4)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 3 and
+                            get_unit_military_score_erekir(state, self.player) >= 4)
         add_rule(self.multiworld.get_location("Capture Stronghold", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 6 and
-                               get_unit_military_score_erekir(state, self.player) > 8)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 6 and
+                               get_unit_military_score_erekir(state, self.player) >= 8)
         add_rule(self.multiworld.get_location("Capture Crevice", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 10 and
-                               get_unit_military_score_erekir(state, self.player) > 8)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 10 and
+                               get_unit_military_score_erekir(state, self.player) >= 8)
         add_rule(self.multiworld.get_location("Capture Siege", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 10 and
-                               get_unit_military_score_erekir(state, self.player) > 15)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 10 and
+                               get_unit_military_score_erekir(state, self.player) >= 15)
         add_rule(self.multiworld.get_location("Capture Crossroads", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 15 and
-                               get_unit_military_score_erekir(state, self.player) > 20)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 15 and
+                               get_unit_military_score_erekir(state, self.player) >= 20)
         add_rule(self.multiworld.get_location("Capture Karst", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 40 and
-                               get_unit_military_score_erekir(state, self.player) > 25)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 40 and
+                               get_unit_military_score_erekir(state, self.player) >= 25)
         add_rule(self.multiworld.get_location("Capture Origin", self.player),
-                 lambda state: get_defense_military_score_erekir(state, self.player) > 50 and
-                               get_unit_military_score_erekir(state, self.player) > 35)
+                 lambda state: get_defense_military_score_erekir(state, self.player) >= 50 and
+                               get_unit_military_score_erekir(state, self.player) >= 35)

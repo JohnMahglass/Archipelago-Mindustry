@@ -16,6 +16,7 @@ phase_fabric = ["Phase Fabric produced on Serpulo", "Phase Weaver"]
 class TestSerpuloMilitaryLevel(MindustryTestBase):
     """Unit test to validate access to capturing a sector when military level option is turned on."""
     options = {
+        "campaign_choice": 0,
         "military_level_tracking": True
     }
 
@@ -32,7 +33,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Ruinous Shores'))
 
     def test_serpulo_windswept_islands_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Windswept Islands military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Scorch"]
         material_requirement = power + graphite + silicon + titanium
@@ -43,7 +44,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Windswept Islands'))
 
     def test_tar_fields_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Tar Fields military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Swarmer"]
         material_requirement = power + graphite + silicon + titanium + plastanium + metaglass + pyratite
@@ -54,7 +55,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Tar Fields'))
 
     def test_impact_0078_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Impact 0078 military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Swarmer", "Lancer"]
         material_requirement = power + graphite + silicon + titanium + plastanium + metaglass + pyratite
@@ -65,7 +66,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Impact 0078'))
 
     def test_desolate_rift_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Desolate Rift military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Scorch", "Salvo", "Swarmer", "Lancer", "Parallax", "Wave", "Ripple", "Meltdown"]
         material_requirement = (power + graphite + silicon + titanium + plastanium + metaglass + pyratite + thorium +
@@ -77,7 +78,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Desolate Rift'))
 
     def test_planetary_launch_terminal_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Planetary Launch Terminal military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Scorch", "Salvo", "Swarmer", "Lancer", "Parallax", "Wave", "Ripple", "Meltdown",
                     "Foreshadow", "Spectre", "Segment", "Fuse", "Mender"]
@@ -90,7 +91,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Planetary Launch Terminal'))
 
     def test_extraction_outpost_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Extraction Outpost military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Swarmer"]
         material_requirement = power + graphite + silicon + titanium + plastanium + metaglass + pyratite
@@ -103,7 +104,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Extraction Outpost'))
 
     def test_salt_flats_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Salt Flats military level requirement"""
         self.world_setup()
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Swarmer"]
@@ -117,7 +118,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Salt Flats'))
 
     def test_coastline_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Coastline military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Swarmer"]
         material_requirement = power + graphite + silicon + titanium + plastanium + metaglass + pyratite
@@ -130,7 +131,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Coastline'))
 
     def test_naval_fortress_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Naval Fortress military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Scorch", "Salvo", "Swarmer", "Lancer", "Parallax", "Wave", "Ripple", "Meltdown"]
         material_requirement = (power + graphite + silicon + titanium + plastanium + metaglass + pyratite + thorium +
@@ -146,7 +147,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Naval Fortress'))
 
     def test_overgrowth_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Overgrowth military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Swarmer"]
         material_requirement = power + graphite + silicon + titanium + plastanium + metaglass + pyratite
@@ -157,7 +158,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Overgrowth'))
 
     def test_biomass_synthesis_facility_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Biomass Synthesis Facility military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Scorch"]
         material_requirement = power + graphite + silicon + titanium
@@ -168,7 +169,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Biomass Synthesis Facility'))
 
     def test_stained_mountains_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Stained Mountains military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Scorch", "Parallax"]
         material_requirement = power + graphite + silicon + titanium
@@ -179,7 +180,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
         self.assertTrue(self.can_reach_location('Capture Stained Mountains'))
 
     def test_fungal_pass_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Fungal Pass military level requirement"""
         self.world_setup()
         military = ["Hail", "Arc", "Salvo", "Scorch", "Parallax", "Wave"]
         material_requirement = power + graphite + silicon + titanium + metaglass + pump
@@ -193,7 +194,7 @@ class TestSerpuloMilitaryLevel(MindustryTestBase):
 
 
     def test_nuclear_production_complex_military_level(self) -> None:
-        """Test  military level requirement"""
+        """Test Nuclear Production Complex military level requirement"""
         self.world_setup()
         military = ["Arc", "Salvo", "Swarmer", "Lancer"]
         material_requirement = power + graphite + silicon + titanium + plastanium + metaglass + pyratite
