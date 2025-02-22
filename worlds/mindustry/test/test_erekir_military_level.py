@@ -149,4 +149,3 @@ class TestErekirMilitaryLevel(MindustryTestBase):
         self.assertFalse(self.can_reach_location('Capture Origin'))
         self.collect_by_name(military)
         self.assertTrue(self.can_reach_location('Capture Origin'))
-

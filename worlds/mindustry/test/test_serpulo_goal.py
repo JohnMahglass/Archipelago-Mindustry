@@ -25,6 +25,8 @@ class TestSerpuloGoal(MindustryTestBase):
         self.options["campaign_choice"] = 0
         self.options["goal"] = 0
         self.options["military_level_tracking"] = False
+        self.options["progressive_drills"] = False
+        self.options["progressive_generators"] = False
         self.world_setup()
 
         self.collect_by_name(resources_requirement)
@@ -35,6 +37,8 @@ class TestSerpuloGoal(MindustryTestBase):
         self.options["campaign_choice"] = 0
         self.options["goal"] = 1
         self.options["military_level_tracking"] = False
+        self.options["progressive_drills"] = False
+        self.options["progressive_generators"] = False
         self.world_setup()
 
         self.collect_by_name(resources_requirement)
