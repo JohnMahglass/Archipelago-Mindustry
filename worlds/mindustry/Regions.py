@@ -1165,7 +1165,8 @@ class MindustryRegions():
                                lambda state: has_kiln(state, self.player))
         self.__connect_regions(self.node_copper, self.node_sand_serpulo)
         self.__connect_regions(self.node_sand_serpulo, self.node_scrap)
-        self.__connect_regions(self.node_scrap, self.node_slag_serpulo)
+        self.__connect_regions(self.node_scrap, self.node_slag_serpulo,
+                               lambda state: has_melter(state, self.player))
         self.__connect_regions(self.node_sand_serpulo, self.node_coal)
         self.__connect_regions(self.node_coal, self.node_graphite_serpulo,
                                lambda state: has_graphite_press(state, self.player))
