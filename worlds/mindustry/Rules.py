@@ -205,7 +205,7 @@ def has_pneumatic_drill(state: CollectionState, player: int) -> bool:
 def has_cultivator(state: CollectionState, player: int) -> bool:
     """If the player has received Cultivator"""
     available: bool = False
-    if state.has("Cultivator", player) and has_silicon_serpulo(state, player):
+    if state.has("Cultivator", player) and has_silicon_serpulo(state, player) and has_mechanical_pump(state, player):
         available = True
     return available
 
