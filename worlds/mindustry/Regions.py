@@ -1169,7 +1169,7 @@ class MindustryRegions():
         self.__connect_regions(self.node_sand_serpulo, self.node_coal)
         self.__connect_regions(self.node_coal, self.node_graphite_serpulo,
                                lambda state: has_graphite_press(state, self.player))
-        self.__connect_regions(self.node_graphite_serpulo, self.node_silicon_serpulo,
+        self.__connect_regions(self.node_coal, self.node_silicon_serpulo,
                                lambda state: has_silicon_smelter(state, self.player))
         self.__connect_regions(self.node_coal, self.node_pyratite,
                                lambda state: has_pyratite_mixer(state, self.player))
