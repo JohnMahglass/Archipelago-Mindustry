@@ -1848,7 +1848,7 @@ class MindustryRegions():
         self.__add_event_location(self.node_carbide, "Produce Carbide on Erekir", "Carbide produced on Erekir")
         self.__add_event_location(self.node_surge_alloy_erekir, "Produce Surge Alloy on Erekir", "Surge Alloy produced on Erekir")
         self.__add_event_location(self.node_phase_fabric_erekir, "Produce Phase Fabric on Erekir", "Phase Fabric produced on Erekir")
-        self.__add_event_location(self.node_phase_fabric_erekir, "Produce Slag on Erekir", "Slag produced on Erekir")
+        self.__add_event_location(self.node_slag_erekir, "Produce Slag on Erekir", "Slag produced on Erekir")
 
     def __add_all_events(self):
         self.__add_event_location(self.all_campaign_victory, "All campaign victory", "Victory archived on all campaign")
