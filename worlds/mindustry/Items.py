@@ -273,6 +273,7 @@ item_table = {
     #"Plastanium": ItemData(MINDUSTRY_BASE_ID + 168, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.RESSOURCES, 1),
     "Progressive Drills Serpulo": ItemData(MINDUSTRY_BASE_ID + 172, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.EXTRACTION, 3),
     "Progressive Generators Serpulo": ItemData(MINDUSTRY_BASE_ID + 173, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.ENERGY, 7),
+    "Progressive Pumps Serpulo": ItemData(MINDUSTRY_BASE_ID + 174, ItemPlanet.SERPULO, ItemType.NECESSARY, ItemGroup.EXTRACTION, 3),
 
 
     #Erekir

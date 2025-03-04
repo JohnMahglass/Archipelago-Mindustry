@@ -1179,7 +1179,7 @@ class MindustryRegions():
         self.__connect_regions(self.node_coal, self.node_spore_pod,
                                lambda state: has_cultivator(state, self.player))
         self.__connect_regions(self.node_coal, self.node_oil,
-                               lambda state: has_mechanical_pump(state, self.player))
+                               lambda state: has_pump(state, self.player))
         self.__connect_regions(self.node_oil, self.node_plastanium,
                                lambda state: has_plastanium_compressor(state, self.player))
 

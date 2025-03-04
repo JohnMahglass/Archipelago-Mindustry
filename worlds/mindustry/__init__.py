@@ -310,6 +310,7 @@ class MindustryWorld(World):
             "logistic_distribution": self.options.logistic_distribution.value,
             "progressive_drills": bool(self.options.progressive_drills),
             "progressive_generators": bool(self.options.progressive_generators),
+            "progressive_pumps": bool(self.options.progressive_pumps),
             "make_early_roadblocks_local": bool(self.options.make_early_roadblocks_local),
             "amount_of_resources_required": self.options.amount_of_resources_required.value,
             "core_russian_roulette_chambers": self.options.core_russian_roulette_chambers.value
@@ -320,6 +321,7 @@ class MindustryWorld(World):
         campaign = options.campaign_choice.value
         progressive_drills = bool(options.progressive_drills)
         progressive_generators = bool(options.progressive_generators)
+        progressive_pumps = bool(options.progressive_pumps)
 
         if campaign == 0: #Serpulo
             if self.options.logistic_distribution == 3:  # Starter logistics
@@ -332,6 +334,10 @@ class MindustryWorld(World):
                 self.__exclude_serpulo_generators()
             else:
                 self.__exclude_serpulo_progressive_generators()
+            if progressive_pumps:
+                self.__exclude_serpulo_pumps()
+            else:
+                self.__exclude_serpulo_progressive_pumps()
         if campaign == 1: #Erekir
             if self.options.logistic_distribution == 3:  # Starter logistics
                 self.__starter_erekir_logistics()
@@ -359,11 +365,20 @@ class MindustryWorld(World):
             else:
                 self.__exclude_serpulo_progressive_generators()
                 self.__exclude_erekir_progressive_generators()
+            if progressive_pumps:
+                self.__exclude_serpulo_pumps()
+            else:
+                self.__exclude_serpulo_progressive_pumps()
 
     def __exclude_serpulo_progressive_drills(self) -> None:
         """Exclude Serpulo progressive drills from the item pool"""
         for x in range(3):
             self.exclude.append("Progressive Drills Serpulo")
+
+    def __exclude_serpulo_progressive_pumps(self) -> None:
+        """Exclude Serpulo progressive pumps from the item pool"""
+        for x in range(3):
+            self.exclude.append("Progressive Pumps Serpulo")
 
     def __exclude_serpulo_progressive_generators(self) -> None:
         """Exclude Serpulo progressive generators from the item pool"""
@@ -425,6 +440,11 @@ class MindustryWorld(World):
 
         self.multiworld.push_precollected(self.create_item("Reinforced Liquid Router"))
         self.exclude.append("Reinforced Liquid Router")
+
+    def __exclude_serpulo_pumps(self):
+        self.exclude.append("Mechanical Pump")
+        self.exclude.append("Rotary Pump")
+        self.exclude.append("Impulse Pump")
 
     def __exclude_serpulo_drills(self):
         self.exclude.append("Pneumatic Drill")

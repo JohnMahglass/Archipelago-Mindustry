@@ -82,6 +82,10 @@ class ProgressiveGenerators(Toggle):
     """Makes Generators progressive."""
     display_name = "Progressive Generators"
 
+class ProgressivePumps(Toggle):
+    """Makes Pumps progressive."""
+    display_name = "Progressive Pumps"
+
 class MakeEarlyRoadblocksLocal(Toggle):
     """Make items that could block the player early on local."""
     display_name = "Make early roadblocks local"
@@ -111,8 +115,9 @@ class MindustryOptions(PerGameCommonOptions):
     military_level_tracking: MilitaryLevelTracking
     randomize_core_units_weapon: RandomizeCoreUnitsWeapon
     logistic_distribution: LogisticDistribution
-    progressive_drills : ProgressiveDrills
-    progressive_generators : ProgressiveGenerators
+    progressive_drills: ProgressiveDrills
+    progressive_generators: ProgressiveGenerators
+    progressive_pumps: ProgressivePumps
     make_early_roadblocks_local: MakeEarlyRoadblocksLocal
     amount_of_resources_required: AmountOfResourcesRequired
     core_russian_roulette_chambers: CoreRussianRouletteChambers
