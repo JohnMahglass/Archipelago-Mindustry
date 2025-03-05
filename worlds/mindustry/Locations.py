@@ -570,55 +570,55 @@ class MindustryLocations:
         "Node Nuclear Production Complex": MINDUSTRY_BASE_ID + 182,
     }
     serpulo_lead = {
-        "Node Lead": MINDUSTRY_BASE_ID + 183,
+        "Lead Serpulo": MINDUSTRY_BASE_ID + 183,
     }
     serpulo_titanium = {
-        "Node Titanium": MINDUSTRY_BASE_ID + 184,
+        "Titanium Serpulo": MINDUSTRY_BASE_ID + 184,
     }
     serpulo_cryofluid = {
-        "Node Cryofluid": MINDUSTRY_BASE_ID + 185,
+        "Cryofluid Serpulo": MINDUSTRY_BASE_ID + 185,
     }
     serpulo_thorium = {
-        "Node Thorium": MINDUSTRY_BASE_ID + 186,
+        "Thorium Serpulo": MINDUSTRY_BASE_ID + 186,
     }
     serpulo_surge_alloy = {
-        "Node Surge Alloy": MINDUSTRY_BASE_ID + 187,
+        "Surge Alloy Serpulo": MINDUSTRY_BASE_ID + 187,
     }
     serpulo_phase_fabric = {
-        "Node Phase Fabric": MINDUSTRY_BASE_ID + 188,
+        "Phase Fabric Serpulo": MINDUSTRY_BASE_ID + 188,
     }
     serpulo_metaglass = {
-        "Node Metaglass": MINDUSTRY_BASE_ID + 189,
+        "Metaglass Serpulo": MINDUSTRY_BASE_ID + 189,
     }
     serpulo_scrap = {
-        "Node Scrap": MINDUSTRY_BASE_ID + 190,
+        "Scrap Serpulo": MINDUSTRY_BASE_ID + 190,
     }
     serpulo_slag = {
-        "Node Slag": MINDUSTRY_BASE_ID + 191,
+        "Slag Serpulo": MINDUSTRY_BASE_ID + 191,
     }
     serpulo_coal = {
-        "Node Coal": MINDUSTRY_BASE_ID + 192,
+        "Coal Serpulo": MINDUSTRY_BASE_ID + 192,
     }
     serpulo_graphite = {
-        "Node Graphite": MINDUSTRY_BASE_ID + 193,
+        "Graphite Serpulo": MINDUSTRY_BASE_ID + 193,
     }
     serpulo_silicon = {
-        "Node Silicon": MINDUSTRY_BASE_ID + 194,
+        "Silicon Serpulo": MINDUSTRY_BASE_ID + 194,
     }
     serpulo_pyratite = {
-        "Node Pyratite": MINDUSTRY_BASE_ID + 195,
+        "Pyratite Serpulo": MINDUSTRY_BASE_ID + 195,
     }
     serpulo_blast_compound = {
-        "Node Blast Compound": MINDUSTRY_BASE_ID + 196,
+        "Blast Compound Serpulo": MINDUSTRY_BASE_ID + 196,
     }
     serpulo_spore_pod = {
-        "Node Spore Pod": MINDUSTRY_BASE_ID + 197,
+        "Spore Pod Serpulo": MINDUSTRY_BASE_ID + 197,
     }
     serpulo_oil = {
-        "Node Oil": MINDUSTRY_BASE_ID + 198,
+        "Oil Serpulo": MINDUSTRY_BASE_ID + 198,
     }
     serpulo_plastanium = {
-        "Node Plastanium": MINDUSTRY_BASE_ID + 199,
+        "Plastanium Serpulo": MINDUSTRY_BASE_ID + 199,
     }
 
 
@@ -1007,36 +1007,64 @@ class MindustryLocations:
     erekir_peaks = {
         "AP-E-07-17": MINDUSTRY_BASE_ID + 327,
     }
+    erekir_beryllium = {
+        "Beryllium Erekir": MINDUSTRY_BASE_ID + 328,
+    }
+    erekir_sand = {
+        "Sand Erekir": MINDUSTRY_BASE_ID + 329,
+    }
+    erekir_silicon = {
+        "Silicon Erekir": MINDUSTRY_BASE_ID + 330,
+    }
     erekir_oxide = {
-        "AP-E-08-04": MINDUSTRY_BASE_ID + 328,
+        "Oxide Erekir": MINDUSTRY_BASE_ID + 331,
+    }
+    erekir_water = {
+        "Water Erekir": MINDUSTRY_BASE_ID + 332,
     }
     erekir_ozone = {
-        "AP-E-07-06": MINDUSTRY_BASE_ID + 329,
+        "Ozone Erekir": MINDUSTRY_BASE_ID + 333,
     }
     erekir_hydrogen = {
-        "AP-E-07-07": MINDUSTRY_BASE_ID + 330,
+        "Hydrogen Erekir": MINDUSTRY_BASE_ID + 334,
     }
     erekir_nitrogen = {
-        "AP-E-07-08": MINDUSTRY_BASE_ID + 331,
+        "Nitrogen Erekir": MINDUSTRY_BASE_ID + 335,
     }
     erekir_cyanogen = {
-        "AP-E-07-09": MINDUSTRY_BASE_ID + 332,
+        "Cyanogen Erekir": MINDUSTRY_BASE_ID + 336,
     }
     erekir_neoplasm = {
-        "AP-E-07-10": MINDUSTRY_BASE_ID + 333,
+        "Neoplasm Erekir": MINDUSTRY_BASE_ID + 337,
+    }
+    erekir_graphite = {
+        "Graphite Erekir": MINDUSTRY_BASE_ID + 338,
     }
     erekir_tungsten = {
-        "AP-E-07-12": MINDUSTRY_BASE_ID + 334,
+        "Tungsten Erekir": MINDUSTRY_BASE_ID + 339,
     }
     erekir_slag = {
-        "AP-E-07-13": MINDUSTRY_BASE_ID + 335,
+        "Slag Erekir": MINDUSTRY_BASE_ID + 340,
     }
     erekir_arkycite = {
-        "AP-E-07-14": MINDUSTRY_BASE_ID + 336,
+        "Arkycite Erekir": MINDUSTRY_BASE_ID + 341,
+    }
+    erekir_thorium = {
+        "Thorium Erekir": MINDUSTRY_BASE_ID + 342,
     }
     erekir_carbide = {
-        "AP-E-07-16": MINDUSTRY_BASE_ID + 337,
+        "Carbide Erekir": MINDUSTRY_BASE_ID + 343,
     }
+    erekir_surge_alloy = {
+        "Surge Alloy Erekir": MINDUSTRY_BASE_ID + 344,
+    }
+    erekir_phase_fabric = {
+        "Phase Fabric Erekir": MINDUSTRY_BASE_ID + 345,
+    }
+
+
+
+
 
 
 
@@ -1371,6 +1399,11 @@ location_table = {
     **MindustryLocations.erekir_krast,
     **MindustryLocations.erekir_origin,
     **MindustryLocations.erekir_peaks,
+    **MindustryLocations.erekir_beryllium,
+    **MindustryLocations.erekir_sand,
+    **MindustryLocations.erekir_water,
+    **MindustryLocations.erekir_graphite,
+    **MindustryLocations.erekir_silicon,
     **MindustryLocations.erekir_oxide,
     **MindustryLocations.erekir_ozone,
     **MindustryLocations.erekir_hydrogen,
@@ -1381,4 +1414,6 @@ location_table = {
     **MindustryLocations.erekir_slag,
     **MindustryLocations.erekir_arkycite,
     **MindustryLocations.erekir_carbide,
+    **MindustryLocations.erekir_surge_alloy,
+    **MindustryLocations.erekir_phase_fabric
 }
