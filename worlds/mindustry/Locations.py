@@ -520,9 +520,9 @@ class MindustryLocations:
     }
 
 
-    serpulo_ground_zero = {
-        "Node Ground Zero": MINDUSTRY_BASE_ID + 180,
-    }
+    #serpulo_ground_zero = {
+    #    "Node Ground Zero": MINDUSTRY_BASE_ID + 180,
+    #}
     serpulo_frozen_forest = {
         "Node Frozen Forest": MINDUSTRY_BASE_ID + 181,
     }
@@ -976,9 +976,9 @@ class MindustryLocations:
         "AP-E-06-27": MINDUSTRY_BASE_ID + 411,
     }
 
-    erekir_onset = {
-        "AP-E-07-01": MINDUSTRY_BASE_ID + 450,
-    }
+    #erekir_onset = {
+    #    "AP-E-07-01": MINDUSTRY_BASE_ID + 450,
+    #}
     erekir_aegis = {
         "AP-E-07-02": MINDUSTRY_BASE_ID + 451,
     }

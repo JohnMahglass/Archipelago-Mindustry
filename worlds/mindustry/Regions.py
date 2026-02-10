@@ -648,7 +648,7 @@ class MindustryRegions():
         self.node_exponential_reconstructor = self.__add_region("AP-S-05-41", MindustryLocations.serpulo_exponential_reconstructor)
         self.node_tetrative_reconstructor = self.__add_region("AP-S-05-42", MindustryLocations.serpulo_tetrative_reconstructor)
 
-        self.node_ground_zero = self.__add_region("Ground Zero", MindustryLocations.serpulo_ground_zero)
+        self.node_ground_zero = self.__add_region("Ground Zero", None)
         self.node_frozen_forest = self.__add_region("Frozen Forest", MindustryLocations.serpulo_frozen_forest)
         self.node_the_craters = self.__add_region("The Craters", MindustryLocations.serpulo_the_craters)
         self.node_ruinous_shores = self.__add_region("Ruinous Shores", MindustryLocations.serpulo_ruinous_shores)
@@ -1351,7 +1351,7 @@ class MindustryRegions():
         self.node_collaris = self.__add_region("AP-E-06-26", MindustryLocations.erekir_collaris)
         self.node_basic_assembler_module = self.__add_region("AP-E-06-27", MindustryLocations.erekir_basic_assembler_module)
 
-        self.node_the_onset = self.__add_region("The Onset", MindustryLocations.erekir_onset)
+        self.node_the_onset = self.__add_region("The Onset", None)
         self.node_aegis = self.__add_region("Aegis", MindustryLocations.erekir_aegis)
         self.node_lake = self.__add_region("Lake", MindustryLocations.erekir_lake)
         self.node_intersect = self.__add_region("Intersect", MindustryLocations.erekir_intersect)
