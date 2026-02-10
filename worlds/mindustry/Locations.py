@@ -1275,6 +1275,7 @@ location_table = {
     **MindustryLocations.serpulo_stained_mountains,
     **MindustryLocations.serpulo_fungal_pass,
     **MindustryLocations.serpulo_nuclear_production_complex,
+    **MindustryLocations.serpulo_copper,
     **MindustryLocations.serpulo_lead,
     **MindustryLocations.serpulo_titanium,
     **MindustryLocations.serpulo_cryofluid,
