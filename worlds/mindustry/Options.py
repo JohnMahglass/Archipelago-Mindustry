@@ -97,6 +97,10 @@ class AmountOfResourcesRequired(Range):
     range_end = 100000
     default = 2000
 
+class FactoryMalfunctionTrap(Toggle):
+    """Add the Factory malfunction trap to the filler pool"""
+    display_name = "Factory malfunction trap"
+
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
     """
@@ -121,3 +125,4 @@ class MindustryOptions(PerGameCommonOptions):
     make_early_roadblocks_local: MakeEarlyRoadblocksLocal
     amount_of_resources_required: AmountOfResourcesRequired
     core_russian_roulette_chambers: CoreRussianRouletteChambers
+    factory_malfunction_trap: FactoryMalfunctionTrap

@@ -434,5 +434,5 @@ item_table = {
     "Progressive Generators Erekir": ItemData(MINDUSTRY_BASE_ID + 345, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 4),
 
     #Filler Items
-    "A fistful of nothing...": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
+    "Nothing": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
 }

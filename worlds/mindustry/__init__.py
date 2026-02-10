@@ -259,7 +259,7 @@ class MindustryWorld(World):
         """
         Create a filler item from the selected campaign
         """
-        self.multiworld.itempool.append(self.create_item("A fistful of nothing..."))
+        self.multiworld.itempool.append(self.create_item("Nothing"))
 
     def __from_selected_campaign(self, data, campaign: int) -> bool:
         """
@@ -286,7 +286,7 @@ class MindustryWorld(World):
         self.regions.initialise_rules(self.options)
 
     def get_filler_item_name(self) -> str:
-        return self.multiworld.random.choice(["A fistful of nothing..."])
+        return self.multiworld.random.choice(["Nothing"])
 
     def __init__(self, multiworld: MultiWorld, player: int):
         """Initialise the Mindustry World"""
@@ -313,7 +313,8 @@ class MindustryWorld(World):
             "progressive_pumps": bool(self.options.progressive_pumps),
             "make_early_roadblocks_local": bool(self.options.make_early_roadblocks_local),
             "amount_of_resources_required": self.options.amount_of_resources_required.value,
-            "core_russian_roulette_chambers": self.options.core_russian_roulette_chambers.value
+            "core_russian_roulette_chambers": self.options.core_russian_roulette_chambers.value,
+            "factory_malfunction_trap": bool(self.options.factory_malfunction_trap)
         }
 
     def __exclude_items(self, options: MindustryOptions) -> None:
