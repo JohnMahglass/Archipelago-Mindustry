@@ -100,10 +100,10 @@ class MindustryWorld(World):
                         self.multiworld.itempool.append(item)
                         world_item_count += 1
         #Check how many location are empty and fill them with FILLERS
-        remaining = len(self.multiworld.get_unfilled_locations(self.player)) - world_item_count
-        while remaining > 0:
-            self.__create_filler_item(campaign)
-            remaining -= 1
+        unfilledLocationCount = len(self.multiworld.get_unfilled_locations(self.player)) - world_item_count
+        remainingLocationFillers = self.__getAllFillersForRemainingLocation(self.__getPossibleFillerNames(), unfilledLocationCount)
+        for x in range(len(remainingLocationFillers)):
+            self.multiworld.itempool.append(self.create_item(remainingLocationFillers[x]))
 
     def generate_early(self) -> None:
         """Change item classification based on options."""
@@ -255,11 +255,26 @@ class MindustryWorld(World):
         item_table["Mend Projector"].type = ItemType.NECESSARY
         item_table["Shock Mine"].type = ItemType.NECESSARY
 
-    def __create_filler_item(self, campaign):
-        """
-        Create a filler item from the selected campaign
-        """
-        self.multiworld.itempool.append(self.create_item("Nothing"))
+    def __getPossibleFillerNames(self):
+        """Returns a list of possible filler item based on player option."""
+        possibleFillers = ["Nothing"]
+        if self.options.factory_malfunction_trap:
+            possibleFillers.append("Factory malfunction trap")
+        return possibleFillers
+    
+    def __getAllFillersForRemainingLocation(self, fillerNames: list, count: int):
+        """Create filler for the remaining amount of empty location"""
+        fillers = []
+        namesLen = len(fillerNames)
+        nameIndex = 0
+
+        for x in range (count):
+            fillers.append(fillerNames[nameIndex])
+            nameIndex += 1
+            if nameIndex == namesLen:
+                nameIndex = 0
+
+        return fillers
 
     def __from_selected_campaign(self, data, campaign: int) -> bool:
         """

@@ -433,6 +433,9 @@ item_table = {
     "Progressive Drills Erekir": ItemData(MINDUSTRY_BASE_ID + 344, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 3),
     "Progressive Generators Erekir": ItemData(MINDUSTRY_BASE_ID + 345, ItemPlanet.EREKIR, ItemType.NECESSARY, ItemGroup.UNIT, 4),
 
-    #Filler Items
-    "Nothing": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
+    #Filler items 700 - 849
+    "Nothing": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),
+
+    #Filler trap items 850 - 999
+    "Factory malfunction trap": ItemData(MINDUSTRY_BASE_ID + 850, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
 }
