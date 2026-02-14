@@ -335,7 +335,7 @@ class MindustryWorld(World):
             "make_early_roadblocks_local": bool(self.options.make_early_roadblocks_local),
             "amount_of_resources_required": self.options.amount_of_resources_required.value,
             "core_russian_roulette_chambers": self.options.core_russian_roulette_chambers.value,
-            "factory_malfunction_trap": bool(self.options.factory_malfunction_trap)
+            "research_discount_buffs": bool(self.options.research_discount_buffs)
         }
 
     def __exclude_items(self, options: MindustryOptions) -> None:
