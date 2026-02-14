@@ -436,6 +436,7 @@ item_table = {
     #Filler items 700 - 849
     "Nothing": ItemData(MINDUSTRY_BASE_ID + 700, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),
     "Construction speed buff": ItemData(MINDUSTRY_BASE_ID + 701, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),
+    "Research discount buff": ItemData(MINDUSTRY_BASE_ID + 702, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),
 
     #Filler trap items 850 - 999
     "Factory malfunction trap": ItemData(MINDUSTRY_BASE_ID + 850, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),

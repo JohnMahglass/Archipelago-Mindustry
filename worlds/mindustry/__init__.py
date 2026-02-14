@@ -264,6 +264,8 @@ class MindustryWorld(World):
             possibleFillers.append("Launch wave trap")
         if self.options.construction_speed_buffs:
             possibleFillers.append("Construction speed buff")
+        if self.options.research_discount_buffs:
+            possibleFillers.append("Research discount buff")
         return possibleFillers
     
     def __getAllFillersForRemainingLocation(self, fillerNames: list, count: int):

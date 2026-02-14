@@ -109,6 +109,10 @@ class ConstructionSpeedBuffs(Toggle):
     """Add the Construction speed buffs to the filler pool"""
     display_name = "Construction speed buffs"
 
+class ResearchDiscountBuffs (Toggle):
+    """Add the Research discount buffs to the filler pool"""
+    display_name = "Research discount buffs"
+
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
     """
@@ -136,3 +140,4 @@ class MindustryOptions(PerGameCommonOptions):
     factory_malfunction_trap: FactoryMalfunctionTrap
     launch_wave_trap: LaunchWaveTrap
     construction_speed_buffs: ConstructionSpeedBuffs
+    research_discount_buffs: ResearchDiscountBuffs
