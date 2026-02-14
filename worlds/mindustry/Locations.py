@@ -977,55 +977,55 @@ class MindustryLocations:
     }
 
     #erekir_onset = {
-    #    "AP-E-07-01": MINDUSTRY_BASE_ID + 450,
+    #    "Node The onset": MINDUSTRY_BASE_ID + 450,
     #}
     erekir_aegis = {
-        "AP-E-07-02": MINDUSTRY_BASE_ID + 451,
+        "Node Aegis": MINDUSTRY_BASE_ID + 451,
     }
     erekir_lake = {
-        "AP-E-07-03": MINDUSTRY_BASE_ID + 452,
+        "Node Lake": MINDUSTRY_BASE_ID + 452,
     }
     erekir_intersect = {
-        "AP-E-07-04": MINDUSTRY_BASE_ID + 453,
+        "Node Intersect": MINDUSTRY_BASE_ID + 453,
     }
     erekir_atlas = {
-        "AP-E-07-05": MINDUSTRY_BASE_ID + 454,
+        "Node Atlas": MINDUSTRY_BASE_ID + 454,
     }
     erekir_split = {
-        "AP-E-07-06": MINDUSTRY_BASE_ID + 455,
+        "Node Split": MINDUSTRY_BASE_ID + 455,
     }
     erekir_basin = {
-        "AP-E-07-07": MINDUSTRY_BASE_ID + 456,
+        "Node Basin": MINDUSTRY_BASE_ID + 456,
     }
     erekir_marsh = {
-        "AP-E-07-08": MINDUSTRY_BASE_ID + 457,
+        "Node Marsh": MINDUSTRY_BASE_ID + 457,
     }
     erekir_ravine = {
-        "AP-E-07-09": MINDUSTRY_BASE_ID + 458,
+        "Node Ravine": MINDUSTRY_BASE_ID + 458,
     }
     erekir_caldera = {
-        "AP-E-07-10": MINDUSTRY_BASE_ID + 459,
+        "Node Caldera": MINDUSTRY_BASE_ID + 459,
     }
     erekir_stronghold = {
-        "AP-E-07-11": MINDUSTRY_BASE_ID + 460,
+        "Node Stronghold": MINDUSTRY_BASE_ID + 460,
     }
     erekir_crevice = {
-        "AP-E-07-12": MINDUSTRY_BASE_ID + 461,
+        "Node Crevice": MINDUSTRY_BASE_ID + 461,
     }
     erekir_siege = {
-        "AP-E-07-13": MINDUSTRY_BASE_ID + 462,
+        "Node Siege": MINDUSTRY_BASE_ID + 462,
     }
     erekir_crossroads = {
-        "AP-E-07-14": MINDUSTRY_BASE_ID + 463,
+        "Node Crossroads": MINDUSTRY_BASE_ID + 463,
     }
     erekir_karst = {
-        "AP-E-07-15": MINDUSTRY_BASE_ID + 464,
+        "Node Karst": MINDUSTRY_BASE_ID + 464,
     }
     erekir_origin = {
-        "AP-E-07-16": MINDUSTRY_BASE_ID + 465,
+        "Node Origin": MINDUSTRY_BASE_ID + 465,
     }
     erekir_peaks = {
-        "AP-E-07-17": MINDUSTRY_BASE_ID + 466,
+        "Node Peaks": MINDUSTRY_BASE_ID + 466,
     }
 
 
@@ -1277,6 +1277,8 @@ location_table = {
     **MindustryLocations.serpulo_nuclear_production_complex,
     **MindustryLocations.serpulo_copper,
     **MindustryLocations.serpulo_lead,
+    **MindustryLocations.serpulo_water,
+    **MindustryLocations.serpulo_sand,
     **MindustryLocations.serpulo_titanium,
     **MindustryLocations.serpulo_cryofluid,
     **MindustryLocations.serpulo_thorium,
