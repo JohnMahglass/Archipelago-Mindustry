@@ -260,6 +260,10 @@ class MindustryWorld(World):
         possibleFillers = ["Nothing"]
         if self.options.factory_malfunction_trap:
             possibleFillers.append("Factory malfunction trap")
+        if self.options.launch_wave_trap:
+            possibleFillers.append("Launch wave trap")
+        if self.options.construction_speed_buffs:
+            possibleFillers.append("Construction speed buff")
         return possibleFillers
     
     def __getAllFillersForRemainingLocation(self, fillerNames: list, count: int):

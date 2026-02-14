@@ -101,6 +101,14 @@ class FactoryMalfunctionTrap(Toggle):
     """Add the Factory malfunction trap to the filler pool"""
     display_name = "Factory malfunction trap"
 
+class LaunchWaveTrap(Toggle):
+    """Add the Launch wave trap to the filler pool (Only work for serpulo campaign)"""
+    display_name = "Launch wave trap"
+
+class ConstructionSpeedBuffs(Toggle):
+    """Add the Construction speed buffs to the filler pool"""
+    display_name = "Construction speed buffs"
+
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
     """
@@ -126,3 +134,5 @@ class MindustryOptions(PerGameCommonOptions):
     amount_of_resources_required: AmountOfResourcesRequired
     core_russian_roulette_chambers: CoreRussianRouletteChambers
     factory_malfunction_trap: FactoryMalfunctionTrap
+    launch_wave_trap: LaunchWaveTrap
+    construction_speed_buffs: ConstructionSpeedBuffs
