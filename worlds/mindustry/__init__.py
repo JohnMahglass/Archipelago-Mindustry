@@ -68,10 +68,13 @@ class MindustryWorld(World):
         try:
             data = item_table[name]
             classification: ItemClassification = ItemClassification.useful
-            if data.group == ItemGroup.FILLER:
-                classification = ItemClassification.filler
             if data.type == ItemType.NECESSARY:
                 classification = ItemClassification.progression
+            if data.group == ItemGroup.FILLER:
+                if data.type == ItemType.TRAP:
+                    classification = ItemClassification.trap
+                else:
+                    classification = ItemClassification.filler
             result = MindustryItem(name, classification, data.id, self.player)
         except BaseException:
             raise Exception('The item ' + name + ' is not valid.')

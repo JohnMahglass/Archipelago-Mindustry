@@ -439,6 +439,6 @@ item_table = {
     "Research discount buff": ItemData(MINDUSTRY_BASE_ID + 702, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),
 
     #Filler trap items 850 - 999
-    "Factory malfunction trap": ItemData(MINDUSTRY_BASE_ID + 850, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1),
-    "Launch wave trap": ItemData(MINDUSTRY_BASE_ID + 851, ItemPlanet.ALL, ItemType.JUNK, ItemGroup.FILLER, 1)
+    "Factory malfunction trap": ItemData(MINDUSTRY_BASE_ID + 850, ItemPlanet.ALL, ItemType.TRAP, ItemGroup.FILLER, 1),
+    "Launch wave trap": ItemData(MINDUSTRY_BASE_ID + 851, ItemPlanet.ALL, ItemType.TRAP, ItemGroup.FILLER, 1)
 }
