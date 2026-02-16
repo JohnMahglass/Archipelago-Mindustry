@@ -93,8 +93,8 @@ class MakeEarlyRoadblocksLocal(Toggle):
 class AmountOfResourcesRequired(Range):
     """The amount of resources required to complete the 'Every resources collection' goal."""
     display_name = "Amount of resources required"
-    range_start = 100
-    range_end = 100000
+    range_start = 1
+    range_end = 1000000
     default = 2000
 
 class FactoryMalfunctionTrap(Toggle):

@@ -441,11 +441,11 @@ class MindustryRegions():
         self.menu = self.__add_region("Menu", None)
 
         if options.campaign_choice.value == 0:
-            self.__create_serpulo_campaign()
+            self.__create_serpulo_campaign(options)
         elif options.campaign_choice.value == 1:
-            self.__create_erekir_campaign()
+            self.__create_erekir_campaign(options)
         elif options.campaign_choice.value == 2:
-            self.__create_all_campaign()
+            self.__create_all_campaign(options)
 
 
     def __init__(self, multiworld: MultiWorld, player: int):
@@ -468,7 +468,7 @@ class MindustryRegions():
         region.locations.append(location)
         location.place_locked_item(MindustryItem(event_name, ItemClassification.progression, None, self.player))
 
-    def __create_serpulo_campaign(self):
+    def __create_serpulo_campaign(self, options: MindustryOptions):
         """
         Create region related to the serpulo campaign.
         """
@@ -649,7 +649,7 @@ class MindustryRegions():
         self.node_tetrative_reconstructor = self.__add_region("AP-S-05-42", MindustryLocations.serpulo_tetrative_reconstructor)
 
         self.node_ground_zero = self.__add_region("Ground Zero", None)
-        self.node_frozen_forest = self.__add_region("Frozen Forest", MindustryLocations.serpulo_frozen_forest)
+        self.node_frozen_forest = self.__add_region("Frozen Forest", None if options.tutorial_skip else MindustryLocations.serpulo_frozen_forest)
         self.node_the_craters = self.__add_region("The Craters", MindustryLocations.serpulo_the_craters)
         self.node_ruinous_shores = self.__add_region("Ruinous Shores", MindustryLocations.serpulo_ruinous_shores)
         self.node_windswept_islands = self.__add_region("Windswept Islands", MindustryLocations.serpulo_windswept_islands)
@@ -1223,7 +1223,7 @@ class MindustryRegions():
                                              has_desolate_rift(state, self.player) and
                                              has_planetary_launch_terminal(state, self.player))
 
-    def __create_erekir_campaign(self):
+    def __create_erekir_campaign(self, options: MindustryOptions):
         """
         Create region related to the Erekir campaign.
         """
@@ -1352,7 +1352,7 @@ class MindustryRegions():
         self.node_basic_assembler_module = self.__add_region("AP-E-06-27", MindustryLocations.erekir_basic_assembler_module)
 
         self.node_the_onset = self.__add_region("The Onset", None)
-        self.node_aegis = self.__add_region("Aegis", MindustryLocations.erekir_aegis)
+        self.node_aegis = self.__add_region("Aegis", None if options.tutorial_skip else MindustryLocations.erekir_aegis)
         self.node_lake = self.__add_region("Lake", MindustryLocations.erekir_lake)
         self.node_intersect = self.__add_region("Intersect", MindustryLocations.erekir_intersect)
         self.node_atlas = self.__add_region("Atlas", MindustryLocations.erekir_atlas)
@@ -1731,13 +1731,13 @@ class MindustryRegions():
                                              has_surge_alloy_erekir(state, self.player) and
                                              has_phase_fabric_erekir(state, self.player))
 
-    def __create_all_campaign(self):
+    def __create_all_campaign(self, options:MindustryOptions):
         """
         Create region related to the all campaigns.
         """
         self.all_campaign_victory = self.__add_region("All campaign victory", None)
-        self.__create_serpulo_campaign()
-        self.__create_erekir_campaign()
+        self.__create_serpulo_campaign(options)
+        self.__create_erekir_campaign(options)
 
 
     def __connect_all_campaign(self, options:MindustryOptions):
