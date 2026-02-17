@@ -102,11 +102,12 @@ class MindustryWorld(World):
                         item = self.create_item(name)
                         self.multiworld.itempool.append(item)
                         world_item_count += 1
-        #Check how many location are empty and fill them with FILLERS
+        #Check how many location are empty and fill them with fillers and traps.
         unfilledLocationCount = len(self.multiworld.get_unfilled_locations(self.player)) - world_item_count
-        remainingLocationFillers = self.__getAllFillersForRemainingLocation(self.__getPossibleFillerNames(), unfilledLocationCount)
-        for x in range(len(remainingLocationFillers)):
-            self.multiworld.itempool.append(self.create_item(remainingLocationFillers[x]))
+        if len(unfilledLocationCount) > 0:
+            fillers = self.__generateFillers(unfilledLocationCount)
+            for x in range(len(fillers)):
+                self.multiworld.itempool.append(self.create_item(fillers[x]))
 
     def generate_early(self) -> None:
         """Change item classification based on options."""
@@ -257,32 +258,38 @@ class MindustryWorld(World):
         item_table["Mender"].type = ItemType.NECESSARY
         item_table["Mend Projector"].type = ItemType.NECESSARY
         item_table["Shock Mine"].type = ItemType.NECESSARY
-
-    def __getPossibleFillerNames(self):
-        """Returns a list of possible filler item based on player option."""
-        possibleFillers = ["Nothing"]
-        if self.options.factory_malfunction_trap:
-            possibleFillers.append("Factory malfunction trap")
-        if self.options.launch_wave_trap:
-            possibleFillers.append("Launch wave trap")
-        if self.options.construction_speed_buffs:
-            possibleFillers.append("Construction speed buff")
-        if self.options.research_discount_buffs:
-            possibleFillers.append("Research discount buff")
-        return possibleFillers
     
-    def __getAllFillersForRemainingLocation(self, fillerNames: list, count: int):
+    def __generateFillers(self, count: int):
         """Create filler for the remaining amount of empty location"""
         fillers = []
-        namesLen = len(fillerNames)
-        nameIndex = 0
+        fillerCreated = 0
 
-        for x in range (count):
-            fillers.append(fillerNames[nameIndex])
-            nameIndex += 1
-            if nameIndex == namesLen:
-                nameIndex = 0
+        if self.options.research_discount_buffs:
+            while fillerCreated < 20 or fillerCreated == count: # Discount cap at 99%. Each buff is 5%.
+                fillers.append("Research discount buff")
+                fillerCreated += 1
 
+        if fillerCreated < count:
+            possibleFillers = []
+            if self.options.construction_speed_buffs:
+                possibleFillers.append("Construction speed buff")
+            if self.options.factory_malfunction_trap:
+                possibleFillers.append("Factory malfunction trap")
+            if self.options.launch_wave_trap:
+                possibleFillers.append("Launch wave trap")
+            
+            if not possibleFillers:
+                possibleFillers.append("Nothing")
+
+            nameIndex = 0
+            namesLen = len(possibleFillers)
+            fillersRemainingToCreate = count - fillerCreated
+            for x in range (fillersRemainingToCreate):
+                fillers.append(possibleFillers[nameIndex])
+                nameIndex += 1
+                if nameIndex == namesLen:
+                    nameIndex = 0
+            
         return fillers
 
     def __from_selected_campaign(self, data, campaign: int) -> bool:
@@ -484,7 +491,6 @@ class MindustryWorld(World):
         self.exclude.append("Thorium Reactor")
         self.exclude.append("Impact Reactor")
         self.exclude.append("RTG Generator")
-
 
     def __exclude_erekir_drills(self):
         self.exclude.append("Impact Drill")
