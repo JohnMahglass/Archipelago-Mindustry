@@ -104,7 +104,7 @@ class MindustryWorld(World):
                         world_item_count += 1
         #Check how many location are empty and fill them with fillers and traps.
         unfilledLocationCount = len(self.multiworld.get_unfilled_locations(self.player)) - world_item_count
-        if len(unfilledLocationCount) > 0:
+        if unfilledLocationCount > 0:
             fillers = self.__generateFillers(unfilledLocationCount)
             for x in range(len(fillers)):
                 self.multiworld.itempool.append(self.create_item(fillers[x]))
@@ -345,7 +345,9 @@ class MindustryWorld(World):
             "make_early_roadblocks_local": bool(self.options.make_early_roadblocks_local),
             "amount_of_resources_required": self.options.amount_of_resources_required.value,
             "core_russian_roulette_chambers": self.options.core_russian_roulette_chambers.value,
-            "research_discount_buffs": bool(self.options.research_discount_buffs)
+            "research_discount_buffs": bool(self.options.research_discount_buffs),
+            "add_sectors_as_locations": bool(self.options.add_sectors_as_locations),
+            "add_resources_as_locations": bool(self.options.add_resources_as_locations)
         }
 
     def __exclude_items(self, options: MindustryOptions) -> None:

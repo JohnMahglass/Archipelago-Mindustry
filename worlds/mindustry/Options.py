@@ -109,9 +109,17 @@ class ConstructionSpeedBuffs(Toggle):
     """Add the Construction speed buffs to the filler pool"""
     display_name = "Construction speed buffs"
 
-class ResearchDiscountBuffs (Toggle):
+class ResearchDiscountBuffs(Toggle):
     """Add the Research discount buffs to the filler pool"""
     display_name = "Research discount buffs"
+
+class AddSectorsAsLocations(Toggle):
+    """Add selected campaign(s) sectors as locations in the research tech tree."""
+    display_name = "Add sectors as locations"
+
+class AddResourcesAsLocations(Toggle):
+    """Add selected campaign(s) resources as locations in the research tech tree."""
+    display_name = "Add resources as locations"
 
 @dataclass
 class MindustryOptions(PerGameCommonOptions):
@@ -141,3 +149,5 @@ class MindustryOptions(PerGameCommonOptions):
     launch_wave_trap: LaunchWaveTrap
     construction_speed_buffs: ConstructionSpeedBuffs
     research_discount_buffs: ResearchDiscountBuffs
+    add_sectors_as_locations: AddSectorsAsLocations
+    add_resources_as_locations: AddResourcesAsLocations
