@@ -1,6 +1,6 @@
 from typing import ClassVar, Dict, List, Any
 
-from BaseClasses import MultiWorld, ItemClassification
+from BaseClasses import MultiWorld, ItemClassification, Tutorial
 from worlds.AutoWorld import World, WebWorld
 from worlds.mindustry.Shared import MINDUSTRY_BASE_ID
 from worlds.mindustry.Items import item_table, MindustryItem, ItemType, ItemGroup
@@ -12,6 +12,14 @@ from worlds.mindustry.Items import ItemPlanet
 class MindustryWeb(WebWorld):
     """Mindustry web page for Archipelago"""
     theme = "stone"
+    tutorials = [Tutorial(
+        "Multiworld Setup Guide",
+        "Install the Mindustry client, connect to a room, and start a fresh campaign.",
+        "English",
+        "setup_en.md",
+        "setup/en",
+        ["alfdupont"],
+    )]
 
 class MindustryWorld(World):
     """
@@ -27,6 +35,7 @@ class MindustryWorld(World):
     """
     game: str = "Mindustry"
     """Name of the game"""
+    web = MindustryWeb()
 
     topology_present = True
     "show path to required location checks in spoiler"
